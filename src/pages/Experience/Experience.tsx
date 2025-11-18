@@ -90,7 +90,7 @@ const ExperienceSection = () => {
       icon: Code2,
       title: "Junior Frontend Developer",
       company: "Programming Hero",
-      period: "2022 ??? 2023",
+      period: "2022 – 2023",
       description:
         "Contributed to building responsive and accessible user interfaces. Improved UI components using HTML, CSS, JavaScript, and front-end design principles. Collaborated within structured workflows and learned practical engineering discipline.",
     },
@@ -98,7 +98,7 @@ const ExperienceSection = () => {
       icon: Layers,
       title: "Full-Stack Web Developer",
       company: "Independent",
-      period: "2024 ??? Present",
+      period: "2024 – Present",
       description:
         "Developing full-stack applications using React, Next.js, Node.js, Express, PostgreSQL, Prisma. Working across front-end, back-end, API design, authentication, and deployment. Building internal projects and prototypes to strengthen real-world problem-solving skills.",
     },
@@ -106,7 +106,7 @@ const ExperienceSection = () => {
       icon: Cpu,
       title: "Founder & AI SaaS Developer",
       company: "ILM AI",
-      period: "2025 ??? Present",
+      period: "2025 – Present",
       description:
         "Designing and developing AI-driven SaaS products. Implementing LLM features, automation workflows, and modern AI frameworks. Handling product development end-to-end ??? from idea to working prototypes.",
     },
