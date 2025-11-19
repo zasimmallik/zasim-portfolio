@@ -140,7 +140,7 @@ const profile = {
       <main className="bg-[#020617] text-white min-h-screen relative overflow-hidden">
         {/* Enhanced background effects */}
         <div className="absolute inset-0 bg-linear-to-b from-transparent via-blue-950/5 to-transparent pointer-events-none" />
-        
+
         <section
           className="hero min-h-screen flex items-center justify-center relative px-3 xs:px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24 lg:py-10 hero-section-padding"
           style={{ paddingTop: "var(--hero-padding-top, 0)" }}
@@ -165,9 +165,9 @@ const profile = {
             style={{
               paddingTop:
                 window.innerWidth >= 1360 &&
-                window.innerWidth <= 1370 &&
-                window.innerHeight >= 760 &&
-                window.innerHeight <= 775
+                  window.innerWidth <= 1370 &&
+                  window.innerHeight >= 760 &&
+                  window.innerHeight <= 775
                   ? "12rem"
                   : "",
             }}
@@ -216,7 +216,7 @@ const profile = {
               <div className="relative mb-5 sm:mb-6 md:mb-8 lg:mb-12 max-w-xl">
                 <div className="absolute left-0 top-0 bottom-0 w-0.5 sm:w-1 bg-linear-to-b from-blue-500 to-teal-500 rounded-full" />
                 <p className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-gray-300/90 leading-relaxed pl-3 sm:pl-4 md:pl-5">
-                 Full-Stack & AI SaaS Developer 🚀 | Building Next-Gen Products That Solve Real Problems 💻✨
+                  Full-Stack & AI SaaS Developer 🚀 | Building Next-Gen Products That Solve Real Problems 💻✨
                 </p>
               </div>
 
@@ -273,7 +273,7 @@ const profile = {
               <div className="relative group max-w-full">
                 {/* Enhanced gradient border effect */}
                 <div className="absolute -inset-0.5 sm:-inset-1 bg-linear-to-r from-blue-500 via-teal-500 to-blue-500 rounded-xl sm:rounded-2xl blur-lg sm:blur-xl opacity-30 group-hover:opacity-50 transition-all duration-500 animate-gradient" />
-                
+
                 <div className="relative gradient-border code-window-container max-w-full">
                   <div className="code-window bg-linear-to-br from-[#0a1628] to-[#091121] border border-gray-700/50 group-hover:border-blue-500/30 transition-all duration-300 rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl max-w-full">
                     {/* Modern Window Header */}
@@ -291,7 +291,7 @@ const profile = {
                         <div className="w-2.5 xs:w-3 sm:w-4 h-2.5 xs:h-3 sm:h-4 border border-gray-600 rounded"></div>
                       </div>
                     </div>
-                    
+
                     {/* Code Content - Fully contained with no overflow */}
                     <div className="relative w-full overflow-hidden">
                       <div className="overflow-x-auto overflow-y-hidden scrollbar-hide">
@@ -300,7 +300,7 @@ const profile = {
                         </pre>
                       </div>
                     </div>
-                    
+
                     {/* Line numbers effect (optional decoration) */}
                     <div className="absolute left-0 top-10 xs:top-[44px] sm:top-12 md:top-[52px] bottom-0 w-6 xs:w-7 sm:w-8 md:w-10 bg-linear-to-r from-gray-900/50 to-transparent pointer-events-none"></div>
                   </div>

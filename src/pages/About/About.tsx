@@ -10,156 +10,110 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="py-12 sm:py-16 md:py-24 lg:py-32 text-white bg-[#04081A] relative overflow-hidden">
-      {/* Enhanced background effects */}
+    <section id="about" className="py-20 sm:py-28 md:py-32 lg:py-40 text-white bg-[#04081A] relative overflow-hidden">
+      {/* Enhanced background effects - More subtle and premium */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-linear-to-b from-transparent via-blue-950/5 to-transparent"></div>
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/10 via-[#04081A] to-[#04081A]"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay"></div>
+        <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] animate-pulse duration-[4000ms]"></div>
+        <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[120px] animate-pulse duration-[5000ms]" style={{ animationDelay: '2s' }}></div>
       </div>
-      
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Two Column Layout */}
-        <div className={`grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-start transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          {/* Left Side - Image */}
-          <div className="space-y-6 sm:space-y-8">
-            {/* Title above image */}
-            <div>
-              <div className="inline-block mb-3">
-                <span className="text-xs sm:text-sm font-semibold tracking-widest text-blue-400 uppercase">About</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 tracking-tight leading-tight bg-linear-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                Software Engineer | Full-Stack Dev
-              </h2>
-              <div className="w-20 sm:w-24 h-0.5 sm:h-1 bg-linear-to-r from-blue-500 to-cyan-500 rounded-full"></div>
-            </div>
-            
-            {/* Image with enhanced effects */}
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-linear-to-r from-blue-500 via-cyan-500 to-blue-500 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition duration-500 animate-gradient"></div>
-              <div className="relative bg-linear-to-br from-gray-900/50 to-gray-800/50 backdrop-blur-sm rounded-2xl p-1.5 border border-gray-700/50 group-hover:border-blue-500/30 transition-all duration-500">
+        <div className={`grid lg:grid-cols-12 gap-12 lg:gap-20 items-center transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+
+          {/* Left Side - Image (5 columns) */}
+          <div className="lg:col-span-5 relative group order-2 lg:order-1">
+            <div className="relative z-10">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition duration-700"></div>
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-gray-900/50 backdrop-blur-sm shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
                 <img
                   src={HeroImg}
-                  className="rounded-xl shadow-2xl w-full h-auto object-cover"
-                  alt="Zasim Mallik - Software Engineer"
-                  width={1207}
-                  height={929}
+                  className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
+                  alt="Zasim Mallik"
+                  width={800}
+                  height={1000}
+                  loading="lazy"
                 />
               </div>
             </div>
+
+            {/* Decorative elements behind image */}
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 border border-blue-500/20 rounded-full blur-[1px] animate-[spin_10s_linear_infinite]"></div>
+            <div className="absolute -top-10 -right-10 w-24 h-24 border border-cyan-500/20 rounded-full blur-[1px] animate-[spin_8s_linear_infinite_reverse]"></div>
           </div>
 
-          {/* Right Side - About Content */}
-          <div className="space-y-4 sm:space-y-6 lg:pt-0">
-            {/* Introduction with enhanced styling */}
-            <div className="space-y-4 sm:space-y-5">
-              <div className="relative pl-4 border-l-2 border-blue-500/50">
-                <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-                  Hello, I'm <span className="font-semibold bg-linear-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Zasim Mallik</span> Software Engineer and Full Stack Developer.
+          {/* Right Side - Content (7 columns) */}
+          <div className="lg:col-span-7 space-y-8 sm:space-y-10 order-1 lg:order-2">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs sm:text-sm font-medium tracking-wide uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+                About Me
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+                Crafting Digital Experiences with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Passion & Precision</span>
+              </h2>
+
+              <div className="space-y-6 text-base sm:text-lg text-gray-400 leading-relaxed">
+                <p>
+                  Hello! I'm <span className="text-white font-semibold">Zasim Mallik</span>, a Software Engineer and Full Stack Developer based in Bangladesh. My journey in tech is driven by a relentless curiosity and a desire to build tools that matter.
+                </p>
+                <p>
+                  I specialize in building robust, scalable web applications using modern technologies like <span className="text-blue-300">Next.js</span>, <span className="text-blue-300">TypeScript</span>, and <span className="text-blue-300">Python</span>. Beyond code, I'm exploring the frontiers of AI to create smarter, more intuitive SaaS solutions.
+                </p>
+                <p>
+                  Self-taught and independent, I value clarity, efficiency, and continuous learning. Every project is an opportunity to push boundaries and deliver excellence.
                 </p>
               </div>
-              <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-                I build modern, reliable web applications with a focus on clean architecture, performance, and real-world usability. My work blends full-stack development with early AI SaaS development, aiming to create products that solve practical problems and offer lasting value.
-              </p>
-              <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-                I'm a self-taught developer from Bangladesh on an independent path. Right now, I'm sharpening my skills in Next.js, TypeScript, backend engineering, and Python-based AI systems as I work toward my first AI SaaS product.
-              </p>
             </div>
 
-            {/* Enhanced Quote Section */}
-            <div className="relative mt-6 sm:mt-8 group">
-              <div className="absolute -inset-0.5 bg-linear-to-r from-blue-500/20 to-cyan-500/20 rounded-xl sm:rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-500"></div>
-              <div className="relative bg-linear-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm border border-gray-700/50 group-hover:border-blue-500/30 rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 transition-all duration-500">
-                <div className="flex items-start gap-2 sm:gap-3 mb-3 sm:mb-4">
-                  <div className="text-blue-400/40 text-5xl sm:text-6xl md:text-7xl leading-none shrink-0 font-serif select-none">"</div>
-                  <p className="text-gray-300 text-sm sm:text-base leading-relaxed pt-1 sm:pt-2">
-                    I'm a builder at heart, driven by clarity, discipline, and the commitment to create meaningful technology. Every step I take brings me closer to creating products that make a real impact.
-                  </p>
-                </div>
-
-                <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-gray-700/50 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-linear-to-r from-blue-500 to-cyan-500 flex items-center justify-center font-bold text-white text-sm shrink-0">
+            {/* Quote / Philosophy */}
+            <div className="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 backdrop-blur-md overflow-hidden group hover:border-blue-500/30 transition-colors duration-500">
+              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
+                <svg className="w-16 h-16 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z" /></svg>
+              </div>
+              <blockquote className="relative z-10">
+                <p className="text-lg sm:text-xl font-medium text-gray-200 italic mb-4">
+                  "I'm a builder at heart, driven by clarity, discipline, and the commitment to create meaningful technology."
+                </p>
+                <footer className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-lg">
                     ZM
                   </div>
                   <div>
-                    <cite className="block font-semibold text-white not-italic mb-0.5 text-sm sm:text-base">
-                    Zasim Mallik, Founder of ILM AI
-                    </cite>
+                    <div className="text-white font-semibold text-sm">Zasim Mallik</div>
+                    <div className="text-blue-400 text-xs">Founder, ILM AI</div>
                   </div>
-                </div>
-              </div>
+                </footer>
+              </blockquote>
             </div>
 
-            {/* Enhanced Social Media Section */}
-            <div className="pt-6 sm:pt-8">
-              <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                <span className="w-1 h-6 sm:h-7 bg-linear-to-b from-blue-500 to-cyan-500 rounded-full"></span>
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-white">
-                  Connect with me
-                </h3>
-              </div>
-              <div className="flex items-center gap-3 flex-wrap">
+            {/* Social Links */}
+            <div className="flex flex-wrap gap-4 pt-2">
+              {[
+                { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/zasimmallik/", label: "LinkedIn", color: "hover:bg-[#0077b5]" },
+                { icon: FaGithub, href: "https://github.com/zasimmallik", label: "GitHub", color: "hover:bg-[#333]" },
+                { icon: FaTwitter, href: "https://x.com/zasimmallik", label: "Twitter", color: "hover:bg-[#1da1f2]" },
+                { icon: FaInstagram, href: "https://www.instagram.com/zasimmallik/", label: "Instagram", color: "hover:bg-gradient-to-br hover:from-purple-600 hover:to-orange-500" },
+                { icon: FaFacebookF, href: "https://www.facebook.com/zasimmallik.Z/", label: "Facebook", color: "hover:bg-[#1877f2]" }
+              ].map((social, index) => (
                 <a
-                  href="https://www.linkedin.com/in/zasimmallik/"
+                  key={index}
+                  href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex items-center justify-center w-11 sm:w-13 h-11 sm:h-13 bg-gray-800/80 hover:bg-linear-to-br hover:from-blue-600 hover:to-blue-700 border border-gray-700 hover:border-blue-400 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/50"
-                  aria-label="LinkedIn"
+                  className={`w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-gray-400 transition-all duration-300 hover:text-white hover:scale-110 hover:-translate-y-1 hover:shadow-lg ${social.color}`}
+                  aria-label={social.label}
                 >
-                  <FaLinkedinIn className="w-4 sm:w-5 h-4 sm:h-5 text-gray-400 group-hover:text-white transition-colors duration-300 relative z-10" />
+                  <social.icon className="w-5 h-5" />
                 </a>
-                <a
-                  href="https://github.com/zasimmallik"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative flex items-center justify-center w-11 sm:w-13 h-11 sm:h-13 bg-gray-800/80 hover:bg-linear-to-br hover:from-gray-700 hover:to-gray-800 border border-gray-700 hover:border-gray-500 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-gray-500/50"
-                  aria-label="GitHub"
-                >
-                  <FaGithub className="w-4 sm:w-5 h-4 sm:h-5 text-gray-400 group-hover:text-white transition-colors duration-300 relative z-10" />
-                </a>
-                <a
-                  href="https://x.com/zasimmallik"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative flex items-center justify-center w-11 sm:w-13 h-11 sm:h-13 bg-gray-800/80 hover:bg-linear-to-br hover:from-black hover:to-gray-900 border border-gray-700 hover:border-gray-500 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg"
-                  aria-label="Twitter/X"
-                >
-                  <FaTwitter className="w-4 sm:w-5 h-4 sm:h-5 text-gray-400 group-hover:text-white transition-colors duration-300 relative z-10" />
-                </a>
-                <a
-                  href="https://www.instagram.com/zasimmallik/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative flex items-center justify-center w-11 sm:w-13 h-11 sm:h-13 bg-gray-800/80 hover:bg-linear-to-br hover:from-purple-500 hover:via-pink-500 hover:to-orange-500 border border-gray-700 hover:border-pink-400 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-pink-500/50"
-                  aria-label="Instagram"
-                >
-                  <FaInstagram className="w-4 sm:w-5 h-4 sm:h-5 text-gray-400 group-hover:text-white transition-colors duration-300 relative z-10" />
-                </a>
-                <a
-                  href="https://www.facebook.com/zasimmallik.Z/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative flex items-center justify-center w-11 sm:w-13 h-11 sm:h-13 bg-gray-800/80 hover:bg-linear-to-br hover:from-blue-700 hover:to-blue-800 border border-gray-700 hover:border-blue-400 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/50"
-                  aria-label="Facebook"
-                >
-                  <FaFacebookF className="w-4 sm:w-5 h-4 sm:h-5 text-gray-400 group-hover:text-white transition-colors duration-300 relative z-10" />
-                </a>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes gradient {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        .animate-gradient {
-          background-size: 200% 200%;
-          animation: gradient 4s ease infinite;
-        }
-      `}</style>
     </section>
   );
 }

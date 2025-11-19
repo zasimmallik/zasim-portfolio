@@ -40,15 +40,6 @@ const projects: Project[] = [
     githubLink: "",
     liveLink: "",
   },
-  {
-    title: "Project 4",
-    description: "Your project description goes here",
-    src: "house.jpg",
-    link: "",
-    color: "#ed649e",
-    githubLink: "",
-    liveLink: "",
-  },
 ];
 
 export default function Projects() {
@@ -105,15 +96,21 @@ export default function Projects() {
   return (
     <ReactLenis root>
       <section
-        className="bg-slate-950 text-white py-12 sm:py-16 md:py-24 lg:py-28"
+        className="bg-slate-950 text-white py-12 sm:py-16 md:py-24 lg:py-28 relative"
         ref={container}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10 md:space-y-12">
+        {/* Background gradients for depth */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />
+          <div className="absolute bottom-[10%] right-[20%] w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px]" />
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10 md:space-y-12 relative z-10">
           <div className="text-center space-y-3 sm:space-y-4 md:space-y-5">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold bg-linear-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold bg-linear-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent tracking-tight">
               Featured Projects
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base md:text-lg">
+            <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base md:text-lg font-light tracking-wide">
               "A curated set of products and prototypes built with clarity, precision, and purpose."
             </p>
           </div>
@@ -191,70 +188,71 @@ function Card({
           marginTop: "var(--project-margin, 0)",
         }}
         className="relative lg:-top-[25%] h-auto w-full max-w-5xl origin-top project-card pointer-events-auto"
-        whileHover={{
-          y: -8,
-          transition: { duration: 0.3 },
-        }}
       >
-        {/* Modern split card design */}
-        <div className="w-full flex flex-col md:flex-row bg-zinc-900 rounded-2xl overflow-hidden shadow-xl">
-          {/* Image section - full width on mobile, 55% on desktop */}
-          <div className="w-full md:w-[55%] h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] relative overflow-hidden">
-            <motion.img
-              src={url}
-              alt={title}
-              className="w-full h-full object-cover"
-              initial={{ scale: 1 }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.4 }}
-            />
-
-            {/* Colored overlay on hover */}
+        {/* Modern split card design with Glassmorphism */}
+        <div className="w-full flex flex-col md:flex-row bg-zinc-900/20 backdrop-blur-2xl border border-white/5 rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/5 hover:ring-white/10 transition-all duration-500">
+          {/* Image section */}
+          <div className="w-full md:w-[55%] h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] relative overflow-hidden group">
             <motion.div
-              className="absolute inset-0"
-              style={{ backgroundColor: color, mixBlendMode: "overlay" }}
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 0.3 }}
-              transition={{ duration: 0.3 }}
-            />
+              className="w-full h-full"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
+              <img
+                src={url}
+                alt={title}
+                className="w-full h-full object-cover transition-transform duration-700"
+              />
+            </motion.div>
 
-            {/* Project number */}
-            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 md:top-6 md:left-6 bg-black/50 backdrop-blur-md text-white px-2 py-1 sm:px-3 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium">
-              Project {i + 1}
+            {/* Overlay gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent opacity-80" />
+
+            {/* Project number badge */}
+            <div className="absolute top-4 left-4 md:top-6 md:left-6">
+              <div className="bg-black/40 backdrop-blur-md border border-white/10 text-white px-4 py-1.5 rounded-full text-xs md:text-sm font-medium tracking-wide shadow-lg">
+                0{i + 1}
+              </div>
             </div>
           </div>
 
-          {/* Content section - full width on mobile, 45% on desktop */}
-          <div className="w-full md:w-[45%] p-4 sm:p-5 md:p-8 lg:p-10 flex flex-col justify-between">
+          {/* Content section */}
+          <div className="w-full md:w-[45%] p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between relative bg-gradient-to-b from-white/[0.02] to-transparent">
+            {/* Subtle background glow */}
+            <div
+              className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-white/5 to-transparent rounded-full blur-3xl -z-10 pointer-events-none"
+              style={{ opacity: 0.3 }}
+            />
+
             <div>
-              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 md:mb-6">
+              <div className="flex items-center gap-3 mb-6">
                 <div
-                  className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full"
+                  className="w-2 h-2 rounded-full ring-2 ring-white/20 ring-offset-2 ring-offset-zinc-900"
                   style={{ backgroundColor: color }}
                 />
-                <div className="h-px w-10 sm:w-12 md:w-20 bg-gray-600" />
+                <span className="text-xs font-medium tracking-[0.2em] text-gray-400 uppercase">
+                  Featured Project
+                </span>
               </div>
 
-              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 md:mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 tracking-tighter">
                 {title}
               </h2>
-              <p className="text-xs sm:text-sm md:text-base text-gray-400 leading-relaxed line-clamp-3 md:line-clamp-none max-w-md">
+              <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-light tracking-wide">
                 {description}
               </p>
             </div>
 
-            <div className="mt-3 sm:mt-4 md:mt-auto pt-3 sm:pt-4">
-              <div className="w-full h-px bg-gray-800 mb-3 sm:mb-4 md:mb-6" />
-
-              <div className="flex items-center gap-3 sm:gap-4">
+            <div className="mt-8 pt-8 border-t border-white/5">
+              <div className="flex items-center gap-4">
                 {/* GitHub Link */}
                 <motion.a
                   href={githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-1 sm:gap-2"
-                  whileHover={{ y: -3 }}
-                  transition={{ type: "spring", stiffness: 400 }}
+                  className="group flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 transition-all duration-300"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -262,18 +260,16 @@ function Card({
                     height="18"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke={color}
+                    stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    className="text-gray-400 group-hover:text-white transition-colors"
                   >
                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                   </svg>
-                  <span
-                    className="text-xs sm:text-sm font-medium"
-                    style={{ color }}
-                  >
-                    Code
+                  <span className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
+                    Source
                   </span>
                 </motion.a>
 
@@ -282,9 +278,9 @@ function Card({
                   href={liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-1 sm:gap-2"
-                  whileHover={{ y: -3 }}
-                  transition={{ type: "spring", stiffness: 400 }}
+                  className="group flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 transition-all duration-300"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -292,20 +288,18 @@ function Card({
                     height="18"
                     viewBox="0 0 24 24"
                     fill="none"
-                    stroke={color}
+                    stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    className="text-gray-400 group-hover:text-white transition-colors"
                   >
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
                   </svg>
-                  <span
-                    className="text-xs sm:text-sm font-medium"
-                    style={{ color }}
-                  >
-                    Live
+                  <span className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
+                    Live Demo
                   </span>
                 </motion.a>
               </div>
@@ -323,41 +317,45 @@ interface MobileCardProps extends Project {
 
 function MobileCard({ title, description, link: url, color, githubLink, liveLink }: MobileCardProps) {
   return (
-    <div className="bg-zinc-900 rounded-lg sm:rounded-2xl overflow-hidden shadow-xl">
-      <div className="relative h-40 sm:h-48 md:h-56">
+    <div className="bg-zinc-900/40 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/5">
+      <div className="relative h-56 sm:h-64">
         <img src={url} alt={title} className="w-full h-full object-cover" />
-        <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-black/50 backdrop-blur-md text-white px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-medium">
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent opacity-80" />
+
+        <div className="absolute top-4 left-4 bg-black/40 backdrop-blur-md border border-white/10 text-white px-3 py-1 rounded-full text-xs font-medium">
           Featured
         </div>
       </div>
-      <div className="p-4 sm:p-5 md:p-6 space-y-4 sm:space-y-6">
-        <div className="space-y-2 sm:space-y-3">
-          <div className="flex items-center gap-2 sm:gap-3">
+
+      <div className="p-6 space-y-6 relative -mt-12">
+        <div className="space-y-3">
+          <div className="flex items-center gap-2">
             <span
-              className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full"
+              className="w-2 h-2 rounded-full ring-1 ring-white/20"
               style={{ backgroundColor: color }}
             />
-            <div className="h-px w-10 sm:w-12 bg-gray-700" />
+            <span className="text-xs font-medium text-gray-400 uppercase tracking-wider">Project</span>
           </div>
-          <h3 className="text-lg sm:text-2xl font-bold">{title}</h3>
-          <p className="text-gray-400 leading-relaxed text-sm sm:text-base">{description}</p>
+          <h3 className="text-2xl font-bold text-white tracking-tight">{title}</h3>
+          <p className="text-gray-400 leading-relaxed text-sm">{description}</p>
         </div>
-        <div className="flex items-center gap-3 sm:gap-4">
+
+        <div className="flex items-center gap-3 pt-4 border-t border-white/5">
           <a
             href={githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium text-gray-200 hover:text-white transition-colors"
+            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
           >
-            <span style={{ color }}>Code</span>
+            <span className="text-sm font-medium text-gray-200">Code</span>
           </a>
           <a
             href={liveLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium text-gray-200 hover:text-white transition-colors"
+            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
           >
-            <span style={{ color }}>Live</span>
+            <span className="text-sm font-medium text-gray-200">Live</span>
           </a>
         </div>
       </div>
