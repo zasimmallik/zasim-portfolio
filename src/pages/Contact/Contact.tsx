@@ -230,8 +230,8 @@ export default function Contact() {
                         name="name"
                         placeholder="Name"
                         className={`w-full px-5 py-4 rounded-xl bg-gray-800/50 border text-white placeholder-gray-500 transition-all duration-300 ${errors.name
-                            ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
-                            : 'border-gray-700/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-gray-600'
+                          ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
+                          : 'border-gray-700/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-gray-600'
                           } focus:ring-4 focus:outline-none`}
                         value={formData.name}
                         onChange={handleInputChange}
@@ -252,8 +252,8 @@ export default function Contact() {
                         name="email"
                         placeholder="Email"
                         className={`w-full px-5 py-4 rounded-xl bg-gray-800/50 border text-white placeholder-gray-500 transition-all duration-300 ${errors.email
-                            ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
-                            : 'border-gray-700/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-gray-600'
+                          ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
+                          : 'border-gray-700/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-gray-600'
                           } focus:ring-4 focus:outline-none`}
                         value={formData.email}
                         onChange={handleInputChange}
@@ -274,8 +274,8 @@ export default function Contact() {
                         name="subject"
                         placeholder="Subject"
                         className={`w-full px-5 py-4 rounded-xl bg-gray-800/50 border text-white placeholder-gray-500 transition-all duration-300 ${errors.subject
-                            ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
-                            : 'border-gray-700/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-gray-600'
+                          ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
+                          : 'border-gray-700/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-gray-600'
                           } focus:ring-4 focus:outline-none`}
                         value={formData.subject}
                         onChange={handleInputChange}
@@ -296,8 +296,8 @@ export default function Contact() {
                         placeholder="Message"
                         rows={5}
                         className={`w-full px-5 py-4 rounded-xl bg-gray-800/50 border text-white placeholder-gray-500 transition-all duration-300 resize-none ${errors.message
-                            ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
-                            : 'border-gray-700/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-gray-600'
+                          ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
+                          : 'border-gray-700/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-gray-600'
                           } focus:ring-4 focus:outline-none`}
                         value={formData.message}
                         onChange={handleInputChange}

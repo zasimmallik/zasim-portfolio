@@ -44,22 +44,22 @@ function Header({ activeSection, onNavClick }: HeaderProps) {
   );
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#020617]/95 backdrop-blur-md">
-      <div className="md:fixed md:top-2 sm:top-2 md:left-1/2 md:transform md:-translate-x-1/2 w-full md:w-auto px-2 sm:px-3 md:px-0 py-1.5 sm:py-2 md:py-0">
-        <div className="p-px sm:p-0.5 md:rounded-full bg-linear-to-r from-emerald-400 via-cyan-500 to-indigo-500 animate-gradient-x">
-          <nav className="bg-gray-900/90 backdrop-blur-md md:rounded-full px-2 sm:px-3 md:px-6 py-1.5 sm:py-2 md:py-2.5">
+    <header className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/40 supports-[backdrop-filter]:bg-background/60">
+      <div className="md:fixed md:top-4 sm:top-2 md:left-1/2 md:transform md:-translate-x-1/2 w-full md:w-auto px-2 sm:px-3 md:px-0 py-1.5 sm:py-2 md:py-0">
+        <div className="p-[1px] md:rounded-full bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 animate-gradient-x">
+          <nav className="bg-background/90 backdrop-blur-xl md:rounded-full px-2 sm:px-3 md:px-6 py-1.5 sm:py-2 md:py-2.5 border border-white/5 shadow-lg shadow-primary/5">
             {/* Mobile Menu Button */}
             <div className="flex justify-between items-center md:hidden">
               <a
                 href="#home"
                 onClick={(event) => handleLinkClick(event, 'home')}
-                className="text-white font-bold text-base sm:text-lg"
+                className="text-foreground font-bold text-base sm:text-lg tracking-tight"
               >
                 Portfolio
               </a>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-white p-2 sm:p-2.5 text-xl sm:text-2xl"
+                className="text-foreground p-2 sm:p-2.5 text-xl sm:text-2xl hover:bg-secondary/50 rounded-full transition-colors"
                 aria-expanded={isMenuOpen}
                 aria-label="Toggle navigation menu"
               >
@@ -75,21 +75,19 @@ function Header({ activeSection, onNavClick }: HeaderProps) {
                     key={id}
                     href={`#${id}`}
                     onClick={(event) => handleLinkClick(event, id)}
-                    className={`px-3 sm:px-4 md:px-3 py-2.5 sm:py-3 md:py-1.5 rounded-lg md:rounded-full text-sm sm:text-base md:text-sm font-medium
+                    className={`px-3 sm:px-4 md:px-4 py-2.5 sm:py-3 md:py-2 rounded-lg md:rounded-full text-sm sm:text-base md:text-sm font-medium
                       transition-all duration-300 flex items-center gap-2 sm:gap-2.5
-                      hover:bg-white/10 whitespace-nowrap
-                      ${
-                        activeSection === id
-                          ? 'bg-white/15 text-white'
-                          : 'text-gray-300 hover:text-white'
+                      hover:bg-secondary/80 whitespace-nowrap
+                      ${activeSection === id
+                        ? 'bg-primary text-primary-foreground shadow-md shadow-primary/20'
+                        : 'text-muted-foreground hover:text-foreground'
                       }
                     `}
                     aria-current={activeSection === id ? 'page' : undefined}
                   >
                     <Icon
-                      className={`text-base sm:text-lg md:text-base ${
-                        activeSection === id ? 'scale-110' : ''
-                      }`}
+                      className={`text-base sm:text-lg md:text-base transition-transform duration-300 ${activeSection === id ? 'scale-110' : ''
+                        }`}
                     />
                     <span>{text}</span>
                   </a>

@@ -48,7 +48,7 @@ export const SCROLL_MARGIN_CONFIG = {
 
 export const SCROLL_OBSERVER_OPTIONS = {
   root: null,
-  rootMargin: '-45% 0px -45% 0px',
+  rootMargin: '-50% 0px -50% 0px',
   threshold: 0,
 };
 
