@@ -53,7 +53,7 @@ export default function About() {
               </div>
 
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
-                Crafting Digital Experiences with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Passion & Precision</span>
+                Software Engineer<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Full Stack Developer </span>
               </h2>
 
               <div className="space-y-6 text-base sm:text-lg text-gray-400 leading-relaxed">
