@@ -223,7 +223,7 @@ const profile = {
         </div>
 
         <section
-          className="hero min-h-screen flex items-center justify-center relative px-3 xs:px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24 lg:py-10 pb-40 hero-section-padding"
+          className="hero min-h-screen flex items-start lg:items-center justify-center relative px-3 xs:px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24 lg:py-10 pb-40 hero-section-padding"
           style={{ paddingTop: "var(--hero-padding-top, 0)" }}
         >
           <div className="absolute inset-0"></div>
@@ -244,7 +244,7 @@ const profile = {
 
           {/* Main content container */}
           <div
-            className="container mx-auto flex flex-col lg:flex-row items-center justify-between relative z-10 py-4 sm:py-6 md:py-8 lg:py-12 md:pt-20 lg:pt-28 xl:pt-28 px-3 xs:px-4 sm:px-6 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16"
+            className="container mx-auto flex flex-col lg:flex-row items-center justify-between relative z-10 pt-24 pb-8 sm:pt-32 sm:pb-12 md:pt-32 lg:py-12 lg:pt-28 xl:pt-28 px-3 xs:px-4 sm:px-6 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16"
             style={{
               paddingTop:
                 window.innerWidth >= 1360 &&
