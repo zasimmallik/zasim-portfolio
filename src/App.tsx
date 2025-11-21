@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import './assets/css/index.css';
 import { SCROLL_OBSERVER_OPTIONS } from '@/config/navigation';
 
@@ -23,12 +23,15 @@ const SECTION_CONFIG = [
 export default function App() {
   const sectionIds = SECTION_CONFIG.map((section) => section.id);
   const [activeSection, setActiveSection] = useState(sectionIds[0]);
+  const isScrollingRef = useRef(false);
 
   // Use intersection observer hook for better performance
   useEffect(() => {
     const observerOptions = SCROLL_OBSERVER_OPTIONS;
 
     const observer = new IntersectionObserver((entries) => {
+      if (isScrollingRef.current) return;
+
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id);
@@ -51,8 +54,14 @@ export default function App() {
     const target = document.getElementById(sectionId);
 
     if (target) {
+      isScrollingRef.current = true;
       setActiveSection(sectionId);
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Reset scrolling lock after animation
+      setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 1000);
     }
   }, []);
 

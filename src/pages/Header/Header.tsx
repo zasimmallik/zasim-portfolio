@@ -1,122 +1,137 @@
-import React, { useState, useEffect, memo, useCallback } from 'react';
-import { FaBars } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { NAVIGATION_LINKS } from '@/config/navigation';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 interface HeaderProps {
   activeSection: string;
   onNavClick: (id: string) => void;
 }
 
-function Header({ activeSection, onNavClick }: HeaderProps) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Close menu on window resize
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsMenuOpen(false);
-      }
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
     };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Manage body overflow
-  useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isMenuOpen]);
-
-  const handleNavClick = useCallback((id: string) => {
+  const handleNavClick = (id: string) => {
     onNavClick(id);
-    setIsMenuOpen(false);
-  }, [onNavClick]);
-
-  const handleLinkClick = useCallback(
-    (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-      event.preventDefault();
-      handleNavClick(id);
-    },
-    [handleNavClick],
-  );
+    setMobileMenuOpen(false);
+  };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/40 supports-[backdrop-filter]:bg-background/60">
-      <div className="md:fixed md:top-4 sm:top-2 md:left-1/2 md:transform md:-translate-x-1/2 w-full md:w-auto px-2 sm:px-3 md:px-0 py-1.5 sm:py-2 md:py-0">
-        <div className="p-[1px] md:rounded-full bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 animate-gradient-x">
-          <nav className="bg-background/90 backdrop-blur-xl md:rounded-full px-2 sm:px-3 md:px-6 py-1.5 sm:py-2 md:py-2.5 border border-white/5 shadow-lg shadow-primary/5">
-            {/* Mobile Menu Button */}
-            <div className="flex justify-between items-center md:hidden">
-              <a
-                href="#home"
-                onClick={(event) => handleLinkClick(event, 'home')}
-                className="text-foreground font-bold text-base sm:text-lg tracking-tight"
-              >
-                Portfolio
-              </a>
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-foreground p-2 sm:p-2.5 text-xl sm:text-2xl hover:bg-secondary/50 rounded-full transition-colors"
-                aria-expanded={isMenuOpen}
-                aria-label="Toggle navigation menu"
-              >
-                <FaBars />
-              </button>
-            </div>
+    <>
+      <motion.header
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className={`fixed top-0 left-0 right-0 z-50 flex justify-center items-center p-4 transition-all duration-300 ${isScrolled ? 'py-2 sm:py-4' : 'py-4 sm:py-6'
+          } pointer-events-none`}
+      >
+        <nav
+          className={`pointer-events-auto relative flex items-center justify-between px-2 rounded-full border border-white/10 shadow-lg backdrop-blur-md transition-all duration-300 ${isScrolled
+            ? 'bg-background/80 supports-[backdrop-filter]:bg-background/60 py-2'
+            : 'bg-background/50 supports-[backdrop-filter]:bg-background/30 py-2 sm:py-3'
+            }`}
+        >
+          {/* Desktop Navigation - Visible on Large Screens */}
+          <ul className="hidden lg:flex items-center gap-1">
+            {NAVIGATION_LINKS.map((link) => {
+              const isActive = activeSection === link.id;
+              const Icon = link.icon;
 
-            {/* Navigation Links */}
-            <div className={`${isMenuOpen ? 'block' : 'hidden'} md:block`}>
-              <div className="flex flex-col md:flex-row md:items-center gap-2 sm:gap-2 md:gap-1 lg:gap-2 py-3 sm:py-4 md:py-0">
-                {NAVIGATION_LINKS.map(({ id, icon: Icon, text }) => (
-                  <a
-                    key={id}
-                    href={`#${id}`}
-                    onClick={(event) => handleLinkClick(event, id)}
-                    className={`px-3 sm:px-4 md:px-4 py-2.5 sm:py-3 md:py-2 rounded-lg md:rounded-full text-sm sm:text-base md:text-sm font-medium
-                      transition-all duration-300 flex items-center gap-2 sm:gap-2.5
-                      hover:bg-secondary/80 whitespace-nowrap
-                      ${activeSection === id
-                        ? 'bg-primary text-primary-foreground shadow-md shadow-primary/20'
-                        : 'text-muted-foreground hover:text-foreground'
-                      }
-                    `}
-                    aria-current={activeSection === id ? 'page' : undefined}
+              return (
+                <li key={link.id} className="relative z-10">
+                  <button
+                    onClick={() => handleNavClick(link.id)}
+                    className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-full flex items-center gap-2 ${isActive
+                      ? 'text-blue-500'
+                      : 'text-muted-foreground hover:text-foreground'
+                      }`}
                   >
-                    <Icon
-                      className={`text-base sm:text-lg md:text-base transition-transform duration-300 ${activeSection === id ? 'scale-110' : ''
-                        }`}
-                    />
-                    <span>{text}</span>
-                  </a>
-                ))}
-              </div>
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeTab"
+                        className="absolute inset-0 bg-blue-500/10 border border-blue-500/20 rounded-full -z-10"
+                        transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                      />
+                    )}
+                    <span className="relative z-10 flex items-center gap-2">
+                      <Icon className="w-4 h-4" />
+                      {link.text}
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+
+          {/* Mobile/Tablet Navigation Toggle */}
+          <div className="lg:hidden flex items-center justify-between w-full px-3 sm:px-4 min-w-[auto] gap-4">
+            <span className="font-bold text-base sm:text-lg tracking-tight">Menu</span>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-full hover:bg-secondary/80 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+            </button>
+          </div>
+        </nav>
+      </motion.header>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-x-4 top-20 sm:top-24 z-40 lg:hidden rounded-2xl bg-popover/95 backdrop-blur-xl border border-border shadow-2xl overflow-hidden max-h-[80vh] overflow-y-auto"
+          >
+            <div className="p-4 flex flex-col gap-2">
+              {NAVIGATION_LINKS.map((link, index) => {
+                const Icon = link.icon;
+                const isActive = activeSection === link.id;
+
+                return (
+                  <motion.button
+                    key={link.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    onClick={() => handleNavClick(link.id)}
+                    className={`w-full flex items-center gap-4 p-3 sm:p-4 rounded-xl transition-all ${isActive
+                      ? 'bg-blue-500/10 text-blue-500'
+                      : 'hover:bg-secondary text-foreground'
+                      }`}
+                  >
+                    <div className={`p-2 rounded-lg ${isActive ? 'bg-white/20' : 'bg-background'}`}>
+                      <Icon size={18} className="sm:w-5 sm:h-5" />
+                    </div>
+                    <span className="font-medium text-base sm:text-lg">{link.text}</span>
+                    {isActive && (
+                      <motion.div
+                        layoutId="mobileActiveIndicator"
+                        className="ml-auto w-2 h-2 rounded-full bg-white"
+                      />
+                    )}
+                  </motion.button>
+                );
+              })}
             </div>
-          </nav>
-        </div>
-      </div>
-
-      <style>
-        {`
-          @keyframes gradient-x {
-            0%, 100% {
-              background-position: 0% 50%;
-            }
-            50% {
-              background-position: 100% 50%;
-            }
-          }
-          .animate-gradient-x {
-            animation: gradient-x 3s linear infinite;
-            background-size: 200% 200%;
-          }
-        `}
-      </style>
-    </header>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
-}
+};
 
-export default memo(Header);
-
+export default Header;
