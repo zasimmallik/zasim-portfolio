@@ -202,7 +202,7 @@ function Card({
         className="relative lg:-top-[25%] h-auto w-full max-w-5xl origin-top project-card pointer-events-auto"
       >
         {/* Modern split card design with Glassmorphism - Enhanced */}
-        <div className="w-full flex flex-col md:flex-row bg-zinc-900/40 backdrop-blur-2xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/5 hover:ring-white/10 transition-all duration-500 group">
+        <div className="w-full flex flex-col md:flex-row bg-slate-900/50 backdrop-blur-2xl border border-slate-800/50 rounded-3xl overflow-hidden shadow-2xl hover:border-blue-500/30 hover:shadow-blue-500/10 transition-all duration-500 group">
           {/* Image section */}
           <div className="w-full md:w-[55%] h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
@@ -219,11 +219,11 @@ function Card({
             </motion.div>
 
             {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80" />
 
             {/* Project number badge */}
             <div className="absolute top-4 left-4 md:top-6 md:left-6 z-30">
-              <div className="bg-black/40 backdrop-blur-md border border-white/10 text-white px-4 py-1.5 rounded-full text-xs md:text-sm font-medium tracking-wide shadow-lg">
+              <div className="bg-slate-950/40 backdrop-blur-md border border-white/10 text-white px-4 py-1.5 rounded-full text-xs md:text-sm font-medium tracking-wide shadow-lg">
                 0{i + 1}
               </div>
             </div>
@@ -233,17 +233,17 @@ function Card({
           <div className="w-full md:w-[45%] p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between relative bg-gradient-to-b from-white/[0.02] to-transparent">
             {/* Subtle background glow */}
             <div
-              className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-white/5 to-transparent rounded-full blur-3xl -z-10 pointer-events-none"
+              className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-500/5 to-transparent rounded-full blur-3xl -z-10 pointer-events-none"
               style={{ opacity: 0.3 }}
             />
 
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div
-                  className="w-2 h-2 rounded-full ring-2 ring-white/20 ring-offset-2 ring-offset-zinc-900"
+                  className="w-2 h-2 rounded-full ring-2 ring-white/20 ring-offset-2 ring-offset-slate-900"
                   style={{ backgroundColor: color }}
                 />
-                <span className="text-xs font-medium tracking-[0.2em] text-gray-400 uppercase">
+                <span className="text-xs font-medium tracking-[0.2em] text-slate-400 uppercase">
                   Featured Project
                 </span>
               </div>
@@ -251,7 +251,7 @@ function Card({
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 tracking-tighter">
                 {title}
               </h2>
-              <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-light tracking-wide">
+              <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-light tracking-wide">
                 {description}
               </p>
             </div>
@@ -277,11 +277,11 @@ function Card({
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="text-gray-400 group-hover/btn:text-white transition-colors"
+                    className="text-slate-400 group-hover/btn:text-white transition-colors"
                   >
                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                   </svg>
-                  <span className="text-sm font-medium text-gray-400 group-hover/btn:text-white transition-colors">
+                  <span className="text-sm font-medium text-slate-400 group-hover/btn:text-white transition-colors">
                     Source
                   </span>
                 </motion.a>
@@ -305,13 +305,13 @@ function Card({
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="text-gray-400 group-hover/btn:text-white transition-colors"
+                    className="text-slate-400 group-hover/btn:text-white transition-colors"
                   >
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                     <polyline points="15 3 21 3 21 9"></polyline>
                     <line x1="10" y1="14" x2="21" y2="3"></line>
                   </svg>
-                  <span className="text-sm font-medium text-gray-400 group-hover/btn:text-white transition-colors">
+                  <span className="text-sm font-medium text-slate-400 group-hover/btn:text-white transition-colors">
                     Live Demo
                   </span>
                 </motion.a>
@@ -330,12 +330,12 @@ interface MobileCardProps extends Project {
 
 function MobileCard({ title, description, link: url, color, githubLink, liveLink }: MobileCardProps) {
   return (
-    <div className="bg-zinc-900/40 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/5 hover:ring-white/10 transition-all duration-300">
+    <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-2xl overflow-hidden shadow-xl hover:border-blue-500/30 hover:shadow-blue-500/10 transition-all duration-300">
       <div className="relative h-56 sm:h-64 group">
         <img src={url} alt={title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent opacity-80" />
 
-        <div className="absolute top-4 left-4 bg-black/40 backdrop-blur-md border border-white/10 text-white px-3 py-1 rounded-full text-xs font-medium">
+        <div className="absolute top-4 left-4 bg-slate-950/40 backdrop-blur-md border border-white/10 text-white px-3 py-1 rounded-full text-xs font-medium">
           Featured
         </div>
       </div>
@@ -347,10 +347,10 @@ function MobileCard({ title, description, link: url, color, githubLink, liveLink
               className="w-2 h-2 rounded-full ring-1 ring-white/20"
               style={{ backgroundColor: color }}
             />
-            <span className="text-xs font-medium text-gray-400 uppercase tracking-wider">Project</span>
+            <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">Project</span>
           </div>
           <h3 className="text-2xl font-bold text-white tracking-tight">{title}</h3>
-          <p className="text-gray-400 leading-relaxed text-sm">{description}</p>
+          <p className="text-slate-400 leading-relaxed text-sm">{description}</p>
         </div>
 
         <div className="flex items-center gap-3 pt-4 border-t border-white/5">
@@ -360,7 +360,7 @@ function MobileCard({ title, description, link: url, color, githubLink, liveLink
             rel="noopener noreferrer"
             className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors group"
           >
-            <span className="text-sm font-medium text-gray-200 group-hover:text-white">Code</span>
+            <span className="text-sm font-medium text-slate-200 group-hover:text-white">Code</span>
           </a>
           <a
             href={liveLink}
@@ -368,7 +368,7 @@ function MobileCard({ title, description, link: url, color, githubLink, liveLink
             rel="noopener noreferrer"
             className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors group"
           >
-            <span className="text-sm font-medium text-gray-200 group-hover:text-white">Live</span>
+            <span className="text-sm font-medium text-slate-200 group-hover:text-white">Live</span>
           </a>
         </div>
       </div>
