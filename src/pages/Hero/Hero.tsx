@@ -7,10 +7,11 @@ import SparklesText from "@/components/ui/sparkles-text";
 import { FlipWords } from "@/components/ui/flip-words";
 
 // Enhanced Grid Background
+// Enhanced Grid Background
 const GridBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div className="absolute inset-0 opacity-20 mask-[radial-gradient(ellipse_at_center,transparent_0%,black)]">
+      <div className="absolute inset-0 opacity-[0.15] mask-[radial-gradient(ellipse_at_center,transparent_20%,black)]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="100%"
@@ -29,12 +30,13 @@ const GridBackground = () => {
               fill="none"
               stroke="white"
               strokeWidth="0.5"
-              className="opacity-30 animate-gridPulse"
+              className="opacity-20"
             />
           </pattern>
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
       </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#020617]/50 to-[#020617]" />
     </div>
   );
 };
@@ -89,6 +91,70 @@ const profile = {
         0%, 100% { opacity: 0.2; transform: scale(0.8); }
         50% { opacity: 0.5; transform: scale(1.2); }
       }
+
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes shimmer {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+
+      @keyframes gradientX {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      .animate-fade-in-up {
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        opacity: 0;
+      }
+
+      .delay-100 { animation-delay: 0.1s; }
+      .delay-200 { animation-delay: 0.2s; }
+      .delay-300 { animation-delay: 0.3s; }
+      .delay-400 { animation-delay: 0.4s; }
+      
+      @keyframes scrollLine {
+        0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+        30% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+        60% { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+        100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+      }
+
+      @keyframes blurIn {
+        0% { opacity: 0; filter: blur(20px); transform: translateY(20px); }
+        100% { opacity: 1; filter: blur(0); transform: translateY(0); }
+      }
+
+      @keyframes aurora {
+        0% { background-position: 50% 50%, 50% 50%; }
+        100% { background-position: 350% 50%, 350% 50%; }
+      }
+
+      @keyframes spotlight {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+      }
+
+      .animate-blur-in {
+        animation: blurIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        opacity: 0;
+      }
+
+      .animate-scroll-line {
+        animation: scrollLine 2.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+      }
+      
+      .delay-100 { animation-delay: 0.1s; }
+      .delay-200 { animation-delay: 0.2s; }
+      .delay-300 { animation-delay: 0.3s; }
+      .delay-400 { animation-delay: 0.4s; }
+      .delay-500 { animation-delay: 0.5s; }
+      .delay-700 { animation-delay: 0.7s; }
       
       /* Media query for 1366x768 resolution */
       @media screen and (width: 1366px) and (height: 768px), 
@@ -137,12 +203,27 @@ const profile = {
 
   return (
     <>
-      <main className="bg-[#020617] text-white min-h-screen relative overflow-hidden">
-        {/* Enhanced background effects */}
-        <div className="absolute inset-0 bg-linear-to-b from-transparent via-blue-950/5 to-transparent pointer-events-none" />
+      <main className="bg-[#020617] text-white min-h-screen relative overflow-hidden selection:bg-indigo-500/30">
+        {/* Ultra Premium Background - Aurora Effect */}
+        <div className="absolute inset-0 bg-[#020617]">
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-30 mix-blend-soft-light pointer-events-none"></div>
+          <div
+            className="absolute -inset-[10px] opacity-50 blur-[100px]"
+            style={{
+              backgroundImage: `
+                radial-gradient(circle at 50% 50%, rgba(76, 29, 149, 0.15), transparent 50%),
+                radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.1), transparent 50%),
+                radial-gradient(circle at 100% 0%, rgba(139, 92, 246, 0.15), transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(56, 189, 248, 0.1), transparent 50%),
+                radial-gradient(circle at 0% 100%, rgba(139, 92, 246, 0.15), transparent 50%)
+              `,
+            }}
+          ></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#020617_120%)] pointer-events-none" />
+        </div>
 
         <section
-          className="hero min-h-screen flex items-center justify-center relative px-3 xs:px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24 lg:py-10 hero-section-padding"
+          className="hero min-h-screen flex items-center justify-center relative px-3 xs:px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-24 lg:py-10 pb-40 hero-section-padding"
           style={{ paddingTop: "var(--hero-padding-top, 0)" }}
         >
           <div className="absolute inset-0"></div>
@@ -157,8 +238,8 @@ const profile = {
 
           {/* Floating gradient orbs - responsive sizes */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-1/4 -left-16 sm:-left-24 md:-left-32 w-40 sm:w-56 md:w-80 lg:w-96 h-40 sm:h-56 md:h-80 lg:h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-1/4 -right-16 sm:-right-24 md:-right-32 w-40 sm:w-56 md:w-80 lg:w-96 h-40 sm:h-56 md:h-80 lg:h-96 bg-teal-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+            <div className="absolute top-1/4 -left-16 sm:-left-24 md:-left-32 w-40 sm:w-56 md:w-80 lg:w-96 h-40 sm:h-56 md:h-80 lg:h-96 bg-blue-500/20 rounded-full blur-[100px] animate-pulse mix-blend-screen" />
+            <div className="absolute bottom-1/4 -right-16 sm:-right-24 md:-right-32 w-40 sm:w-56 md:w-80 lg:w-96 h-40 sm:h-56 md:h-80 lg:h-96 bg-teal-500/20 rounded-full blur-[100px] animate-pulse mix-blend-screen" style={{ animationDelay: '1s' }} />
           </div>
 
           {/* Main content container */}
@@ -175,79 +256,73 @@ const profile = {
             }}
           >
             {/* Left column - Text content */}
-            <div className={`w-full lg:w-1/2 mb-6 sm:mb-8 lg:mb-0 relative transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-              {/* Decorative blurs - hidden on mobile and tablet */}
-              <div className="absolute hidden xl:-top-20 xl:-left-20 xl:block w-48 h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
-              <div className="absolute hidden xl:block xl:top-40 xl:-right-20 w-48 h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64 bg-teal-500/10 rounded-full blur-3xl"></div>
+            <div className={`w-full lg:w-1/2 mb-6 sm:mb-8 lg:mb-0 relative z-20`}>
 
               {/* Welcome badge - fully responsive */}
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2.5 rounded-full bg-gray-800/60 backdrop-blur-sm border border-gray-700/50 mb-4 sm:mb-5 md:mb-6 hover:border-blue-500/30 transition-all duration-300">
-                <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-blue-400 animate-pulse"></div>
-                <span className="text-gray-300 text-[10px] xs:text-xs sm:text-sm font-medium">
-                  Welcome to Zasim Mallik's universe.
+              <div className="animate-blur-in inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 mb-8 hover:bg-white/10 transition-all duration-500 group cursor-default">
+                <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse shadow-[0_0_10px_rgba(129,140,248,0.5)]"></div>
+                <span className="text-slate-300 text-xs font-medium tracking-[0.2em] uppercase">
+                  Welcome to my universe
                 </span>
               </div>
 
               {/* Name section - responsive text sizes */}
-              <div className="relative mb-4 sm:mb-5 md:mb-6 lg:mb-8">
-                <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-                  <SparklesText text="Hello" />
+              <div className="relative mb-8 animate-blur-in delay-100">
+                <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tight">
+                  <span className="block text-slate-400 font-light text-2xl xs:text-3xl sm:text-4xl mb-2 tracking-normal">Hello, I&apos;m</span>
                   <span className="relative inline-block">
-                    I&apos;m
-                    <span className="typing-effect gradient-text bg-linear-to-r from-white via-blue-100 to-gray-300 bg-clip-text text-transparent">
-                      {" "}
+                    <span className="typing-effect gradient-text bg-gradient-to-r from-white via-indigo-200 to-slate-400 bg-[length:200%_auto] animate-[gradientX_8s_ease_infinite] bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(99,102,241,0.3)]">
                       Zasim Mallik
                     </span>
                   </span>
                 </h1>
-                <div className="absolute -z-10 top-1/2 -translate-y-1/2 left-1/4 w-12 sm:w-16 md:w-24 lg:w-32 h-12 sm:h-16 md:h-24 lg:h-32 bg-blue-500/20 rounded-full blur-2xl animate-pulse"></div>
               </div>
 
               {/* Role badge - responsive */}
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 lg:px-6 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg sm:rounded-xl md:rounded-2xl bg-linear-to-r from-blue-500/10 to-teal-500/10 border border-blue-500/30 mb-4 sm:mb-5 md:mb-6 lg:mb-8 backdrop-blur-sm hover:border-blue-500/50 transition-all duration-300">
-                <i className="fas fa-rocket text-blue-400 animate-bounce text-[10px] xs:text-xs sm:text-sm md:text-base"></i>
+              <div className="animate-blur-in delay-200 inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 mb-10 backdrop-blur-sm hover:border-indigo-500/40 transition-all duration-500 hover:bg-indigo-500/20 group cursor-default">
+                <i className="fas fa-rocket text-indigo-400 group-hover:animate-bounce text-sm transition-transform group-hover:rotate-12"></i>
                 <span className="min-w-0">
                   <FlipWords
-                    className={"text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-blue-400 font-medium truncate"}
+                    className={"text-base md:text-lg text-indigo-300 font-medium truncate tracking-wide"}
                     words={words}
                   />
                 </span>
               </div>
 
               {/* Description - responsive */}
-              <div className="relative mb-5 sm:mb-6 md:mb-8 lg:mb-12 max-w-xl">
-                <div className="absolute left-0 top-0 bottom-0 w-0.5 sm:w-1 bg-linear-to-b from-blue-500 to-teal-500 rounded-full" />
-                <p className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-gray-300/90 leading-relaxed pl-3 sm:pl-4 md:pl-5">
+              <div className="relative mb-12 max-w-xl group animate-blur-in delay-300">
+                <p className="text-base md:text-lg lg:text-xl text-slate-400/90 leading-relaxed font-light tracking-wide group-hover:text-slate-200 transition-colors duration-500">
                   Full-Stack & AI SaaS Developer 🚀 | Building Next-Gen Products That Solve Real Problems 💻✨
                 </p>
               </div>
 
               {/* CTA Buttons - fully responsive stack on mobile */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5 lg:gap-6">
+              <div className="flex flex-col sm:flex-row gap-5 animate-blur-in delay-400">
                 {/* GitHub Button */}
                 <a
                   href="https://github.com/zasimmallik"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center w-full sm:w-auto"
+                  className="group relative inline-flex items-center justify-center w-full sm:w-auto overflow-hidden rounded-full"
                 >
-                  <div className="absolute -inset-0.5 sm:-inset-1 bg-linear-to-r from-blue-500 to-teal-400 rounded-lg sm:rounded-xl blur-md sm:blur-lg opacity-30 group-hover:opacity-60 transition-all duration-300" />
-                  <span className="relative inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-linear-to-r from-blue-500 to-teal-400 px-5 sm:px-6 md:px-7 lg:px-8 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/50 w-full sm:w-auto">
-                    <span className="text-white font-semibold text-xs sm:text-sm md:text-base">View GitHub</span>
-                    <i className="fas fa-github text-white transform transition-all duration-300 group-hover:translate-x-1 text-xs sm:text-sm"></i>
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-indigo-600 to-violet-600 opacity-100 group-hover:opacity-90 transition-opacity duration-300"></span>
+                  <span className="relative inline-flex items-center justify-center gap-3 px-8 py-4 w-full sm:w-auto">
+                    <span className="text-white font-medium text-sm tracking-widest uppercase">View GitHub</span>
+                    <i className="fas fa-github text-white/90 transform transition-all duration-300 group-hover:translate-x-1 group-hover:text-white text-sm"></i>
                   </span>
+                  <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent z-20" />
                 </a>
 
                 {/* Resume Button */}
                 <a
                   href="/resume.pdf"
                   download
-                  className="group relative inline-flex items-center justify-center w-full sm:w-auto"
+                  className="group relative inline-flex items-center justify-center w-full sm:w-auto overflow-hidden rounded-full"
                 >
-                  <div className="absolute -inset-0.5 bg-linear-to-r from-gray-700 to-gray-600 rounded-lg sm:rounded-xl blur-md sm:blur-lg opacity-0 group-hover:opacity-40 transition-all duration-300" />
-                  <span className="relative inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-gray-800/80 backdrop-blur-sm border border-gray-700/50 hover:border-gray-600/50 px-5 sm:px-6 md:px-7 lg:px-8 py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 w-full sm:w-auto">
-                    <span className="text-gray-300 group-hover:text-white font-semibold text-xs sm:text-sm md:text-base transition-colors duration-300">Get Resume</span>
-                    <i className="fas fa-download text-gray-400 group-hover:text-white transform transition-all duration-300 group-hover:rotate-12 text-xs sm:text-sm"></i>
+                  <span className="absolute inset-0 w-full h-full bg-[#0F172A] border border-slate-700 group-hover:border-slate-500 transition-colors duration-300 rounded-full"></span>
+                  <span className="relative inline-flex items-center justify-center gap-3 px-8 py-4 w-full sm:w-auto">
+                    <span className="text-slate-300 group-hover:text-white font-medium text-sm tracking-widest uppercase transition-colors duration-300">Get Resume</span>
+                    <i className="fas fa-download text-slate-400 group-hover:text-white transform transition-all duration-300 group-hover:rotate-12 text-sm"></i>
                   </span>
                 </a>
               </div>
@@ -274,37 +349,33 @@ const profile = {
             <div className={`w-full lg:w-1/2 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
               <div className="relative group max-w-full">
                 {/* Enhanced gradient border effect */}
-                <div className="absolute -inset-0.5 sm:-inset-1 bg-linear-to-r from-blue-500 via-teal-500 to-blue-500 rounded-xl sm:rounded-2xl blur-lg sm:blur-xl opacity-30 group-hover:opacity-50 transition-all duration-500 animate-gradient" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/30 via-teal-500/30 to-blue-500/30 rounded-2xl blur-xl opacity-50 group-hover:opacity-70 transition-all duration-500 animate-gradient" />
 
-                <div className="relative gradient-border code-window-container max-w-full">
-                  <div className="code-window bg-linear-to-br from-[#0a1628] to-[#091121] border border-gray-700/50 group-hover:border-blue-500/30 transition-all duration-300 rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl max-w-full">
-                    {/* Modern Window Header */}
-                    <div className="window-header bg-linear-to-r from-gray-800/60 to-gray-900/60 backdrop-blur-sm px-2 xs:px-3 sm:px-4 py-2 sm:py-2.5 md:py-3 flex items-center justify-between border-b border-gray-700/50 shrink-0">
-                      <div className="flex items-center gap-1 xs:gap-1.5 sm:gap-2 shrink-0">
-                        <div className="window-dot bg-red-500 w-2 xs:w-2.5 sm:w-3 h-2 xs:h-2.5 sm:h-3 rounded-full hover:brightness-125 transition-all cursor-pointer shadow-lg shadow-red-500/50"></div>
-                        <div className="window-dot bg-yellow-500 w-2 xs:w-2.5 sm:w-3 h-2 xs:h-2.5 sm:h-3 rounded-full hover:brightness-125 transition-all cursor-pointer shadow-lg shadow-yellow-500/50"></div>
-                        <div className="window-dot bg-green-500 w-2 xs:w-2.5 sm:w-3 h-2 xs:h-2.5 sm:h-3 rounded-full hover:brightness-125 transition-all cursor-pointer shadow-lg shadow-green-500/50"></div>
-                      </div>
-                      <span className="text-[9px] xs:text-[10px] sm:text-xs md:text-sm text-gray-400 flex items-center gap-1 xs:gap-1.5 sm:gap-2 font-mono truncate mx-2">
-                        <i className="fas fa-code text-blue-400 shrink-0"></i>
-                        <span className="hidden xs:inline text-gray-300 truncate">developer.js</span>
-                      </span>
-                      <div className="flex items-center gap-1 sm:gap-2 opacity-50 shrink-0">
-                        <div className="w-2.5 xs:w-3 sm:w-4 h-2.5 xs:h-3 sm:h-4 border border-gray-600 rounded"></div>
-                      </div>
+                <div className="relative rounded-2xl bg-[#0B1120]/80 border border-slate-700/30 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.05)] overflow-hidden backdrop-blur-xl">
+                  {/* Shine effect */}
+                  <div className="absolute inset-0 opacity-20 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shine_1.5s_ease-in-out] pointer-events-none z-10" />
+
+                  {/* Modern Window Header */}
+                  <div className="bg-[#1E293B]/50 px-4 py-3 flex items-center justify-between border-b border-slate-800/60">
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-[#FF5F56] shadow-[0_0_10px_rgba(255,95,86,0.3)] hover:brightness-110 transition-all"></div>
+                      <div className="w-3 h-3 rounded-full bg-[#FFBD2E] shadow-[0_0_10px_rgba(255,189,46,0.3)] hover:brightness-110 transition-all"></div>
+                      <div className="w-3 h-3 rounded-full bg-[#27C93F] shadow-[0_0_10px_rgba(39,201,63,0.3)] hover:brightness-110 transition-all"></div>
                     </div>
-
-                    {/* Code Content - Fully contained with no overflow */}
-                    <div className="relative w-full overflow-hidden">
-                      <div className="overflow-x-auto overflow-y-hidden scrollbar-hide">
-                        <pre className="language-javascript p-2 xs:p-3 sm:p-4 md:p-5 lg:p-6 text-[9px] xs:text-[10px] sm:text-xs md:text-sm bg-transparent min-h-[250px] xs:min-h-[280px] sm:min-h-80 md:min-h-[360px] lg:min-h-[400px] xl:min-h-[450px] max-w-full whitespace-pre-wrap wrap-break-word">
-                          <code className="language-javascript block max-w-full">{code}</code>
-                        </pre>
-                      </div>
+                    <div className="flex items-center gap-2 opacity-60">
+                      <i className="fas fa-code text-blue-400 text-xs"></i>
+                      <span className="text-xs text-slate-400 font-mono">developer.ts</span>
                     </div>
+                    <div className="w-10"></div> {/* Spacer for centering */}
+                  </div>
 
-                    {/* Line numbers effect (optional decoration) */}
-                    <div className="absolute left-0 top-10 xs:top-[44px] sm:top-12 md:top-[52px] bottom-0 w-6 xs:w-7 sm:w-8 md:w-10 bg-linear-to-r from-gray-900/50 to-transparent pointer-events-none"></div>
+                  {/* Code Content */}
+                  <div className="relative w-full overflow-hidden bg-[#0B1120]/95">
+                    <div className="overflow-x-auto overflow-y-hidden scrollbar-hide">
+                      <pre className="language-javascript p-6 text-xs sm:text-sm leading-relaxed font-mono bg-transparent min-h-[300px] sm:min-h-[400px] max-w-full">
+                        <code className="language-javascript block max-w-full !bg-transparent !p-0 !text-slate-300 !shadow-none">{code}</code>
+                      </pre>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -312,12 +383,12 @@ const profile = {
           </div>
         </section>
 
-        {/* Scroll indicator - hidden on mobile */}
-        <div className="hidden sm:flex absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce flex-col items-center gap-2 pointer-events-none">
-          <span className="text-gray-400 text-xs sm:text-sm flex items-center gap-2">
-            <i className="fas fa-mouse text-blue-400"></i>
-          </span>
-          <i className="fas fa-chevron-down text-blue-400 text-lg sm:text-xl"></i>
+        {/* Luxury Scroll Indicator */}
+        <div className="hidden sm:flex absolute bottom-2 left-1/2 transform -translate-x-1/2 flex-col items-center gap-4 pointer-events-none z-50 animate-blur-in delay-700">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-light">Scroll to explore</span>
+          <div className="w-[1px] h-16 bg-gradient-to-b from-slate-500/50 to-transparent overflow-hidden">
+            <div className="w-full h-full bg-indigo-400/80 animate-scroll-line"></div>
+          </div>
         </div>
       </main>
 
