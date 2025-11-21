@@ -156,8 +156,10 @@ const profile = {
           </div>
 
           {/* Floating gradient orbs - responsive sizes */}
-          <div className="absolute top-1/4 -left-16 sm:-left-24 md:-left-32 w-40 sm:w-56 md:w-80 lg:w-96 h-40 sm:h-56 md:h-80 lg:h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse pointer-events-none" />
-          <div className="absolute bottom-1/4 -right-16 sm:-right-24 md:-right-32 w-40 sm:w-56 md:w-80 lg:w-96 h-40 sm:h-56 md:h-80 lg:h-96 bg-teal-500/10 rounded-full blur-3xl animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-1/4 -left-16 sm:-left-24 md:-left-32 w-40 sm:w-56 md:w-80 lg:w-96 h-40 sm:h-56 md:h-80 lg:h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-1/4 -right-16 sm:-right-24 md:-right-32 w-40 sm:w-56 md:w-80 lg:w-96 h-40 sm:h-56 md:h-80 lg:h-96 bg-teal-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          </div>
 
           {/* Main content container */}
           <div

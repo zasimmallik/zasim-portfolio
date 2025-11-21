@@ -68,7 +68,7 @@ export default function App() {
   return (
     <>
       <Header activeSection={activeSection} onNavClick={handleNavClick} />
-      <main className="flex flex-col">
+      <main className="flex flex-col w-full max-w-[100vw]">
         {SECTION_CONFIG.map(({ id, Component }) => (
           <section
             key={id}
