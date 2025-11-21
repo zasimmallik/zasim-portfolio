@@ -10,13 +10,11 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="py-20 sm:py-28 md:py-32 lg:py-40 text-white bg-[#020617] relative overflow-hidden">
+    <section id="about" className="py-20 sm:py-28 md:py-32 lg:py-40 text-white bg-[#04081A] relative overflow-hidden">
       {/* Enhanced background effects - More subtle and premium */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/5 via-[#020617] to-[#020617]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#020617] to-[#020617]"></div>
         <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay"></div>
-        <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] animate-pulse duration-1000"></div>
-        <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-cyan-600/5 rounded-full blur-[120px] animate-pulse duration-1000" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">

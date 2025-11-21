@@ -236,12 +236,6 @@ const profile = {
             <Meteors number={10} />
           </div>
 
-          {/* Floating gradient orbs - responsive sizes */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-1/4 -left-16 sm:-left-24 md:-left-32 w-40 sm:w-56 md:w-80 lg:w-96 h-40 sm:h-56 md:h-80 lg:h-96 bg-blue-500/10 rounded-full blur-[100px] animate-pulse mix-blend-screen" />
-            <div className="absolute bottom-1/4 -right-16 sm:-right-24 md:-right-32 w-40 sm:w-56 md:w-80 lg:w-96 h-40 sm:h-56 md:h-80 lg:h-96 bg-cyan-500/10 rounded-full blur-[100px] animate-pulse mix-blend-screen" style={{ animationDelay: '1s' }} />
-          </div>
-
           {/* Main content container */}
           <div
             className="container mx-auto flex flex-col lg:flex-row items-center justify-between relative z-10 pt-24 pb-8 sm:pt-32 sm:pb-12 md:pt-32 lg:py-12 lg:pt-28 xl:pt-28 px-3 xs:px-4 sm:px-6 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16"
