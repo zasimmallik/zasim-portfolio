@@ -96,29 +96,33 @@ export default function Projects() {
   return (
     <ReactLenis root>
       <section
-        className="bg-[#04081A] text-white py-12 sm:py-16 md:py-24 lg:py-28 relative"
+        className="bg-[#020617] text-slate-200 py-12 sm:py-16 md:py-24 lg:py-28 relative"
         ref={container}
       >
+        {/* Background Elements */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.1),transparent_50%)]" />
+        </div>
         {/* Enhanced background effects - Matching About page */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/10 via-[#04081A] to-[#04081A]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--tw-gradient-stops))] from-blue-900/5 via-[#020617] to-[#020617]"></div>
           <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay"></div>
-          <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] animate-pulse duration-[4000ms]"></div>
-          <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[120px] animate-pulse duration-[5000ms]" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] animate-pulse duration-1000"></div>
+          <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-cyan-600/5 rounded-full blur-[120px] animate-pulse duration-1000" style={{ animationDelay: '2s' }}></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10 md:space-y-12 relative z-10">
           <div className="text-center space-y-3 sm:space-y-4 md:space-y-5">
             {/* Small Title */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs sm:text-sm font-medium tracking-wide uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/5 border border-blue-500/10 text-blue-400 text-xs sm:text-sm font-medium tracking-wide uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
               Projects
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold bg-linear-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent tracking-tight">
               Featured Projects
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base md:text-lg font-light tracking-wide">
+            <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base md:text-lg font-light tracking-wide">
               "A curated set of products and prototypes built with clarity, precision, and purpose."
             </p>
           </div>

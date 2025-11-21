@@ -72,17 +72,17 @@ const SkillCard = ({ icon: Icon, title, skills, color, index }: SkillCardProps) 
       {/* Animated gradient glow effect */}
       <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/0 via-cyan-500/0 to-purple-500/0 group-hover:from-blue-500/20 group-hover:via-cyan-500/20 group-hover:to-purple-500/20 rounded-2xl blur-xl transition-all duration-500 opacity-0 group-hover:opacity-100" />
 
-      <Card className="relative h-full bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl border border-gray-700/50 group-hover:border-blue-500/30 transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:shadow-blue-500/10 overflow-hidden">
+      <Card className="relative h-full bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 group-hover:border-blue-500/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-blue-500/10 overflow-hidden">
         {/* Shimmer effect */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent group-hover:via-blue-500/10 animate-shimmer" />
 
         <CardContent className="p-6 sm:p-7 relative z-10">
           <div className="flex items-center gap-4 mb-6">
-            <div className={`relative p-3 rounded-xl bg-gray-800/50 border border-gray-700/50 group-hover:border-blue-500/30 transition-all duration-300 group-hover:scale-110 ${color}`}>
+            <div className={`relative p-3 rounded-xl bg-slate-800/50 border border-slate-700/50 group-hover:border-blue-500/30 transition-all duration-300 group-hover:scale-110 ${color}`}>
               <div className="absolute inset-0 bg-blue-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <Icon className="w-6 h-6 sm:w-7 sm:h-7 relative z-10" />
             </div>
-            <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-blue-200 transition-colors">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-200 group-hover:text-blue-200 transition-colors">
               {title}
             </h3>
           </div>
@@ -92,7 +92,7 @@ const SkillCard = ({ icon: Icon, title, skills, color, index }: SkillCardProps) 
               <Badge
                 key={idx}
                 variant="outline"
-                className="relative bg-gray-800/40 hover:bg-gray-700/60 text-gray-300 hover:text-white border-gray-700/50 hover:border-blue-500/30 px-3 py-1.5 text-xs sm:text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10 cursor-default"
+                className="relative bg-slate-800/40 hover:bg-slate-700/60 text-slate-300 hover:text-white border-slate-700/50 hover:border-blue-500/30 px-3 py-1.5 text-xs sm:text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10 cursor-default"
               >
                 <span className="mr-2 text-base opacity-80 group-hover:opacity-100 transition-opacity">{skill.icon}</span>
                 {skill.name}

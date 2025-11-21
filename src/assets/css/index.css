@@ -7,6 +7,29 @@ html {
 body {
   width: 100%;
   overflow-x: hidden;
+  @apply bg-[#020617] text-slate-200 antialiased selection:bg-blue-500/30 selection:text-blue-200;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#020617];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-800 rounded-full border-2 border-[#020617] hover:bg-slate-700 transition-colors;
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  @apply bg-white/5 backdrop-blur-lg border border-white/10;
+}
+
+.glass-card {
+  @apply bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 shadow-xl;
 }
 
 @keyframes float-slow {

@@ -45,11 +45,11 @@ const ExperienceCard = ({
         } transition-all duration-1000 ease-out`}
     >
       {/* Timeline Dot */}
-      <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-[#04081A] z-20 transform -translate-x-1/2 group-hover:scale-150 group-hover:bg-cyan-400 transition-all duration-500 shadow-[0_0_10px_rgba(59,130,246,0.5)] group-hover:shadow-[0_0_20px_rgba(34,211,238,0.8)]"></div>
+      <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-[#020617] z-20 transform -translate-x-1/2 group-hover:scale-150 group-hover:bg-cyan-400 transition-all duration-500 shadow-[0_0_10px_rgba(59,130,246,0.5)] group-hover:shadow-[0_0_20px_rgba(34,211,238,0.8)]"></div>
 
       {/* Content Card */}
       <div className="w-full md:w-[calc(50%-30px)] pl-12 md:pl-0">
-        <div className="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-gray-700/50 hover:border-blue-500/30 backdrop-blur-xl shadow-xl transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-blue-500/10 overflow-hidden">
+        <div className="relative p-6 sm:p-8 rounded-2xl bg-slate-900/50 border border-slate-800/50 hover:border-blue-500/30 backdrop-blur-xl shadow-lg transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-blue-500/10 overflow-hidden">
 
           {/* Glow Effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-cyan-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:via-cyan-500/10 group-hover:to-purple-500/10 transition-all duration-500"></div>
@@ -61,7 +61,7 @@ const ExperienceCard = ({
                 <div className="p-2.5 rounded-xl bg-blue-500/10 border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors duration-300">
                   <Icon className="w-6 h-6 text-blue-400 group-hover:text-cyan-300 transition-colors" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-200 transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-200 group-hover:text-blue-200 transition-colors">
                   {title}
                 </h3>
               </div>
@@ -71,14 +71,14 @@ const ExperienceCard = ({
               </span>
             </div>
 
-            <div className="flex items-center gap-2 text-gray-400 text-sm sm:text-base">
-              <Building2 className="w-4 h-4 text-gray-500" />
-              <span className="font-medium text-gray-300">{company}</span>
+            <div className="flex items-center gap-2 text-slate-400 text-sm sm:text-base">
+              <Building2 className="w-4 h-4 text-slate-500" />
+              <span className="font-medium text-slate-300">{company}</span>
             </div>
           </div>
 
           {/* Description */}
-          <p className="relative z-10 text-gray-400 leading-relaxed text-sm sm:text-base border-l-2 border-gray-700 pl-4 group-hover:border-blue-500/50 transition-colors duration-300">
+          <p className="relative z-10 text-slate-400 leading-relaxed text-sm sm:text-base border-l-2 border-slate-700 pl-4 group-hover:border-blue-500/50 transition-colors duration-300">
             {description}
           </p>
 
@@ -129,7 +129,7 @@ const ExperienceSection = () => {
     <section id="experience" className="relative py-20 sm:py-32 bg-[#04081A] overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-[#04081A] to-[#04081A]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#020617] to-[#020617]"></div>
         <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay"></div>
       </div>
 

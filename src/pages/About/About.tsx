@@ -10,13 +10,13 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="py-20 sm:py-28 md:py-32 lg:py-40 text-white bg-[#04081A] relative overflow-hidden">
+    <section id="about" className="py-20 sm:py-28 md:py-32 lg:py-40 text-white bg-[#020617] relative overflow-hidden">
       {/* Enhanced background effects - More subtle and premium */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/10 via-[#04081A] to-[#04081A]"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay"></div>
-        <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] animate-pulse duration-[4000ms]"></div>
-        <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[120px] animate-pulse duration-[5000ms]" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-900/5 via-[#020617] to-[#020617]"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay"></div>
+        <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] animate-pulse duration-1000"></div>
+        <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-cyan-600/5 rounded-full blur-[120px] animate-pulse duration-1000" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
@@ -25,12 +25,11 @@ export default function About() {
           {/* Left Side - Image (5 columns) */}
           <div className="lg:col-span-5 relative group order-2 lg:order-1">
             <div className="relative z-10">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition duration-700"></div>
-              <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-gray-900/50 backdrop-blur-sm shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition duration-700"></div>
+              <div className="relative rounded-2xl overflow-hidden border border-white/5 bg-slate-900/50 backdrop-blur-sm shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
                 <img
                   src={HeroImg}
-                  className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-all duration-700"
                   alt="Zasim Mallik"
                   width={800}
                   height={1000}
@@ -40,25 +39,25 @@ export default function About() {
             </div>
 
             {/* Decorative elements behind image */}
-            <div className="absolute -bottom-10 -left-10 w-40 h-40 border border-blue-500/20 rounded-full blur-[1px] animate-[spin_10s_linear_infinite]"></div>
-            <div className="absolute -top-10 -right-10 w-24 h-24 border border-cyan-500/20 rounded-full blur-[1px] animate-[spin_8s_linear_infinite_reverse]"></div>
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 border border-blue-500/10 rounded-full blur-[1px] animate-[spin_10s_linear_infinite]"></div>
+            <div className="absolute -top-10 -right-10 w-24 h-24 border border-cyan-500/10 rounded-full blur-[1px] animate-[spin_8s_linear_infinite_reverse]"></div>
           </div>
 
           {/* Right Side - Content (7 columns) */}
           <div className="lg:col-span-7 space-y-8 sm:space-y-10 order-1 lg:order-2">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs sm:text-sm font-medium tracking-wide uppercase">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/5 border border-blue-500/10 text-blue-400 text-xs sm:text-sm font-medium tracking-wide uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
                 About Me
               </div>
 
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
-                Software Engineer<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Full Stack Developer </span>
+                Software Engineer<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400"> Full Stack Developer </span>
               </h2>
 
-              <div className="space-y-6 text-base sm:text-lg text-gray-400 leading-relaxed">
+              <div className="space-y-6 text-base sm:text-lg text-slate-400 leading-relaxed">
                 <p>
-                  Hello! I'm <span className="text-white font-semibold">Zasim Mallik</span>, a Software Engineer and Full Stack Developer based in Bangladesh. My journey in tech is driven by a relentless curiosity and a desire to build tools that matter.
+                  Hello! I'm <span className="text-slate-200 font-semibold">Zasim Mallik</span>, a Software Engineer and Full Stack Developer based in Bangladesh. My journey in tech is driven by a relentless curiosity and a desire to build tools that matter.
                 </p>
                 <p>
                   I specialize in building robust, scalable web applications using modern technologies like <span className="text-blue-300">Next.js</span>, <span className="text-blue-300">TypeScript</span>, and <span className="text-blue-300">Python</span>. Beyond code, I'm exploring the frontiers of AI to create smarter, more intuitive SaaS solutions.
@@ -70,16 +69,16 @@ export default function About() {
             </div>
 
             {/* Quote / Philosophy */}
-            <div className="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 backdrop-blur-md overflow-hidden group hover:border-blue-500/30 transition-colors duration-500">
-              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
+            <div className="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/5 backdrop-blur-md overflow-hidden group hover:border-blue-500/20 transition-colors duration-500">
+              <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
                 <svg className="w-16 h-16 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z" /></svg>
               </div>
               <blockquote className="relative z-10">
-                <p className="text-lg sm:text-xl font-medium text-gray-200 italic mb-4">
+                <p className="text-lg sm:text-xl font-medium text-slate-300 italic mb-4">
                   "I'm a builder at heart, driven by clarity, discipline, and the commitment to create meaningful technology."
                 </p>
                 <footer className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-blue-500/20">
                     ZM
                   </div>
                   <div>

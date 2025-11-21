@@ -131,10 +131,10 @@ export default function Contact() {
   );
 
   return (
-    <section id="contact" className="bg-[#04081A] text-white py-20 sm:py-32 relative overflow-hidden">
+    <section id="contact" className="bg-[#020617] text-slate-200 py-20 sm:py-32 relative overflow-hidden">
       {/* Enhanced background effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-[#04081A] to-[#04081A]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-[#020617] to-[#020617]"></div>
         <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay"></div>
       </div>
 
@@ -145,7 +145,7 @@ export default function Contact() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className={`text-center max-w-3xl mx-auto mb-16 sm:mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/5 border border-blue-500/10 text-blue-400 text-sm font-medium mb-6">
             <MessageSquare className="w-4 h-4" />
             <span>Let's Connect</span>
           </div>
@@ -154,7 +154,7 @@ export default function Contact() {
             Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Touch</span>
           </h2>
 
-          <p className="text-gray-400 text-lg leading-relaxed">
+          <p className="text-slate-400 text-lg leading-relaxed">
             Have a question or want to work together? Drop us a message!
           </p>
         </div>
@@ -166,7 +166,7 @@ export default function Contact() {
               <h3 className="text-2xl sm:text-3xl font-bold text-white">
                 Let's Talk
               </h3>
-              <p className="text-gray-400 text-lg leading-relaxed">
+              <p className="text-slate-400 text-lg leading-relaxed">
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
               </p>
             </div>
@@ -174,28 +174,28 @@ export default function Contact() {
             <div className="space-y-6">
               {/* Email Card */}
               <div className="group relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/20 group-hover:to-blue-500/20 rounded-2xl blur-lg transition-all duration-500 opacity-0 group-hover:opacity-100" />
-                <div className="relative flex items-center gap-5 bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl border border-gray-700/50 group-hover:border-purple-500/30 p-6 rounded-2xl transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-purple-500/10">
-                  <div className="bg-purple-500/10 p-4 rounded-xl border border-purple-500/20 group-hover:bg-purple-500/20 transition-colors">
-                    <Mail className="w-6 h-6 text-purple-400" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/20 group-hover:to-cyan-500/20 rounded-2xl blur-lg transition-all duration-500 opacity-0 group-hover:opacity-100" />
+                <div className="relative flex items-center gap-5 bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 group-hover:border-blue-500/30 p-6 rounded-2xl transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-blue-500/10">
+                  <div className="bg-blue-500/10 p-4 rounded-xl border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors">
+                    <Mail className="w-6 h-6 text-blue-400" />
                   </div>
                   <div className="min-w-0">
                     <h4 className="font-semibold text-white mb-1">Email</h4>
-                    <p className="text-gray-400 text-sm sm:text-base truncate">zasimmallickofficial@gmail.com</p>
+                    <p className="text-slate-400 text-sm sm:text-base truncate">zasimmallickofficial@gmail.com</p>
                   </div>
                 </div>
               </div>
 
               {/* Location Card */}
               <div className="group relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-500/0 to-purple-500/0 group-hover:from-pink-500/20 group-hover:to-purple-500/20 rounded-2xl blur-lg transition-all duration-500 opacity-0 group-hover:opacity-100" />
-                <div className="relative flex items-center gap-5 bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl border border-gray-700/50 group-hover:border-pink-500/30 p-6 rounded-2xl transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-pink-500/10">
-                  <div className="bg-pink-500/10 p-4 rounded-xl border border-pink-500/20 group-hover:bg-pink-500/20 transition-colors">
-                    <MapPin className="w-6 h-6 text-pink-400" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/20 group-hover:to-pink-500/20 rounded-2xl blur-lg transition-all duration-500 opacity-0 group-hover:opacity-100" />
+                <div className="relative flex items-center gap-5 bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 group-hover:border-purple-500/30 p-6 rounded-2xl transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-purple-500/10">
+                  <div className="bg-purple-500/10 p-4 rounded-xl border border-purple-500/20 group-hover:bg-purple-500/20 transition-colors">
+                    <MapPin className="w-6 h-6 text-purple-400" />
                   </div>
                   <div className="min-w-0">
                     <h4 className="font-semibold text-white mb-1">Location</h4>
-                    <p className="text-gray-400 text-sm sm:text-base">Natullabad, Barisal, Bangladesh</p>
+                    <p className="text-slate-400 text-sm sm:text-base">Natullabad, Barisal, Bangladesh</p>
                   </div>
                 </div>
               </div>
@@ -204,10 +204,10 @@ export default function Contact() {
             {/* Additional info card */}
             <div className="relative mt-8">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-2xl blur-lg" />
-              <div className="relative bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 sm:p-8">
+              <div className="relative bg-slate-900/50 backdrop-blur-sm border border-slate-800/50 rounded-2xl p-6 sm:p-8">
                 <div className="flex gap-4">
                   <div className="text-blue-400 text-5xl leading-none font-serif opacity-50">"</div>
-                  <p className="text-gray-300 text-lg leading-relaxed italic pt-2">
+                  <p className="text-slate-300 text-lg leading-relaxed italic pt-2">
                     Looking forward to hearing from you and discussing how we can work together to bring your ideas to life.
                   </p>
                 </div>
@@ -219,19 +219,19 @@ export default function Contact() {
           <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <form onSubmit={handleSubmit} className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-blue-500/0 group-hover:from-blue-500/10 group-hover:via-purple-500/10 group-hover:to-blue-500/10 rounded-3xl blur-xl transition-all duration-500" />
-              <div className="relative backdrop-blur-xl bg-gray-900/80 p-6 sm:p-8 md:p-10 rounded-3xl shadow-2xl border border-gray-700/50">
+              <div className="relative backdrop-blur-xl bg-slate-900/50 p-6 sm:p-8 md:p-10 rounded-3xl shadow-2xl border border-slate-800/50">
                 <div className="space-y-6">
                   <div className="grid grid-cols-1 gap-6">
                     {/* Name Input */}
                     <div className="group/input">
-                      <label className="block text-sm font-medium text-gray-400 mb-2 ml-1"></label>
+                      <label className="block text-sm font-medium text-slate-400 mb-2 ml-1"></label>
                       <input
                         type="text"
                         name="name"
                         placeholder="Name"
-                        className={`w-full px-5 py-4 rounded-xl bg-gray-800/50 border text-white placeholder-gray-500 transition-all duration-300 ${errors.name
+                        className={`w-full px-5 py-4 rounded-xl bg-slate-950/50 border text-white placeholder-slate-500 transition-all duration-300 ${errors.name
                           ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
-                          : 'border-gray-700/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-gray-600'
+                          : 'border-slate-800/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-slate-700'
                           } focus:ring-4 focus:outline-none`}
                         value={formData.name}
                         onChange={handleInputChange}
@@ -246,14 +246,14 @@ export default function Contact() {
 
                     {/* Email Input */}
                     <div className="group/input">
-                      <label className="block text-sm font-medium text-gray-400 mb-2 ml-1"></label>
+                      <label className="block text-sm font-medium text-slate-400 mb-2 ml-1"></label>
                       <input
                         type="email"
                         name="email"
                         placeholder="Email"
-                        className={`w-full px-5 py-4 rounded-xl bg-gray-800/50 border text-white placeholder-gray-500 transition-all duration-300 ${errors.email
+                        className={`w-full px-5 py-4 rounded-xl bg-slate-950/50 border text-white placeholder-slate-500 transition-all duration-300 ${errors.email
                           ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
-                          : 'border-gray-700/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-gray-600'
+                          : 'border-slate-800/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-slate-700'
                           } focus:ring-4 focus:outline-none`}
                         value={formData.email}
                         onChange={handleInputChange}
@@ -268,14 +268,14 @@ export default function Contact() {
 
                     {/* Subject Input */}
                     <div className="group/input">
-                      <label className="block text-sm font-medium text-gray-400 mb-2 ml-1"></label>
+                      <label className="block text-sm font-medium text-slate-400 mb-2 ml-1"></label>
                       <input
                         type="text"
                         name="subject"
                         placeholder="Subject"
-                        className={`w-full px-5 py-4 rounded-xl bg-gray-800/50 border text-white placeholder-gray-500 transition-all duration-300 ${errors.subject
+                        className={`w-full px-5 py-4 rounded-xl bg-slate-950/50 border text-white placeholder-slate-500 transition-all duration-300 ${errors.subject
                           ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
-                          : 'border-gray-700/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-gray-600'
+                          : 'border-slate-800/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-slate-700'
                           } focus:ring-4 focus:outline-none`}
                         value={formData.subject}
                         onChange={handleInputChange}
@@ -290,14 +290,14 @@ export default function Contact() {
 
                     {/* Message Textarea */}
                     <div className="group/input">
-                      <label className="block text-sm font-medium text-gray-400 mb-2 ml-1"></label>
+                      <label className="block text-sm font-medium text-slate-400 mb-2 ml-1"></label>
                       <textarea
                         name="message"
                         placeholder="Message"
                         rows={5}
-                        className={`w-full px-5 py-4 rounded-xl bg-gray-800/50 border text-white placeholder-gray-500 transition-all duration-300 resize-none ${errors.message
+                        className={`w-full px-5 py-4 rounded-xl bg-slate-950/50 border text-white placeholder-slate-500 transition-all duration-300 resize-none ${errors.message
                           ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
-                          : 'border-gray-700/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-gray-600'
+                          : 'border-slate-800/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-slate-700'
                           } focus:ring-4 focus:outline-none`}
                         value={formData.message}
                         onChange={handleInputChange}

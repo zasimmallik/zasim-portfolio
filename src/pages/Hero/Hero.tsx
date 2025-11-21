@@ -7,7 +7,6 @@ import SparklesText from "@/components/ui/sparkles-text";
 import { FlipWords } from "@/components/ui/flip-words";
 
 // Enhanced Grid Background
-// Enhanced Grid Background
 const GridBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -36,7 +35,8 @@ const GridBackground = () => {
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#020617]/50 to-[#020617]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#020617]/80 to-[#020617]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#020617_100%)] opacity-60" />
     </div>
   );
 };
@@ -203,18 +203,18 @@ const profile = {
 
   return (
     <>
-      <main className="bg-[#020617] text-white min-h-screen relative overflow-hidden selection:bg-indigo-500/30">
+      <main className="bg-[#020617] text-slate-200 min-h-screen relative overflow-hidden selection:bg-blue-500/30">
         {/* Ultra Premium Background - Aurora Effect */}
         <div className="absolute inset-0 bg-[#020617]">
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-30 mix-blend-soft-light pointer-events-none"></div>
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light pointer-events-none"></div>
           <div
-            className="absolute -inset-[10px] opacity-50 blur-[100px]"
+            className="absolute -inset-[10px] opacity-30 blur-[100px]"
             style={{
               backgroundImage: `
-                radial-gradient(circle at 50% 50%, rgba(76, 29, 149, 0.15), transparent 50%),
-                radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.1), transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15), transparent 50%),
+                radial-gradient(circle at 0% 0%, rgba(14, 165, 233, 0.1), transparent 50%),
                 radial-gradient(circle at 100% 0%, rgba(139, 92, 246, 0.15), transparent 50%),
-                radial-gradient(circle at 100% 100%, rgba(56, 189, 248, 0.1), transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(14, 165, 233, 0.1), transparent 50%),
                 radial-gradient(circle at 0% 100%, rgba(139, 92, 246, 0.15), transparent 50%)
               `,
             }}
@@ -238,8 +238,8 @@ const profile = {
 
           {/* Floating gradient orbs - responsive sizes */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-1/4 -left-16 sm:-left-24 md:-left-32 w-40 sm:w-56 md:w-80 lg:w-96 h-40 sm:h-56 md:h-80 lg:h-96 bg-blue-500/20 rounded-full blur-[100px] animate-pulse mix-blend-screen" />
-            <div className="absolute bottom-1/4 -right-16 sm:-right-24 md:-right-32 w-40 sm:w-56 md:w-80 lg:w-96 h-40 sm:h-56 md:h-80 lg:h-96 bg-teal-500/20 rounded-full blur-[100px] animate-pulse mix-blend-screen" style={{ animationDelay: '1s' }} />
+            <div className="absolute top-1/4 -left-16 sm:-left-24 md:-left-32 w-40 sm:w-56 md:w-80 lg:w-96 h-40 sm:h-56 md:h-80 lg:h-96 bg-blue-500/10 rounded-full blur-[100px] animate-pulse mix-blend-screen" />
+            <div className="absolute bottom-1/4 -right-16 sm:-right-24 md:-right-32 w-40 sm:w-56 md:w-80 lg:w-96 h-40 sm:h-56 md:h-80 lg:h-96 bg-cyan-500/10 rounded-full blur-[100px] animate-pulse mix-blend-screen" style={{ animationDelay: '1s' }} />
           </div>
 
           {/* Main content container */}
@@ -259,9 +259,9 @@ const profile = {
             <div className={`w-full lg:w-1/2 mb-6 sm:mb-8 lg:mb-0 relative z-20`}>
 
               {/* Welcome badge - fully responsive */}
-              <div className="animate-blur-in inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 mb-8 hover:bg-white/10 transition-all duration-500 group cursor-default">
-                <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse shadow-[0_0_10px_rgba(129,140,248,0.5)]"></div>
-                <span className="text-slate-300 text-xs font-medium tracking-[0.2em] uppercase">
+              <div className="animate-blur-in inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/5 backdrop-blur-xl border border-blue-500/10 mb-8 hover:bg-blue-500/10 transition-all duration-500 group cursor-default">
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                <span className="text-blue-300 text-xs font-medium tracking-[0.2em] uppercase">
                   Welcome to my universe
                 </span>
               </div>
@@ -271,7 +271,7 @@ const profile = {
                 <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tight">
                   <span className="block text-slate-400 font-light text-2xl xs:text-3xl sm:text-4xl mb-2 tracking-normal">Hello, I&apos;m</span>
                   <span className="relative inline-block">
-                    <span className="typing-effect gradient-text bg-gradient-to-r from-white via-indigo-200 to-slate-400 bg-[length:200%_auto] animate-[gradientX_8s_ease_infinite] bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(99,102,241,0.3)]">
+                    <span className="typing-effect gradient-text bg-gradient-to-r from-white via-blue-200 to-slate-400 bg-size-[200%_auto] animate-[gradientX_8s_ease_infinite] bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(59,130,246,0.3)]">
                       Zasim Mallik
                     </span>
                   </span>
@@ -279,11 +279,11 @@ const profile = {
               </div>
 
               {/* Role badge - responsive */}
-              <div className="animate-blur-in delay-200 inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 mb-10 backdrop-blur-sm hover:border-indigo-500/40 transition-all duration-500 hover:bg-indigo-500/20 group cursor-default">
-                <i className="fas fa-rocket text-indigo-400 group-hover:animate-bounce text-sm transition-transform group-hover:rotate-12"></i>
+              <div className="animate-blur-in delay-200 inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-500/5 to-cyan-500/5 border border-blue-500/10 mb-10 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-500 hover:bg-blue-500/10 group cursor-default">
+                <i className="fas fa-rocket text-blue-400 group-hover:animate-bounce text-sm transition-transform group-hover:rotate-12"></i>
                 <span className="min-w-0">
                   <FlipWords
-                    className={"text-base md:text-lg text-indigo-300 font-medium truncate tracking-wide"}
+                    className={"text-base md:text-lg !text-blue-500 font-medium truncate tracking-wide"}
                     words={words}
                   />
                 </span>
@@ -291,7 +291,7 @@ const profile = {
 
               {/* Description - responsive */}
               <div className="relative mb-12 max-w-xl group animate-blur-in delay-300">
-                <p className="text-base md:text-lg lg:text-xl text-slate-400/90 leading-relaxed font-light tracking-wide group-hover:text-slate-200 transition-colors duration-500">
+                <p className="text-base md:text-lg lg:text-xl text-slate-400 leading-relaxed font-light tracking-wide group-hover:text-slate-200 transition-colors duration-500">
                   Full-Stack & AI SaaS Developer 🚀 | Building Next-Gen Products That Solve Real Problems 💻✨
                 </p>
               </div>
@@ -305,7 +305,7 @@ const profile = {
                   rel="noopener noreferrer"
                   className="group relative inline-flex items-center justify-center w-full sm:w-auto overflow-hidden rounded-full"
                 >
-                  <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-indigo-600 to-violet-600 opacity-100 group-hover:opacity-90 transition-opacity duration-300"></span>
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-600 to-cyan-600 opacity-100 group-hover:opacity-90 transition-opacity duration-300"></span>
                   <span className="relative inline-flex items-center justify-center gap-3 px-8 py-4 w-full sm:w-auto">
                     <span className="text-white font-medium text-sm tracking-widest uppercase">View GitHub</span>
                     <i className="fas fa-github text-white/90 transform transition-all duration-300 group-hover:translate-x-1 group-hover:text-white text-sm"></i>
@@ -349,9 +349,9 @@ const profile = {
             <div className={`w-full lg:w-1/2 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
               <div className="relative group max-w-full">
                 {/* Enhanced gradient border effect */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/30 via-teal-500/30 to-blue-500/30 rounded-2xl blur-xl opacity-50 group-hover:opacity-70 transition-all duration-500 animate-gradient" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/30 via-cyan-500/30 to-blue-500/30 rounded-2xl blur-xl opacity-50 group-hover:opacity-70 transition-all duration-500 animate-gradient" />
 
-                <div className="relative rounded-2xl bg-[#0B1120]/80 border border-slate-700/30 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.05)] overflow-hidden backdrop-blur-xl">
+                <div className="relative rounded-2xl bg-[#0B1120]/90 border border-slate-700/50 shadow-2xl overflow-hidden backdrop-blur-xl">
                   {/* Shine effect */}
                   <div className="absolute inset-0 opacity-20 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shine_1.5s_ease-in-out] pointer-events-none z-10" />
 
@@ -387,7 +387,7 @@ const profile = {
         <div className="hidden sm:flex absolute bottom-2 left-1/2 transform -translate-x-1/2 flex-col items-center gap-4 pointer-events-none z-50 animate-blur-in delay-700">
           <span className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-light">Scroll to explore</span>
           <div className="w-[1px] h-16 bg-gradient-to-b from-slate-500/50 to-transparent overflow-hidden">
-            <div className="w-full h-full bg-indigo-400/80 animate-scroll-line"></div>
+            <div className="w-full h-full bg-blue-400/80 animate-scroll-line"></div>
           </div>
         </div>
       </main>

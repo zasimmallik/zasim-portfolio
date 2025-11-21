@@ -39,10 +39,10 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
           className={`pointer-events-auto relative flex items-center justify-between lg:justify-center shadow-lg backdrop-blur-md transition-all duration-300 
             w-full lg:w-auto
             rounded-none lg:rounded-full 
-            border-b border-white/10 lg:border
+            border-b border-white/5 lg:border lg:border-white/10
             ${isScrolled
-              ? 'bg-background/90 supports-[backdrop-filter]:bg-background/70 py-3 lg:py-2 px-4 lg:px-6'
-              : 'bg-background/80 supports-[backdrop-filter]:bg-background/40 py-4 lg:py-3 px-4 lg:px-8'
+              ? 'bg-[#020617]/80 supports-backdrop-filter:bg-[#020617]/60 py-3 lg:py-2 px-4 lg:px-6 shadow-blue-900/5'
+              : 'bg-transparent py-4 lg:py-3 px-4 lg:px-8'
             }`}
         >
           {/* Desktop Navigation - Visible on Large Screens */}
@@ -56,14 +56,14 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
                   <button
                     onClick={() => handleNavClick(link.id)}
                     className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-full flex items-center gap-2 ${isActive
-                      ? 'text-blue-500'
-                      : 'text-muted-foreground hover:text-foreground'
+                      ? 'text-blue-400'
+                      : 'text-slate-400 hover:text-slate-200'
                       }`}
                   >
                     {isActive && (
                       <motion.div
                         layoutId="activeTab"
-                        className="absolute inset-0 bg-blue-500/10 border border-blue-500/20 rounded-full -z-10"
+                        className="absolute inset-0 bg-blue-500/10 border border-blue-500/20 rounded-full -z-10 shadow-[0_0_10px_rgba(59,130,246,0.2)]"
                         transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                       />
                     )}
