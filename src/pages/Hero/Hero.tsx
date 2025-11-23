@@ -252,17 +252,17 @@ const profile = {
             <div className={`w-full lg:w-1/2 mb-6 sm:mb-8 lg:mb-0 relative z-20`}>
 
               {/* Welcome badge - fully responsive */}
-              <div className="animate-blur-in inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/5 backdrop-blur-xl border border-blue-500/10 mb-8 hover:bg-blue-500/10 transition-all duration-500 group cursor-default">
+              <div className="animate-blur-in inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-blue-500/5 backdrop-blur-xl border border-blue-500/10 mb-6 sm:mb-8 hover:bg-blue-500/10 transition-all duration-500 group cursor-default">
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                <span className="text-blue-300 text-xs font-medium tracking-[0.2em] uppercase">
+                <span className="text-blue-300 text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase">
                   Welcome to my universe
                 </span>
               </div>
 
               {/* Name section - responsive text sizes */}
-              <div className="relative mb-8 animate-blur-in delay-100">
+              <div className="relative mb-6 sm:mb-8 animate-blur-in delay-100">
                 <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tight">
-                  <span className="block text-slate-400 font-light text-2xl xs:text-3xl sm:text-4xl mb-2 tracking-normal">Hello, I&apos;m</span>
+                  <span className="block text-slate-400 font-light text-xl xs:text-2xl sm:text-3xl md:text-4xl mb-2 tracking-normal">Hello, I&apos;m</span>
                   <span className="relative inline-block">
                     <span className="typing-effect gradient-text bg-gradient-to-r from-white via-blue-200 to-slate-400 bg-size-[200%_auto] animate-[gradientX_8s_ease_infinite] bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(59,130,246,0.3)]">
                       Zasim Mallik
@@ -272,11 +272,11 @@ const profile = {
               </div>
 
               {/* Role badge - responsive */}
-              <div className="animate-blur-in delay-200 inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-500/5 to-cyan-500/5 border border-blue-500/10 mb-10 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-500 hover:bg-blue-500/10 group cursor-default">
-                <i className="fas fa-rocket text-blue-400 group-hover:animate-bounce text-sm transition-transform group-hover:rotate-12"></i>
-                <span className="min-w-0">
+              <div className="animate-blur-in delay-200 inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3 rounded-2xl bg-gradient-to-r from-blue-500/5 to-cyan-500/5 border border-blue-500/10 mb-8 sm:mb-10 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-500 hover:bg-blue-500/10 group cursor-default w-full sm:w-auto max-w-full">
+                <i className="fas fa-rocket text-blue-400 group-hover:animate-bounce text-xs sm:text-sm transition-transform group-hover:rotate-12 shrink-0"></i>
+                <span className="min-w-0 flex-1 sm:flex-none overflow-hidden">
                   <FlipWords
-                    className={"text-base md:text-lg !text-blue-500 font-medium truncate tracking-wide"}
+                    className={"text-sm sm:text-base md:text-lg !text-blue-500 font-medium truncate tracking-wide block w-full"}
                     words={words}
                   />
                 </span>
