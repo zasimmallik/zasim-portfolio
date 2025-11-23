@@ -21,7 +21,8 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
     this.state = { hasError: false, error: null, errorInfo: null };
   }
 
-  static getDerivedStateFromError(error: Error): Partial<ErrorBoundaryState> {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  static getDerivedStateFromError(_: Error): Partial<ErrorBoundaryState> {
     return { hasError: true };
   }
 
@@ -53,7 +54,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
                 We encountered an unexpected error. Please try refreshing the page.
               </p>
 
-              {(import.meta as any).env.DEV && this.state.error && (
+              {import.meta.env.DEV && this.state.error && (
                 <details className="mt-4 p-4 bg-slate-900 rounded text-left text-sm text-gray-400 border border-red-500/20">
                   <summary className="cursor-pointer text-red-400 mb-2">Error Details</summary>
                   <p className="font-mono text-xs whitespace-pre-wrap">

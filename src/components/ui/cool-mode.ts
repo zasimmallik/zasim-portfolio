@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, ReactNode } from "react";
+import React, { useEffect, useRef } from "react";
 
 const getContainer = () => {
   const id = "_coolMode_effect";
-  let existingContainer = document.getElementById(id);
+  const existingContainer = document.getElementById(id);
 
   if (existingContainer) {
     return existingContainer;
@@ -29,6 +29,18 @@ interface CoolModeOptions {
   speedUp?: number;
 }
 
+interface Particle {
+  direction: number;
+  element: HTMLElement;
+  left: number;
+  size: number;
+  speedHorz: number;
+  speedUp: number;
+  spinSpeed: number;
+  spinVal: number;
+  top: number;
+}
+
 const applyParticleEffect = (element: HTMLElement, options?: CoolModeOptions) => {
   instanceCounter++;
 
@@ -37,7 +49,7 @@ const applyParticleEffect = (element: HTMLElement, options?: CoolModeOptions) =>
   const sizes = [15, 20, 25, 35, 45];
   const limit = 45;
 
-  let particles: any[] = [];
+  let particles: Particle[] = [];
   let autoAddParticle = false;
   let mouseX = 0;
   let mouseY = 0;
@@ -146,17 +158,17 @@ const applyParticleEffect = (element: HTMLElement, options?: CoolModeOptions) =>
   const tapEnd = isTouchInteraction ? "touchend" : "mouseup";
   const move = isTouchInteraction ? "touchmove" : "mousemove";
 
-  const updateMousePosition = (e: any) => {
+  const updateMousePosition = (e: MouseEvent | TouchEvent) => {
     if ("touches" in e) {
       mouseX = e.touches?.[0].clientX;
       mouseY = e.touches?.[0].clientY;
     } else {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      mouseX = (e as MouseEvent).clientX;
+      mouseY = (e as MouseEvent).clientY;
     }
   };
 
-  const tapHandler = (e: any) => {
+  const tapHandler = (e: MouseEvent | TouchEvent) => {
     updateMousePosition(e);
     autoAddParticle = true;
   };
@@ -205,6 +217,6 @@ export const CoolMode = ({ children, options }: CoolModeProps) => {
     }
   }, [options]);
 
-  return React.cloneElement(children, { ref } as any);
+  return React.cloneElement(children, { ref } as React.Attributes & { ref: React.RefObject<HTMLElement | null> });
 };
 

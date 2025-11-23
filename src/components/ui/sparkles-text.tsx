@@ -15,12 +15,11 @@ interface Sparkle {
   lifespan: number;
 }
 
-interface SparklesTextProps {
+interface SparklesTextProps extends React.HTMLAttributes<HTMLDivElement> {
   text: string;
   colors?: { first: string; second: string };
   className?: string;
   sparklesCount?: number;
-  [key: string]: any;
 }
 
 const SparklesText = ({

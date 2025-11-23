@@ -121,7 +121,7 @@ export default function Projects() {
               Featured Projects
             </h2>
             <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base md:text-lg font-light tracking-wide">
-              "A curated set of products and prototypes built with clarity, precision, and purpose."
+              &quot;A curated set of products and prototypes built with clarity, precision, and purpose.&quot;
             </p>
           </div>
 

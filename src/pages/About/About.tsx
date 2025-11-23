@@ -55,10 +55,10 @@ export default function About() {
 
               <div className="space-y-6 text-base sm:text-lg text-slate-400 leading-relaxed">
                 <p>
-                  Hello! I'm <span className="text-slate-200 font-semibold">Zasim Mallik</span>, a Software Engineer and Full Stack Developer based in Bangladesh. My journey in tech is driven by a relentless curiosity and a desire to build tools that matter.
+                  Hello! I&apos;m <span className="text-slate-200 font-semibold">Zasim Mallik</span>, a Software Engineer and Full Stack Developer based in Bangladesh. My journey in tech is driven by a relentless curiosity and a desire to build tools that matter.
                 </p>
                 <p>
-                  I specialize in building robust, scalable web applications using modern technologies like <span className="text-blue-300">Next.js</span>, <span className="text-blue-300">TypeScript</span>, and <span className="text-blue-300">Python</span>. Beyond code, I'm exploring the frontiers of AI to create smarter, more intuitive SaaS solutions.
+                  I specialize in building robust, scalable web applications using modern technologies like <span className="text-blue-300">Next.js</span>, <span className="text-blue-300">TypeScript</span>, and <span className="text-blue-300">Python</span>. Beyond code, I&apos;m exploring the frontiers of AI to create smarter, more intuitive SaaS solutions.
                 </p>
                 <p>
                   Self-taught and independent, I value clarity, efficiency, and continuous learning. Every project is an opportunity to push boundaries and deliver excellence.
@@ -73,7 +73,7 @@ export default function About() {
               </div>
               <blockquote className="relative z-10">
                 <p className="text-lg sm:text-xl font-medium text-slate-300 italic mb-4">
-                  "I'm a builder at heart, driven by clarity, discipline, and the commitment to create meaningful technology."
+                  &quot;I&apos;m a builder at heart, driven by clarity, discipline, and the commitment to create meaningful technology.&quot;
                 </p>
                 <footer className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-blue-500/20">

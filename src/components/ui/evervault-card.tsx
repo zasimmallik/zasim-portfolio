@@ -10,18 +10,18 @@ interface EvervaultCardProps {
 }
 
 export const EvervaultCard = ({ text, className }: EvervaultCardProps) => {
-  let mouseX = useMotionValue(0);
-  let mouseY = useMotionValue(0);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
   const [randomString, setRandomString] = useState("");
 
   useEffect(() => {
-    let str = generateRandomString(1500);
+    const str = generateRandomString(1500);
     setRandomString(str);
   }, []);
 
   function onMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent<HTMLDivElement>) {
-    let { left, top } = (currentTarget as HTMLDivElement).getBoundingClientRect();
+    const { left, top } = (currentTarget as HTMLDivElement).getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
 
@@ -63,8 +63,8 @@ interface CardPatternProps {
 }
 
 export function CardPattern({ mouseX, mouseY, randomString }: CardPatternProps) {
-  let maskImage = useMotionTemplate`radial-gradient(250px at ${mouseX}px ${mouseY}px, white, transparent)`;
-  let style = { maskImage, WebkitMaskImage: maskImage };
+  const maskImage = useMotionTemplate`radial-gradient(250px at ${mouseX}px ${mouseY}px, white, transparent)`;
+  const style = { maskImage, WebkitMaskImage: maskImage };
 
   return (
     <div className="pointer-events-none">
@@ -87,7 +87,7 @@ export function CardPattern({ mouseX, mouseY, randomString }: CardPatternProps) 
 
 const characters =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-export const generateRandomString = (length: number) => {
+const generateRandomString = (length: number) => {
   let result = "";
   for (let i = 0; i < length; i++) {
     result += characters.charAt(Math.floor(Math.random() * characters.length));
@@ -95,9 +95,8 @@ export const generateRandomString = (length: number) => {
   return result;
 };
 
-interface IconProps {
+interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string;
-  [key: string]: any;
 }
 
 export const Icon = ({ className, ...rest }: IconProps) => {

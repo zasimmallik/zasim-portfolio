@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Code2, Activity, Cpu, Layers, Binary, LucideIcon, Calendar, Building2 } from "lucide-react";
+import { Code2, Activity, Cpu, Layers, LucideIcon, Calendar, Building2 } from "lucide-react";
 
 interface ExperienceCardProps {
   title: string;
@@ -16,7 +16,6 @@ const ExperienceCard = ({
   period,
   description,
   icon: Icon,
-  index,
 }: ExperienceCardProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -146,7 +145,7 @@ const ExperienceSection = () => {
           </h2>
 
           <p className="text-gray-400 text-lg leading-relaxed">
-            "Shaped by initiative, real problem-solving, and building products that matter."
+            &quot;Shaped by initiative, real problem-solving, and building products that matter.&quot;
           </p>
         </div>
 

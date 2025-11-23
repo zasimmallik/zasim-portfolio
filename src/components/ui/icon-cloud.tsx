@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTheme } from "next-themes";
-import { Cloud, fetchSimpleIcons, renderSimpleIcon } from "react-icon-cloud";
+import { Cloud, fetchSimpleIcons, renderSimpleIcon, SimpleIcon } from "react-icon-cloud";
 
-export const cloudProps = {
+const cloudProps = {
   containerProps: {
     style: {
       display: "flex",
@@ -29,7 +29,7 @@ export const cloudProps = {
   },
 };
 
-export const renderCustomIcon = (icon: any, theme: string, imageArray?: string[]) => {
+const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
   const bgHex = theme === "light" ? "#f3f2ef" : "#080510";
   const fallbackHex = theme === "light" ? "#6e6e73" : "#ffffff";
   const minContrastRatio = theme === "dark" ? 2 : 1.2;
@@ -60,7 +60,7 @@ export default function IconCloud({
 
   imageArray,
 }: IconCloudProps) {
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<{ simpleIcons: Record<string, SimpleIcon> } | null>(null);
   const { theme } = useTheme();
   const currentTheme = theme || "dark";
 
@@ -74,13 +74,13 @@ export default function IconCloud({
   const renderedIcons = useMemo(() => {
     if (!data) return null;
 
-    return Object.values(data.simpleIcons).map((icon: any) =>
+    return Object.values(data.simpleIcons).map((icon) =>
       renderCustomIcon(icon, currentTheme)
     );
   }, [data, currentTheme]);
 
   return (
-    // @ts-ignore
+    // @ts-expect-error - Cloud component types might be incompatible
     <Cloud {...cloudProps}>
       <>
         <>{renderedIcons}</>

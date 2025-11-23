@@ -9,9 +9,13 @@ interface MeteorStyle {
   animationDuration: string;
 }
 
+interface MeteorsProps {
+  number?: number;
+}
+
 export const Meteors = ({
   number = 20
-}) => {
+}: MeteorsProps) => {
   const [meteorStyles, setMeteorStyles] = useState<MeteorStyle[]>([]);
 
   useEffect(() => {

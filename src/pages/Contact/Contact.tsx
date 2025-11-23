@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Send, Phone, MapPin, Mail, MessageSquare, ArrowRight } from 'lucide-react';
+import { Send, MapPin, Mail, MessageSquare } from 'lucide-react';
 import { validateEmail, validateRequired } from '@/utils/validators';
-import { handleError, getErrorMessage } from '@/utils/errorHandler';
-import { CONTACT_INFO, TEXTS } from '@/config/constants';
+import { handleError } from '@/utils/errorHandler';
+import { CONTACT_INFO } from '@/config/constants';
 
 interface FormData {
   name: string;
@@ -93,7 +93,7 @@ export default function Contact() {
       try {
         // Create a new FormData object to send to Web3Forms API
         const form = new FormData();
-        form.append('access_key', (import.meta.env as any).VITE_WEB3FORMS_KEY || '');
+        form.append('access_key', import.meta.env.VITE_WEB3FORMS_KEY || '');
         form.append('email_to', CONTACT_INFO.EMAIL); // Your email to receive messages
         form.append('name', formData.name);
         form.append('email', formData.email);
@@ -106,7 +106,7 @@ export default function Contact() {
           body: form,
         });
 
-        const result = await response.json();
+        await response.json();
 
         if (response.ok) {
           setStatus('success');
@@ -143,7 +143,7 @@ export default function Contact() {
         <div className={`text-center max-w-3xl mx-auto mb-16 sm:mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/5 border border-blue-500/10 text-blue-400 text-sm font-medium mb-6">
             <MessageSquare className="w-4 h-4" />
-            <span>Let's Connect</span>
+            <span>Let&apos;s Connect</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
@@ -160,10 +160,10 @@ export default function Contact() {
           <div className={`space-y-8 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="space-y-4">
               <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                Let's Talk
+                Let&apos;s Talk
               </h3>
               <p className="text-slate-400 text-lg leading-relaxed">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
               </p>
             </div>
 
@@ -202,7 +202,7 @@ export default function Contact() {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-2xl blur-lg" />
               <div className="relative bg-slate-900/50 backdrop-blur-sm border border-slate-800/50 rounded-2xl p-6 sm:p-8">
                 <div className="flex gap-4">
-                  <div className="text-blue-400 text-5xl leading-none font-serif opacity-50">"</div>
+                  <div className="text-blue-400 text-5xl leading-none font-serif opacity-50">&quot;</div>
                   <p className="text-slate-300 text-lg leading-relaxed italic pt-2">
                     Looking forward to hearing from you and discussing how we can work together to bring your ideas to life.
                   </p>
