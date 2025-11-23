@@ -1,7 +1,5 @@
-# Zasim Mallik | Full-Stack Developer
+# Zasim Mallik's Digital Portfolio.
 
-![Portfolio Homepage](src/assets/images/Demo.png)
+![Zasim Mallik's Digital Portfolio](src/assets/images/Demo.png?raw=true "Zasim Mallik's Digital Portfolio")
 
-## 🔗 Live Demo
-
-[**https://zasimmallik.vercel.app/**](https://zasimmallik.vercel.app/)
+[Live Demo](https://zasimmallik.vercel.app/)
