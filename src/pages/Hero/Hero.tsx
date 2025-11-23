@@ -296,23 +296,23 @@ const profile = {
                   href="https://github.com/zasimmallik"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center w-full sm:w-auto overflow-hidden rounded-full"
+                  className="group relative inline-flex items-center justify-center w-full sm:w-auto overflow-hidden rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(45,212,191,0.3)]"
                 >
-                  <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-600 to-cyan-600 opacity-100 group-hover:opacity-90 transition-opacity duration-300"></span>
+                  <span className="absolute inset-0 w-full h-full bg-white/[0.05] backdrop-blur-xl border border-white/10 rounded-full group-hover:bg-white/[0.1] transition-all duration-300"></span>
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#2DD4BF]/10 to-[#38BDF8]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></span>
                   <span className="relative inline-flex items-center justify-center gap-3 px-8 py-4 w-full sm:w-auto">
-                    <span className="text-white font-medium text-sm tracking-widest uppercase">View GitHub</span>
-                    <i className="fas fa-github text-white/90 transform transition-all duration-300 group-hover:translate-x-1 group-hover:text-white text-sm"></i>
+                    <span className="text-slate-200 font-medium text-sm tracking-widest uppercase group-hover:text-white transition-colors">View GitHub</span>
+                    <i className="fas fa-github text-[#38BDF8] transform transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#2DD4BF] text-lg"></i>
                   </span>
-                  <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent z-20" />
                 </a>
 
                 {/* Resume Button */}
                 <a
                   href="/resume.pdf"
                   download
-                  className="group relative inline-flex items-center justify-center w-full sm:w-auto overflow-hidden rounded-full"
+                  className="group relative inline-flex items-center justify-center w-full sm:w-auto overflow-hidden rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
                 >
-                  <span className="absolute inset-0 w-full h-full bg-[#0F172A] border border-slate-700 group-hover:border-slate-500 transition-colors duration-300 rounded-full"></span>
+                  <span className="absolute inset-0 w-full h-full bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-full group-hover:bg-white/[0.05] transition-all duration-300"></span>
                   <span className="relative inline-flex items-center justify-center gap-3 px-8 py-4 w-full sm:w-auto">
                     <span className="text-slate-300 group-hover:text-white font-medium text-sm tracking-widest uppercase transition-colors duration-300">Get Resume</span>
                     <i className="fas fa-download text-slate-400 group-hover:text-white transform transition-all duration-300 group-hover:rotate-12 text-sm"></i>
@@ -341,15 +341,14 @@ const profile = {
             {/* Right column - Code window - fully responsive */}
             <div className={`w-full lg:w-1/2 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
               <div className="relative group max-w-full">
-                {/* Enhanced gradient border effect */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/30 via-cyan-500/30 to-blue-500/30 rounded-2xl blur-xl opacity-50 group-hover:opacity-70 transition-all duration-500 animate-gradient" />
 
-                <div className="relative rounded-2xl bg-[#0B1120]/90 border border-slate-700/50 shadow-2xl overflow-hidden backdrop-blur-xl">
+
+                <div className="relative rounded-2xl bg-white/[0.02] border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] overflow-hidden backdrop-blur-3xl backdrop-saturate-150">
                   {/* Shine effect */}
-                  <div className="absolute inset-0 opacity-20 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shine_1.5s_ease-in-out] pointer-events-none z-10" />
+                  <div className="absolute inset-0 opacity-20 bg-gradient-to-tr from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shine_1.5s_ease-in-out] pointer-events-none z-10" />
 
                   {/* Modern Window Header */}
-                  <div className="bg-[#1E293B]/50 px-4 py-3 flex items-center justify-between border-b border-slate-800/60">
+                  <div className="bg-white/[0.03] px-4 py-3 flex items-center justify-between border-b border-white/5">
                     <div className="flex items-center gap-2">
                       <div className="w-3 h-3 rounded-full bg-[#FF5F56] shadow-[0_0_10px_rgba(255,95,86,0.3)] hover:brightness-110 transition-all"></div>
                       <div className="w-3 h-3 rounded-full bg-[#FFBD2E] shadow-[0_0_10px_rgba(255,189,46,0.3)] hover:brightness-110 transition-all"></div>
@@ -363,10 +362,10 @@ const profile = {
                   </div>
 
                   {/* Code Content */}
-                  <div className="relative w-full overflow-hidden bg-[#0B1120]/95">
+                  <div className="relative w-full overflow-hidden bg-transparent">
                     <div className="overflow-x-auto overflow-y-hidden scrollbar-hide">
                       <pre className="language-javascript p-6 text-xs sm:text-sm leading-relaxed font-mono bg-transparent min-h-[300px] sm:min-h-[400px] max-w-full">
-                        <code className="language-javascript block max-w-full !bg-transparent !p-0 !text-slate-300 !shadow-none">{code}</code>
+                        <code className="language-javascript block max-w-full !bg-transparent !p-0 !text-slate-200 !shadow-none font-medium">{code}</code>
                       </pre>
                     </div>
                   </div>
