@@ -1,6 +1,6 @@
 import { ReactLenis } from "lenis/react";
 import { useTransform, motion, useScroll, MotionValue } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 interface Project {
   title: string;
@@ -10,35 +10,39 @@ interface Project {
   color: string;
   githubLink: string;
   liveLink: string;
+  tags: string[];
 }
 
 const projects: Project[] = [
   {
-    title: "Project 1",
-    description: "Your project description goes here",
-    src: "rock.jpg",
+    title: "Project One",
+    description: "Detailed description of your project. Explain the core features, architectural decisions, and the technologies used to build this product.",
+    src: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
     link: "",
-    color: "#5196fd",
+    color: "#60a5fa",
     githubLink: "",
     liveLink: "",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
-    title: "Project 2",
-    description: "Your project description goes here",
-    src: "tree.jpg",
+    title: "Project Two",
+    description: "Detailed description of your project. Explain the core features, architectural decisions, and the technologies used to build this product.",
+    src: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=1200&auto=format&fit=crop",
     link: "",
-    color: "#8f89ff",
+    color: "#c084fc",
     githubLink: "",
     liveLink: "",
+    tags: ["React", "Node.js", "PostgreSQL"],
   },
   {
-    title: "Project 3",
-    description: "Your project description goes here",
-    src: "water.jpg",
+    title: "Project Three",
+    description: "Detailed description of your project. Explain the core features, architectural decisions, and the technologies used to build this product.",
+    src: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=1200&auto=format&fit=crop",
     link: "",
-    color: "#fff",
+    color: "#2dd4bf",
     githubLink: "",
     liveLink: "",
+    tags: ["Python", "FastAPI", "Docker"],
   },
 ];
 
@@ -132,7 +136,7 @@ export default function Projects() {
                 <Card
                   key={`p_${i}`}
                   i={i}
-                  url={project.link}
+                  url={project.src}
                   title={project.title}
                   color={project.color}
                   description={project.description}
@@ -141,6 +145,7 @@ export default function Projects() {
                   targetScale={targetScale}
                   githubLink={project.githubLink}
                   liveLink={project.liveLink}
+                  tags={project.tags}
                 />
               );
             })}
@@ -168,6 +173,7 @@ interface CardProps {
   targetScale: number;
   githubLink: string;
   liveLink: string;
+  tags: string[];
 }
 
 function Card({
@@ -181,9 +187,23 @@ function Card({
   targetScale,
   githubLink,
   liveLink,
+  tags,
 }: CardProps) {
   const container = useRef(null);
   const scale = useTransform(progress, range, [1, targetScale]);
+  
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
 
   return (
     <div
@@ -200,9 +220,25 @@ function Card({
         className="relative lg:-top-[25%] h-auto w-full max-w-5xl origin-top project-card pointer-events-auto"
       >
         {/* Modern split card design with Glassmorphism - Enhanced */}
-        <div className="w-full flex flex-col md:flex-row bg-slate-900/50 backdrop-blur-2xl border border-slate-800/50 rounded-3xl overflow-hidden shadow-2xl hover:border-blue-500/30 hover:shadow-blue-500/10 transition-all duration-500 group">
+        <div 
+          ref={cardRef}
+          onMouseMove={handleMouseMove}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="w-full flex flex-col md:flex-row bg-slate-900/50 backdrop-blur-2xl border border-slate-800/50 rounded-3xl overflow-hidden shadow-2xl hover:border-blue-500/30 hover:shadow-blue-500/10 transition-all duration-500 group relative"
+        >
+          {/* Mouse glow */}
+          {isHovered && (
+            <div
+              className="absolute inset-0 opacity-100 transition-opacity duration-300 pointer-events-none z-0"
+              style={{
+                background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(59,130,246,0.08), transparent 60%)`,
+              }}
+            />
+          )}
+
           {/* Image section */}
-          <div className="w-full md:w-[55%] h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] relative overflow-hidden">
+          <div className="w-full md:w-[55%] h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] relative overflow-hidden z-10">
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
             <motion.div
               className="w-full h-full"
@@ -228,7 +264,7 @@ function Card({
           </div>
 
           {/* Content section */}
-          <div className="w-full md:w-[45%] p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between relative bg-gradient-to-b from-white/[0.02] to-transparent">
+          <div className="w-full md:w-[45%] p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between relative bg-gradient-to-b from-white/[0.02] to-transparent z-10">
             {/* Subtle background glow */}
             <div
               className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-500/5 to-transparent rounded-full blur-3xl -z-10 pointer-events-none"
@@ -236,7 +272,7 @@ function Card({
             />
 
             <div>
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-4">
                 <div
                   className="w-2 h-2 rounded-full ring-2 ring-white/20 ring-offset-2 ring-offset-slate-900"
                   style={{ backgroundColor: color }}
@@ -246,73 +282,89 @@ function Card({
                 </span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 tracking-tighter">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 tracking-tighter">
                 {title}
               </h2>
-              <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-light tracking-wide">
+              <p className="text-sm sm:text-base text-slate-400 leading-relaxed font-light tracking-wide mb-5">
                 {description}
               </p>
+
+              {/* Technology Tags */}
+              <div className="flex flex-wrap gap-1.5">
+                {tags.map((tag, idx) => (
+                  <span
+                    key={idx}
+                    className="text-[10px] sm:text-xs px-2.5 py-1 rounded bg-slate-800/40 border border-slate-700/50 text-slate-300 font-medium tracking-wide"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            <div className="mt-8 pt-8 border-t border-white/5">
+            <div className="mt-8 pt-6 border-t border-white/5">
               <div className="flex items-center gap-4">
                 {/* GitHub Link */}
-                <motion.a
-                  href={githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-slate-400 group-hover/btn:text-white transition-colors"
+                {githubLink && (
+                  <motion.a
+                    href={githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 transition-all duration-300"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                  </svg>
-                  <span className="text-sm font-medium text-slate-400 group-hover/btn:text-white transition-colors">
-                    Source
-                  </span>
-                </motion.a>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-slate-400 group-hover/btn:text-white transition-colors"
+                    >
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    <span className="text-sm font-medium text-slate-400 group-hover/btn:text-white transition-colors">
+                      Source
+                    </span>
+                  </motion.a>
+                )}
 
                 {/* Live Link */}
-                <motion.a
-                  href={liveLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-slate-400 group-hover/btn:text-white transition-colors"
+                {liveLink && (
+                  <motion.a
+                    href={liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 transition-all duration-300"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                  </svg>
-                  <span className="text-sm font-medium text-slate-400 group-hover/btn:text-white transition-colors">
-                    Live Demo
-                  </span>
-                </motion.a>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-slate-400 group-hover/btn:text-white transition-colors"
+                    >
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    <span className="text-sm font-medium text-slate-400 group-hover/btn:text-white transition-colors">
+                      Live Demo
+                    </span>
+                  </motion.a>
+                )}
               </div>
             </div>
           </div>
@@ -322,15 +374,11 @@ function Card({
   );
 }
 
-interface MobileCardProps extends Project {
-  link: string;
-}
-
-function MobileCard({ title, description, link: url, color, githubLink, liveLink }: MobileCardProps) {
+function MobileCard({ title, description, src, color, githubLink, liveLink, tags }: Project) {
   return (
     <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-2xl overflow-hidden shadow-xl hover:border-blue-500/30 hover:shadow-blue-500/10 transition-all duration-300">
       <div className="relative h-56 sm:h-64 group">
-        <img src={url} alt={title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <img src={src} alt={title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent opacity-80" />
 
         <div className="absolute top-4 left-4 bg-slate-950/40 backdrop-blur-md border border-white/10 text-white px-3 py-1 rounded-full text-xs font-medium">
@@ -338,7 +386,7 @@ function MobileCard({ title, description, link: url, color, githubLink, liveLink
         </div>
       </div>
 
-      <div className="p-6 space-y-6 relative -mt-12">
+      <div className="p-6 space-y-6 relative -mt-12 z-10">
         <div className="space-y-3">
           <div className="flex items-center gap-2">
             <span
@@ -349,28 +397,45 @@ function MobileCard({ title, description, link: url, color, githubLink, liveLink
           </div>
           <h3 className="text-2xl font-bold text-white tracking-tight">{title}</h3>
           <p className="text-slate-400 leading-relaxed text-sm">{description}</p>
+          
+          {/* Mobile tags */}
+          <div className="flex flex-wrap gap-1 pt-1">
+            {tags.map((tag, idx) => (
+              <span key={idx} className="text-[10px] px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-400 font-medium">
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
 
-        <div className="flex items-center gap-3 pt-4 border-t border-white/5">
-          <a
-            href={githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors group"
-          >
-            <span className="text-sm font-medium text-slate-200 group-hover:text-white">Code</span>
-          </a>
-          <a
-            href={liveLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors group"
-          >
-            <span className="text-sm font-medium text-slate-200 group-hover:text-white">Live</span>
-          </a>
-        </div>
+        {(githubLink || liveLink) && (
+          <div className="flex items-center gap-3 pt-4 border-t border-white/5">
+            {githubLink && (
+              <a
+                href={githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors group"
+              >
+                <span className="text-sm font-medium text-slate-200 group-hover:text-white">Code</span>
+              </a>
+            )}
+            {liveLink && (
+              <a
+                href={liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors group"
+              >
+                <span className="text-sm font-medium text-slate-200 group-hover:text-white">Live</span>
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
 }
+
+
 

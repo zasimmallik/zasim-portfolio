@@ -5,6 +5,39 @@ import "@/assets/css/tomorrow.css";
 import Meteors from "@/components/ui/meteors";
 import { FlipWords } from "@/components/ui/flip-words";
 
+// Floating Light Particles
+const FloatingParticles = () => {
+  const particles = [
+    { top: '15%', left: '10%', size: 4, duration: 7, delay: 0 },
+    { top: '25%', left: '80%', size: 3, duration: 9, delay: 1.5 },
+    { top: '60%', left: '15%', size: 5, duration: 8, delay: 0.8 },
+    { top: '70%', left: '75%', size: 3, duration: 6, delay: 2.2 },
+    { top: '40%', left: '50%', size: 4, duration: 10, delay: 3 },
+    { top: '80%', left: '30%', size: 3, duration: 7, delay: 1 },
+    { top: '10%', left: '60%', size: 5, duration: 8, delay: 0.5 },
+    { top: '50%', left: '90%', size: 3, duration: 9, delay: 2 },
+  ];
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {particles.map((p, i) => (
+        <div
+          key={i}
+          className="floating-particle"
+          style={{
+            top: p.top,
+            left: p.left,
+            width: `${p.size}px`,
+            height: `${p.size}px`,
+            '--duration': `${p.duration}s`,
+            '--delay': `${p.delay}s`,
+          } as React.CSSProperties}
+        />
+      ))}
+    </div>
+  );
+};
+
 // Enhanced Grid Background
 const GridBackground = () => {
   return (
@@ -42,15 +75,16 @@ const GridBackground = () => {
 
 export default function Hero() {
   const words = [
-    "Full-Stack Developer | Building AI SaaS",
-    "Focused on AI, Startups & Entrepreneurship",
-    "Learning AI engineering",
+    "Software Developer",
+    "Founder of Zeraql & Rizmiq",
+    "Building AI SaaS platforms",
   ];
 
   const [code] = useState(`
-const profile = {
+const developer = {
     name: 'Zasim Mallik',
-    title: 'Full-Stack Developer | AI SaaS Developer | Future AI SaaS Founder',
+    role: 'Software Developer',
+    founderOf: ['Zeraql', 'Rizmiq'],
     skills: [
         'HTML', 'CSS', 'Tailwind', 'JS', 'TS',
         'React', 'Next.js', 'Redux',
@@ -139,6 +173,11 @@ const profile = {
         100% { background-position: 100% 50%; }
       }
 
+      @keyframes shine {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(200%); }
+      }
+
       .animate-blur-in {
         animation: blurIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         opacity: 0;
@@ -169,6 +208,22 @@ const profile = {
         .hero-section-padding {
           padding-top: 12rem !important;
         }
+      }
+
+      @keyframes shimmer-badge {
+        0% { left: -100%; }
+        100% { left: 200%; }
+      }
+
+      @keyframes rotating-gradient {
+        0% { --gradient-angle: 0deg; }
+        100% { --gradient-angle: 360deg; }
+      }
+
+      @property --gradient-angle {
+        syntax: "<angle>";
+        inherits: false;
+        initial-value: 0deg;
       }
     `;
     document.head.appendChild(style);
@@ -230,6 +285,9 @@ const profile = {
           {/* Grid Background */}
           <GridBackground />
 
+          {/* Floating Particles */}
+          <FloatingParticles />
+
           {/* Meteors Effect */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <Meteors number={10} />
@@ -251,17 +309,27 @@ const profile = {
             {/* Left column - Text content */}
             <div className={`w-full lg:w-1/2 mb-6 sm:mb-8 lg:mb-0 relative z-20`}>
 
-              {/* Welcome badge - fully responsive */}
-              <div className="animate-blur-in inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-blue-500/5 backdrop-blur-xl border border-blue-500/10 mb-6 sm:mb-8 hover:bg-blue-500/10 transition-all duration-500 group cursor-default">
+              {/* Welcome badge with shimmer sweep */}
+              <div className="animate-blur-in relative inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-blue-500/5 backdrop-blur-xl border border-blue-500/10 mb-6 sm:mb-8 hover:bg-blue-500/10 transition-all duration-500 group cursor-default overflow-hidden">
+                {/* Shimmer sweep overlay */}
+                <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
+                  <div className="absolute top-0 -left-full w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                    style={{ animation: 'shimmer-badge 4s ease-in-out infinite' }}
+                  />
+                </div>
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
                 <span className="text-blue-300 text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase">
                   Welcome to my universe
                 </span>
               </div>
 
-              {/* Name section - responsive text sizes */}
+              {/* Name section with animated glow ring */}
               <div className="relative mb-6 sm:mb-8 animate-blur-in delay-100">
-                <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tight">
+                {/* Soft glow ring behind name */}
+                <div className="absolute -inset-8 bg-blue-500/5 blur-3xl rounded-full opacity-0 animate-[glow-pulse_4s_ease-in-out_infinite] pointer-events-none"
+                  style={{ animationDelay: '0.5s', opacity: 0.6 }}
+                />
+                <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tight relative">
                   <span className="block text-slate-400 font-light text-xl xs:text-2xl sm:text-3xl md:text-4xl mb-2 tracking-normal">Hello, I&apos;m</span>
                   <span className="relative inline-block">
                     <span className="typing-effect gradient-text bg-gradient-to-r from-white via-blue-200 to-slate-400 bg-size-[200%_auto] animate-[gradientX_8s_ease_infinite] bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(59,130,246,0.3)]">
@@ -271,7 +339,7 @@ const profile = {
                 </h1>
               </div>
 
-              {/* Role badge - responsive */}
+              {/* Role badge */}
               <div className="animate-blur-in delay-200 inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3 rounded-2xl bg-gradient-to-r from-blue-500/5 to-cyan-500/5 border border-blue-500/10 mb-8 sm:mb-10 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-500 hover:bg-blue-500/10 group cursor-default w-full sm:w-auto max-w-full">
                 <i className="fas fa-rocket text-blue-400 group-hover:animate-bounce text-xs sm:text-sm transition-transform group-hover:rotate-12 shrink-0"></i>
                 <span className="min-w-0 flex-1 sm:flex-none overflow-hidden">
@@ -282,21 +350,53 @@ const profile = {
                 </span>
               </div>
 
-              {/* Description - responsive */}
+              {/* Description with decorative line accents */}
               <div className="relative mb-12 max-w-xl group animate-blur-in delay-300">
-                <p className="text-base md:text-lg lg:text-xl text-slate-400 leading-relaxed font-light tracking-wide group-hover:text-slate-200 transition-colors duration-500">
-                  Full-Stack & AI SaaS Developer 🚀 | Building Next-Gen Products That Solve Real Problems 💻✨
+                {/* Decorative line accent */}
+                <div className="absolute -left-4 top-1 bottom-1 w-[2px] bg-gradient-to-b from-blue-500/50 via-cyan-500/30 to-transparent rounded-full hidden sm:block" />
+                <p className="text-base md:text-lg lg:text-xl text-slate-400 leading-relaxed font-light tracking-wide group-hover:text-slate-300 transition-colors duration-500 sm:pl-2">
+                  Software Developer & Founder of Zeraql & Rizmiq. Building next-generation AI SaaS products.
                 </p>
               </div>
 
-              {/* CTA Buttons - fully responsive stack on mobile */}
+              {/* SaaS Websites */}
+              <div className="flex flex-wrap gap-6 items-center mb-12 sm:pl-2 text-sm text-slate-400 font-medium animate-blur-in delay-300">
+                <a 
+                  href="https://zeraql.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center gap-1.5 hover:text-[#38BDF8] transition-colors relative group"
+                >
+                  zeraql.com
+                  <svg className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                  </svg>
+                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#38BDF8] group-hover:w-full transition-all duration-300" />
+                </a>
+                <span className="w-1 h-1 rounded-full bg-slate-600" />
+                <a 
+                  href="https://rizmiq.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center gap-1.5 hover:text-[#2DD4BF] transition-colors relative group"
+                >
+                  rizmiq.com
+                  <svg className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                  </svg>
+                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#2DD4BF] group-hover:w-full transition-all duration-300" />
+                </a>
+              </div>
+
+              {/* CTA Buttons - with gradient border animation on hover */}
               <div className="flex flex-col sm:flex-row gap-5 animate-blur-in delay-400">
-                {/* GitHub Button */}
+                {/* GitHub Button — gradient border animation */}
                 <a
                   href="https://github.com/zasimmallik"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center w-full sm:w-auto overflow-hidden rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(45,212,191,0.3)]"
+                  className="group relative inline-flex items-center justify-center w-full sm:w-auto overflow-hidden rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(45,212,191,0.3)] gradient-border-animated"
+                  style={{ borderRadius: '9999px' }}
                 >
                   <span className="absolute inset-0 w-full h-full bg-white/[0.05] backdrop-blur-xl border border-white/10 rounded-full group-hover:bg-white/[0.1] transition-all duration-300"></span>
                   <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#2DD4BF]/10 to-[#38BDF8]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></span>
@@ -343,7 +443,7 @@ const profile = {
               <div className="relative group max-w-full">
 
 
-                <div className="relative rounded-2xl bg-white/[0.02] border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] overflow-hidden backdrop-blur-3xl backdrop-saturate-150">
+                <div className="relative rounded-2xl bg-white/[0.02] border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] overflow-hidden backdrop-blur-3xl backdrop-saturate-150 transition-all duration-500 hover:border-white/15 hover:shadow-[0_8px_40px_0_rgba(59,130,246,0.15)]">
                   {/* Shine effect */}
                   <div className="absolute inset-0 opacity-20 bg-gradient-to-tr from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shine_1.5s_ease-in-out] pointer-events-none z-10" />
 
@@ -408,4 +508,3 @@ const profile = {
     </>
   );
 }
-

@@ -1,20 +1,39 @@
-import { useState, useEffect } from 'react';
-import { FaLinkedinIn, FaGithub, FaTwitter, FaInstagram, FaFacebookF } from 'react-icons/fa';
+import { useState, useEffect, useRef } from 'react';
+import { FaLinkedinIn, FaGithub, FaInstagram, FaFacebookF } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import HeroImg from '../../assets/images/hero.jpg?url';
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
+  // Scroll-triggered animation via IntersectionObserver
   useEffect(() => {
-    setIsVisible(true);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section id="about" className="py-20 sm:py-28 md:py-32 lg:py-40 text-white bg-[#04081A] relative overflow-hidden">
-      {/* Enhanced background effects - More subtle and premium */}
+    <section
+      ref={sectionRef}
+      id="about"
+      className="py-20 sm:py-28 md:py-32 lg:py-40 text-white bg-[#04081A] relative overflow-hidden noise-overlay"
+    >
+      {/* Enhanced background effects */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#020617] to-[#020617]"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay"></div>
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
@@ -33,6 +52,9 @@ export default function About() {
                   height={1000}
                   loading="lazy"
                 />
+                {/* Gradient overlay that shifts on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/60 via-transparent to-blue-500/5 opacity-60 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/10 group-hover:to-cyan-500/10 transition-all duration-700 pointer-events-none" />
               </div>
             </div>
 
@@ -50,7 +72,7 @@ export default function About() {
               </div>
 
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
-                Software Engineer |<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400"> Full Stack Developer </span>
+                Software Developer |<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400"> Founder of Zeraql & Rizmiq </span>
               </h2>
 
               <div className="space-y-6 text-base sm:text-lg text-slate-400 leading-relaxed">
@@ -58,7 +80,7 @@ export default function About() {
                   Hello! I&apos;m <span className="text-slate-200 font-semibold">Zasim Mallik</span>, a Software Engineer and Full Stack Developer based in Bangladesh. My journey in tech is driven by a relentless curiosity and a desire to build tools that matter.
                 </p>
                 <p>
-                  I specialize in building robust, scalable web applications using modern technologies like <span className="text-blue-300">Next.js</span>, <span className="text-blue-300">TypeScript</span>, and <span className="text-blue-300">Python</span>. Beyond code, I&apos;m exploring the frontiers of AI to create smarter, more intuitive SaaS solutions.
+                  I specialize in building robust, scalable AI SaaS platforms like <span className="text-blue-300">Zeraql</span> and <span className="text-blue-300">Rizmiq</span>. Using modern technologies like <span className="text-blue-300">Next.js</span>, <span className="text-blue-300">TypeScript</span>, and <span className="text-blue-300">Python</span>, I develop next-generation software products that solve real enterprise problems.
                 </p>
                 <p>
                   Self-taught and independent, I value clarity, efficiency, and continuous learning. Every project is an opportunity to push boundaries and deliver excellence.
@@ -66,8 +88,12 @@ export default function About() {
               </div>
             </div>
 
-            {/* Quote / Philosophy */}
-            <div className="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/5 backdrop-blur-md overflow-hidden group hover:border-blue-500/20 transition-colors duration-500">
+            {/* Quote / Philosophy — with animated gradient border */}
+            <div className="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/5 backdrop-blur-md overflow-hidden group hover:border-blue-500/20 transition-all duration-500 gradient-border-animated"
+              style={{ borderRadius: '1rem' }}
+            >
+              {/* Ambient glow behind quote */}
+              <div className="absolute -inset-2 bg-blue-500/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl pointer-events-none" />
               <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
                 <svg className="w-16 h-16 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z" /></svg>
               </div>
@@ -81,18 +107,18 @@ export default function About() {
                   </div>
                   <div>
                     <div className="text-white font-semibold text-sm">Zasim Mallik</div>
-                    <div className="text-blue-400 text-xs">Founder, ILM AI</div>
+                    <div className="text-blue-400 text-xs">Founder of Zeraql & Rizmiq</div>
                   </div>
                 </footer>
               </blockquote>
             </div>
 
-            {/* Social Links */}
+            {/* Social Links — with magnetic hover */}
             <div className="flex flex-wrap gap-4 pt-2">
               {[
                 { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/zasimmallik/", label: "LinkedIn", color: "hover:bg-[#0077b5]" },
                 { icon: FaGithub, href: "https://github.com/zasimmallik", label: "GitHub", color: "hover:bg-[#333]" },
-                { icon: FaTwitter, href: "https://x.com/zasimmallik", label: "Twitter", color: "hover:bg-[#1da1f2]" },
+                { icon: FaXTwitter, href: "https://x.com/zasimmallik", label: "X", color: "hover:bg-slate-900 border-white/20" },
                 { icon: FaInstagram, href: "https://www.instagram.com/zasimmallik/", label: "Instagram", color: "hover:bg-gradient-to-br hover:from-purple-600 hover:to-orange-500" },
                 { icon: FaFacebookF, href: "https://www.facebook.com/zasimmallik.Z/", label: "Facebook", color: "hover:bg-[#1877f2]" }
               ].map((social, index) => (
@@ -101,7 +127,7 @@ export default function About() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-gray-400 transition-all duration-300 hover:text-white hover:scale-110 hover:-translate-y-1 hover:shadow-lg ${social.color}`}
+                  className={`w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-gray-400 transition-all duration-300 hover:text-white magnetic-hover ${social.color}`}
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
@@ -114,4 +140,3 @@ export default function About() {
     </section>
   );
 }
-

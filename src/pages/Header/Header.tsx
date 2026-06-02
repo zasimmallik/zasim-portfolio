@@ -30,13 +30,13 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
       <motion.header
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-50 flex justify-center items-center transition-all duration-300 pointer-events-none
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 flex justify-center items-center transition-all duration-500 pointer-events-none
           ${isScrolled ? 'lg:py-4' : 'lg:py-6'} 
           p-0 lg:p-4`}
       >
         <nav
-          className={`pointer-events-auto relative flex items-center justify-between lg:justify-center shadow-lg backdrop-blur-md transition-all duration-300 
+          className={`pointer-events-auto relative flex items-center justify-between lg:justify-center shadow-lg backdrop-blur-md transition-all duration-500 
             w-full lg:w-auto
             rounded-none lg:rounded-full 
             border-b border-white/5 lg:border lg:border-white/10
@@ -45,17 +45,37 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
               : 'bg-transparent py-4 lg:py-3 px-4 lg:px-8'
             }`}
         >
+          {/* Animated gradient top-edge line (visible when scrolled) */}
+          <div
+            className={`absolute top-0 left-0 right-0 h-[1px] transition-opacity duration-500 ${
+              isScrolled ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{
+              background: 'linear-gradient(90deg, transparent, rgba(59,130,246,0.5), rgba(6,182,212,0.5), rgba(139,92,246,0.4), transparent)',
+            }}
+          />
+
           {/* Desktop Navigation - Visible on Large Screens */}
           <ul className="hidden lg:flex items-center gap-1">
-            {NAVIGATION_LINKS.map((link) => {
+            {NAVIGATION_LINKS.map((link, index) => {
               const isActive = activeSection === link.id;
               const Icon = link.icon;
 
               return (
-                <li key={link.id} className="relative z-10">
+                <motion.li
+                  key={link.id}
+                  className="relative z-10"
+                  initial={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
+                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  transition={{
+                    duration: 0.4,
+                    delay: 0.3 + index * 0.06,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                >
                   <button
                     onClick={() => handleNavClick(link.id)}
-                    className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-full flex items-center gap-2 ${isActive
+                    className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full flex items-center gap-2 ${isActive
                       ? 'text-blue-400'
                       : 'text-slate-400 hover:text-slate-200'
                       }`}
@@ -63,7 +83,10 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
                     {isActive && (
                       <motion.div
                         layoutId="activeTab"
-                        className="absolute inset-0 bg-blue-500/10 border border-blue-500/20 rounded-full -z-10 shadow-[0_0_10px_rgba(59,130,246,0.2)]"
+                        className="absolute inset-0 bg-blue-500/10 border border-blue-500/20 rounded-full -z-10"
+                        style={{
+                          boxShadow: '0 0 15px rgba(59,130,246,0.15), 0 0 30px rgba(59,130,246,0.05)',
+                        }}
                         transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                       />
                     )}
@@ -72,16 +95,22 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
                       {link.text}
                     </span>
                   </button>
-                </li>
+                </motion.li>
               );
             })}
           </ul>
 
           {/* Mobile/Tablet Navigation Toggle */}
           <div className="lg:hidden flex items-center justify-between w-full pl-4 pr-1">
-            <span className="font-bold text-xl tracking-tight bg-gradient-to-r from-white via-white/90 to-white/70 bg-clip-text text-transparent">
+            <motion.span
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="font-bold text-xl tracking-tight bg-gradient-to-r from-white via-blue-200 to-white/70 bg-clip-text text-transparent bg-[length:200%_auto]"
+              style={{ animation: 'text-shimmer 6s ease-in-out infinite' }}
+            >
               Portfolio
-            </span>
+            </motion.span>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2.5 rounded-full hover:bg-white/10 transition-all duration-300 border border-transparent hover:border-white/10 active:scale-95"

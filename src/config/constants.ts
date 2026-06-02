@@ -8,8 +8,8 @@ export const TEXTS = {
   HERO: {
     WELCOME: 'Welcome to Zasim Mallik\'s universe.',
     NAME: 'Zasim Mallik',
-    TITLE: 'Full-Stack Developer | Building AI SaaS',
-    SUBTITLE: 'Full-Stack & AI SaaS Developer ???? | Building Next-Gen Products That Solve Real Problems ???????',
+    TITLE: 'Software Developer | Founder of Zeraql & Rizmiq',
+    SUBTITLE: 'Software Developer & Founder of Zeraql & Rizmiq | Building Next-Gen AI SaaS Platforms',
     RESUME_BTN: 'Get Resume',
     LEARN_MORE_BTN: 'Learn More',
     CONTACT_BTN: 'Get in Touch',
@@ -93,7 +93,7 @@ export const CONTACT_INFO = {
   LOCATION: 'Natullabad, Barisal, Bangladesh',
   LINKEDIN: 'https://www.linkedin.com/in/zasimmallik/',
   GITHUB: 'https://github.com/zasimmallik',
-  TWITTER: 'https://twitter.com/zasimmallik',
+  TWITTER: 'https://x.com/zasimmallik',
   INSTAGRAM: 'https://instagram.com/zasimmallik',
   FACEBOOK: 'https://facebook.com/zasimmallik',
 };
@@ -113,10 +113,10 @@ export const SOCIAL_LINKS = [
     color: 'hover:bg-gradient-to-br hover:from-gray-700 hover:to-gray-800',
   },
   {
-    name: 'Twitter',
+    name: 'X',
     url: CONTACT_INFO.TWITTER,
-    icon: 'FaTwitter',
-    color: 'hover:bg-gradient-to-br hover:from-blue-400 hover:to-blue-500',
+    icon: 'FaXTwitter',
+    color: 'hover:bg-gradient-to-br hover:from-gray-800 hover:to-gray-900',
   },
   {
     name: 'Instagram',

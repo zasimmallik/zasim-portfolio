@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import IconCloudDemo from "@/components/globe";
-import { Code2, Database, Layout, Cpu, Cloud, LucideIcon, Terminal, Globe, Workflow } from "lucide-react";
+import { Code2, Database, Layout, Cpu, Cloud, LucideIcon, Terminal, Globe, Workflow, Brain } from "lucide-react";
 import {
   FaReact,
   FaNodeJs,
@@ -44,6 +44,8 @@ interface SkillCardProps {
 
 const SkillCard = ({ icon: Icon, title, skills, color, index }: SkillCardProps) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -63,16 +65,39 @@ const SkillCard = ({ icon: Icon, title, skills, color, index }: SkillCardProps) 
     return () => observer.disconnect();
   }, []);
 
+  // Mouse-following gradient highlight
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  }, []);
+
   return (
     <div
       ref={cardRef}
       className={`group relative h-full transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       style={{ transitionDelay: `${index * 100}ms` }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {/* Animated gradient glow effect */}
       <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/0 via-cyan-500/0 to-purple-500/0 group-hover:from-blue-500/20 group-hover:via-cyan-500/20 group-hover:to-purple-500/20 rounded-2xl blur-xl transition-all duration-500 opacity-0 group-hover:opacity-100" />
 
       <Card className="relative h-full bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 group-hover:border-blue-500/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-blue-500/10 overflow-hidden">
+        {/* Mouse-following radial gradient */}
+        {isHovered && (
+          <div
+            className="absolute inset-0 opacity-100 transition-opacity duration-300 pointer-events-none z-0"
+            style={{
+              background: `radial-gradient(300px circle at ${mousePos.x}px ${mousePos.y}px, rgba(59,130,246,0.08), transparent 60%)`,
+            }}
+          />
+        )}
+
         {/* Shimmer effect */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent group-hover:via-blue-500/10 animate-shimmer" />
 
@@ -92,7 +117,7 @@ const SkillCard = ({ icon: Icon, title, skills, color, index }: SkillCardProps) 
               <Badge
                 key={idx}
                 variant="outline"
-                className="relative bg-slate-800/40 hover:bg-slate-700/60 text-slate-300 hover:text-white border-slate-700/50 hover:border-blue-500/30 px-3 py-1.5 text-xs sm:text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10 cursor-default"
+                className="relative bg-slate-800/40 hover:bg-slate-700/60 text-slate-300 hover:text-white border-slate-700/50 hover:border-blue-500/30 px-3 py-1.5 text-xs sm:text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10 cursor-default hover:-translate-y-0.5"
               >
                 <span className="mr-2 text-base opacity-80 group-hover:opacity-100 transition-opacity">{skill.icon}</span>
                 {skill.name}
@@ -109,11 +134,78 @@ const SkillCard = ({ icon: Icon, title, skills, color, index }: SkillCardProps) 
   );
 };
 
-const SkillsSection = () => {
-  const [headerVisible, setHeaderVisible] = useState(false);
+// Animated counter component
+const AnimatedCounter = ({ target, suffix = '' }: { target: number; suffix?: string }) => {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const counterRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    setHeaderVisible(true);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (counterRef.current) {
+      observer.observe(counterRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let start = 0;
+    const duration = 1500;
+    const startTime = performance.now();
+
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      start = Math.round(eased * target);
+      setCount(start);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [isVisible, target]);
+
+  return (
+    <span ref={counterRef} className="tabular-nums">
+      {count}{suffix}
+    </span>
+  );
+};
+
+const SkillsSection = () => {
+  const [headerVisible, setHeaderVisible] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHeaderVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (headerRef.current) {
+      observer.observe(headerRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   const skillCategories = [
@@ -175,6 +267,10 @@ const SkillsSection = () => {
         { name: "Python", icon: <FaPython className="text-[#3776AB]" /> },
         { name: "LLMs & RAG", icon: <TbBrandOpenai className="text-[#412991]" /> },
         { name: "LangChain", icon: <Globe className="text-[#3776AB]" /> },
+        { name: "Claude (Anthropic)", icon: <Brain className="text-[#CC9B7A]" /> },
+        { name: "Claude Code", icon: <Terminal className="text-orange-400" /> },
+        { name: "OpenAI Codex", icon: <TbBrandOpenai className="text-[#74A57F]" /> },
+        { name: "Anti-gravity", icon: <Cpu className="text-purple-400" /> },
         { name: "Context Engineering", icon: <Cpu className="text-[#FF69B4]" /> },
         { name: "AI Agents", icon: <Cpu className="text-[#FF69B4]" /> },
       ],
@@ -189,21 +285,27 @@ const SkillsSection = () => {
         { name: "Vite", icon: <SiVite className="text-[#646CFF]" /> },
         { name: "Firebase", icon: <SiFirebase className="text-[#FFCA28]" /> },
         { name: "Netlify", icon: <SiNetlify className="text-[#00C7B7]" /> },
+        { name: "Stitch", icon: <Workflow className="text-blue-400" /> },
       ],
     },
   ];
 
+  // Count total unique technologies
+  const totalSkills = skillCategories.reduce((acc, cat) => acc + cat.skills.length, 0);
+
   return (
-    <section id="skills" className="relative py-20 sm:py-32 bg-[#04081A] overflow-hidden">
+    <section id="skills" className="relative py-20 sm:py-32 bg-[#04081A] overflow-hidden noise-overlay">
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#020617] to-[#020617]"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className={`text-center max-w-3xl mx-auto mb-16 sm:mb-20 transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div
+          ref={headerRef}
+          className={`text-center max-w-3xl mx-auto mb-16 sm:mb-20 transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6">
             <Cpu className="w-4 h-4" />
             <span>Technical Expertise</span>
@@ -214,14 +316,18 @@ const SkillsSection = () => {
           </h2>
 
           <p className="text-gray-400 text-lg leading-relaxed">
-            A comprehensive toolkit for building modern, scalable applications
+            A comprehensive toolkit of{' '}
+            <span className="text-blue-400 font-semibold">
+              <AnimatedCounter target={totalSkills} suffix="+" />
+            </span>{' '}
+            technologies for building modern, scalable applications
           </p>
         </div>
 
-        {/* Icon Cloud */}
+        {/* Icon Cloud with pulsing glow */}
         <div className={`flex justify-center items-center mb-20 transition-all duration-1000 delay-300 ${headerVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
           <div className="relative">
-            <div className="absolute inset-0 bg-blue-500/5 blur-3xl rounded-full"></div>
+            <div className="absolute inset-0 bg-blue-500/5 blur-3xl rounded-full" style={{ animation: 'glow-pulse 4s ease-in-out infinite' }}></div>
             <IconCloudDemo />
           </div>
         </div>
