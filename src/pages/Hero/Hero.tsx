@@ -67,8 +67,8 @@ const GridBackground = () => {
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#020617]/80 to-[#020617]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#020617_100%)] opacity-60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#010410]/80 to-[#010410]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#010410_100%)] opacity-60" />
     </div>
   );
 };
@@ -76,8 +76,8 @@ const GridBackground = () => {
 export default function Hero() {
   const words = [
     "Software Developer",
-    "Founder of Zeraql & Rizmiq",
-    "Building AI SaaS platforms",
+    "Full-Stack Engineer",
+    "AI SaaS Founder",
   ];
 
   const [code] = useState(`
@@ -257,9 +257,9 @@ const developer = {
 
   return (
     <>
-      <main className="bg-[#020617] text-slate-200 min-h-screen relative overflow-hidden selection:bg-blue-500/30">
+      <main className="bg-[#010410] text-slate-200 min-h-screen relative overflow-hidden selection:bg-blue-500/30">
         {/* Ultra Premium Background - Aurora Effect */}
-        <div className="absolute inset-0 bg-[#020617]">
+        <div className="absolute inset-0 bg-[#010410]">
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light pointer-events-none"></div>
           <div
             className="absolute -inset-[10px] opacity-30 blur-[100px]"
@@ -273,7 +273,7 @@ const developer = {
               `,
             }}
           ></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#020617_120%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#010410_120%)] pointer-events-none" />
         </div>
 
         <section
@@ -319,7 +319,7 @@ const developer = {
                 </div>
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
                 <span className="text-blue-300 text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase">
-                  Welcome to my universe
+                  Welcome to my portfolio
                 </span>
               </div>
 
@@ -330,7 +330,7 @@ const developer = {
                   style={{ animationDelay: '0.5s', opacity: 0.6 }}
                 />
                 <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.9] tracking-tight relative">
-                  <span className="block text-slate-400 font-light text-xl xs:text-2xl sm:text-3xl md:text-4xl mb-2 tracking-normal">Hello, I&apos;m</span>
+                  <span className="block text-slate-400 font-light text-xl xs:text-2xl sm:text-3xl md:text-4xl mb-2 tracking-normal">Hey, I&apos;m</span>
                   <span className="relative inline-block">
                     <span className="typing-effect gradient-text bg-gradient-to-r from-white via-blue-200 to-slate-400 bg-size-[200%_auto] animate-[gradientX_8s_ease_infinite] bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(59,130,246,0.3)]">
                       Zasim Mallik
@@ -355,7 +355,7 @@ const developer = {
                 {/* Decorative line accent */}
                 <div className="absolute -left-4 top-1 bottom-1 w-[2px] bg-gradient-to-b from-blue-500/50 via-cyan-500/30 to-transparent rounded-full hidden sm:block" />
                 <p className="text-base md:text-lg lg:text-xl text-slate-400 leading-relaxed font-light tracking-wide group-hover:text-slate-300 transition-colors duration-500 sm:pl-2">
-                  Software Developer & Founder of Zeraql & Rizmiq. Building next-generation AI SaaS products.
+                  I design, build, and ship web products — mostly AI-powered SaaS. Currently running two startups and always working on something new.
                 </p>
               </div>
 

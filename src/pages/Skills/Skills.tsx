@@ -294,10 +294,10 @@ const SkillsSection = () => {
   const totalSkills = skillCategories.reduce((acc, cat) => acc + cat.skills.length, 0);
 
   return (
-    <section id="skills" className="relative py-20 sm:py-32 bg-[#04081A] overflow-hidden noise-overlay">
+    <section id="skills" className="relative py-20 sm:py-32 bg-[#020610] overflow-hidden noise-overlay">
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#020617] to-[#020617]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#010410] to-[#010410]"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -316,11 +316,11 @@ const SkillsSection = () => {
           </h2>
 
           <p className="text-gray-400 text-lg leading-relaxed">
-            A comprehensive toolkit of{' '}
+            My day-to-day toolkit —{' '}
             <span className="text-blue-400 font-semibold">
               <AnimatedCounter target={totalSkills} suffix="+" />
             </span>{' '}
-            technologies for building modern, scalable applications
+            technologies I use to build production-ready apps.
           </p>
         </div>
 

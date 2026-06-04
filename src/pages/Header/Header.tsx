@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
             rounded-none lg:rounded-full 
             border-b border-white/5 lg:border lg:border-white/10
             ${isScrolled
-              ? 'bg-[#020617]/80 supports-backdrop-filter:bg-[#020617]/60 py-3 lg:py-2 px-4 lg:px-6 shadow-blue-900/5'
+              ? 'bg-[#010410]/80 supports-backdrop-filter:bg-[#010410]/60 py-3 lg:py-2 px-4 lg:px-6 shadow-blue-900/5'
               : 'bg-transparent py-4 lg:py-3 px-4 lg:px-8'
             }`}
         >

@@ -7,7 +7,7 @@ html {
 body {
   width: 100%;
   overflow-x: hidden;
-  @apply bg-[#020617] text-slate-200 antialiased selection:bg-blue-500/30 selection:text-blue-200;
+  @apply bg-[#010410] text-slate-200 antialiased selection:bg-blue-500/30 selection:text-blue-200;
 }
 
 /* Custom Scrollbar — Glowing Blue Accent */
@@ -16,14 +16,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-[#020617];
+  @apply bg-[#010410];
 }
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #3b82f6, #06b6d4);
   border-radius: 9999px;
-  border: 2px solid #020617;
-  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+  border: 2px solid #010410;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
   transition: all 0.3s ease;
 }
 
@@ -503,7 +503,7 @@ body {
 
 /* Enhanced Prism.js styling */
 pre[class*="language-"] {
-  background: #091121 !important;
+  background: #060d1a !important;
   padding: 1.5rem !important;
   margin: 0 !important;
   font-size: 0.95rem !important;

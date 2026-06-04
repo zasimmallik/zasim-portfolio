@@ -29,11 +29,11 @@ export default function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="py-20 sm:py-28 md:py-32 lg:py-40 text-white bg-[#04081A] relative overflow-hidden noise-overlay"
+      className="py-20 sm:py-28 md:py-32 lg:py-40 text-white bg-[#020610] relative overflow-hidden noise-overlay"
     >
       {/* Enhanced background effects */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#020617] to-[#020617]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#010410] to-[#010410]"></div>
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
@@ -53,7 +53,7 @@ export default function About() {
                   loading="lazy"
                 />
                 {/* Gradient overlay that shifts on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/60 via-transparent to-blue-500/5 opacity-60 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#010410]/60 via-transparent to-blue-500/5 opacity-60 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none" />
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/10 group-hover:to-cyan-500/10 transition-all duration-700 pointer-events-none" />
               </div>
             </div>
@@ -77,13 +77,13 @@ export default function About() {
 
               <div className="space-y-6 text-base sm:text-lg text-slate-400 leading-relaxed">
                 <p>
-                  Hello! I&apos;m <span className="text-slate-200 font-semibold">Zasim Mallik</span>, a Software Engineer and Full Stack Developer based in Bangladesh. My journey in tech is driven by a relentless curiosity and a desire to build tools that matter.
+                  Hey! I&apos;m <span className="text-slate-200 font-semibold">Zasim Mallik</span>, a self-taught developer from Bangladesh. I got into programming out of curiosity, and what started with basic web pages eventually grew into building full products that people actually use.
                 </p>
                 <p>
-                  I specialize in building robust, scalable AI SaaS platforms like <span className="text-blue-300">Zeraql</span> and <span className="text-blue-300">Rizmiq</span>. Using modern technologies like <span className="text-blue-300">Next.js</span>, <span className="text-blue-300">TypeScript</span>, and <span className="text-blue-300">Python</span>, I develop next-generation software products that solve real enterprise problems.
+                  Right now, I&apos;m focused on <span className="text-blue-300">Zeraql</span> and <span className="text-blue-300">Rizmiq</span> — two AI-powered SaaS platforms I&apos;m developing end to end. My stack revolves around <span className="text-blue-300">Next.js</span>, <span className="text-blue-300">TypeScript</span>, and <span className="text-blue-300">Python</span>, and I genuinely enjoy the challenge of making complex systems feel simple for users.
                 </p>
                 <p>
-                  Self-taught and independent, I value clarity, efficiency, and continuous learning. Every project is an opportunity to push boundaries and deliver excellence.
+                  I learn best by building. Every project, every bug, every late-night debugging session has taught me something no textbook could. That hands-on approach is what drives everything I do.
                 </p>
               </div>
             </div>
@@ -99,7 +99,7 @@ export default function About() {
               </div>
               <blockquote className="relative z-10">
                 <p className="text-lg sm:text-xl font-medium text-slate-300 italic mb-4">
-                  &quot;I&apos;m a builder at heart, driven by clarity, discipline, and the commitment to create meaningful technology.&quot;
+                  &quot;I don&apos;t chase perfection — I chase clarity. If something I build makes even one person&apos;s life easier, that&apos;s a win.&quot;
                 </p>
                 <footer className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-blue-500/20">
@@ -107,7 +107,7 @@ export default function About() {
                   </div>
                   <div>
                     <div className="text-white font-semibold text-sm">Zasim Mallik</div>
-                    <div className="text-blue-400 text-xs">Founder of Zeraql & Rizmiq</div>
+                    <div className="text-blue-400 text-xs">Software Developer & Founder</div>
                   </div>
                 </footer>
               </blockquote>

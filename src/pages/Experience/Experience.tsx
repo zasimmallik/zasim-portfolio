@@ -61,7 +61,7 @@ const ExperienceCard = ({
           <div className="absolute inset-0 w-4 h-4 rounded-full bg-cyan-400/30 animate-[ripple-glow_2s_ease-in-out_infinite]" />
         )}
         <div
-          className={`w-4 h-4 rounded-full border-4 border-[#020617] transition-all duration-500 shadow-[0_0_10px_rgba(59,130,246,0.5)] group-hover:shadow-[0_0_20px_rgba(34,211,238,0.8)] ${
+          className={`w-4 h-4 rounded-full border-4 border-[#010410] transition-all duration-500 shadow-[0_0_10px_rgba(59,130,246,0.5)] group-hover:shadow-[0_0_20px_rgba(34,211,238,0.8)] ${
             isLatest
               ? 'bg-cyan-400 group-hover:bg-cyan-300 scale-125 group-hover:scale-[1.75]'
               : 'bg-blue-500 group-hover:scale-150 group-hover:bg-cyan-400'
@@ -215,7 +215,7 @@ const ExperienceSection = () => {
       company: "Programming Hero",
       period: "2022 – 2023",
       description:
-        "Contributed to building responsive and accessible user interfaces. Improved UI components using HTML, CSS, JavaScript, and front-end design principles. Collaborated within structured workflows and learned practical engineering discipline.",
+        "This was my first real dev role. I got to work on responsive UIs, tackle accessibility, and learn that writing maintainable code matters just as much as getting things to work.",
     },
     {
       icon: Layers,
@@ -223,7 +223,7 @@ const ExperienceSection = () => {
       company: "Independent",
       period: "2024 – Present",
       description:
-        "Developing full-stack applications using React, Next.js, Node.js, Express, PostgreSQL, Prisma. Working across front-end, back-end, API design, authentication, and deployment. Building internal projects and prototypes to strengthen real-world problem-solving skills.",
+        "Went independent and started owning projects end to end — React, Next.js, Node.js, PostgreSQL, Prisma. I handled everything from architecture decisions and API design to deployment. Lots of trial and error, but that's how you learn.",
     },
     {
       icon: Cpu,
@@ -231,15 +231,15 @@ const ExperienceSection = () => {
       company: "Zeraql & Rizmiq",
       period: "2025 – Present",
       description:
-        "Designing and developing AI-driven SaaS products. Implementing LLM features, automation workflows, and modern AI frameworks. Handling product development end-to-end — from idea to working prototypes.",
+        "Now I'm building my own products. I lead development on two AI-driven SaaS platforms — from ideation and LLM integration to frontend, backend, and getting it all into production.",
     },
   ];
 
   return (
-    <section id="experience" className="relative py-20 sm:py-32 bg-[#04081A] overflow-hidden noise-overlay">
+    <section id="experience" className="relative py-20 sm:py-32 bg-[#020610] overflow-hidden noise-overlay">
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#020617] to-[#020617]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#010410] to-[#010410]"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -258,7 +258,7 @@ const ExperienceSection = () => {
           </h2>
 
           <p className="text-gray-400 text-lg leading-relaxed">
-            &quot;Shaped by initiative, real problem-solving, and building products that matter.&quot;
+            The path that got me here — and the roles that shaped how I think and build.
           </p>
         </div>
 

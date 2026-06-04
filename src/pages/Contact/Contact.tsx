@@ -286,11 +286,11 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="bg-[#04081A] text-slate-200 py-12 sm:py-20 lg:py-32 relative overflow-hidden noise-overlay"
+      className="bg-[#020610] text-slate-200 py-12 sm:py-20 lg:py-32 relative overflow-hidden noise-overlay"
     >
       {/* Enhanced background effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#020617] to-[#020617]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#010410] to-[#010410]"></div>
         {/* Subtle background orbs */}
         <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-[100px] animate-blob" />
         <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-purple-500/5 rounded-full blur-[80px] animate-blob animation-delay-4000" />
@@ -309,7 +309,7 @@ export default function Contact() {
           </h2>
 
           <p className="text-slate-400 text-base sm:text-lg leading-relaxed px-4">
-            Have a question or want to work together? Drop us a message!
+            Have a project in mind, or just want to chat? I'd love to hear from you.
           </p>
         </div>
 
@@ -321,7 +321,7 @@ export default function Contact() {
                 Let&apos;s Talk
               </h3>
               <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
-                I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                I'm always open to new projects, collaborations, or just good conversations about tech. Feel free to reach out.
               </p>
             </div>
 
@@ -366,7 +366,7 @@ export default function Contact() {
                 <div className="flex gap-4">
                   <div className="text-blue-400 text-5xl leading-none font-serif opacity-50">&quot;</div>
                   <p className="text-slate-300 text-lg leading-relaxed italic pt-2">
-                    Looking forward to hearing from you and discussing how we can work together to bring your ideas to life.
+                    Every great project starts with a conversation. Drop me a message — I reply to every one.
                   </p>
                 </div>
               </div>

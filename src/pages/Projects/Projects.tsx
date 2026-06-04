@@ -100,7 +100,7 @@ export default function Projects() {
   return (
     <ReactLenis root>
       <section
-        className="bg-[#04081A] text-slate-200 py-12 sm:py-16 md:py-24 lg:py-28 relative"
+        className="bg-[#020610] text-slate-200 py-12 sm:py-16 md:py-24 lg:py-28 relative"
         ref={container}
       >
         {/* Background Elements */}
@@ -109,7 +109,7 @@ export default function Projects() {
         </div>
         {/* Enhanced background effects - Matching About page */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#020617] to-[#020617]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#010410] to-[#010410]"></div>
           <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay"></div>
         </div>
 
@@ -125,7 +125,7 @@ export default function Projects() {
               Featured Projects
             </h2>
             <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base md:text-lg font-light tracking-wide">
-              &quot;A curated set of products and prototypes built with clarity, precision, and purpose.&quot;
+              Some of my recent work — each one pushed me to think differently about design and architecture.
             </p>
           </div>
 
