@@ -99,7 +99,7 @@ export default function About() {
               </div>
               <blockquote className="relative z-10">
                 <p className="text-lg sm:text-xl font-medium text-slate-300 italic mb-4">
-                  &quot;I don&apos;t chase perfection — I chase clarity. If something I build makes even one person&apos;s life easier, that&apos;s a win.&quot;
+                  &quot;Time is the most precious resource in human life. We build software to save it and make things work faster, easing daily tasks and making the world a better place.&quot;
                 </p>
                 <footer className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-blue-500/20">
