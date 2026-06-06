@@ -1,4 +1,3 @@
-import { ReactLenis } from "lenis/react";
 import { useTransform, motion, useScroll, MotionValue } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
@@ -43,6 +42,26 @@ const projects: Project[] = [
     githubLink: "",
     liveLink: "",
     tags: ["Python", "FastAPI", "Docker"],
+  },
+  {
+    title: "Project Four",
+    description: "Detailed description of your project. Explain the core features, architectural decisions, and the technologies used to build this product.",
+    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+    link: "",
+    color: "#f97316",
+    githubLink: "",
+    liveLink: "",
+    tags: ["Vue.js", "Firebase", "Stripe"],
+  },
+  {
+    title: "Project Five",
+    description: "Detailed description of your project. Explain the core features, architectural decisions, and the technologies used to build this product.",
+    src: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop",
+    link: "",
+    color: "#ec4899",
+    githubLink: "",
+    liveLink: "",
+    tags: ["AWS", "Terraform", "Go"],
   },
 ];
 
@@ -98,7 +117,6 @@ export default function Projects() {
   }, []);
 
   return (
-    <ReactLenis root>
       <section
         className="bg-[#020610] text-slate-200 py-12 sm:py-16 md:py-24 lg:py-28 relative"
         ref={container}
@@ -129,9 +147,9 @@ export default function Projects() {
             </p>
           </div>
 
-          <div className="hidden lg:flex lg:flex-col">
+          <div className="flex flex-col">
             {projects.map((project, i) => {
-              const targetScale = 1 - (projects.length - i) * 0.05;
+              const targetScale = 1 - (projects.length - i) * 0.03;
               return (
                 <Card
                   key={`p_${i}`}
@@ -141,7 +159,7 @@ export default function Projects() {
                   color={project.color}
                   description={project.description}
                   progress={scrollYProgress}
-                  range={[i * 0.25, 1]}
+                  range={[i * (1 / projects.length), 1]}
                   targetScale={targetScale}
                   githubLink={project.githubLink}
                   liveLink={project.liveLink}
@@ -150,15 +168,8 @@ export default function Projects() {
               );
             })}
           </div>
-
-          <div className="grid gap-8 lg:hidden">
-            {projects.map((project, i) => (
-              <MobileCard key={`mobile_${i}`} {...project} />
-            ))}
-          </div>
         </div>
       </section>
-    </ReactLenis>
   );
 }
 
@@ -208,7 +219,7 @@ function Card({
   return (
     <div
       ref={container}
-      className="min-h-[85vh] flex items-center justify-center lg:h-screen lg:sticky top-0 project-container pointer-events-none"
+      className="h-[85vh] sm:h-[90vh] md:h-[90vh] lg:h-screen flex items-center justify-center sticky top-0 project-container pointer-events-none"
     >
       <motion.div
         style={{
@@ -370,69 +381,6 @@ function Card({
           </div>
         </div>
       </motion.div>
-    </div>
-  );
-}
-
-function MobileCard({ title, description, src, color, githubLink, liveLink, tags }: Project) {
-  return (
-    <div className="bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 rounded-2xl overflow-hidden shadow-xl hover:border-blue-500/30 hover:shadow-blue-500/10 transition-all duration-300">
-      <div className="relative h-56 sm:h-64 group">
-        <img src={src} alt={title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent opacity-80" />
-
-        <div className="absolute top-4 left-4 bg-slate-950/40 backdrop-blur-md border border-white/10 text-white px-3 py-1 rounded-full text-xs font-medium">
-          Featured
-        </div>
-      </div>
-
-      <div className="p-6 space-y-6 relative -mt-12 z-10">
-        <div className="space-y-3">
-          <div className="flex items-center gap-2">
-            <span
-              className="w-2 h-2 rounded-full ring-1 ring-white/20"
-              style={{ backgroundColor: color }}
-            />
-            <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">Project</span>
-          </div>
-          <h3 className="text-2xl font-bold text-white tracking-tight">{title}</h3>
-          <p className="text-slate-400 leading-relaxed text-sm">{description}</p>
-          
-          {/* Mobile tags */}
-          <div className="flex flex-wrap gap-1 pt-1">
-            {tags.map((tag, idx) => (
-              <span key={idx} className="text-[10px] px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-400 font-medium">
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {(githubLink || liveLink) && (
-          <div className="flex items-center gap-3 pt-4 border-t border-white/5">
-            {githubLink && (
-              <a
-                href={githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors group"
-              >
-                <span className="text-sm font-medium text-slate-200 group-hover:text-white">Code</span>
-              </a>
-            )}
-            {liveLink && (
-              <a
-                href={liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors group"
-              >
-                <span className="text-sm font-medium text-slate-200 group-hover:text-white">Live</span>
-              </a>
-            )}
-          </div>
-        )}
-      </div>
     </div>
   );
 }

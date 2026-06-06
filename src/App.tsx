@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
+import { ReactLenis } from 'lenis/react';
 import './assets/css/index.css';
 import { SCROLL_OBSERVER_OPTIONS } from '@/config/navigation';
 import { FaLinkedinIn, FaGithub, FaHeart, FaInstagram, FaFacebookF } from 'react-icons/fa';
@@ -215,7 +216,7 @@ export default function App() {
   const dividersAfter = new Set(['home', 'about', 'skills', 'experience', 'projects']);
 
   return (
-    <>
+    <ReactLenis root options={{ lerp: 0.1, duration: 1.2, smoothWheel: true }}>
       <ScrollProgressBar />
       <Header activeSection={activeSection} onNavClick={handleNavClick} />
       <main className="flex flex-col w-full max-w-[100vw]">
@@ -239,6 +240,6 @@ export default function App() {
         ))}
       </main>
       <Footer />
-    </>
+    </ReactLenis>
   );
 }

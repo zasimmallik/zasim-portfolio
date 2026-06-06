@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 html {
-  scroll-behavior: smooth;
+  /* Lenis handles smooth scrolling globally */
 }
 
 body {
