@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import IconCloudDemo from "@/components/globe";
 import { Code2, Database, Layout, Cpu, Cloud, LucideIcon, Terminal, Globe, Workflow, Brain } from "lucide-react";
 import {
@@ -42,28 +42,40 @@ interface SkillCardProps {
   index: number;
 }
 
+// Staggered skill badge animation
+const badgeVariants = {
+  hidden: { opacity: 0, scale: 0.6, y: 10 },
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.06,
+      duration: 0.4,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  }),
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      delay: i * 0.12,
+      duration: 0.6,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  }),
+};
+
 const SkillCard = ({ icon: Icon, title, skills, color, index }: SkillCardProps) => {
-  const [isVisible, setIsVisible] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const isInView = useInView(cardRef, { once: true, margin: "-50px" });
 
   // Mouse-following gradient highlight
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -76,37 +88,84 @@ const SkillCard = ({ icon: Icon, title, skills, color, index }: SkillCardProps) 
   }, []);
 
   return (
-    <div
+    <motion.div
       ref={cardRef}
-      className={`group relative h-full transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-      style={{ transitionDelay: `${index * 100}ms` }}
+      className="group relative h-full"
+      custom={index}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={cardVariants}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
     >
       {/* Animated gradient glow effect */}
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/0 via-cyan-500/0 to-purple-500/0 group-hover:from-blue-500/20 group-hover:via-cyan-500/20 group-hover:to-purple-500/20 rounded-2xl blur-xl transition-all duration-500 opacity-0 group-hover:opacity-100" />
+      <motion.div
+        className="absolute -inset-0.5 rounded-2xl blur-xl"
+        initial={{ opacity: 0 }}
+        animate={isHovered ? {
+          opacity: 1,
+          background: [
+            "linear-gradient(135deg, rgba(59,130,246,0.2), rgba(6,182,212,0.2))",
+            "linear-gradient(225deg, rgba(6,182,212,0.2), rgba(139,92,246,0.2))",
+            "linear-gradient(315deg, rgba(139,92,246,0.2), rgba(59,130,246,0.2))",
+            "linear-gradient(135deg, rgba(59,130,246,0.2), rgba(6,182,212,0.2))",
+          ],
+        } : { opacity: 0 }}
+        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+      />
 
-      <Card className="relative h-full bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 group-hover:border-blue-500/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-blue-500/10 overflow-hidden">
+      <Card className="relative h-full bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 group-hover:border-blue-500/30 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-blue-500/10 overflow-hidden">
         {/* Mouse-following radial gradient */}
-        {isHovered && (
-          <div
-            className="absolute inset-0 opacity-100 transition-opacity duration-300 pointer-events-none z-0"
-            style={{
-              background: `radial-gradient(300px circle at ${mousePos.x}px ${mousePos.y}px, rgba(59,130,246,0.08), transparent 60%)`,
-            }}
-          />
-        )}
+        <AnimatePresence>
+          {isHovered && (
+            <motion.div
+              className="absolute inset-0 pointer-events-none z-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              style={{
+                background: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, rgba(59,130,246,0.1), transparent 60%)`,
+              }}
+            />
+          )}
+        </AnimatePresence>
 
-        {/* Shimmer effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent group-hover:via-blue-500/10 animate-shimmer" />
+        {/* Animated shimmer sweep */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent pointer-events-none"
+          animate={{
+            x: ["-100%", "200%"],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "linear",
+            repeatDelay: 2,
+          }}
+        />
 
         <CardContent className="p-6 sm:p-7 relative z-10">
           <div className="flex items-center gap-4 mb-6">
-            <div className={`relative p-3 rounded-xl bg-slate-800/50 border border-slate-700/50 group-hover:border-blue-500/30 transition-all duration-300 group-hover:scale-110 ${color}`}>
-              <div className="absolute inset-0 bg-blue-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <motion.div
+              className={`relative p-3 rounded-xl bg-slate-800/50 border border-slate-700/50 group-hover:border-blue-500/30 transition-colors duration-300 ${color}`}
+              whileHover={{ scale: 1.15, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            >
+              {/* Pulse ring behind icon on hover */}
+              <motion.div
+                className="absolute inset-0 bg-blue-500/10 rounded-xl"
+                initial={{ opacity: 0, scale: 1 }}
+                animate={isHovered ? {
+                  opacity: [0, 0.5, 0],
+                  scale: [1, 1.4, 1.6],
+                } : { opacity: 0, scale: 1 }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              />
               <Icon className="w-6 h-6 sm:w-7 sm:h-7 relative z-10" />
-            </div>
+            </motion.div>
             <h3 className="text-lg sm:text-xl font-bold text-slate-200 group-hover:text-blue-200 transition-colors">
               {title}
             </h3>
@@ -114,51 +173,55 @@ const SkillCard = ({ icon: Icon, title, skills, color, index }: SkillCardProps) 
 
           <div className="flex flex-wrap gap-2">
             {skills.map((skill: Skill, idx: number) => (
-              <Badge
+              <motion.div
                 key={idx}
-                variant="outline"
-                className="relative bg-slate-800/40 hover:bg-slate-700/60 text-slate-300 hover:text-white border-slate-700/50 hover:border-blue-500/30 px-3 py-1.5 text-xs sm:text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10 cursor-default hover:-translate-y-0.5"
+                custom={idx}
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
+                variants={badgeVariants}
               >
-                <span className="mr-2 text-base opacity-80 group-hover:opacity-100 transition-opacity">{skill.icon}</span>
-                {skill.name}
-              </Badge>
+                <motion.span
+                  className="relative inline-flex items-center bg-slate-800/40 hover:bg-slate-700/60 text-slate-300 hover:text-white border border-slate-700/50 hover:border-blue-500/30 px-3 py-1.5 text-xs sm:text-sm rounded-md cursor-default transition-colors duration-200"
+                  whileHover={{
+                    scale: 1.08,
+                    y: -3,
+                    boxShadow: "0 8px 25px rgba(59,130,246,0.15)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  <span className="mr-2 text-base opacity-80 group-hover:opacity-100 transition-opacity">{skill.icon}</span>
+                  {skill.name}
+                </motion.span>
+              </motion.div>
             ))}
           </div>
         </CardContent>
 
-        {/* Decorative corner gradients */}
-        <div className="absolute top-0 right-0 w-16 h-16 bg-blue-500/5 rounded-bl-full -mr-8 -mt-8 transition-all duration-500 group-hover:bg-blue-500/10" />
-        <div className="absolute bottom-0 left-0 w-16 h-16 bg-cyan-500/5 rounded-tr-full -ml-8 -mb-8 transition-all duration-500 group-hover:bg-cyan-500/10" />
+        {/* Decorative corner gradients with animation */}
+        <motion.div
+          className="absolute top-0 right-0 w-20 h-20 bg-blue-500/5 rounded-bl-full -mr-10 -mt-10"
+          animate={isHovered ? { scale: 1.5, opacity: 0.8 } : { scale: 1, opacity: 0.3 }}
+          transition={{ duration: 0.5 }}
+        />
+        <motion.div
+          className="absolute bottom-0 left-0 w-20 h-20 bg-cyan-500/5 rounded-tr-full -ml-10 -mb-10"
+          animate={isHovered ? { scale: 1.5, opacity: 0.8 } : { scale: 1, opacity: 0.3 }}
+          transition={{ duration: 0.5 }}
+        />
       </Card>
-    </div>
+    </motion.div>
   );
 };
 
 // Animated counter component
 const AnimatedCounter = ({ target, suffix = '' }: { target: number; suffix?: string }) => {
   const [count, setCount] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
   const counterRef = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(counterRef, { once: true, margin: "-20px" });
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (counterRef.current) {
-      observer.observe(counterRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!isVisible) return;
+    if (!isInView) return;
 
     let start = 0;
     const duration = 1500;
@@ -178,7 +241,7 @@ const AnimatedCounter = ({ target, suffix = '' }: { target: number; suffix?: str
     };
 
     requestAnimationFrame(animate);
-  }, [isVisible, target]);
+  }, [isInView, target]);
 
   return (
     <span ref={counterRef} className="tabular-nums">
@@ -187,26 +250,36 @@ const AnimatedCounter = ({ target, suffix = '' }: { target: number; suffix?: str
   );
 };
 
+// Floating orb component for background
+const FloatingOrb = ({ delay, x, y, size, color }: { delay: number; x: string; y: string; size: number; color: string }) => (
+  <motion.div
+    className="absolute rounded-full pointer-events-none"
+    style={{
+      left: x,
+      top: y,
+      width: size,
+      height: size,
+      background: `radial-gradient(circle, ${color}, transparent 70%)`,
+      filter: "blur(40px)",
+    }}
+    animate={{
+      y: [0, -30, 10, -20, 0],
+      x: [0, 15, -10, 20, 0],
+      scale: [1, 1.2, 0.9, 1.1, 1],
+      opacity: [0.3, 0.6, 0.4, 0.5, 0.3],
+    }}
+    transition={{
+      duration: 12,
+      repeat: Infinity,
+      ease: "easeInOut",
+      delay,
+    }}
+  />
+);
+
 const SkillsSection = () => {
-  const [headerVisible, setHeaderVisible] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHeaderVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (headerRef.current) {
-      observer.observe(headerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const isHeaderInView = useInView(headerRef, { once: true, margin: "-80px" });
 
   const skillCategories = [
     {
@@ -300,37 +373,89 @@ const SkillsSection = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#010410] to-[#010410]"></div>
       </div>
 
+      {/* Floating background orbs */}
+      <FloatingOrb delay={0} x="10%" y="20%" size={200} color="rgba(59,130,246,0.08)" />
+      <FloatingOrb delay={3} x="80%" y="60%" size={160} color="rgba(6,182,212,0.06)" />
+      <FloatingOrb delay={6} x="50%" y="80%" size={180} color="rgba(139,92,246,0.06)" />
+      <FloatingOrb delay={1.5} x="70%" y="10%" size={140} color="rgba(59,130,246,0.05)" />
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div
+        <motion.div
           ref={headerRef}
-          className={`text-center max-w-3xl mx-auto mb-16 sm:mb-20 transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          className="text-center max-w-3xl mx-auto mb-16 sm:mb-20"
+          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+          animate={isHeaderInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6">
-            <Cpu className="w-4 h-4" />
+          <motion.div
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={isHeaderInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <motion.div
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+            >
+              <Cpu className="w-4 h-4" />
+            </motion.div>
             <span>Technical Expertise</span>
-          </div>
+          </motion.div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
             Skills & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Technologies</span>
-          </h2>
+          </motion.h2>
 
-          <p className="text-gray-400 text-lg leading-relaxed">
+          <motion.p
+            className="text-gray-400 text-lg leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             My day-to-day toolkit —{' '}
             <span className="text-blue-400 font-semibold">
               <AnimatedCounter target={totalSkills} suffix="+" />
             </span>{' '}
             technologies I use to build production-ready apps.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        {/* Icon Cloud with pulsing glow */}
-        <div className={`flex justify-center items-center mb-20 transition-all duration-1000 delay-300 ${headerVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+        {/* Icon Cloud with animated glow */}
+        <motion.div
+          className="flex justify-center items-center mb-20"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={isHeaderInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
           <div className="relative">
-            <div className="absolute inset-0 bg-blue-500/5 blur-3xl rounded-full" style={{ animation: 'glow-pulse 4s ease-in-out infinite' }}></div>
+            {/* Animated glow rings */}
+            <motion.div
+              className="absolute inset-0 bg-blue-500/5 blur-3xl rounded-full"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.6, 0.3],
+              }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              className="absolute inset-[-20px] border border-blue-500/10 rounded-full"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            />
+            <motion.div
+              className="absolute inset-[-40px] border border-cyan-500/5 rounded-full"
+              animate={{ rotate: -360 }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+            />
             <IconCloudDemo />
           </div>
-        </div>
+        </motion.div>
 
         {/* Skills Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -346,19 +471,8 @@ const SkillsSection = () => {
           ))}
         </div>
       </div>
-
-      <style>{`
-        @keyframes shimmer {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
-        .animate-shimmer {
-          animation: shimmer 3s infinite;
-        }
-      `}</style>
     </section>
   );
 };
 
 export default SkillsSection;
-
