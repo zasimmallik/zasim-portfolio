@@ -117,59 +117,59 @@ export default function Projects() {
   }, []);
 
   return (
-      <section
-        className="bg-[#020610] text-slate-200 py-12 sm:py-16 md:py-24 lg:py-28 relative"
-        ref={container}
-      >
-        {/* Background Elements */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.1),transparent_50%)]" />
-        </div>
-        {/* Enhanced background effects - Matching About page */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#010410] to-[#010410]"></div>
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay"></div>
-        </div>
+    <section
+      className="bg-[#020610] text-slate-200 py-12 sm:py-16 md:py-24 lg:py-28 relative"
+      ref={container}
+    >
+      {/* Background Elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.1),transparent_50%)]" />
+      </div>
+      {/* Enhanced background effects - Matching About page */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#010410] to-[#010410]"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay"></div>
+      </div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10 md:space-y-12 relative z-10">
-          <div className="text-center space-y-3 sm:space-y-4 md:space-y-5">
-            {/* Small Title */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/5 border border-blue-500/10 text-blue-400 text-xs sm:text-sm font-medium tracking-wide uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
-              Projects
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent tracking-tight">
-              Featured Projects
-            </h2>
-            <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base md:text-lg font-light tracking-wide">
-              Some of my recent work — each one pushed me to think differently about design and architecture.
-            </p>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10 md:space-y-12 relative z-10">
+        <div className="text-center space-y-3 sm:space-y-4 md:space-y-5">
+          {/* Small Title */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/5 border border-blue-500/10 text-blue-400 text-xs sm:text-sm font-medium tracking-wide uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+            Projects
           </div>
 
-          <div className="flex flex-col">
-            {projects.map((project, i) => {
-              const targetScale = 1 - (projects.length - i) * 0.03;
-              return (
-                <Card
-                  key={`p_${i}`}
-                  i={i}
-                  url={project.src}
-                  title={project.title}
-                  color={project.color}
-                  description={project.description}
-                  progress={scrollYProgress}
-                  range={[i * (1 / projects.length), 1]}
-                  targetScale={targetScale}
-                  githubLink={project.githubLink}
-                  liveLink={project.liveLink}
-                  tags={project.tags}
-                />
-              );
-            })}
-          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent tracking-tight">
+            Featured Projects
+          </h2>
+          <p className="text-slate-400 max-w-2xl mx-auto text-sm sm:text-base md:text-lg font-light tracking-wide">
+            Some of my recent work — each one pushed me to think differently about design and architecture.
+          </p>
         </div>
-      </section>
+
+        <div className="flex flex-col">
+          {projects.map((project, i) => {
+            const targetScale = 1 - (projects.length - i) * 0.03;
+            return (
+              <Card
+                key={`p_${i}`}
+                i={i}
+                url={project.src}
+                title={project.title}
+                color={project.color}
+                description={project.description}
+                progress={scrollYProgress}
+                range={[i * (1 / projects.length), 1]}
+                targetScale={targetScale}
+                githubLink={project.githubLink}
+                liveLink={project.liveLink}
+                tags={project.tags}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -202,7 +202,7 @@ function Card({
 }: CardProps) {
   const container = useRef(null);
   const scale = useTransform(progress, range, [1, targetScale]);
-  
+
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -231,7 +231,7 @@ function Card({
         className="relative lg:-top-[25%] h-auto w-full max-w-5xl origin-top project-card pointer-events-auto"
       >
         {/* Modern split card design with Glassmorphism - Enhanced */}
-        <div 
+        <div
           ref={cardRef}
           onMouseMove={handleMouseMove}
           onMouseEnter={() => setIsHovered(true)}

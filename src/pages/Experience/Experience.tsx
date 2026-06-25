@@ -47,11 +47,10 @@ const ExperienceCard = ({
   return (
     <div
       ref={cardRef}
-      className={`relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group ${
-        isVisible
+      className={`relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group ${isVisible
           ? `opacity-100 translate-y-0 ${slideDirection}`
           : `opacity-0 translate-y-20 ${slideFrom}`
-      } transition-all duration-1000 ease-out`}
+        } transition-all duration-1000 ease-out`}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
       {/* Timeline Dot with ripple glow */}
@@ -61,21 +60,19 @@ const ExperienceCard = ({
           <div className="absolute inset-0 w-4 h-4 rounded-full bg-cyan-400/30 animate-[ripple-glow_2s_ease-in-out_infinite]" />
         )}
         <div
-          className={`w-4 h-4 rounded-full border-4 border-[#010410] transition-all duration-500 shadow-[0_0_10px_rgba(59,130,246,0.5)] group-hover:shadow-[0_0_20px_rgba(34,211,238,0.8)] ${
-            isLatest
+          className={`w-4 h-4 rounded-full border-4 border-[#010410] transition-all duration-500 shadow-[0_0_10px_rgba(59,130,246,0.5)] group-hover:shadow-[0_0_20px_rgba(34,211,238,0.8)] ${isLatest
               ? 'bg-cyan-400 group-hover:bg-cyan-300 scale-125 group-hover:scale-[1.75]'
               : 'bg-blue-500 group-hover:scale-150 group-hover:bg-cyan-400'
-          }`}
+            }`}
         />
       </div>
 
       {/* Content Card */}
       <div className="w-full md:w-[calc(50%-30px)] pl-12 md:pl-0">
-        <div className={`relative p-6 sm:p-8 rounded-2xl bg-slate-900/50 border backdrop-blur-xl shadow-lg transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl overflow-hidden ${
-          isLatest
+        <div className={`relative p-6 sm:p-8 rounded-2xl bg-slate-900/50 border backdrop-blur-xl shadow-lg transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl overflow-hidden ${isLatest
             ? 'border-cyan-500/20 group-hover:border-cyan-500/40 group-hover:shadow-cyan-500/10'
             : 'border-slate-800/50 group-hover:border-blue-500/30 group-hover:shadow-blue-500/10'
-        }`}>
+          }`}>
 
           {/* Glow Effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-cyan-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:via-cyan-500/10 group-hover:to-purple-500/10 transition-all duration-500"></div>
@@ -84,26 +81,23 @@ const ExperienceCard = ({
           <div className="relative z-10 flex flex-col gap-4 mb-4">
             <div className="flex items-center justify-between flex-wrap gap-2">
               <div className="flex items-center gap-3">
-                <div className={`p-2.5 rounded-xl border transition-colors duration-300 ${
-                  isLatest
+                <div className={`p-2.5 rounded-xl border transition-colors duration-300 ${isLatest
                     ? 'bg-cyan-500/10 border-cyan-500/20 group-hover:bg-cyan-500/20'
                     : 'bg-blue-500/10 border-blue-500/20 group-hover:bg-blue-500/20'
-                }`}>
-                  <Icon className={`w-6 h-6 transition-colors ${
-                    isLatest
+                  }`}>
+                  <Icon className={`w-6 h-6 transition-colors ${isLatest
                       ? 'text-cyan-400 group-hover:text-cyan-300'
                       : 'text-blue-400 group-hover:text-cyan-300'
-                  }`} />
+                    }`} />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-200 group-hover:text-blue-200 transition-colors">
                   {title}
                 </h3>
               </div>
-              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border ${
-                isLatest
+              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border ${isLatest
                   ? 'bg-cyan-500/10 text-cyan-300 border-cyan-500/20'
                   : 'bg-blue-500/10 text-blue-300 border-blue-500/20'
-              }`}>
+                }`}>
                 <Calendar className="w-3.5 h-3.5" />
                 {period}
                 {isLatest && (
@@ -122,11 +116,10 @@ const ExperienceCard = ({
           </div>
 
           {/* Description */}
-          <p className={`relative z-10 text-slate-400 leading-relaxed text-sm sm:text-base border-l-2 pl-4 transition-colors duration-300 ${
-            isLatest
+          <p className={`relative z-10 text-slate-400 leading-relaxed text-sm sm:text-base border-l-2 pl-4 transition-colors duration-300 ${isLatest
               ? 'border-cyan-700/50 group-hover:border-cyan-500/50'
               : 'border-slate-700 group-hover:border-blue-500/50'
-          }`}>
+            }`}>
             {description}
           </p>
 

@@ -1,30 +1,17 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import IconCloudDemo from "@/components/globe";
-import { Code2, Database, Layout, Cpu, Cloud, LucideIcon, Terminal, Globe, Workflow, Brain } from "lucide-react";
 import {
-  FaReact,
-  FaNodeJs,
-  FaPython,
-  FaDocker,
-  FaGitAlt,
-  FaAws,
+  Code2, Database, Layout, Cpu, Cloud, LucideIcon,
+  Terminal, Globe, Workflow, Brain,
+} from "lucide-react";
+import {
+  FaReact, FaNodeJs, FaPython, FaDocker, FaGitAlt, FaAws,
 } from "react-icons/fa";
 import {
-  SiNextdotjs,
-  SiTypescript,
-  SiTailwindcss,
-  SiPostgresql,
-  SiMongodb,
-  SiGraphql,
-  SiRedux,
-  SiFirebase,
-  SiVercel,
-  SiVite,
-  SiPrisma,
-  SiMongoose,
-  SiNetlify,
+  SiNextdotjs, SiTypescript, SiTailwindcss, SiPostgresql,
+  SiMongodb, SiGraphql, SiRedux, SiFirebase, SiVercel,
+  SiVite, SiPrisma, SiMongoose, SiNetlify,
 } from "react-icons/si";
 import { TbBrandVscode, TbBrandOpenai } from "react-icons/tb";
 import { BsFileEarmarkCode } from "react-icons/bs";
@@ -38,54 +25,36 @@ interface SkillCardProps {
   icon: LucideIcon;
   title: string;
   skills: Skill[];
-  color: string;
+  accent: string;
+  glowColor: string;
+  gradientFrom: string;
+  gradientTo: string;
   index: number;
 }
 
-// Staggered skill badge animation
+const EASE_CURVE: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
+
 const badgeVariants = {
-  hidden: { opacity: 0, scale: 0.6, y: 10 },
+  hidden: { opacity: 0, scale: 0.5, y: 14 },
   visible: (i: number) => ({
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.06,
-      duration: 0.4,
-      ease: [0.25, 0.46, 0.45, 0.94],
-    },
+    opacity: 1, scale: 1, y: 0,
+    transition: { delay: i * 0.055, duration: 0.38, ease: EASE_CURVE },
   }),
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  hidden: { opacity: 0, y: 50, scale: 0.93 },
   visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      delay: i * 0.12,
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94],
-    },
+    opacity: 1, y: 0, scale: 1,
+    transition: { delay: i * 0.1, duration: 0.65, ease: EASE_CURVE },
   }),
 };
 
-const SkillCard = ({ icon: Icon, title, skills, color, index }: SkillCardProps) => {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
+const SkillCard = ({
+  icon: Icon, title, skills, accent, glowColor, gradientFrom, gradientTo, index,
+}: SkillCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(cardRef, { once: true, margin: "-50px" });
-
-  // Mouse-following gradient highlight
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  }, []);
+  const isInView = useInView(cardRef, { once: true, margin: "-40px" });
 
   return (
     <motion.div
@@ -95,82 +64,57 @@ const SkillCard = ({ icon: Icon, title, skills, color, index }: SkillCardProps) 
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={cardVariants}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
+      whileHover={{ y: -10, transition: { duration: 0.3, ease: "easeOut" } }}
     >
-      {/* Animated gradient glow effect */}
-      <motion.div
-        className="absolute -inset-0.5 rounded-2xl blur-xl"
-        initial={{ opacity: 0 }}
-        animate={isHovered ? {
-          opacity: 1,
-          background: [
-            "linear-gradient(135deg, rgba(59,130,246,0.2), rgba(6,182,212,0.2))",
-            "linear-gradient(225deg, rgba(6,182,212,0.2), rgba(139,92,246,0.2))",
-            "linear-gradient(315deg, rgba(139,92,246,0.2), rgba(59,130,246,0.2))",
-            "linear-gradient(135deg, rgba(59,130,246,0.2), rgba(6,182,212,0.2))",
-          ],
-        } : { opacity: 0 }}
-        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-      />
+      {/* Card body */}
+      <div
+        className="relative h-full rounded-2xl overflow-hidden border border-white/5 bg-[#0a0f1e]/80 backdrop-blur-xl"
+        style={{ boxShadow: "0 4px 24px -4px rgba(0,0,0,0.6)" }}
+      >
 
-      <Card className="relative h-full bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 group-hover:border-blue-500/30 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-blue-500/10 overflow-hidden">
-        {/* Mouse-following radial gradient */}
-        <AnimatePresence>
-          {isHovered && (
-            <motion.div
-              className="absolute inset-0 pointer-events-none z-0"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              style={{
-                background: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, rgba(59,130,246,0.1), transparent 60%)`,
-              }}
-            />
-          )}
-        </AnimatePresence>
-
-        {/* Animated shimmer sweep */}
+        {/* Shimmer sweep */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent pointer-events-none"
-          animate={{
-            x: ["-100%", "200%"],
+          className="absolute inset-0 pointer-events-none z-0"
+          style={{
+            background: `linear-gradient(105deg, transparent 40%, ${glowColor.replace("0.25", "0.07")} 50%, transparent 60%)`,
           }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "linear",
-            repeatDelay: 2,
-          }}
+          animate={{ x: ["-100%", "200%"] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: "linear", repeatDelay: 3 }}
         />
 
-        <CardContent className="p-6 sm:p-7 relative z-10">
+        {/* Top edge accent line */}
+        <div
+          className="absolute top-0 left-6 right-6 h-[1.5px] rounded-full opacity-60"
+          style={{ background: `linear-gradient(90deg, transparent, ${gradientFrom}, ${gradientTo}, transparent)` }}
+        />
+
+        {/* Content */}
+        <div className="relative z-10 p-6 sm:p-7">
+          {/* Header */}
           <div className="flex items-center gap-4 mb-6">
-            <motion.div
-              className={`relative p-3 rounded-xl bg-slate-800/50 border border-slate-700/50 group-hover:border-blue-500/30 transition-colors duration-300 ${color}`}
-              whileHover={{ scale: 1.15, rotate: 5 }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
-            >
-              {/* Pulse ring behind icon on hover */}
+            <div className="relative">
               <motion.div
-                className="absolute inset-0 bg-blue-500/10 rounded-xl"
-                initial={{ opacity: 0, scale: 1 }}
-                animate={isHovered ? {
-                  opacity: [0, 0.5, 0],
-                  scale: [1, 1.4, 1.6],
-                } : { opacity: 0, scale: 1 }}
-                transition={{ duration: 1.5, repeat: Infinity }}
+                className="relative p-3 rounded-xl border border-white/10 backdrop-blur-sm"
+                style={{ background: `linear-gradient(135deg, ${gradientFrom}18, ${gradientTo}18)` }}
+                whileHover={{ scale: 1.15, rotate: 6 }}
+                transition={{ type: "spring", stiffness: 280, damping: 14 }}
+              >
+                <Icon className={`w-6 h-6 sm:w-7 sm:h-7 relative z-10 ${accent}`} />
+              </motion.div>
+            </div>
+
+            <div>
+              <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-white/90 transition-colors duration-300">
+                {title}
+              </h3>
+              <div
+                className="h-[2px] mt-1 rounded-full w-8 group-hover:w-16 transition-all duration-500"
+                style={{ background: `linear-gradient(90deg, ${gradientFrom}, ${gradientTo})` }}
               />
-              <Icon className="w-6 h-6 sm:w-7 sm:h-7 relative z-10" />
-            </motion.div>
-            <h3 className="text-lg sm:text-xl font-bold text-slate-200 group-hover:text-blue-200 transition-colors">
-              {title}
-            </h3>
+            </div>
           </div>
 
+          {/* Skill Badges */}
           <div className="flex flex-wrap gap-2">
             {skills.map((skill: Skill, idx: number) => (
               <motion.div
@@ -181,100 +125,105 @@ const SkillCard = ({ icon: Icon, title, skills, color, index }: SkillCardProps) 
                 variants={badgeVariants}
               >
                 <motion.span
-                  className="relative inline-flex items-center bg-slate-800/40 hover:bg-slate-700/60 text-slate-300 hover:text-white border border-slate-700/50 hover:border-blue-500/30 px-3 py-1.5 text-xs sm:text-sm rounded-md cursor-default transition-colors duration-200"
+                  className="relative inline-flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-[13px] font-medium rounded-lg overflow-hidden"
+                  style={{
+                    background: "rgba(255,255,255,0.04)",
+                    color: "rgba(203,213,225,0.85)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  }}
                   whileHover={{
                     scale: 1.08,
                     y: -3,
-                    boxShadow: "0 8px 25px rgba(59,130,246,0.15)",
                   }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  whileTap={{ scale: 0.94 }}
+                  transition={{ type: "spring", stiffness: 380, damping: 18 }}
                 >
-                  <span className="mr-2 text-base opacity-80 group-hover:opacity-100 transition-opacity">{skill.icon}</span>
+                  <span className="text-[14px] opacity-90 flex-shrink-0">{skill.icon}</span>
                   {skill.name}
                 </motion.span>
               </motion.div>
             ))}
           </div>
-        </CardContent>
+        </div>
 
-        {/* Decorative corner gradients with animation */}
-        <motion.div
-          className="absolute top-0 right-0 w-20 h-20 bg-blue-500/5 rounded-bl-full -mr-10 -mt-10"
-          animate={isHovered ? { scale: 1.5, opacity: 0.8 } : { scale: 1, opacity: 0.3 }}
-          transition={{ duration: 0.5 }}
+        {/* Corner orbs */}
+        <div
+          className="absolute -top-8 -right-8 w-24 h-24 rounded-full opacity-20 blur-2xl pointer-events-none"
+          style={{ background: gradientFrom }}
         />
-        <motion.div
-          className="absolute bottom-0 left-0 w-20 h-20 bg-cyan-500/5 rounded-tr-full -ml-10 -mb-10"
-          animate={isHovered ? { scale: 1.5, opacity: 0.8 } : { scale: 1, opacity: 0.3 }}
-          transition={{ duration: 0.5 }}
+        <div
+          className="absolute -bottom-8 -left-8 w-24 h-24 rounded-full opacity-15 blur-2xl pointer-events-none"
+          style={{ background: gradientTo }}
         />
-      </Card>
+      </div>
     </motion.div>
   );
 };
 
-// Animated counter component
-const AnimatedCounter = ({ target, suffix = '' }: { target: number; suffix?: string }) => {
+const AnimatedCounter = ({ target, suffix = "" }: { target: number; suffix?: string }) => {
   const [count, setCount] = useState(0);
-  const counterRef = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(counterRef, { once: true, margin: "-20px" });
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-20px" });
 
   useEffect(() => {
     if (!isInView) return;
-
-    let start = 0;
-    const duration = 1500;
+    const duration = 1600;
     const startTime = performance.now();
-
-    const animate = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
+    const animate = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      start = Math.round(eased * target);
-      setCount(start);
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
+      setCount(Math.round(eased * target));
+      if (progress < 1) requestAnimationFrame(animate);
     };
-
     requestAnimationFrame(animate);
   }, [isInView, target]);
 
-  return (
-    <span ref={counterRef} className="tabular-nums">
-      {count}{suffix}
-    </span>
-  );
+  return <span ref={ref} className="tabular-nums">{count}{suffix}</span>;
 };
 
-// Floating orb component for background
-const FloatingOrb = ({ delay, x, y, size, color }: { delay: number; x: string; y: string; size: number; color: string }) => (
+const FloatingOrb = ({ delay, x, y, size, color }: {
+  delay: number; x: string; y: string; size: number; color: string;
+}) => (
   <motion.div
     className="absolute rounded-full pointer-events-none"
     style={{
-      left: x,
-      top: y,
-      width: size,
-      height: size,
-      background: `radial-gradient(circle, ${color}, transparent 70%)`,
-      filter: "blur(40px)",
+      left: x, top: y, width: size, height: size,
+      background: `radial-gradient(circle, ${color}, transparent 70%)`, filter: "blur(40px)"
     }}
     animate={{
-      y: [0, -30, 10, -20, 0],
-      x: [0, 15, -10, 20, 0],
-      scale: [1, 1.2, 0.9, 1.1, 1],
-      opacity: [0.3, 0.6, 0.4, 0.5, 0.3],
+      y: [0, -35, 12, -22, 0], x: [0, 18, -12, 22, 0],
+      scale: [1, 1.25, 0.88, 1.12, 1], opacity: [0.3, 0.65, 0.38, 0.52, 0.3]
     }}
-    transition={{
-      duration: 12,
-      repeat: Infinity,
-      ease: "easeInOut",
-      delay,
-    }}
+    transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay }}
   />
+);
+
+const OrbitalRing = ({
+  size, duration, reverse, color, dotColor, dotSize = 5,
+}: {
+  size: number; duration: number; reverse?: boolean; color: string; dotColor: string; dotSize?: number;
+}) => (
+  <motion.div
+    className="absolute rounded-full pointer-events-none"
+    style={{
+      width: size, height: size,
+      top: "50%", left: "50%",
+      marginTop: -size / 2, marginLeft: -size / 2,
+      border: `1px solid ${color}`,
+    }}
+    animate={{ rotate: reverse ? -360 : 360 }}
+    transition={{ duration, repeat: Infinity, ease: "linear" }}
+  >
+    <div
+      className="absolute rounded-full"
+      style={{
+        width: dotSize, height: dotSize,
+        background: dotColor,
+        boxShadow: `0 0 ${dotSize * 3}px ${dotColor}, 0 0 ${dotSize * 6}px ${dotColor}`,
+        top: -dotSize / 2, left: "50%", marginLeft: -dotSize / 2,
+      }}
+    />
+  </motion.div>
 );
 
 const SkillsSection = () => {
@@ -283,9 +232,10 @@ const SkillsSection = () => {
 
   const skillCategories = [
     {
-      icon: Code2,
-      title: "Frontend Development",
-      color: "text-blue-400",
+      icon: Code2, title: "Frontend Development",
+      accent: "text-blue-400",
+      glowColor: "rgba(59,130,246,0.25)",
+      gradientFrom: "#3b82f6", gradientTo: "#06b6d4",
       skills: [
         { name: "React", icon: <FaReact className="text-[#61DAFB]" /> },
         { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
@@ -296,107 +246,108 @@ const SkillsSection = () => {
       ],
     },
     {
-      icon: Database,
-      title: "Backend Development",
-      color: "text-green-400",
+      icon: Database, title: "Backend Development",
+      accent: "text-emerald-400",
+      glowColor: "rgba(16,185,129,0.25)",
+      gradientFrom: "#10b981", gradientTo: "#34d399",
       skills: [
         { name: "Node.js", icon: <FaNodeJs className="text-[#339933]" /> },
         { name: "Express.js", icon: <FaNodeJs className="text-[#339933]" /> },
         { name: "PostgreSQL", icon: <SiPostgresql className="text-[#336791]" /> },
         { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
-        { name: "System Design", icon: <Database className="text-[#FF6C37]" /> },
+        { name: "System Design", icon: <Database className="text-emerald-400" /> },
         { name: "GraphQL", icon: <SiGraphql className="text-[#E10098]" /> },
       ],
     },
     {
-      icon: Layout,
-      title: "State & ORM",
-      color: "text-purple-400",
+      icon: Layout, title: "State & ORM",
+      accent: "text-purple-400",
+      glowColor: "rgba(139,92,246,0.25)",
+      gradientFrom: "#8b5cf6", gradientTo: "#a78bfa",
       skills: [
         { name: "Redux", icon: <SiRedux className="text-[#764ABC]" /> },
         { name: "React Router", icon: <FaReact className="text-[#61DAFB]" /> },
         { name: "Prisma ORM", icon: <SiPrisma className="text-white" /> },
         { name: "Mongoose", icon: <SiMongoose className="text-[#880000]" /> },
-        { name: "JWT & Auth", icon: <Workflow className="text-yellow-500" /> },
+        { name: "JWT & Auth", icon: <Workflow className="text-yellow-400" /> },
       ],
     },
     {
-      icon: Cloud,
-      title: "Cloud & DevOps",
-      color: "text-orange-400",
+      icon: Cloud, title: "Cloud & DevOps",
+      accent: "text-orange-400",
+      glowColor: "rgba(249,115,22,0.25)",
+      gradientFrom: "#f97316", gradientTo: "#fb923c",
       skills: [
         { name: "AWS", icon: <FaAws className="text-[#FF9900]" /> },
         { name: "Docker", icon: <FaDocker className="text-[#2496ED]" /> },
         { name: "Git & GitHub", icon: <FaGitAlt className="text-[#F05032]" /> },
         { name: "Vercel", icon: <SiVercel className="text-white" /> },
-        { name: "CI/CD", icon: <Workflow className="text-green-500" /> },
+        { name: "CI/CD", icon: <Workflow className="text-green-400" /> },
+        { name: "Netlify", icon: <SiNetlify className="text-[#00C7B7]" /> },
       ],
     },
     {
-      icon: Cpu,
-      title: "AI & Python",
-      color: "text-pink-400",
+      icon: Cpu, title: "AI & Python",
+      accent: "text-pink-400",
+      glowColor: "rgba(236,72,153,0.25)",
+      gradientFrom: "#ec4899", gradientTo: "#f472b6",
       skills: [
         { name: "Python", icon: <FaPython className="text-[#3776AB]" /> },
-        { name: "LLMs & RAG", icon: <TbBrandOpenai className="text-[#412991]" /> },
+        { name: "LLMs & RAG", icon: <TbBrandOpenai className="text-white" /> },
         { name: "LangChain", icon: <Globe className="text-[#3776AB]" /> },
         { name: "Claude (Anthropic)", icon: <Brain className="text-[#CC9B7A]" /> },
         { name: "Claude Code", icon: <Terminal className="text-orange-400" /> },
         { name: "OpenAI Codex", icon: <TbBrandOpenai className="text-[#74A57F]" /> },
-        { name: "Anti-gravity", icon: <Cpu className="text-purple-400" /> },
         { name: "Context Engineering", icon: <Cpu className="text-[#FF69B4]" /> },
-        { name: "AI Agents", icon: <Cpu className="text-[#FF69B4]" /> },
       ],
     },
     {
-      icon: Terminal,
-      title: "Tools & Technologies",
-      color: "text-yellow-400",
+      icon: Terminal, title: "Tools & Technologies",
+      accent: "text-yellow-400",
+      glowColor: "rgba(234,179,8,0.25)",
+      gradientFrom: "#eab308", gradientTo: "#facc15",
       skills: [
         { name: "VS Code", icon: <TbBrandVscode className="text-[#007ACC]" /> },
         { name: "Cursor IDE", icon: <TbBrandVscode className="text-[#007ACC]" /> },
         { name: "Vite", icon: <SiVite className="text-[#646CFF]" /> },
         { name: "Firebase", icon: <SiFirebase className="text-[#FFCA28]" /> },
         { name: "Netlify", icon: <SiNetlify className="text-[#00C7B7]" /> },
-        { name: "Stitch", icon: <Workflow className="text-blue-400" /> },
+        { name: "Anti-gravity", icon: <Cpu className="text-purple-400" /> },
       ],
     },
   ];
 
-  // Count total unique technologies
   const totalSkills = skillCategories.reduce((acc, cat) => acc + cat.skills.length, 0);
 
   return (
     <section id="skills" className="relative py-20 sm:py-32 bg-[#020610] overflow-hidden noise-overlay">
-      {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#010410] to-[#010410]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(59,130,246,0.06)_0%,transparent_70%)]" />
       </div>
 
-      {/* Floating background orbs */}
-      <FloatingOrb delay={0} x="10%" y="20%" size={200} color="rgba(59,130,246,0.08)" />
-      <FloatingOrb delay={3} x="80%" y="60%" size={160} color="rgba(6,182,212,0.06)" />
-      <FloatingOrb delay={6} x="50%" y="80%" size={180} color="rgba(139,92,246,0.06)" />
-      <FloatingOrb delay={1.5} x="70%" y="10%" size={140} color="rgba(59,130,246,0.05)" />
+      <FloatingOrb delay={0} x="8%" y="15%" size={220} color="rgba(59,130,246,0.07)" />
+      <FloatingOrb delay={3} x="78%" y="58%" size={180} color="rgba(6,182,212,0.06)" />
+      <FloatingOrb delay={6} x="48%" y="78%" size={200} color="rgba(139,92,246,0.06)" />
+      <FloatingOrb delay={1.5} x="68%" y="8%" size={150} color="rgba(236,72,153,0.05)" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
           ref={headerRef}
           className="text-center max-w-3xl mx-auto mb-16 sm:mb-20"
-          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+          initial={{ opacity: 0, y: 32, filter: "blur(12px)" }}
           animate={isHeaderInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.85, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6"
-            initial={{ opacity: 0, scale: 0.8 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6"
+            initial={{ opacity: 0, scale: 0.75 }}
             animate={isHeaderInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <motion.div
               animate={{ rotate: [0, 360] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 7, repeat: Infinity, ease: "linear" }}
             >
               <Cpu className="w-4 h-4" />
             </motion.div>
@@ -405,68 +356,150 @@ const SkillsSection = () => {
 
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 22 }}
             animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.65, delay: 0.3 }}
           >
-            Skills & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Technologies</span>
+            Skills &{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400">
+              Technologies
+            </span>
           </motion.h2>
 
           <motion.p
             className="text-gray-400 text-lg leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.65, delay: 0.42 }}
           >
-            My day-to-day toolkit —{' '}
+            My day-to-day toolkit —{" "}
             <span className="text-blue-400 font-semibold">
               <AnimatedCounter target={totalSkills} suffix="+" />
-            </span>{' '}
+            </span>{" "}
             technologies I use to build production-ready apps.
           </motion.p>
         </motion.div>
 
-        {/* Icon Cloud with animated glow */}
+        {/* Icon Cloud with orbital rings */}
         <motion.div
-          className="flex justify-center items-center mb-20"
-          initial={{ opacity: 0, scale: 0.8 }}
+          className="flex justify-center items-center mb-20 sm:mb-24"
+          initial={{ opacity: 0, scale: 0.75 }}
           animate={isHeaderInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.9, delay: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <div className="relative">
-            {/* Animated glow rings */}
+          <div
+            className="relative flex items-center justify-center"
+            style={{ width: 380, height: 380 }}
+          >
+            {/* Ambient pulsing glow */}
             <motion.div
-              className="absolute inset-0 bg-blue-500/5 blur-3xl rounded-full"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.6, 0.3],
+              className="absolute inset-[-30px] rounded-full pointer-events-none"
+              style={{
+                background: "radial-gradient(circle, rgba(59,130,246,0.12) 0%, rgba(6,182,212,0.06) 50%, transparent 70%)",
+                filter: "blur(20px)",
               }}
+              animate={{ scale: [1, 1.18, 1], opacity: [0.45, 0.9, 0.45] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
+
+            {/* Ring 1 — close, fast, blue dot */}
+            <OrbitalRing size={300} duration={10} color="rgba(59,130,246,0.22)" dotColor="#60a5fa" dotSize={7} />
+
+            {/* Ring 2 — medium, reverse, cyan dot */}
+            <OrbitalRing size={340} duration={18} reverse color="rgba(6,182,212,0.14)" dotColor="#22d3ee" dotSize={5} />
+
+            {/* Ring 3 — outer, slow, purple dot */}
+            <OrbitalRing size={380} duration={28} color="rgba(139,92,246,0.11)" dotColor="#a78bfa" dotSize={4} />
+
+            {/* Ring 4 — dashed, very slow, pink dot */}
             <motion.div
-              className="absolute inset-[-20px] border border-blue-500/10 rounded-full"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            />
-            <motion.div
-              className="absolute inset-[-40px] border border-cyan-500/5 rounded-full"
+              className="absolute rounded-full pointer-events-none"
+              style={{
+                width: 420, height: 420,
+                top: "50%", left: "50%",
+                marginTop: -210, marginLeft: -210,
+                border: "1px dashed rgba(236,72,153,0.14)",
+              }}
               animate={{ rotate: -360 }}
-              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            />
-            <IconCloudDemo />
+              transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+            >
+              <div
+                className="absolute rounded-full"
+                style={{
+                  width: 4, height: 4,
+                  background: "#f472b6",
+                  boxShadow: "0 0 8px #f472b6, 0 0 16px #f472b6",
+                  top: -2, left: "50%", marginLeft: -2,
+                }}
+              />
+            </motion.div>
+
+            {/* Second dot on ring 1, offset 180° */}
+            <motion.div
+              className="absolute rounded-full pointer-events-none"
+              style={{
+                width: 300, height: 300,
+                top: "50%", left: "50%",
+                marginTop: -150, marginLeft: -150,
+              }}
+              animate={{ rotate: [180, 540] }}
+              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            >
+              <div
+                className="absolute rounded-full"
+                style={{
+                  width: 5, height: 5,
+                  background: "#38bdf8",
+                  boxShadow: "0 0 8px #38bdf8, 0 0 18px #38bdf8",
+                  top: -2.5, left: "50%", marginLeft: -2.5,
+                }}
+              />
+            </motion.div>
+
+            {/* Tick marks on Ring 1 */}
+            {[0, 60, 120, 180, 240, 300].map((deg) => (
+              <div
+                key={deg}
+                className="absolute pointer-events-none"
+                style={{
+                  width: 300, height: 300,
+                  top: "50%", left: "50%",
+                  marginTop: -150, marginLeft: -150,
+                  transform: `rotate(${deg}deg)`,
+                }}
+              >
+                <div
+                  className="absolute"
+                  style={{
+                    width: 2, height: 8,
+                    background: "rgba(59,130,246,0.5)",
+                    top: -4, left: "50%", marginLeft: -1,
+                    borderRadius: 1,
+                  }}
+                />
+              </div>
+            ))}
+
+            {/* Icon Cloud */}
+            <div className="relative z-10">
+              <IconCloudDemo />
+            </div>
           </div>
         </motion.div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7">
           {skillCategories.map((category, index) => (
             <SkillCard
               key={index}
+              index={index}
               icon={category.icon}
               title={category.title}
               skills={category.skills}
-              color={category.color}
-              index={index}
+              accent={category.accent}
+              glowColor={category.glowColor}
+              gradientFrom={category.gradientFrom}
+              gradientTo={category.gradientTo}
             />
           ))}
         </div>
