@@ -210,12 +210,12 @@ const ExperienceSection = () => {
 
   const experiences = [
     {
-      icon: Code2,
-      title: "Junior Frontend Developer",
-      company: "Programming Hero",
-      period: "2022 – 2023",
+      icon: Cpu,
+      title: "Founder & AI SaaS Developer",
+      company: "Zeraql & Rizmiq",
+      period: "2025 – Present",
       description:
-        "This was my first real dev role. I got to work on responsive UIs, tackle accessibility, and learn that writing maintainable code matters just as much as getting things to work.",
+        "Now I'm building my own products. I lead development on two AI-driven SaaS platforms — from ideation and LLM integration to frontend, backend, and getting it all into production.",
     },
     {
       icon: Layers,
@@ -226,12 +226,12 @@ const ExperienceSection = () => {
         "Went independent and started owning projects end to end — React, Next.js, Node.js, PostgreSQL, Prisma. I handled everything from architecture decisions and API design to deployment. Lots of trial and error, but that's how you learn.",
     },
     {
-      icon: Cpu,
-      title: "Founder & AI SaaS Developer",
-      company: "Zeraql & Rizmiq",
-      period: "2025 – Present",
+      icon: Code2,
+      title: "Junior Frontend Developer",
+      company: "Programming Hero",
+      period: "2022 – 2023",
       description:
-        "Now I'm building my own products. I lead development on two AI-driven SaaS platforms — from ideation and LLM integration to frontend, backend, and getting it all into production.",
+        "This was my first real dev role. I got to work on responsive UIs, tackle accessibility, and learn that writing maintainable code matters just as much as getting things to work.",
     },
   ];
 
@@ -274,7 +274,7 @@ const ExperienceSection = () => {
                 key={index}
                 {...exp}
                 index={index}
-                isLatest={index === experiences.length - 1}
+                isLatest={index === 0}
               />
             ))}
           </div>
