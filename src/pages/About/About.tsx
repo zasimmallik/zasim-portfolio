@@ -37,10 +37,10 @@ export default function About() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className={`grid lg:grid-cols-12 gap-12 lg:gap-20 items-center transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className={`grid grid-cols-1 lg:grid-cols-[6fr_7fr] gap-12 lg:gap-20 items-center transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
 
-          {/* Left Side - Image (5 columns) */}
-          <div className="lg:col-span-5 relative group order-2 lg:order-1">
+          {/* Left Side - Image */}
+          <div className="relative group order-2 lg:order-1 max-w-md mx-auto lg:max-w-none w-full">
             <div className="relative z-10">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition duration-700"></div>
               <div className="relative rounded-2xl overflow-hidden border border-white/5 bg-slate-900/50 backdrop-blur-sm shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
@@ -63,16 +63,17 @@ export default function About() {
             <div className="absolute -top-10 -right-10 w-24 h-24 border border-cyan-500/10 rounded-full blur-[1px] animate-[spin_8s_linear_infinite_reverse]"></div>
           </div>
 
-          {/* Right Side - Content (7 columns) */}
-          <div className="lg:col-span-7 space-y-8 sm:space-y-10 order-1 lg:order-2">
+          {/* Right Side - Content */}
+          <div className="space-y-8 sm:space-y-10 order-1 lg:order-2 w-full">
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/5 border border-blue-500/10 text-blue-400 text-xs sm:text-sm font-medium tracking-wide uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
                 About Me
               </div>
 
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
-                Software Developer |<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400"> Founder of Zeraql & Rizmiq </span>
+              <h2 className="text-xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
+                <span className="block sm:whitespace-nowrap">Software Developer | Founder</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">of Zeraql &amp; Rizmiq</span>
               </h2>
 
               <div className="space-y-6 text-base sm:text-lg text-slate-400 leading-relaxed">
@@ -88,26 +89,25 @@ export default function About() {
               </div>
             </div>
 
-            {/* Quote / Philosophy — with animated gradient border */}
-            <div className="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/5 backdrop-blur-md overflow-hidden group hover:border-blue-500/20 transition-all duration-500 gradient-border-animated"
-              style={{ borderRadius: '1rem' }}
-            >
-              {/* Ambient glow behind quote */}
+            {/* Quote / Philosophy */}
+            <div className="relative p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-slate-800/60 to-slate-900/40 border border-slate-700/40 backdrop-blur-md overflow-hidden group hover:border-blue-500/30 transition-all duration-500">
+              {/* Ambient glow */}
               <div className="absolute -inset-2 bg-blue-500/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl pointer-events-none" />
-              <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-                <svg className="w-16 h-16 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z" /></svg>
-              </div>
-              <blockquote className="relative z-10">
-                <p className="text-lg sm:text-xl font-medium text-slate-300 italic mb-4">
-                  &quot;Time is the most precious resource in human life. We build software to save it and make things work faster, easing daily tasks and making the world a better place.&quot;
+              {/* Left accent stripe */}
+              <div className="absolute left-0 top-5 bottom-5 w-[3px] rounded-full bg-gradient-to-b from-blue-400 via-cyan-400 to-blue-400 opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Large decorative quote mark */}
+              <div className="absolute top-2 right-4 text-6xl font-serif text-blue-400/10 group-hover:text-blue-400/20 transition-colors duration-500 leading-none select-none">&ldquo;</div>
+              <blockquote className="relative z-10 pl-4">
+                <p className="text-sm sm:text-base font-normal text-slate-200/90 leading-relaxed tracking-wide mb-3">
+                  &ldquo;Time is the most precious resource in human life. We build software to save it and make things work faster, easing daily tasks and making the world a better place.&rdquo;
                 </p>
-                <footer className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-blue-500/20">
+                <footer className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-xs shadow-md shadow-blue-500/20 shrink-0">
                     ZM
                   </div>
                   <div>
-                    <div className="text-white font-semibold text-sm">Zasim Mallik</div>
-                    <div className="text-blue-400 text-xs">Software Developer & Founder</div>
+                    <div className="text-slate-100 font-semibold text-xs sm:text-sm tracking-wide">Zasim Mallik</div>
+                    <div className="text-cyan-400/80 text-[10px] sm:text-xs font-medium tracking-wider uppercase">Software Developer &amp; Founder</div>
                   </div>
                 </footer>
               </blockquote>

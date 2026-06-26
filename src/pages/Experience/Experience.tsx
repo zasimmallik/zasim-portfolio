@@ -81,14 +81,8 @@ const ExperienceCard = ({
           <div className="relative z-10 flex flex-col gap-4 mb-4">
             <div className="flex items-center justify-between flex-wrap gap-2">
               <div className="flex items-center gap-3">
-                <div className={`p-2.5 rounded-xl border transition-colors duration-300 ${isLatest
-                    ? 'bg-cyan-500/10 border-cyan-500/20 group-hover:bg-cyan-500/20'
-                    : 'bg-blue-500/10 border-blue-500/20 group-hover:bg-blue-500/20'
-                  }`}>
-                  <Icon className={`w-6 h-6 transition-colors ${isLatest
-                      ? 'text-cyan-400 group-hover:text-cyan-300'
-                      : 'text-blue-400 group-hover:text-cyan-300'
-                    }`} />
+                <div className="p-2.5 rounded-xl border transition-colors duration-300 bg-blue-500/10 border-blue-500/20 group-hover:bg-blue-500/20">
+                  <Icon className="w-6 h-6 transition-colors text-blue-400 group-hover:text-cyan-300" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-200 group-hover:text-blue-200 transition-colors">
                   {title}
