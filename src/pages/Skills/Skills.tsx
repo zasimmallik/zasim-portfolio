@@ -25,10 +25,6 @@ interface SkillCardProps {
   icon: LucideIcon;
   title: string;
   skills: Skill[];
-  accent: string;
-  glowColor: string;
-  gradientFrom: string;
-  gradientTo: string;
   index: number;
 }
 
@@ -51,7 +47,7 @@ const cardVariants = {
 };
 
 const SkillCard = ({
-  icon: Icon, title, skills, accent, glowColor, gradientFrom, gradientTo, index,
+  icon: Icon, title, skills, index,
 }: SkillCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(cardRef, { once: true, margin: "-40px" });
@@ -64,29 +60,26 @@ const SkillCard = ({
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={cardVariants}
-      whileHover={{ y: -10, transition: { duration: 0.3, ease: "easeOut" } }}
     >
       {/* Card body */}
       <div
-        className="relative h-full rounded-2xl overflow-hidden border border-white/5 bg-[#0a0f1e]/80 backdrop-blur-xl"
-        style={{ boxShadow: "0 4px 24px -4px rgba(0,0,0,0.6)" }}
+        className="relative h-full rounded-2xl overflow-hidden border border-slate-800/50 bg-slate-900/50 backdrop-blur-xl shadow-lg transition-all duration-500 group-hover:-translate-y-2 group-hover:border-blue-500/30 group-hover:shadow-blue-500/10 group-hover:shadow-2xl"
       >
+        {/* Hover glow overlay — matches Experience cards */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-cyan-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:via-cyan-500/10 group-hover:to-purple-500/10 transition-all duration-500" />
 
         {/* Shimmer sweep */}
         <motion.div
           className="absolute inset-0 pointer-events-none z-0"
           style={{
-            background: `linear-gradient(105deg, transparent 40%, ${glowColor.replace("0.25", "0.07")} 50%, transparent 60%)`,
+            background: "linear-gradient(105deg, transparent 40%, rgba(59,130,246,0.05) 50%, transparent 60%)",
           }}
           animate={{ x: ["-100%", "200%"] }}
           transition={{ duration: 3.5, repeat: Infinity, ease: "linear", repeatDelay: 3 }}
         />
 
-        {/* Top edge accent line */}
-        <div
-          className="absolute top-0 left-6 right-6 h-[1.5px] rounded-full opacity-60"
-          style={{ background: `linear-gradient(90deg, transparent, ${gradientFrom}, ${gradientTo}, transparent)` }}
-        />
+        {/* Top edge accent line — blue/cyan */}
+        <div className="absolute top-0 left-6 right-6 h-[1.5px] rounded-full opacity-50 bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
 
         {/* Content */}
         <div className="relative z-10 p-6 sm:p-7">
@@ -94,23 +87,20 @@ const SkillCard = ({
           <div className="flex items-center gap-4 mb-6">
             <div className="relative">
               <motion.div
-                className="relative p-3 rounded-xl border border-white/10 backdrop-blur-sm"
-                style={{ background: `linear-gradient(135deg, ${gradientFrom}18, ${gradientTo}18)` }}
+                className="relative p-3 rounded-xl border border-blue-500/20 bg-blue-500/10 group-hover:bg-blue-500/20 backdrop-blur-sm transition-colors duration-300"
                 whileHover={{ scale: 1.15, rotate: 6 }}
                 transition={{ type: "spring", stiffness: 280, damping: 14 }}
               >
-                <Icon className={`w-6 h-6 sm:w-7 sm:h-7 relative z-10 ${accent}`} />
+                <Icon className="w-6 h-6 sm:w-7 sm:h-7 relative z-10 text-blue-400 group-hover:text-cyan-300 transition-colors duration-300" />
               </motion.div>
             </div>
 
             <div>
-              <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-white/90 transition-colors duration-300">
+              <h3 className="text-base sm:text-lg font-bold text-slate-200 group-hover:text-blue-200 transition-colors duration-300">
                 {title}
               </h3>
-              <div
-                className="h-[2px] mt-1 rounded-full w-8 group-hover:w-16 transition-all duration-500"
-                style={{ background: `linear-gradient(90deg, ${gradientFrom}, ${gradientTo})` }}
-              />
+              {/* Animated underline — blue to cyan */}
+              <div className="h-[2px] mt-1 rounded-full w-8 group-hover:w-16 transition-all duration-500 bg-gradient-to-r from-blue-500 to-cyan-400" />
             </div>
           </div>
 
@@ -131,10 +121,7 @@ const SkillCard = ({
                     color: "rgba(203,213,225,0.85)",
                     border: "1px solid rgba(255,255,255,0.08)",
                   }}
-                  whileHover={{
-                    scale: 1.08,
-                    y: -3,
-                  }}
+                  whileHover={{ scale: 1.08, y: -3 }}
                   whileTap={{ scale: 0.94 }}
                   transition={{ type: "spring", stiffness: 380, damping: 18 }}
                 >
@@ -146,15 +133,9 @@ const SkillCard = ({
           </div>
         </div>
 
-        {/* Corner orbs */}
-        <div
-          className="absolute -top-8 -right-8 w-24 h-24 rounded-full opacity-20 blur-2xl pointer-events-none"
-          style={{ background: gradientFrom }}
-        />
-        <div
-          className="absolute -bottom-8 -left-8 w-24 h-24 rounded-full opacity-15 blur-2xl pointer-events-none"
-          style={{ background: gradientTo }}
-        />
+        {/* Corner decorative elements — matches Experience cards */}
+        <div className="absolute top-0 right-0 w-20 h-20 bg-blue-500/5 rounded-bl-full -mr-10 -mt-10 transition-all duration-500 group-hover:bg-blue-500/10" />
+        <div className="absolute bottom-0 left-0 w-20 h-20 bg-cyan-500/5 rounded-tr-full -ml-10 -mb-10 transition-all duration-500 group-hover:bg-cyan-500/10" />
       </div>
     </motion.div>
   );
@@ -233,9 +214,6 @@ const SkillsSection = () => {
   const skillCategories = [
     {
       icon: Code2, title: "Frontend Development",
-      accent: "text-blue-400",
-      glowColor: "rgba(59,130,246,0.25)",
-      gradientFrom: "#3b82f6", gradientTo: "#06b6d4",
       skills: [
         { name: "React", icon: <FaReact className="text-[#61DAFB]" /> },
         { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
@@ -247,72 +225,57 @@ const SkillsSection = () => {
     },
     {
       icon: Database, title: "Backend Development",
-      accent: "text-emerald-400",
-      glowColor: "rgba(16,185,129,0.25)",
-      gradientFrom: "#10b981", gradientTo: "#34d399",
       skills: [
         { name: "Node.js", icon: <FaNodeJs className="text-[#339933]" /> },
         { name: "Express.js", icon: <FaNodeJs className="text-[#339933]" /> },
         { name: "PostgreSQL", icon: <SiPostgresql className="text-[#336791]" /> },
         { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
-        { name: "System Design", icon: <Database className="text-emerald-400" /> },
+        { name: "System Design", icon: <Database className="text-blue-400" /> },
         { name: "GraphQL", icon: <SiGraphql className="text-[#E10098]" /> },
       ],
     },
     {
       icon: Layout, title: "State & ORM",
-      accent: "text-purple-400",
-      glowColor: "rgba(139,92,246,0.25)",
-      gradientFrom: "#8b5cf6", gradientTo: "#a78bfa",
       skills: [
         { name: "Redux", icon: <SiRedux className="text-[#764ABC]" /> },
         { name: "React Router", icon: <FaReact className="text-[#61DAFB]" /> },
         { name: "Prisma ORM", icon: <SiPrisma className="text-white" /> },
         { name: "Mongoose", icon: <SiMongoose className="text-[#880000]" /> },
-        { name: "JWT & Auth", icon: <Workflow className="text-yellow-400" /> },
+        { name: "JWT & Auth", icon: <Workflow className="text-cyan-400" /> },
       ],
     },
     {
       icon: Cloud, title: "Cloud & DevOps",
-      accent: "text-orange-400",
-      glowColor: "rgba(249,115,22,0.25)",
-      gradientFrom: "#f97316", gradientTo: "#fb923c",
       skills: [
         { name: "AWS", icon: <FaAws className="text-[#FF9900]" /> },
         { name: "Docker", icon: <FaDocker className="text-[#2496ED]" /> },
         { name: "Git & GitHub", icon: <FaGitAlt className="text-[#F05032]" /> },
         { name: "Vercel", icon: <SiVercel className="text-white" /> },
-        { name: "CI/CD", icon: <Workflow className="text-green-400" /> },
+        { name: "CI/CD", icon: <Workflow className="text-cyan-400" /> },
         { name: "Netlify", icon: <SiNetlify className="text-[#00C7B7]" /> },
       ],
     },
     {
       icon: Cpu, title: "AI & Python",
-      accent: "text-pink-400",
-      glowColor: "rgba(236,72,153,0.25)",
-      gradientFrom: "#ec4899", gradientTo: "#f472b6",
       skills: [
         { name: "Python", icon: <FaPython className="text-[#3776AB]" /> },
         { name: "LLMs & RAG", icon: <TbBrandOpenai className="text-white" /> },
         { name: "LangChain", icon: <Globe className="text-[#3776AB]" /> },
         { name: "Claude (Anthropic)", icon: <Brain className="text-[#CC9B7A]" /> },
-        { name: "Claude Code", icon: <Terminal className="text-orange-400" /> },
+        { name: "Claude Code", icon: <Terminal className="text-cyan-400" /> },
         { name: "OpenAI Codex", icon: <TbBrandOpenai className="text-[#74A57F]" /> },
-        { name: "Context Engineering", icon: <Cpu className="text-[#FF69B4]" /> },
+        { name: "Context Engineering", icon: <Cpu className="text-blue-400" /> },
       ],
     },
     {
       icon: Terminal, title: "Tools & Technologies",
-      accent: "text-yellow-400",
-      glowColor: "rgba(234,179,8,0.25)",
-      gradientFrom: "#eab308", gradientTo: "#facc15",
       skills: [
         { name: "VS Code", icon: <TbBrandVscode className="text-[#007ACC]" /> },
         { name: "Cursor IDE", icon: <TbBrandVscode className="text-[#007ACC]" /> },
         { name: "Vite", icon: <SiVite className="text-[#646CFF]" /> },
         { name: "Firebase", icon: <SiFirebase className="text-[#FFCA28]" /> },
         { name: "Netlify", icon: <SiNetlify className="text-[#00C7B7]" /> },
-        { name: "Anti-gravity", icon: <Cpu className="text-purple-400" /> },
+        { name: "Anti-gravity", icon: <Cpu className="text-blue-400" /> },
       ],
     },
   ];
@@ -496,10 +459,6 @@ const SkillsSection = () => {
               icon={category.icon}
               title={category.title}
               skills={category.skills}
-              accent={category.accent}
-              glowColor={category.glowColor}
-              gradientFrom={category.gradientFrom}
-              gradientTo={category.gradientTo}
             />
           ))}
         </div>
