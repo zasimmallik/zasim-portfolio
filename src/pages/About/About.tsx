@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { FaLinkedinIn, FaGithub, FaInstagram, FaFacebookF } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
-import HeroImg from '../../assets/images/hero.jpg?url';
+import HeroImg from '../../assets/images/Zasim.jpg?url';
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false);
