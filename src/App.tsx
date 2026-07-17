@@ -81,7 +81,7 @@ const Footer = () => {
                 Zasim Mallik
               </h3>
               <p className="text-slate-500 text-sm leading-relaxed">
-                Software Developer | Founder of Zeraql & Rizmiq
+                Software Engineer | Founder of Zeraql & Rizmiq
               </p>
             </div>
 

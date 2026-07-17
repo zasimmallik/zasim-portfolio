@@ -8,8 +8,8 @@ export const TEXTS = {
   HERO: {
     WELCOME: 'Welcome to Zasim Mallik\'s universe.',
     NAME: 'Zasim Mallik',
-    TITLE: 'Software Developer | Founder of Zeraql & Rizmiq',
-    SUBTITLE: 'Software Developer & Founder of Zeraql & Rizmiq | Building Next-Gen AI SaaS Platforms',
+    TITLE: 'Software Engineer | Founder of Zeraql & Rizmiq',
+    SUBTITLE: 'Software Engineer & Founder of Zeraql & Rizmiq | Building Next-Gen AI SaaS Platforms',
     RESUME_BTN: 'Get Resume',
     LEARN_MORE_BTN: 'Learn More',
     CONTACT_BTN: 'Get in Touch',

@@ -72,7 +72,7 @@ export default function About() {
               </div>
 
               <h2 className="text-xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white leading-tight">
-                <span className="block sm:whitespace-nowrap">Software Developer | Founder</span>
+                <span className="block sm:whitespace-nowrap">Software Engineer | Founder</span>
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">of Zeraql &amp; Rizmiq</span>
               </h2>
 
@@ -107,7 +107,7 @@ export default function About() {
                   </div>
                   <div>
                     <div className="text-slate-100 font-semibold text-xs sm:text-sm tracking-wide">Zasim Mallik</div>
-                    <div className="text-cyan-400/80 text-[10px] sm:text-xs font-medium tracking-wider uppercase">Software Developer &amp; Founder</div>
+                    <div className="text-cyan-400/80 text-[10px] sm:text-xs font-medium tracking-wider uppercase">Software Engineer &amp; Founder</div>
                   </div>
                 </footer>
               </blockquote>

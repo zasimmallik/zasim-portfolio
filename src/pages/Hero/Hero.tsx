@@ -75,7 +75,7 @@ const GridBackground = () => {
 
 export default function Hero() {
   const words = [
-    "Software Developer",
+    "Software Engineer",
     "Full-Stack Engineer",
     "AI SaaS Founder",
   ];
@@ -83,7 +83,7 @@ export default function Hero() {
   const [code] = useState(`
 const developer = {
     name: 'Zasim Mallik',
-    role: 'Software Developer',
+    role: 'Software Engineer',
     founderOf: ['Zeraql', 'Rizmiq'],
     skills: [
         'HTML', 'CSS', 'Tailwind', 'JS', 'TS',
