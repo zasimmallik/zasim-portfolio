@@ -120,22 +120,22 @@ const FILES: Record<string, CodeFile> = {
   name: 'Zasim Mallik',
   role: 'Software Engineer',
   founderOf: ['Zeraql', 'Rizmiq'],
-  skills: [
-    'HTML', 'CSS', 'Tailwind', 'JS', 'TS',
-    'React', 'Next.js', 'Redux',
-    'Node.js', 'Express', 'MongoDB', 'PostgreSQL',
-    'GraphQL', 'REST APIs', 'WebSockets',
-    'Python', 'LLMs', 'RAG', 'Agents',
-    'Git', 'Docker', 'AWS'
-  ],
+  languages: ['HTML5', 'CSS3', 'TypeScript', 'JavaScript', 'Python', 'SQL'],
+  frontend: ['React', 'Next.js', 'Tailwind CSS', 'App Router'],
+  backend: ['Node.js', 'Express.js', 'FastAPI', 'REST API', 'JWT'],
+  databases: ['PostgreSQL', 'MongoDB', 'Prisma ORM', 'Vector DBs'],
+  ai: ['OpenAI', 'Gemini', 'Claude', 'LangChain', 'LangGraph', 'RAG', 'MCP'],
+  devops: ['Docker', 'Git', 'GitHub', 'Vercel', 'Railway', 'AWS'],
+  auth: ['Clerk', 'NextAuth', 'OAuth'],
+  payments: ['Stripe'],
   hardWorker: true,
   quickLearner: true,
   problemSolver: true,
   yearsOfExperience: 4,
   hireable(): boolean {
-    return this.hardWorker && 
-           this.problemSolver && 
-           this.skills.length >= 5;
+    return this.hardWorker &&
+           this.problemSolver &&
+           this.ai.length >= 5;
   }
 };`
   },
@@ -145,16 +145,16 @@ const FILES: Record<string, CodeFile> = {
     language: 'json',
     prismLanguage: 'json',
     content: `{
-  "core_tech": {
-    "languages": ["TypeScript", "JavaScript", "Python"],
-    "frontend": ["React", "Next.js", "Tailwind CSS"],
-    "backend": ["Node.js", "Express", "GraphQL", "PostgreSQL"],
-    "devops": ["Docker", "AWS", "Git", "Linux"]
+  "languages": ["TypeScript", "JavaScript", "Python", "SQL"],
+  "frontend": ["React", "Next.js", "Tailwind CSS", "App Router"],
+  "backend": ["Node.js", "Express.js", "FastAPI", "JWT"],
+  "databases": ["PostgreSQL", "MongoDB", "Prisma ORM"],
+  "ai_llm": {
+    "apis": ["OpenAI", "Gemini", "Claude"],
+    "frameworks": ["LangChain", "LangGraph", "RAG", "MCP"]
   },
-  "ai_capabilities": {
-    "frameworks": ["LangChain", "LangGraph"],
-    "methods": ["RAG", "Multi-Agent Systems", "LLMs"]
-  },
+  "devops": ["Docker", "Git", "Vercel", "Railway", "AWS"],
+  "auth_payments": ["Clerk", "NextAuth", "OAuth", "Stripe"],
   "entrepreneurship": {
     "startups": ["Zeraql", "Rizmiq"],
     "focus": ["AI SaaS Products", "Developer Tools"]
@@ -834,10 +834,10 @@ export default function Hero() {
                       </div>
 
                       {/* Code Content Area with Line Numbers */}
-                      <div className="flex-1 flex overflow-y-auto overflow-x-hidden relative min-h-[300px]">
+                      <div className="flex-1 flex overflow-hidden relative min-h-[300px]">
 
                         {/* Line Numbers Column */}
-                        <div className="py-4 text-slate-600 select-none text-right pr-3 border-r border-white/5 font-mono text-[11px] sm:text-xs leading-6 shrink-0 min-w-[2.5rem] bg-[#02050b]/20">
+                        <div className="py-4 text-slate-600 select-none text-right pr-3 border-r border-white/5 font-mono text-[11px] sm:text-xs leading-6 shrink-0 min-w-[2.5rem] bg-[#02050b]/20 overflow-hidden">
                           {lines.map((_, i) => (
                             <div key={i} className="h-6 flex items-center justify-end font-light" style={{ height: '1.5rem', lineHeight: '1.5rem' }}>
                               {i + 1}
@@ -845,15 +845,40 @@ export default function Hero() {
                           ))}
                         </div>
 
-                        {/* Prism highlighted text */}
-                        <div className="flex-1 py-4 pl-4 overflow-x-auto scrollbar-hide text-left min-w-0">
-                          <pre className={`language-${currentFile.prismLanguage} !p-0 !m-0 !bg-transparent !overflow-visible`} style={{ lineHeight: '1.5rem' }}>
+                        {/* Prism highlighted text — drag to scroll */}
+                        <div
+                          className="flex-1 min-h-0 py-4 pl-4 text-left overflow-auto code-scroll-area"
+                          style={{ cursor: 'grab' }}
+                          onMouseDown={(e) => {
+                            const el = e.currentTarget;
+                            el.style.cursor = 'grabbing';
+                            el.style.userSelect = 'none';
+                            const startX = e.pageX;
+                            const startY = e.pageY;
+                            const scrollLeft = el.scrollLeft;
+                            const scrollTop = el.scrollTop;
+                            const onMove = (ev: MouseEvent) => {
+                              el.scrollLeft = scrollLeft - (ev.pageX - startX);
+                              el.scrollTop = scrollTop - (ev.pageY - startY);
+                            };
+                            const onUp = () => {
+                              el.style.cursor = 'grab';
+                              el.style.userSelect = '';
+                              window.removeEventListener('mousemove', onMove);
+                              window.removeEventListener('mouseup', onUp);
+                            };
+                            window.addEventListener('mousemove', onMove);
+                            window.addEventListener('mouseup', onUp);
+                          }}
+                        >
+                          <pre className={`language-${currentFile.prismLanguage} !p-0 !m-0 !bg-transparent !overflow-visible`} style={{ lineHeight: '1.5rem', minWidth: 'max-content' }}>
                             <code className={`language-${currentFile.prismLanguage} block !bg-transparent !p-0 !text-slate-200 !shadow-none font-medium text-[11px] sm:text-xs leading-6`} style={{ lineHeight: '1.5rem' }}>
                               {currentFile.content}
                             </code>
                           </pre>
                         </div>
                       </div>
+
 
                       {/* Editor Status Bar */}
                       <div className="bg-[#04060c] px-4 py-1.5 border-t border-white/5 flex items-center justify-between text-[10px] text-slate-500 font-mono select-none relative z-20">
@@ -915,6 +940,27 @@ export default function Hero() {
         .scrollbar-hide {
           -ms-overflow-style: none;  /* IE and Edge */
           scrollbar-width: none;  /* Firefox */
+        }
+
+        /* Code window — thin styled scrollbars for drag-scroll area */
+        .code-scroll-area::-webkit-scrollbar {
+          width: 5px;
+          height: 5px;
+        }
+        .code-scroll-area::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .code-scroll-area::-webkit-scrollbar-thumb {
+          background: rgba(99,130,180,0.25);
+          border-radius: 4px;
+          transition: background 0.2s;
+        }
+        .code-scroll-area::-webkit-scrollbar-thumb:hover {
+          background: rgba(99,130,180,0.55);
+        }
+        .code-scroll-area {
+          scrollbar-width: thin;
+          scrollbar-color: rgba(99,130,180,0.25) transparent;
         }
       `}</style>
     </>

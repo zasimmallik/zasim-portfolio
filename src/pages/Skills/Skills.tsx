@@ -3,15 +3,19 @@ import { motion, useInView } from "framer-motion";
 import IconCloudDemo from "@/components/globe";
 import {
   Code2, Database, Layout, Cpu, Cloud, LucideIcon,
-  Terminal, Globe, Workflow, Brain,
+  Terminal, Globe, Workflow, Brain, Server, Lock,
+  Settings, Layers, GitBranch,
 } from "lucide-react";
 import {
   FaReact, FaNodeJs, FaPython, FaDocker, FaGitAlt, FaAws,
+  FaStripe, FaHtml5, FaCss3Alt,
 } from "react-icons/fa";
 import {
   SiNextdotjs, SiTypescript, SiTailwindcss, SiPostgresql,
-  SiMongodb, SiGraphql, SiRedux, SiFirebase, SiVercel,
-  SiVite, SiPrisma, SiMongoose, SiNetlify,
+  SiMongodb, SiVercel, SiPrisma,
+  SiLangchain, SiExpress, SiFastapi,
+  SiRailway, SiRender, SiNginx, SiGithub,
+  SiBun, SiNpm,
 } from "react-icons/si";
 import { TbBrandVscode, TbBrandOpenai } from "react-icons/tb";
 import { BsFileEarmarkCode } from "react-icons/bs";
@@ -213,72 +217,118 @@ const SkillsSection = () => {
 
   const skillCategories = [
     {
-      icon: Code2, title: "Frontend Development",
+      icon: Code2, title: "Languages",
+      skills: [
+        { name: "HTML5", icon: <FaHtml5 className="text-[#E34F26]" /> },
+        { name: "CSS3", icon: <FaCss3Alt className="text-[#1572B6]" /> },
+        { name: "JavaScript (ES6+)", icon: <BsFileEarmarkCode className="text-[#F7DF1E]" /> },
+        { name: "TypeScript", icon: <SiTypescript className="text-[#3178C6]" /> },
+        { name: "Python", icon: <FaPython className="text-[#3776AB]" /> },
+        { name: "SQL", icon: <Database className="text-blue-400" /> },
+      ],
+    },
+    {
+      icon: Layout, title: "Frontend",
       skills: [
         { name: "React", icon: <FaReact className="text-[#61DAFB]" /> },
         { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
-        { name: "TypeScript", icon: <SiTypescript className="text-[#3178C6]" /> },
         { name: "Tailwind CSS", icon: <SiTailwindcss className="text-[#38B2AC]" /> },
-        { name: "HTML5", icon: <BsFileEarmarkCode className="text-[#E34F26]" /> },
-        { name: "CSS3", icon: <BsFileEarmarkCode className="text-[#1572B6]" /> },
+        { name: "Responsive Design", icon: <Globe className="text-blue-400" /> },
+        { name: "App Router", icon: <SiNextdotjs className="text-white" /> },
+        { name: "Server Components", icon: <Server className="text-cyan-400" /> },
+        { name: "Client Components", icon: <FaReact className="text-[#61DAFB]" /> },
       ],
     },
     {
-      icon: Database, title: "Backend Development",
+      icon: Server, title: "Backend & Auth",
       skills: [
         { name: "Node.js", icon: <FaNodeJs className="text-[#339933]" /> },
-        { name: "Express.js", icon: <FaNodeJs className="text-[#339933]" /> },
+        { name: "Express.js", icon: <SiExpress className="text-white" /> },
+        { name: "FastAPI", icon: <SiFastapi className="text-[#009688]" /> },
+        { name: "REST API", icon: <Workflow className="text-cyan-400" /> },
+        { name: "Clerk", icon: <Lock className="text-purple-400" /> },
+        { name: "NextAuth / Auth.js", icon: <SiNextdotjs className="text-white" /> },
+        { name: "OAuth", icon: <Lock className="text-blue-400" /> },
+        { name: "JWT", icon: <Lock className="text-amber-400" /> },
+        { name: "Stripe", icon: <FaStripe className="text-[#635BFF]" /> },
+      ],
+    },
+    {
+      icon: Database, title: "Databases",
+      skills: [
         { name: "PostgreSQL", icon: <SiPostgresql className="text-[#336791]" /> },
         { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
-        { name: "System Design", icon: <Database className="text-blue-400" /> },
-        { name: "GraphQL", icon: <SiGraphql className="text-[#E10098]" /> },
-      ],
-    },
-    {
-      icon: Layout, title: "State & ORM",
-      skills: [
-        { name: "Redux", icon: <SiRedux className="text-[#764ABC]" /> },
-        { name: "React Router", icon: <FaReact className="text-[#61DAFB]" /> },
         { name: "Prisma ORM", icon: <SiPrisma className="text-white" /> },
-        { name: "Mongoose", icon: <SiMongoose className="text-[#880000]" /> },
-        { name: "JWT & Auth", icon: <Workflow className="text-cyan-400" /> },
+        { name: "Vector Databases", icon: <Database className="text-purple-400" /> },
       ],
     },
     {
-      icon: Cloud, title: "Cloud & DevOps",
+      icon: Brain, title: "AI & LLM",
       skills: [
-        { name: "AWS", icon: <FaAws className="text-[#FF9900]" /> },
-        { name: "Docker", icon: <FaDocker className="text-[#2496ED]" /> },
-        { name: "Git & GitHub", icon: <FaGitAlt className="text-[#F05032]" /> },
-        { name: "Vercel", icon: <SiVercel className="text-white" /> },
-        { name: "CI/CD", icon: <Workflow className="text-cyan-400" /> },
-        { name: "Netlify", icon: <SiNetlify className="text-[#00C7B7]" /> },
-      ],
-    },
-    {
-      icon: Cpu, title: "AI & Python",
-      skills: [
-        { name: "Python", icon: <FaPython className="text-[#3776AB]" /> },
-        { name: "LLMs & RAG", icon: <TbBrandOpenai className="text-white" /> },
+        { name: "OpenAI API", icon: <TbBrandOpenai className="text-white" /> },
+        { name: "Gemini API", icon: <Cpu className="text-blue-400" /> },
+        { name: "Anthropic Claude", icon: <Brain className="text-[#CC9B7A]" /> },
+        { name: "Prompt Engineering", icon: <Terminal className="text-cyan-400" /> },
+        { name: "RAG", icon: <Layers className="text-purple-400" /> },
+        { name: "AI Agents", icon: <Brain className="text-emerald-400" /> },
+        { name: "Agentic AI", icon: <Cpu className="text-blue-400" /> },
         { name: "LangChain", icon: <Globe className="text-[#3776AB]" /> },
-        { name: "Claude (Anthropic)", icon: <Brain className="text-[#CC9B7A]" /> },
-        { name: "Claude Code", icon: <Terminal className="text-cyan-400" /> },
-        { name: "OpenAI Codex", icon: <TbBrandOpenai className="text-[#74A57F]" /> },
-        { name: "Context Engineering", icon: <Cpu className="text-blue-400" /> },
+        { name: "LangGraph", icon: <GitBranch className="text-green-400" /> },
+        { name: "MCP", icon: <Settings className="text-cyan-400" /> },
+        { name: "Tool Calling", icon: <Terminal className="text-amber-400" /> },
+        { name: "Embeddings", icon: <Layers className="text-pink-400" /> },
+        { name: "Vector Search", icon: <Database className="text-purple-400" /> },
       ],
     },
     {
-      icon: Terminal, title: "Tools & Technologies",
+      icon: Cloud, title: "DevOps & Cloud",
+      skills: [
+        { name: "Git", icon: <FaGitAlt className="text-[#F05032]" /> },
+        { name: "GitHub", icon: <SiGithub className="text-white" /> },
+        { name: "Docker", icon: <FaDocker className="text-[#2496ED]" /> },
+        { name: "CI/CD", icon: <Workflow className="text-cyan-400" /> },
+        { name: "Nginx", icon: <SiNginx className="text-[#009639]" /> },
+        { name: "AWS (Basics)", icon: <FaAws className="text-[#FF9900]" /> },
+        { name: "Vercel", icon: <SiVercel className="text-white" /> },
+        { name: "Railway", icon: <SiRailway className="text-white" /> },
+        { name: "Render", icon: <SiRender className="text-[#46E3B7]" /> },
+      ],
+    },
+    {
+      icon: Layers, title: "System Design",
+      skills: [
+        { name: "Software Architecture", icon: <Layers className="text-blue-400" /> },
+        { name: "System Design", icon: <Settings className="text-cyan-400" /> },
+        { name: "API Design", icon: <Workflow className="text-purple-400" /> },
+        { name: "Database Design", icon: <Database className="text-emerald-400" /> },
+        { name: "SaaS Architecture", icon: <Cloud className="text-blue-400" /> },
+        { name: "Microservices", icon: <Server className="text-amber-400" /> },
+      ],
+    },
+    {
+      icon: Terminal, title: "Development Tools",
       skills: [
         { name: "VS Code", icon: <TbBrandVscode className="text-[#007ACC]" /> },
+        { name: "Claude Code", icon: <Brain className="text-[#CC9B7A]" /> },
         { name: "Cursor IDE", icon: <TbBrandVscode className="text-[#007ACC]" /> },
-        { name: "Vite", icon: <SiVite className="text-[#646CFF]" /> },
-        { name: "Firebase", icon: <SiFirebase className="text-[#FFCA28]" /> },
-        { name: "Netlify", icon: <SiNetlify className="text-[#00C7B7]" /> },
-        { name: "Anti-gravity", icon: <Cpu className="text-blue-400" /> },
+        { name: "Bun", icon: <SiBun className="text-white" /> },
+        { name: "npm / pnpm", icon: <SiNpm className="text-[#CB3837]" /> },
+      ],
+    },
+    {
+      icon: Code2, title: "Software Engineering",
+      skills: [
+        { name: "OOP", icon: <Code2 className="text-blue-400" /> },
+        { name: "Data Structures & Algorithms", icon: <GitBranch className="text-cyan-400" /> },
+        { name: "Clean Code", icon: <BsFileEarmarkCode className="text-green-400" /> },
+        { name: "Design Patterns", icon: <Layers className="text-purple-400" /> },
+        { name: "Testing", icon: <Settings className="text-amber-400" /> },
+        { name: "Debugging", icon: <Terminal className="text-red-400" /> },
+        { name: "Agile Development", icon: <Workflow className="text-cyan-400" /> },
       ],
     },
   ];
+
 
   const totalSkills = skillCategories.reduce((acc, cat) => acc + cat.skills.length, 0);
 

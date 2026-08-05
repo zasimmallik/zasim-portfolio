@@ -1,35 +1,44 @@
 import IconCloud from "./ui/icon-cloud";
 
 const slugs = [
+  // Languages
   "typescript",
   "javascript",
-  "dart",
-  "java",
-  "react",
-  "flutter",
-  "android",
+  "python",
   "html5",
   "css3",
+  // Frontend
+  "react",
+  "nextdotjs",
+  "tailwindcss",
+  // Backend
   "nodedotjs",
   "express",
-  "nextdotjs",
-  "prisma",
-  "amazonaws",
+  "fastapi",
+  // Databases
   "postgresql",
-  "firebase",
-  "nginx",
-  "vercel",
-  "testinglibrary",
-  "jest",
-  "cypress",
+  "mongodb",
+  "prisma",
+  // AI & LLM
+  "openai",
+  "langchain",
+  // DevOps & Cloud
   "docker",
   "git",
-  "jira",
   "github",
-  "gitlab",
+  "amazonaws",
+  "vercel",
+  "railway",
+  "render",
+  "nginx",
+  // Auth & Payments
+  "stripe",
+  "clerk",
+  // Dev Tools
   "visualstudiocode",
-  "androidstudio",
-  "sonarqube",
+  "bun",
+  "postman",
+  "npm",
   "figma",
 ];
 
