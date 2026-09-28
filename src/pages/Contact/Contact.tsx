@@ -41,10 +41,10 @@ const FloatingInput = ({
           type={type}
           name={name}
           id={`contact-${name}`}
-          className={`w-full px-4 pt-6 pb-2 sm:px-5 sm:pt-7 sm:pb-3 rounded-xl bg-slate-950/50 border text-white transition-all duration-300 text-sm sm:text-base peer ${
+          className={`w-full px-4 pt-6 pb-2 sm:px-5 sm:pt-7 sm:pb-3 rounded-xl bg-slate-50/90 dark:bg-slate-950/50 border text-slate-900 dark:text-white transition-all duration-300 text-sm sm:text-base peer ${
             error
               ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
-              : 'border-slate-800/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-slate-700'
+              : 'border-slate-200/90 dark:border-slate-800/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-slate-300 dark:hover:border-slate-700'
           } focus:ring-4 focus:outline-none`}
           value={value}
           onChange={onChange}
@@ -56,14 +56,14 @@ const FloatingInput = ({
           htmlFor={`contact-${name}`}
           className={`absolute left-4 sm:left-5 transition-all duration-300 pointer-events-none ${
             isFocused || hasValue
-              ? 'top-2 text-[10px] sm:text-xs font-medium'
+              ? 'top-2 text-[10px] sm:text-xs font-semibold'
               : 'top-1/2 -translate-y-1/2 text-sm sm:text-base'
           } ${
             isFocused
-              ? 'text-blue-400'
+              ? 'text-blue-600 dark:text-blue-400'
               : hasValue
-              ? 'text-slate-500'
-              : 'text-slate-500'
+              ? 'text-slate-500 dark:text-slate-400'
+              : 'text-slate-500 dark:text-slate-400'
           }`}
         >
           {label}
@@ -76,8 +76,8 @@ const FloatingInput = ({
         />
       </div>
       {error && (
-        <p className="text-red-400 text-xs sm:text-sm mt-1.5 sm:mt-2 flex items-center gap-1.5 ml-1 animate-[fade-slide-up_0.3s_ease-out]">
-          <span className="w-1.5 h-1.5 bg-red-400 rounded-full" />
+        <p className="text-red-500 dark:text-red-400 text-xs sm:text-sm mt-1.5 sm:mt-2 flex items-center gap-1.5 ml-1 animate-[fade-slide-up_0.3s_ease-out]">
+          <span className="w-1.5 h-1.5 bg-red-500 dark:bg-red-400 rounded-full" />
           {error}
         </p>
       )}
@@ -109,10 +109,10 @@ const FloatingTextarea = ({
           name={name}
           id={`contact-${name}`}
           rows={5}
-          className={`w-full px-4 pt-6 pb-2 sm:px-5 sm:pt-7 sm:pb-3 rounded-xl bg-slate-950/50 border text-white transition-all duration-300 resize-none text-sm sm:text-base peer ${
+          className={`w-full px-4 pt-6 pb-2 sm:px-5 sm:pt-7 sm:pb-3 rounded-xl bg-slate-50/90 dark:bg-slate-950/50 border text-slate-900 dark:text-white transition-all duration-300 resize-none text-sm sm:text-base peer ${
             error
               ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
-              : 'border-slate-800/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-slate-700'
+              : 'border-slate-200/90 dark:border-slate-800/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-slate-300 dark:hover:border-slate-700'
           } focus:ring-4 focus:outline-none`}
           value={value}
           onChange={onChange}
@@ -124,14 +124,14 @@ const FloatingTextarea = ({
           htmlFor={`contact-${name}`}
           className={`absolute left-4 sm:left-5 transition-all duration-300 pointer-events-none ${
             isFocused || hasValue
-              ? 'top-2 text-[10px] sm:text-xs font-medium'
+              ? 'top-2 text-[10px] sm:text-xs font-semibold'
               : 'top-5 text-sm sm:text-base'
           } ${
             isFocused
-              ? 'text-blue-400'
+              ? 'text-blue-600 dark:text-blue-400'
               : hasValue
-              ? 'text-slate-500'
-              : 'text-slate-500'
+              ? 'text-slate-500 dark:text-slate-400'
+              : 'text-slate-500 dark:text-slate-400'
           }`}
         >
           {label}
@@ -144,8 +144,8 @@ const FloatingTextarea = ({
         />
       </div>
       {error && (
-        <p className="text-red-400 text-sm mt-2 flex items-center gap-1.5 ml-1 animate-[fade-slide-up_0.3s_ease-out]">
-          <span className="w-1.5 h-1.5 bg-red-400 rounded-full" />
+        <p className="text-red-500 dark:text-red-400 text-sm mt-2 flex items-center gap-1.5 ml-1 animate-[fade-slide-up_0.3s_ease-out]">
+          <span className="w-1.5 h-1.5 bg-red-500 dark:bg-red-400 rounded-full" />
           {error}
         </p>
       )}
@@ -286,30 +286,30 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="bg-[#020610] text-slate-200 py-12 sm:py-20 lg:py-32 relative overflow-hidden noise-overlay"
+      className="bg-slate-50/60 dark:bg-[#020610] text-slate-800 dark:text-slate-200 py-12 sm:py-20 lg:py-32 relative overflow-hidden noise-overlay transition-colors duration-200"
     >
       {/* Enhanced background effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#010410] to-[#010410]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-100/30 via-slate-50/60 to-slate-50/60 dark:from-blue-900/5 dark:via-[#010410] dark:to-[#010410]"></div>
         {/* Subtle background orbs */}
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-[100px] animate-blob" />
-        <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-purple-500/5 rounded-full blur-[80px] animate-blob animation-delay-4000" />
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-blue-400/10 dark:bg-blue-500/5 rounded-full blur-[100px] animate-blob" />
+        <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-purple-400/10 dark:bg-purple-500/5 rounded-full blur-[80px] animate-blob animation-delay-4000" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className={`text-center max-w-3xl mx-auto mb-10 sm:mb-16 lg:mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/5 border border-blue-500/10 text-blue-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/25 dark:border-blue-500/10 text-blue-700 dark:text-blue-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6 font-mono uppercase tracking-wider">
             <MessageSquare className="w-3 h-3 sm:w-4 sm:h-4" />
             <span>Let&apos;s Connect</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 tracking-tight">
-            Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Touch</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-950 dark:text-white mb-4 sm:mb-6 tracking-tight">
+            Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-600 to-cyan-600 dark:from-blue-400 dark:to-purple-400">Touch</span>
           </h2>
 
-          <p className="text-slate-400 text-base sm:text-lg leading-relaxed px-4">
-            Have a project in mind, or just want to chat? I'd love to hear from you.
+          <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed px-4">
+            Have a project in mind, or just want to chat? I&apos;d love to hear from you.
           </p>
         </div>
 
@@ -317,11 +317,11 @@ export default function Contact() {
           {/* Contact Info */}
           <div className={`space-y-6 sm:space-y-8 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="space-y-3 sm:space-y-4 text-center lg:text-left">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-950 dark:text-white">
                 Let&apos;s Talk
               </h3>
-              <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
-                I'm always open to new projects, collaborations, or just good conversations about tech. Feel free to reach out.
+              <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed">
+                I&apos;m always open to new projects, collaborations, or just good conversations about tech. Feel free to reach out.
               </p>
             </div>
 
@@ -331,29 +331,29 @@ export default function Contact() {
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/20 group-hover:to-cyan-500/20 rounded-2xl blur-lg transition-all duration-500 opacity-0 group-hover:opacity-100" />
                 <a
                   href={`mailto:${CONTACT_INFO.EMAIL}`}
-                  className="relative flex items-center gap-4 sm:gap-5 bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 group-hover:border-blue-500/30 p-4 sm:p-6 rounded-2xl transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-blue-500/10 block"
+                  className="relative flex items-center gap-4 sm:gap-5 bg-white/90 dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800/50 group-hover:border-blue-500/40 dark:group-hover:border-blue-500/30 p-4 sm:p-6 rounded-2xl transition-all duration-300 group-hover:-translate-y-1.5 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08),0_4px_12px_-2px_rgba(59,130,246,0.06)] dark:shadow-xl group-hover:shadow-[0_20px_40px_-10px_rgba(15,23,42,0.12),0_8px_20px_-4px_rgba(59,130,246,0.12)] block"
                 >
                   <div className="bg-blue-500/10 p-3 sm:p-4 rounded-xl border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors shrink-0">
-                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
+                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h4 className="font-semibold text-white mb-0.5 sm:mb-1 text-sm sm:text-base">Email</h4>
-                    <p className="text-slate-400 text-xs sm:text-sm md:text-base truncate">zasimmallickofficial@gmail.com</p>
+                    <h4 className="font-semibold text-slate-950 dark:text-white mb-0.5 sm:mb-1 text-sm sm:text-base">Email</h4>
+                    <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-base truncate">zasimmallickofficial@gmail.com</p>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-slate-600 group-hover:text-blue-400 transition-colors shrink-0" />
+                  <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-blue-600 dark:text-slate-600 dark:group-hover:text-blue-400 transition-colors shrink-0" />
                 </a>
               </div>
 
               {/* Location Card */}
               <div className="group relative">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/20 group-hover:to-pink-500/20 rounded-2xl blur-lg transition-all duration-500 opacity-0 group-hover:opacity-100" />
-                <div className="relative flex items-center gap-4 sm:gap-5 bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 group-hover:border-purple-500/30 p-4 sm:p-6 rounded-2xl transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-purple-500/10">
+                <div className="relative flex items-center gap-4 sm:gap-5 bg-white/90 dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800/50 group-hover:border-purple-500/40 dark:group-hover:border-purple-500/30 p-4 sm:p-6 rounded-2xl transition-all duration-300 group-hover:-translate-y-1.5 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08),0_4px_12px_-2px_rgba(168,85,247,0.06)] dark:shadow-xl group-hover:shadow-[0_20px_40px_-10px_rgba(15,23,42,0.12),0_8px_20px_-4px_rgba(168,85,247,0.12)]">
                   <div className="bg-purple-500/10 p-3 sm:p-4 rounded-xl border border-purple-500/20 group-hover:bg-purple-500/20 transition-colors shrink-0">
-                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-purple-400" />
+                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 dark:text-purple-400" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h4 className="font-semibold text-white mb-0.5 sm:mb-1 text-sm sm:text-base">Location</h4>
-                    <p className="text-slate-400 text-xs sm:text-sm md:text-base">Natullabad, Barisal, Bangladesh</p>
+                    <h4 className="font-semibold text-slate-950 dark:text-white mb-0.5 sm:mb-1 text-sm sm:text-base">Location</h4>
+                    <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-base">Natullabad, Barisal, Bangladesh</p>
                   </div>
                 </div>
               </div>
@@ -362,10 +362,10 @@ export default function Contact() {
             {/* Additional info card */}
             <div className="relative mt-8">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-2xl blur-lg" />
-              <div className="relative bg-slate-900/50 backdrop-blur-sm border border-slate-800/50 rounded-2xl p-6 sm:p-8">
+              <div className="relative bg-white/90 dark:bg-slate-900/50 backdrop-blur-sm border border-slate-200/90 dark:border-slate-800/50 rounded-2xl p-6 sm:p-8 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08)] dark:shadow-none">
                 <div className="flex gap-4">
-                  <div className="text-blue-400 text-5xl leading-none font-serif opacity-50">&quot;</div>
-                  <p className="text-slate-300 text-lg leading-relaxed italic pt-2">
+                  <div className="text-blue-600/40 dark:text-blue-400/50 text-5xl leading-none font-serif">&quot;</div>
+                  <p className="text-slate-700 dark:text-slate-300 text-lg leading-relaxed italic pt-2">
                     Every great project starts with a conversation. Drop me a message — I reply to every one.
                   </p>
                 </div>
@@ -377,7 +377,7 @@ export default function Contact() {
           <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <form onSubmit={handleSubmit} className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-blue-500/0 group-hover:from-blue-500/10 group-hover:via-purple-500/10 group-hover:to-blue-500/10 rounded-3xl blur-xl transition-all duration-500" />
-              <div className="relative backdrop-blur-xl bg-slate-900/50 p-5 sm:p-8 md:p-10 rounded-3xl shadow-2xl border border-slate-800/50">
+              <div className="relative backdrop-blur-xl bg-white/95 dark:bg-slate-900/50 p-5 sm:p-8 md:p-10 rounded-3xl shadow-[0_20px_50px_-15px_rgba(15,23,42,0.12),0_8px_25px_-5px_rgba(59,130,246,0.08)] dark:shadow-2xl border border-slate-200/90 dark:border-slate-800/50">
                 <div className="space-y-5 sm:space-y-6">
                   <div className="grid grid-cols-1 gap-5 sm:gap-6">
                     {/* Floating Label Inputs */}
@@ -417,14 +417,14 @@ export default function Contact() {
 
                   {/* Status Messages with slide-in animation */}
                   {status === 'success' && (
-                    <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-xl text-green-400 text-sm flex items-center gap-2 animate-[fade-slide-up_0.4s_ease-out]">
-                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                    <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-xl text-green-700 dark:text-green-400 text-sm flex items-center gap-2 animate-[fade-slide-up_0.4s_ease-out]">
+                      <div className="w-2 h-2 bg-green-600 dark:bg-green-500 rounded-full animate-pulse" />
                       Message sent successfully! Thank you for reaching out.
                     </div>
                   )}
                   {status === 'error' && (
-                    <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-sm flex items-center gap-2 animate-[fade-slide-up_0.4s_ease-out]">
-                      <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+                    <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-700 dark:text-red-400 text-sm flex items-center gap-2 animate-[fade-slide-up_0.4s_ease-out]">
+                      <div className="w-2 h-2 bg-red-600 dark:bg-red-500 rounded-full animate-pulse" />
                       Failed to send message. Please try again or contact directly.
                     </div>
                   )}
