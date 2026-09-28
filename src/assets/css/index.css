@@ -10,13 +10,24 @@
 
 html {
   /* Lenis handles smooth scrolling globally */
+  background-color: #010410;
+  color-scheme: dark;
+}
+
+html:not(.dark) {
+  background-color: #f8fafc;
+  color-scheme: light;
 }
 
 body {
   width: 100%;
   overflow-x: hidden;
   font-family: "Outfit", sans-serif;
-  @apply bg-[#f8fafc] text-slate-900 antialiased selection:bg-blue-500/20 selection:text-blue-900;
+  @apply bg-[#010410] text-slate-200 antialiased selection:bg-blue-500/30 selection:text-blue-200;
+}
+
+html:not(.dark) body {
+  @apply bg-[#f8fafc] text-slate-900 selection:bg-blue-500/20 selection:text-blue-900;
 }
 
 h1, h2, h3 {
@@ -31,21 +42,16 @@ code, pre, kbd, samp, .font-mono {
   @apply bg-[#010410] text-slate-200 selection:bg-blue-500/30 selection:text-blue-200;
 }
 
-/* Smooth Theme Transitions for colors without affecting layout/transform/scroll */
-html,
-body,
-header,
-nav,
-footer,
-section,
-div,
-button,
-input,
-textarea,
-a {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 200ms;
+/* World-Class View Transitions API for theme toggle — eliminates muddy intermediate sRGB third-color artifacts */
+::view-transition-group(root) {
+  animation-duration: 200ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 200ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Custom Scrollbar — Glowing Blue Accent */
