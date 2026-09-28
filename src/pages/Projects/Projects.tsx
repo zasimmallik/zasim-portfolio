@@ -118,7 +118,7 @@ export default function Projects() {
 
   return (
     <section
-      className="bg-slate-50/60 dark:bg-[#020610] text-slate-900 dark:text-slate-200 py-12 sm:py-16 md:py-24 lg:py-28 relative transition-colors duration-200"
+      className="bg-slate-50/60 dark:bg-[#020610] text-slate-900 dark:text-slate-200 py-12 sm:py-16 md:py-24 lg:py-28 relative transition-colors duration-150"
       ref={container}
     >
       {/* Background Elements */}
@@ -239,7 +239,7 @@ function Card({
           onMouseMove={handleMouseMove}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="w-full flex flex-col md:flex-row bg-white/95 dark:bg-slate-900/50 backdrop-blur-2xl border border-slate-200/90 dark:border-slate-800/50 rounded-3xl overflow-hidden shadow-[0_20px_50px_-15px_rgba(15,23,42,0.12),0_8px_25px_-5px_rgba(59,130,246,0.1)] dark:shadow-2xl hover:border-blue-500/40 dark:hover:border-blue-500/30 hover:shadow-blue-500/15 dark:hover:shadow-blue-500/10 transition-all duration-500 group relative"
+          className="w-full flex flex-col md:flex-row bg-white/95 dark:bg-slate-900/50 backdrop-blur-2xl border border-slate-200/90 dark:border-slate-800/50 rounded-3xl overflow-hidden shadow-[0_20px_50px_-15px_rgba(15,23,42,0.12),0_8px_25px_-5px_rgba(59,130,246,0.1)] dark:shadow-2xl hover:border-blue-500/40 dark:hover:border-blue-500/30 hover:shadow-blue-500/15 dark:hover:shadow-blue-500/10 transition-all duration-200 group relative"
         >
           {/* Mouse glow */}
           {isHovered && (
@@ -253,7 +253,7 @@ function Card({
 
           {/* Image section */}
           <div className="w-full md:w-[55%] h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] relative overflow-hidden z-10">
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20"></div>
             <motion.div
               className="w-full h-full"
               whileHover={{ scale: 1.05 }}

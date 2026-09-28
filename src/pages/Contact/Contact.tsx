@@ -286,7 +286,7 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="bg-slate-50/60 dark:bg-[#020610] text-slate-800 dark:text-slate-200 py-12 sm:py-20 lg:py-32 relative overflow-hidden noise-overlay transition-colors duration-200"
+      className="bg-slate-50/60 dark:bg-[#020610] text-slate-800 dark:text-slate-200 py-12 sm:py-20 lg:py-32 relative overflow-hidden noise-overlay transition-colors duration-150"
     >
       {/* Enhanced background effects */}
       <div className="absolute inset-0 pointer-events-none">
@@ -328,10 +328,10 @@ export default function Contact() {
             <div className="space-y-4 sm:space-y-6">
               {/* Email Card */}
               <div className="group relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/20 group-hover:to-cyan-500/20 rounded-2xl blur-lg transition-all duration-500 opacity-0 group-hover:opacity-100" />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/20 group-hover:to-cyan-500/20 rounded-2xl blur-lg transition-all duration-200 opacity-0 group-hover:opacity-100" />
                 <a
                   href={`mailto:${CONTACT_INFO.EMAIL}`}
-                  className="relative flex items-center gap-4 sm:gap-5 bg-white/90 dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800/50 group-hover:border-blue-500/40 dark:group-hover:border-blue-500/30 p-4 sm:p-6 rounded-2xl transition-all duration-300 group-hover:-translate-y-1.5 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08),0_4px_12px_-2px_rgba(59,130,246,0.06)] dark:shadow-xl group-hover:shadow-[0_20px_40px_-10px_rgba(15,23,42,0.12),0_8px_20px_-4px_rgba(59,130,246,0.12)] block"
+                  className="relative flex items-center gap-4 sm:gap-5 bg-white/90 dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800/50 group-hover:border-blue-500/40 dark:group-hover:border-blue-500/30 p-4 sm:p-6 rounded-2xl transition-all duration-200 group-hover:-translate-y-1.5 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08),0_4px_12px_-2px_rgba(59,130,246,0.06)] dark:shadow-xl group-hover:shadow-[0_20px_40px_-10px_rgba(15,23,42,0.12),0_8px_20px_-4px_rgba(59,130,246,0.12)] block"
                 >
                   <div className="bg-blue-500/10 p-3 sm:p-4 rounded-xl border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors shrink-0">
                     <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
@@ -346,8 +346,8 @@ export default function Contact() {
 
               {/* Location Card */}
               <div className="group relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/20 group-hover:to-pink-500/20 rounded-2xl blur-lg transition-all duration-500 opacity-0 group-hover:opacity-100" />
-                <div className="relative flex items-center gap-4 sm:gap-5 bg-white/90 dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800/50 group-hover:border-purple-500/40 dark:group-hover:border-purple-500/30 p-4 sm:p-6 rounded-2xl transition-all duration-300 group-hover:-translate-y-1.5 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08),0_4px_12px_-2px_rgba(168,85,247,0.06)] dark:shadow-xl group-hover:shadow-[0_20px_40px_-10px_rgba(15,23,42,0.12),0_8px_20px_-4px_rgba(168,85,247,0.12)]">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/20 group-hover:to-pink-500/20 rounded-2xl blur-lg transition-all duration-200 opacity-0 group-hover:opacity-100" />
+                <div className="relative flex items-center gap-4 sm:gap-5 bg-white/90 dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800/50 group-hover:border-purple-500/40 dark:group-hover:border-purple-500/30 p-4 sm:p-6 rounded-2xl transition-all duration-200 group-hover:-translate-y-1.5 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08),0_4px_12px_-2px_rgba(168,85,247,0.06)] dark:shadow-xl group-hover:shadow-[0_20px_40px_-10px_rgba(15,23,42,0.12),0_8px_20px_-4px_rgba(168,85,247,0.12)]">
                   <div className="bg-purple-500/10 p-3 sm:p-4 rounded-xl border border-purple-500/20 group-hover:bg-purple-500/20 transition-colors shrink-0">
                     <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 dark:text-purple-400" />
                   </div>
@@ -376,7 +376,7 @@ export default function Contact() {
           {/* Contact Form */}
           <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <form onSubmit={handleSubmit} className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-blue-500/0 group-hover:from-blue-500/10 group-hover:via-purple-500/10 group-hover:to-blue-500/10 rounded-3xl blur-xl transition-all duration-500" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-blue-500/0 group-hover:from-blue-500/10 group-hover:via-purple-500/10 group-hover:to-blue-500/10 rounded-3xl blur-xl transition-all duration-200" />
               <div className="relative backdrop-blur-xl bg-white/95 dark:bg-slate-900/50 p-5 sm:p-8 md:p-10 rounded-3xl shadow-[0_20px_50px_-15px_rgba(15,23,42,0.12),0_8px_25px_-5px_rgba(59,130,246,0.08)] dark:shadow-2xl border border-slate-200/90 dark:border-slate-800/50">
                 <div className="space-y-5 sm:space-y-6">
                   <div className="grid grid-cols-1 gap-5 sm:gap-6">

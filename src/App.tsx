@@ -65,7 +65,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-slate-100/90 dark:bg-[#010410] border-t border-slate-200/90 dark:border-slate-800/50 overflow-hidden transition-colors duration-200">
+    <footer className="relative bg-slate-100/90 dark:bg-[#010410] border-t border-slate-200/90 dark:border-slate-800/50 overflow-hidden transition-colors duration-150">
       {/* Ambient glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-blue-500/5 blur-[100px] rounded-full" />
@@ -145,7 +145,7 @@ const Footer = () => {
       {/* Back to top button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 z-50 w-12 h-12 flex items-center justify-center rounded-full bg-white/90 dark:bg-blue-500/10 backdrop-blur-xl border border-slate-200/90 dark:border-blue-500/20 text-blue-600 dark:text-blue-400 shadow-lg hover:bg-slate-50 dark:hover:bg-blue-500/20 hover:text-blue-700 dark:hover:text-white hover:border-blue-400/40 dark:hover:border-blue-500/40 hover:shadow-blue-500/20 transition-all duration-500 hover:scale-110 ${
+        className={`fixed bottom-6 right-6 z-50 w-12 h-12 flex items-center justify-center rounded-full bg-white/90 dark:bg-blue-500/10 backdrop-blur-xl border border-slate-200/90 dark:border-blue-500/20 text-blue-600 dark:text-blue-400 shadow-lg hover:bg-slate-50 dark:hover:bg-blue-500/20 hover:text-blue-700 dark:hover:text-white hover:border-blue-400/40 dark:hover:border-blue-500/40 hover:shadow-blue-500/20 transition-all duration-200 hover:scale-110 ${
           showBackToTop
             ? 'opacity-100 translate-y-0'
             : 'opacity-0 translate-y-4 pointer-events-none'
