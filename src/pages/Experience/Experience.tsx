@@ -57,21 +57,21 @@ const ExperienceCard = ({
       <div className="absolute left-4 md:left-1/2 z-20 transform -translate-x-1/2">
         {/* Ripple effect ring */}
         {isLatest && isVisible && (
-          <div className="absolute inset-0 w-4 h-4 rounded-full bg-cyan-400/30 animate-[ripple-glow_2s_ease-in-out_infinite]" />
+          <div className="absolute inset-0 w-4 h-4 rounded-full bg-blue-500/30 dark:bg-cyan-400/30 animate-[ripple-glow_2s_ease-in-out_infinite]" />
         )}
         <div
-          className={`w-4 h-4 rounded-full border-4 border-[#010410] transition-all duration-500 shadow-[0_0_10px_rgba(59,130,246,0.5)] group-hover:shadow-[0_0_20px_rgba(34,211,238,0.8)] ${isLatest
-              ? 'bg-cyan-400 group-hover:bg-cyan-300 scale-125 group-hover:scale-[1.75]'
-              : 'bg-blue-500 group-hover:scale-150 group-hover:bg-cyan-400'
+          className={`w-4 h-4 rounded-full border-4 border-[#f8fafc] dark:border-[#010410] transition-all duration-500 shadow-[0_0_10px_rgba(59,130,246,0.5)] group-hover:shadow-[0_0_20px_rgba(34,211,238,0.8)] ${isLatest
+              ? 'bg-blue-600 dark:bg-cyan-400 group-hover:bg-blue-500 dark:group-hover:bg-cyan-300 scale-125 group-hover:scale-[1.75]'
+              : 'bg-blue-500 dark:bg-blue-500 group-hover:scale-150 group-hover:bg-cyan-500 dark:group-hover:bg-cyan-400'
             }`}
         />
       </div>
 
-      {/* Content Card */}
+      {/* Content Card with Floating Elevation */}
       <div className="w-full md:w-[calc(50%-30px)] pl-12 md:pl-0">
-        <div className={`relative p-6 sm:p-8 rounded-2xl bg-slate-900/50 border backdrop-blur-xl shadow-lg transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl overflow-hidden ${isLatest
-            ? 'border-cyan-500/20 group-hover:border-cyan-500/40 group-hover:shadow-cyan-500/10'
-            : 'border-slate-800/50 group-hover:border-blue-500/30 group-hover:shadow-blue-500/10'
+        <div className={`relative p-6 sm:p-8 rounded-2xl bg-white/90 dark:bg-slate-900/50 border backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08),0_4px_14px_-2px_rgba(59,130,246,0.06)] dark:shadow-lg transition-all duration-500 group-hover:-translate-y-2.5 group-hover:shadow-[0_24px_50px_-10px_rgba(15,23,42,0.14),0_10px_25px_-4px_rgba(59,130,246,0.22)] dark:group-hover:shadow-2xl overflow-hidden ${isLatest
+            ? 'border-blue-500/30 dark:border-cyan-500/20 group-hover:border-blue-500/50 dark:group-hover:border-cyan-500/40'
+            : 'border-slate-200/90 dark:border-slate-800/50 group-hover:border-blue-500/40 dark:group-hover:border-blue-500/30'
           }`}>
 
           {/* Glow Effect */}
@@ -82,37 +82,37 @@ const ExperienceCard = ({
             <div className="flex items-center justify-between flex-wrap gap-2">
               <div className="flex items-center gap-3">
                 <div className="p-2.5 rounded-xl border transition-colors duration-300 bg-blue-500/10 border-blue-500/20 group-hover:bg-blue-500/20">
-                  <Icon className="w-6 h-6 transition-colors text-blue-400 group-hover:text-cyan-300" />
+                  <Icon className="w-6 h-6 transition-colors text-blue-600 dark:text-blue-400 group-hover:text-cyan-600 dark:group-hover:text-cyan-300" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-200 group-hover:text-blue-200 transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-950 dark:text-slate-200 group-hover:text-blue-700 dark:group-hover:text-blue-200 transition-colors">
                   {title}
                 </h3>
               </div>
-              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border ${isLatest
-                  ? 'bg-cyan-500/10 text-cyan-300 border-cyan-500/20'
-                  : 'bg-blue-500/10 text-blue-300 border-blue-500/20'
+              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border font-mono ${isLatest
+                  ? 'bg-blue-500/10 text-blue-700 border-blue-500/25 dark:bg-cyan-500/10 dark:text-cyan-300 dark:border-cyan-500/20'
+                  : 'bg-slate-100 text-slate-700 border-slate-200/90 dark:bg-blue-500/10 dark:text-blue-300 dark:border-blue-500/20'
                 }`}>
                 <Calendar className="w-3.5 h-3.5" />
                 {period}
                 {isLatest && (
                   <span className="relative flex h-1.5 w-1.5 ml-1">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-400"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 dark:bg-cyan-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-600 dark:bg-cyan-400"></span>
                   </span>
                 )}
               </span>
             </div>
 
-            <div className="flex items-center gap-2 text-slate-400 text-sm sm:text-base">
-              <Building2 className="w-4 h-4 text-slate-500" />
-              <span className="font-medium text-slate-300">{company}</span>
+            <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+              <Building2 className="w-4 h-4 text-slate-500 dark:text-slate-500" />
+              <span className="font-semibold text-slate-800 dark:text-slate-300">{company}</span>
             </div>
           </div>
 
           {/* Description */}
-          <p className={`relative z-10 text-slate-400 leading-relaxed text-sm sm:text-base border-l-2 pl-4 transition-colors duration-300 ${isLatest
-              ? 'border-cyan-700/50 group-hover:border-cyan-500/50'
-              : 'border-slate-700 group-hover:border-blue-500/50'
+          <p className={`relative z-10 text-slate-700 dark:text-slate-400 leading-relaxed text-sm sm:text-base border-l-2 pl-4 transition-colors duration-300 ${isLatest
+              ? 'border-blue-600/60 dark:border-cyan-700/50 group-hover:border-blue-600 dark:group-hover:border-cyan-500/50'
+              : 'border-slate-300 dark:border-slate-700 group-hover:border-blue-500/60 dark:group-hover:border-blue-500/50'
             }`}>
             {description}
           </p>
@@ -161,10 +161,10 @@ const AnimatedTimelineLine = () => {
   return (
     <div ref={lineRef} className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 transform md:-translate-x-1/2 overflow-hidden">
       {/* Static background line */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-500/0 via-slate-800/30 to-blue-500/0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-500/0 via-slate-300 dark:via-slate-800/30 to-blue-500/0" />
       {/* Animated fill line */}
       <div
-        className="absolute top-0 left-0 right-0 bg-gradient-to-b from-blue-500/70 via-cyan-500/50 to-blue-500/70 transition-all duration-300 ease-out"
+        className="absolute top-0 left-0 right-0 bg-gradient-to-b from-blue-600 via-indigo-500 to-cyan-500 dark:from-blue-500/70 dark:via-cyan-500/50 dark:to-blue-500/70 transition-all duration-300 ease-out"
         style={{
           height: `${fillHeight}%`,
           boxShadow: '0 0 8px rgba(59,130,246,0.4), 0 0 20px rgba(59,130,246,0.2)',
@@ -223,10 +223,10 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section id="experience" className="relative py-20 sm:py-32 bg-[#020610] overflow-hidden noise-overlay">
+    <section id="experience" className="relative py-20 sm:py-32 bg-[#f8fafc] dark:bg-[#020610] overflow-hidden noise-overlay transition-colors duration-200">
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-900/5 via-[#010410] to-[#010410]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-100/30 via-[#f8fafc] to-[#f8fafc] dark:from-blue-900/5 dark:via-[#010410] dark:to-[#010410]"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -235,16 +235,16 @@ const ExperienceSection = () => {
           ref={headerRef}
           className={`text-center max-w-3xl mx-auto mb-20 transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/25 dark:border-blue-500/20 text-blue-700 dark:text-blue-400 text-sm font-medium mb-6 font-mono uppercase tracking-wider">
             <Activity className="w-4 h-4" />
             <span>Career Journey</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-            Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Experience</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-950 dark:text-white mb-6 tracking-tight">
+            Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400">Experience</span>
           </h2>
 
-          <p className="text-gray-400 text-lg leading-relaxed">
+          <p className="text-slate-600 dark:text-gray-400 text-lg leading-relaxed">
             The path that got me here — and the roles that shaped how I think and build.
           </p>
         </div>
