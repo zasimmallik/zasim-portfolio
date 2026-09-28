@@ -8,6 +8,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Outfit", "sans-serif"],
+        display: ["'Space Grotesk'", "Outfit", "sans-serif"],
+        mono: ["'JetBrains Mono'", "monospace"],
       },
       animation: {
         meteor: "meteor 5s linear infinite",
