@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback, useRef } from 'react';
 import { ReactLenis } from 'lenis/react';
 import './assets/css/index.css';
 import { SCROLL_OBSERVER_OPTIONS } from '@/config/navigation';
-import { FaLinkedinIn, FaGithub, FaHeart, FaInstagram, FaFacebookF } from 'react-icons/fa';
+import { FaLinkedinIn, FaGithub, FaInstagram, FaFacebookF } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { ArrowUp } from 'lucide-react';
 
@@ -65,7 +65,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[#010410] border-t border-slate-800/50 overflow-hidden">
+    <footer className="relative bg-slate-100/90 dark:bg-[#010410] border-t border-slate-200/90 dark:border-slate-800/50 overflow-hidden transition-colors duration-200">
       {/* Ambient glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-blue-500/5 blur-[100px] rounded-full" />
@@ -77,10 +77,10 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             {/* Brand */}
             <div className="text-center md:text-left">
-              <h3 className="text-xl font-bold text-white mb-2 tracking-tight">
+              <h3 className="text-xl font-bold text-slate-950 dark:text-white mb-2 tracking-tight">
                 Zasim Mallik
               </h3>
-              <p className="text-slate-500 text-sm leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-500 text-sm leading-relaxed">
                 Software Engineer | Founder of Zeraql & Rizmiq
               </p>
             </div>
@@ -124,7 +124,7 @@ const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-10 h-10 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 text-slate-500 transition-all duration-300 hover:scale-110 shadow-md ${social.hoverClass}`}
+                  className={`w-10 h-10 flex items-center justify-center rounded-lg bg-white dark:bg-white/5 border border-slate-200/90 dark:border-white/10 text-slate-600 dark:text-slate-400 transition-all duration-300 hover:scale-110 shadow-sm ${social.hoverClass}`}
                   aria-label={social.label}
                 >
                   <social.icon className="w-4 h-4" />
@@ -135,8 +135,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-slate-800/50 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-600 text-xs sm:text-sm">
+        <div className="border-t border-slate-200/90 dark:border-slate-800/50 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-slate-600 dark:text-slate-500 text-xs sm:text-sm">
             © {currentYear} Zasim Mallik. All rights reserved.
           </p>
         </div>
@@ -145,7 +145,7 @@ const Footer = () => {
       {/* Back to top button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 z-50 w-12 h-12 flex items-center justify-center rounded-full bg-blue-500/10 backdrop-blur-xl border border-blue-500/20 text-blue-400 hover:bg-blue-500/20 hover:text-white hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-500 hover:scale-110 ${
+        className={`fixed bottom-6 right-6 z-50 w-12 h-12 flex items-center justify-center rounded-full bg-white/90 dark:bg-blue-500/10 backdrop-blur-xl border border-slate-200/90 dark:border-blue-500/20 text-blue-600 dark:text-blue-400 shadow-lg hover:bg-slate-50 dark:hover:bg-blue-500/20 hover:text-blue-700 dark:hover:text-white hover:border-blue-400/40 dark:hover:border-blue-500/40 hover:shadow-blue-500/20 transition-all duration-500 hover:scale-110 ${
           showBackToTop
             ? 'opacity-100 translate-y-0'
             : 'opacity-0 translate-y-4 pointer-events-none'
