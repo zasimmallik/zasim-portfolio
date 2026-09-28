@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Outfit", sans-serif;
+  --font-display: "Space Grotesk", "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
 html {
   /* Lenis handles smooth scrolling globally */
 }
@@ -7,7 +15,37 @@ html {
 body {
   width: 100%;
   overflow-x: hidden;
-  @apply bg-[#010410] text-slate-200 antialiased selection:bg-blue-500/30 selection:text-blue-200;
+  font-family: "Outfit", sans-serif;
+  @apply bg-[#f8fafc] text-slate-900 antialiased selection:bg-blue-500/20 selection:text-blue-900;
+}
+
+h1, h2, h3 {
+  font-family: "Space Grotesk", "Outfit", sans-serif;
+}
+
+code, pre, kbd, samp, .font-mono {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.dark body {
+  @apply bg-[#010410] text-slate-200 selection:bg-blue-500/30 selection:text-blue-200;
+}
+
+/* Smooth Theme Transitions for colors without affecting layout/transform/scroll */
+html,
+body,
+header,
+nav,
+footer,
+section,
+div,
+button,
+input,
+textarea,
+a {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
 }
 
 /* Custom Scrollbar — Glowing Blue Accent */
@@ -16,15 +54,23 @@ body {
 }
 
 ::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+
+.dark ::-webkit-scrollbar-track {
   @apply bg-[#010410];
 }
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #3b82f6, #06b6d4);
   border-radius: 9999px;
-  border: 2px solid #010410;
+  border: 2px solid #f8fafc;
   box-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
   transition: all 0.3s ease;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  border: 2px solid #010410;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -167,6 +213,22 @@ body {
 .text-shimmer {
   background: linear-gradient(
     90deg,
+    #475569 0%,
+    #1e293b 25%,
+    #2563eb 50%,
+    #1e293b 75%,
+    #475569 100%
+  );
+  background-size: 400% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 6s ease-in-out infinite;
+}
+
+.dark .text-shimmer {
+  background: linear-gradient(
+    90deg,
     #94a3b8 0%,
     #e2e8f0 25%,
     #60a5fa 50%,
@@ -177,7 +239,6 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: text-shimmer 6s ease-in-out infinite;
 }
 
 /* Pulsing glow border */
@@ -191,13 +252,24 @@ body {
   background: linear-gradient(
     90deg,
     transparent 0%,
+    rgba(59, 130, 246, 0.15) 20%,
+    rgba(6, 182, 212, 0.3) 50%,
+    rgba(59, 130, 246, 0.15) 80%,
+    transparent 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.dark .section-divider {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
     rgba(59, 130, 246, 0.3) 20%,
     rgba(6, 182, 212, 0.5) 50%,
     rgba(59, 130, 246, 0.3) 80%,
     transparent 100%
   );
-  position: relative;
-  overflow: hidden;
 }
 
 .section-divider::after {
@@ -211,11 +283,22 @@ body {
     90deg,
     transparent 0%,
     rgba(59, 130, 246, 0) 30%,
-    rgba(59, 130, 246, 0.6) 50%,
+    rgba(59, 130, 246, 0.3) 50%,
     rgba(59, 130, 246, 0) 70%,
     transparent 100%
   );
   filter: blur(2px);
+}
+
+.dark .section-divider::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(59, 130, 246, 0) 30%,
+    rgba(59, 130, 246, 0.6) 50%,
+    rgba(59, 130, 246, 0.7) 70%,
+    transparent 100%
+  );
 }
 
 /* Animated gradient border */
@@ -229,7 +312,7 @@ body {
   position: absolute;
   inset: -1px;
   border-radius: inherit;
-  padding: 1px;
+  padding: 1.5px;
   background: linear-gradient(
     var(--gradient-angle, 0deg),
     #3b82f6,
@@ -242,12 +325,18 @@ body {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   animation: gradient-rotate 4s linear infinite;
-  opacity: 0;
+  opacity: 0.85;
   transition: opacity 0.5s ease;
   pointer-events: none;
 }
 
-.gradient-border-animated:hover::before {
+.dark .gradient-border-animated::before {
+  padding: 1px;
+  opacity: 0;
+}
+
+.gradient-border-animated:hover::before,
+.dark .gradient-border-animated:hover::before {
   opacity: 1;
 }
 
@@ -269,10 +358,16 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.8), transparent);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.95), transparent);
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.6);
   animation: float-particle var(--duration, 6s) ease-in-out infinite;
   animation-delay: var(--delay, 0s);
   pointer-events: none;
+}
+
+.dark .floating-particle {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.8), transparent);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
 }
 
 /* Magnetic hover for social icons */
@@ -290,7 +385,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.03;
+  opacity: 0.015;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   background-repeat: repeat;
@@ -298,24 +393,44 @@ body {
   z-index: 1;
 }
 
+.dark .noise-overlay::before {
+  opacity: 0.03;
+}
+
 /* ===========================
-   EXISTING STYLES (preserved)
+   EXISTING STYLES (adapted for light & dark)
    =========================== */
 
 /* Glassmorphism Utilities */
 .glass {
-  @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  @apply bg-slate-900/5 backdrop-blur-lg border border-slate-200/80;
+}
+
+.dark .glass {
+  @apply bg-white/5 border-white/10;
 }
 
 .glass:hover {
+  @apply bg-slate-900/[0.07] border-slate-300/80;
+}
+
+.dark .glass:hover {
   @apply bg-white/[0.07] border-white/15;
 }
 
 .glass-card {
+  @apply bg-white/85 backdrop-blur-xl border border-slate-200/80 shadow-md;
+}
+
+.dark .glass-card {
   @apply bg-slate-900/50 backdrop-blur-xl border border-slate-800/50 shadow-xl;
 }
 
 .glass-card:hover {
+  @apply border-slate-300/80 shadow-xl;
+}
+
+.dark .glass-card:hover {
   @apply border-slate-700/60 shadow-2xl;
 }
 
@@ -357,6 +472,15 @@ body {
 }
 
 .gradient-text {
+  background: linear-gradient(90deg, #1e40af, #2563eb, #4f46e5, #1e40af);
+  background-size: 200% auto;
+  animation: gradient-shift 6s linear infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .gradient-text {
   background: linear-gradient(90deg, #60a5fa, #34d399, #60a5fa);
   background-size: 200% auto;
   animation: gradient-shift 4s linear infinite;
@@ -484,30 +608,121 @@ body {
   }
 }
 
+@keyframes float-levitate {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float-levitate {
+  animation: float-levitate 6s ease-in-out infinite;
+}
+
 
 
 /* Enhanced Prism.js styling */
 pre[class*="language-"] {
-  background: #060d1a !important;
+  background: transparent !important;
   padding: 1.5rem !important;
   margin: 0 !important;
   font-size: 0.95rem !important;
 }
 
-.token.comment {
-  color: #8b9cb3 !important;
+/* Light Mode Syntax Tokens (VS Code / GitHub Light) */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #64748b !important;
   font-style: italic;
 }
 
-.token.string {
+.token.punctuation {
+  color: #334155 !important;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol {
+  color: #0284c7 !important;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin {
+  color: #059669 !important;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+  color: #d97706 !important;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #7c3aed !important;
+  font-weight: 600;
+}
+
+.token.function,
+.token.class-name {
+  color: #2563eb !important;
+}
+
+/* Dark Mode Syntax Tokens (Tomorrow Night / One Dark) */
+.dark .token.comment,
+.dark .token.prolog,
+.dark .token.doctype,
+.dark .token.cdata {
+  color: #8b9cb3 !important;
+}
+
+.dark .token.punctuation {
+  color: #94a3b8 !important;
+}
+
+.dark .token.property,
+.dark .token.tag,
+.dark .token.boolean,
+.dark .token.number,
+.dark .token.constant,
+.dark .token.symbol {
+  color: #38bdf8 !important;
+}
+
+.dark .token.selector,
+.dark .token.attr-name,
+.dark .token.string,
+.dark .token.char,
+.dark .token.builtin {
   color: #a5d6ff !important;
 }
 
-.token.keyword {
+.dark .token.operator,
+.dark .token.entity,
+.dark .token.url {
+  color: #f59e0b !important;
+}
+
+.dark .token.atrule,
+.dark .token.attr-value,
+.dark .token.keyword {
   color: #ff79c6 !important;
 }
 
-.token.function {
+.dark .token.function,
+.dark .token.class-name {
   color: #66e7ff !important;
 }
 
