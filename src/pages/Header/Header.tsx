@@ -32,12 +32,12 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 flex justify-center items-center transition-all duration-500 pointer-events-none
+        className={`fixed top-0 left-0 right-0 z-50 flex justify-center items-center transition-all duration-200 pointer-events-none
           ${isScrolled ? 'lg:py-4' : 'lg:py-6'} 
           p-0 lg:p-4`}
       >
         <nav
-          className={`pointer-events-auto relative flex items-center justify-between lg:justify-center shadow-lg backdrop-blur-md transition-all duration-500 
+          className={`pointer-events-auto relative flex items-center justify-between lg:justify-center shadow-lg backdrop-blur-md transition-all duration-200 
             w-full lg:w-auto
             rounded-none lg:rounded-full 
             border-b border-slate-200/80 dark:border-white/5 lg:border lg:border-slate-200/80 lg:dark:border-white/10
