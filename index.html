@@ -1,8 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
   <meta charset="UTF-8" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light') {
+          document.documentElement.classList.remove('dark');
+        } else {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
   <link rel="icon" type="image/png" href="/icon-round.png" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -14,6 +28,7 @@
   <meta name="description" content="Zasim Mallik is a Software Engineer and Founder of Zeraql & Rizmiq. Specializing in React, Next.js, TypeScript, Node.js, Python, and AI/ML. Building next-generation AI SaaS products from Bangladesh." />
   <meta name="keywords" content="Zasim Mallik, Zasim, Mallik, Software Engineer, Software Developer, Full Stack Developer, AI SaaS, Zeraql, Rizmiq, React Developer, Next.js Developer, TypeScript, Node.js, Python, AI Engineering, Web Developer, Frontend Developer, Backend Developer, Bangladesh Developer, Portfolio, zasimmallik" />
   <meta name="author" content="Zasim Mallik" />
+  <meta name="theme-color" content="#010410" />
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8fafc" />
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#010410" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
