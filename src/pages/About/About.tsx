@@ -29,7 +29,7 @@ export default function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="py-20 sm:py-28 md:py-32 lg:py-40 text-slate-900 dark:text-white bg-[#f8fafc] dark:bg-[#020610] relative overflow-hidden noise-overlay transition-colors duration-200"
+      className="py-20 sm:py-28 md:py-32 lg:py-40 text-slate-900 dark:text-white bg-[#f8fafc] dark:bg-[#020610] relative overflow-hidden noise-overlay transition-colors duration-150"
     >
       {/* Enhanced background effects */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -43,7 +43,7 @@ export default function About() {
           <div className="relative group order-2 lg:order-1 max-w-md mx-auto lg:max-w-none w-full">
             <div className="relative z-10 animate-float-levitate">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-500 rounded-3xl blur-2xl opacity-20 dark:opacity-20 group-hover:opacity-40 transition duration-700"></div>
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200/90 dark:border-white/5 bg-white/90 dark:bg-slate-900/50 backdrop-blur-sm shadow-[0_25px_60px_-15px_rgba(15,23,42,0.14),0_12px_28px_-6px_rgba(59,130,246,0.18)] dark:shadow-2xl transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-[0_35px_70px_-15px_rgba(59,130,246,0.25),0_15px_35px_-5px_rgba(15,23,42,0.18)]">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200/90 dark:border-white/5 bg-white/90 dark:bg-slate-900/50 backdrop-blur-sm shadow-[0_25px_60px_-15px_rgba(15,23,42,0.14),0_12px_28px_-6px_rgba(59,130,246,0.18)] dark:shadow-2xl transition-all duration-200 group-hover:scale-[1.02] group-hover:shadow-[0_35px_70px_-15px_rgba(59,130,246,0.25),0_15px_35px_-5px_rgba(15,23,42,0.18)]">
                 <img
                   src={HeroImg}
                   className="w-full h-auto object-cover transform group-hover:scale-105 transition-all duration-700"
@@ -91,14 +91,12 @@ export default function About() {
 
             {/* Quote / Philosophy */}
             <div className="relative p-5 sm:p-6 rounded-2xl bg-white/90 dark:bg-slate-900/75 border border-slate-200/90 dark:border-slate-700/50 backdrop-blur-md overflow-hidden group hover:border-blue-500/40 dark:hover:border-blue-500/30 shadow-[0_14px_35px_-8px_rgba(15,23,42,0.09),0_6px_16px_-4px_rgba(59,130,246,0.08)] hover:-translate-y-1.5 hover:shadow-[0_22px_45px_-10px_rgba(15,23,42,0.14),0_10px_24px_-4px_rgba(59,130,246,0.18)] dark:shadow-none transition-all duration-300">
-              {/* Dark mode subtle gradient layer */}
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-800/60 to-slate-900/40 opacity-0 dark:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" />
               {/* Ambient glow */}
               <div className="absolute -inset-2 bg-blue-500/10 dark:bg-blue-500/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl pointer-events-none" />
               {/* Left accent stripe */}
-              <div className="absolute left-0 top-5 bottom-5 w-[3px] rounded-full bg-gradient-to-b from-blue-600 via-cyan-500 to-blue-600 dark:from-blue-400 dark:via-cyan-400 dark:to-blue-400 opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute left-0 top-5 bottom-5 w-[3px] rounded-full bg-gradient-to-b from-blue-600 via-cyan-500 to-blue-600 dark:from-blue-400 dark:via-cyan-400 dark:to-blue-400 opacity-80 group-hover:opacity-100 transition-opacity duration-200" />
               {/* Large decorative quote mark */}
-              <div className="absolute top-2 right-4 text-6xl font-serif text-blue-600/10 dark:text-blue-400/10 group-hover:text-blue-600/20 dark:group-hover:text-blue-400/20 transition-colors duration-500 leading-none select-none">&ldquo;</div>
+              <div className="absolute top-2 right-4 text-6xl font-serif text-blue-600/10 dark:text-blue-400/10 group-hover:text-blue-600/20 dark:group-hover:text-blue-400/20 transition-colors duration-200 leading-none select-none">&ldquo;</div>
               <blockquote className="relative z-10 pl-4">
                 <p className="text-sm sm:text-base font-normal text-slate-800 dark:text-slate-200/90 leading-relaxed tracking-wide mb-3">
                   &ldquo;Time is the most precious resource in human life. We build software to save it and make things work faster, easing daily tasks and making the world a better place.&rdquo;

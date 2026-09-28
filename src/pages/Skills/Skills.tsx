@@ -67,10 +67,10 @@ const SkillCard = ({
     >
       {/* Card body with enhanced floating elevation */}
       <div
-        className="relative h-full rounded-2xl overflow-hidden border border-slate-200/90 dark:border-slate-800/50 bg-white/90 dark:bg-slate-900/50 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08),0_4px_14px_-2px_rgba(59,130,246,0.06)] dark:shadow-lg transition-all duration-500 group-hover:-translate-y-3.5 group-hover:border-blue-500/40 dark:group-hover:border-blue-500/30 group-hover:shadow-[0_25px_50px_-10px_rgba(15,23,42,0.14),0_12px_28px_-4px_rgba(59,130,246,0.22)] dark:group-hover:shadow-2xl"
+        className="relative h-full rounded-2xl overflow-hidden border border-slate-200/90 dark:border-slate-800/50 bg-white/90 dark:bg-slate-900/50 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08),0_4px_14px_-2px_rgba(59,130,246,0.06)] dark:shadow-lg transition-all duration-200 group-hover:-translate-y-3.5 group-hover:border-blue-500/40 dark:group-hover:border-blue-500/30 group-hover:shadow-[0_25px_50px_-10px_rgba(15,23,42,0.14),0_12px_28px_-4px_rgba(59,130,246,0.22)] dark:group-hover:shadow-2xl"
       >
         {/* Hover glow overlay — matches Experience cards */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-cyan-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:via-cyan-500/10 group-hover:to-purple-500/10 transition-all duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-cyan-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:via-cyan-500/10 group-hover:to-purple-500/10 transition-all duration-200" />
 
         {/* Shimmer sweep */}
         <motion.div
@@ -104,7 +104,7 @@ const SkillCard = ({
                 {title}
               </h3>
               {/* Animated underline — blue to cyan */}
-              <div className="h-[2px] mt-1 rounded-full w-8 group-hover:w-16 transition-all duration-500 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-500 dark:to-cyan-400" />
+              <div className="h-[2px] mt-1 rounded-full w-8 group-hover:w-16 transition-all duration-200 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-500 dark:to-cyan-400" />
             </div>
           </div>
 
@@ -133,8 +133,8 @@ const SkillCard = ({
         </div>
 
         {/* Corner decorative elements — matches Experience cards */}
-        <div className="absolute top-0 right-0 w-20 h-20 bg-blue-500/5 rounded-bl-full -mr-10 -mt-10 transition-all duration-500 group-hover:bg-blue-500/10" />
-        <div className="absolute bottom-0 left-0 w-20 h-20 bg-cyan-500/5 rounded-tr-full -ml-10 -mb-10 transition-all duration-500 group-hover:bg-cyan-500/10" />
+        <div className="absolute top-0 right-0 w-20 h-20 bg-blue-500/5 rounded-bl-full -mr-10 -mt-10 transition-all duration-200 group-hover:bg-blue-500/10" />
+        <div className="absolute bottom-0 left-0 w-20 h-20 bg-cyan-500/5 rounded-tr-full -ml-10 -mb-10 transition-all duration-200 group-hover:bg-cyan-500/10" />
       </div>
     </motion.div>
   );
@@ -323,7 +323,7 @@ const SkillsSection = () => {
   const totalSkills = skillCategories.reduce((acc, cat) => acc + cat.skills.length, 0);
 
   return (
-    <section id="skills" className="relative py-20 sm:py-32 bg-slate-50/60 dark:bg-[#020610] overflow-hidden noise-overlay transition-colors duration-200">
+    <section id="skills" className="relative py-20 sm:py-32 bg-slate-50/60 dark:bg-[#020610] overflow-hidden noise-overlay transition-colors duration-150">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(59,130,246,0.06)_0%,transparent_70%)]" />
       </div>

@@ -60,7 +60,7 @@ const ExperienceCard = ({
           <div className="absolute inset-0 w-4 h-4 rounded-full bg-blue-500/30 dark:bg-cyan-400/30 animate-[ripple-glow_2s_ease-in-out_infinite]" />
         )}
         <div
-          className={`w-4 h-4 rounded-full border-4 border-[#f8fafc] dark:border-[#010410] transition-all duration-500 shadow-[0_0_10px_rgba(59,130,246,0.5)] group-hover:shadow-[0_0_20px_rgba(34,211,238,0.8)] ${isLatest
+          className={`w-4 h-4 rounded-full border-4 border-[#f8fafc] dark:border-[#010410] transition-all duration-200 shadow-[0_0_10px_rgba(59,130,246,0.5)] group-hover:shadow-[0_0_20px_rgba(34,211,238,0.8)] ${isLatest
               ? 'bg-blue-600 dark:bg-cyan-400 group-hover:bg-blue-500 dark:group-hover:bg-cyan-300 scale-125 group-hover:scale-[1.75]'
               : 'bg-blue-500 dark:bg-blue-500 group-hover:scale-150 group-hover:bg-cyan-500 dark:group-hover:bg-cyan-400'
             }`}
@@ -69,13 +69,13 @@ const ExperienceCard = ({
 
       {/* Content Card with Floating Elevation */}
       <div className="w-full md:w-[calc(50%-30px)] pl-12 md:pl-0">
-        <div className={`relative p-6 sm:p-8 rounded-2xl bg-white/90 dark:bg-slate-900/50 border backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08),0_4px_14px_-2px_rgba(59,130,246,0.06)] dark:shadow-lg transition-all duration-500 group-hover:-translate-y-2.5 group-hover:shadow-[0_24px_50px_-10px_rgba(15,23,42,0.14),0_10px_25px_-4px_rgba(59,130,246,0.22)] dark:group-hover:shadow-2xl overflow-hidden ${isLatest
+        <div className={`relative p-6 sm:p-8 rounded-2xl bg-white/90 dark:bg-slate-900/50 border backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08),0_4px_14px_-2px_rgba(59,130,246,0.06)] dark:shadow-lg transition-all duration-200 group-hover:-translate-y-2.5 group-hover:shadow-[0_24px_50px_-10px_rgba(15,23,42,0.14),0_10px_25px_-4px_rgba(59,130,246,0.22)] dark:group-hover:shadow-2xl overflow-hidden ${isLatest
             ? 'border-blue-500/30 dark:border-cyan-500/20 group-hover:border-blue-500/50 dark:group-hover:border-cyan-500/40'
             : 'border-slate-200/90 dark:border-slate-800/50 group-hover:border-blue-500/40 dark:group-hover:border-blue-500/30'
           }`}>
 
           {/* Glow Effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-cyan-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:via-cyan-500/10 group-hover:to-purple-500/10 transition-all duration-500"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-cyan-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:via-cyan-500/10 group-hover:to-purple-500/10 transition-all duration-200"></div>
 
           {/* Header */}
           <div className="relative z-10 flex flex-col gap-4 mb-4">
@@ -118,8 +118,8 @@ const ExperienceCard = ({
           </p>
 
           {/* Decorative Elements */}
-          <div className="absolute top-0 right-0 w-20 h-20 bg-blue-500/5 rounded-bl-full -mr-10 -mt-10 transition-all duration-500 group-hover:bg-blue-500/10"></div>
-          <div className="absolute bottom-0 left-0 w-20 h-20 bg-cyan-500/5 rounded-tr-full -ml-10 -mb-10 transition-all duration-500 group-hover:bg-cyan-500/10"></div>
+          <div className="absolute top-0 right-0 w-20 h-20 bg-blue-500/5 rounded-bl-full -mr-10 -mt-10 transition-all duration-200 group-hover:bg-blue-500/10"></div>
+          <div className="absolute bottom-0 left-0 w-20 h-20 bg-cyan-500/5 rounded-tr-full -ml-10 -mb-10 transition-all duration-200 group-hover:bg-cyan-500/10"></div>
         </div>
       </div>
     </div>
@@ -223,7 +223,7 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section id="experience" className="relative py-20 sm:py-32 bg-[#f8fafc] dark:bg-[#020610] overflow-hidden noise-overlay transition-colors duration-200">
+    <section id="experience" className="relative py-20 sm:py-32 bg-[#f8fafc] dark:bg-[#020610] overflow-hidden noise-overlay transition-colors duration-150">
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-100/30 via-[#f8fafc] to-[#f8fafc] dark:from-blue-900/5 dark:via-[#010410] dark:to-[#010410]"></div>
