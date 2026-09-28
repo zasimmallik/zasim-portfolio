@@ -13,7 +13,7 @@ import {
 import {
   SiNextdotjs, SiTypescript, SiTailwindcss, SiPostgresql,
   SiMongodb, SiVercel, SiPrisma,
-  SiLangchain, SiExpress, SiFastapi,
+  SiExpress, SiFastapi,
   SiRailway, SiRender, SiNginx, SiGithub,
   SiBun, SiNpm,
 } from "react-icons/si";
@@ -65,9 +65,9 @@ const SkillCard = ({
       animate={isInView ? "visible" : "hidden"}
       variants={cardVariants}
     >
-      {/* Card body */}
+      {/* Card body with enhanced floating elevation */}
       <div
-        className="relative h-full rounded-2xl overflow-hidden border border-slate-800/50 bg-slate-900/50 backdrop-blur-xl shadow-lg transition-all duration-500 group-hover:-translate-y-2 group-hover:border-blue-500/30 group-hover:shadow-blue-500/10 group-hover:shadow-2xl"
+        className="relative h-full rounded-2xl overflow-hidden border border-slate-200/90 dark:border-slate-800/50 bg-white/90 dark:bg-slate-900/50 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08),0_4px_14px_-2px_rgba(59,130,246,0.06)] dark:shadow-lg transition-all duration-500 group-hover:-translate-y-3.5 group-hover:border-blue-500/40 dark:group-hover:border-blue-500/30 group-hover:shadow-[0_25px_50px_-10px_rgba(15,23,42,0.14),0_12px_28px_-4px_rgba(59,130,246,0.22)] dark:group-hover:shadow-2xl"
       >
         {/* Hover glow overlay — matches Experience cards */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-cyan-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:via-cyan-500/10 group-hover:to-purple-500/10 transition-all duration-500" />
@@ -86,25 +86,25 @@ const SkillCard = ({
         <div className="absolute top-0 left-6 right-6 h-[1.5px] rounded-full opacity-50 bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
 
         {/* Content */}
-        <div className="relative z-10 p-6 sm:p-7">
+        <div className="relative z-10 p-6 sm:p-7 flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center gap-4 mb-6">
             <div className="relative">
               <motion.div
-                className="relative p-3 rounded-xl border border-blue-500/20 bg-blue-500/10 group-hover:bg-blue-500/20 backdrop-blur-sm transition-colors duration-300"
+                className="relative p-3 rounded-xl border border-blue-500/25 dark:border-blue-500/20 bg-blue-500/10 group-hover:bg-blue-500/20 backdrop-blur-sm transition-colors duration-300"
                 whileHover={{ scale: 1.15, rotate: 6 }}
                 transition={{ type: "spring", stiffness: 280, damping: 14 }}
               >
-                <Icon className="w-6 h-6 sm:w-7 sm:h-7 relative z-10 text-blue-400 group-hover:text-cyan-300 transition-colors duration-300" />
+                <Icon className="w-6 h-6 sm:w-7 sm:h-7 relative z-10 text-blue-600 dark:text-blue-400 group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors duration-300" />
               </motion.div>
             </div>
 
             <div>
-              <h3 className="text-base sm:text-lg font-bold text-slate-200 group-hover:text-blue-200 transition-colors duration-300">
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-200 transition-colors duration-300">
                 {title}
               </h3>
               {/* Animated underline — blue to cyan */}
-              <div className="h-[2px] mt-1 rounded-full w-8 group-hover:w-16 transition-all duration-500 bg-gradient-to-r from-blue-500 to-cyan-400" />
+              <div className="h-[2px] mt-1 rounded-full w-8 group-hover:w-16 transition-all duration-500 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-500 dark:to-cyan-400" />
             </div>
           </div>
 
@@ -119,12 +119,7 @@ const SkillCard = ({
                 variants={badgeVariants}
               >
                 <motion.span
-                  className="relative inline-flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-[13px] font-medium rounded-lg overflow-hidden"
-                  style={{
-                    background: "rgba(255,255,255,0.04)",
-                    color: "rgba(203,213,225,0.85)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                  }}
+                  className="relative inline-flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-[13px] font-medium rounded-lg overflow-hidden bg-slate-100/90 dark:bg-white/[0.04] text-slate-700 dark:text-slate-300 border border-slate-200/90 dark:border-white/[0.08] hover:bg-slate-200/90 dark:hover:bg-white/[0.08] transition-colors"
                   whileHover={{ scale: 1.08, y: -3 }}
                   whileTap={{ scale: 0.94 }}
                   transition={{ type: "spring", stiffness: 380, damping: 18 }}
@@ -231,10 +226,10 @@ const SkillsSection = () => {
       icon: Layout, title: "Frontend",
       skills: [
         { name: "React", icon: <FaReact className="text-[#61DAFB]" /> },
-        { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
+        { name: "Next.js", icon: <SiNextdotjs className="text-slate-900 dark:text-white" /> },
         { name: "Tailwind CSS", icon: <SiTailwindcss className="text-[#38B2AC]" /> },
         { name: "Responsive Design", icon: <Globe className="text-blue-400" /> },
-        { name: "App Router", icon: <SiNextdotjs className="text-white" /> },
+        { name: "App Router", icon: <SiNextdotjs className="text-slate-900 dark:text-white" /> },
         { name: "Server Components", icon: <Server className="text-cyan-400" /> },
         { name: "Client Components", icon: <FaReact className="text-[#61DAFB]" /> },
       ],
@@ -243,11 +238,11 @@ const SkillsSection = () => {
       icon: Server, title: "Backend & Auth",
       skills: [
         { name: "Node.js", icon: <FaNodeJs className="text-[#339933]" /> },
-        { name: "Express.js", icon: <SiExpress className="text-white" /> },
+        { name: "Express.js", icon: <SiExpress className="text-slate-900 dark:text-white" /> },
         { name: "FastAPI", icon: <SiFastapi className="text-[#009688]" /> },
         { name: "REST API", icon: <Workflow className="text-cyan-400" /> },
         { name: "Clerk", icon: <Lock className="text-purple-400" /> },
-        { name: "NextAuth / Auth.js", icon: <SiNextdotjs className="text-white" /> },
+        { name: "NextAuth / Auth.js", icon: <SiNextdotjs className="text-slate-900 dark:text-white" /> },
         { name: "OAuth", icon: <Lock className="text-blue-400" /> },
         { name: "JWT", icon: <Lock className="text-amber-400" /> },
         { name: "Stripe", icon: <FaStripe className="text-[#635BFF]" /> },
@@ -258,39 +253,34 @@ const SkillsSection = () => {
       skills: [
         { name: "PostgreSQL", icon: <SiPostgresql className="text-[#336791]" /> },
         { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
-        { name: "Prisma ORM", icon: <SiPrisma className="text-white" /> },
+        { name: "Redis", icon: <Database className="text-[#DC382D]" /> },
+        { name: "Prisma ORM", icon: <SiPrisma className="text-slate-900 dark:text-white" /> },
         { name: "Vector Databases", icon: <Database className="text-purple-400" /> },
       ],
     },
     {
       icon: Brain, title: "AI & LLM",
       skills: [
-        { name: "OpenAI API", icon: <TbBrandOpenai className="text-white" /> },
-        { name: "Gemini API", icon: <Cpu className="text-blue-400" /> },
-        { name: "Anthropic Claude", icon: <Brain className="text-[#CC9B7A]" /> },
-        { name: "Prompt Engineering", icon: <Terminal className="text-cyan-400" /> },
-        { name: "RAG", icon: <Layers className="text-purple-400" /> },
-        { name: "AI Agents", icon: <Brain className="text-emerald-400" /> },
-        { name: "Agentic AI", icon: <Cpu className="text-blue-400" /> },
+        { name: "OpenAI API", icon: <TbBrandOpenai className="text-slate-900 dark:text-white" /> },
+        { name: "Claude API", icon: <Brain className="text-[#CC9B7A]" /> },
+        { name: "Context Engineering", icon: <Cpu className="text-blue-500" /> },
+        { name: "AI Agents", icon: <Brain className="text-emerald-500" /> },
+        { name: "RAG", icon: <Layers className="text-purple-500" /> },
         { name: "LangChain", icon: <Globe className="text-[#3776AB]" /> },
-        { name: "LangGraph", icon: <GitBranch className="text-green-400" /> },
-        { name: "MCP", icon: <Settings className="text-cyan-400" /> },
-        { name: "Tool Calling", icon: <Terminal className="text-amber-400" /> },
-        { name: "Embeddings", icon: <Layers className="text-pink-400" /> },
-        { name: "Vector Search", icon: <Database className="text-purple-400" /> },
+        { name: "MCP", icon: <Settings className="text-cyan-500" /> },
       ],
     },
     {
       icon: Cloud, title: "DevOps & Cloud",
       skills: [
         { name: "Git", icon: <FaGitAlt className="text-[#F05032]" /> },
-        { name: "GitHub", icon: <SiGithub className="text-white" /> },
+        { name: "GitHub", icon: <SiGithub className="text-slate-900 dark:text-white" /> },
         { name: "Docker", icon: <FaDocker className="text-[#2496ED]" /> },
         { name: "CI/CD", icon: <Workflow className="text-cyan-400" /> },
         { name: "Nginx", icon: <SiNginx className="text-[#009639]" /> },
         { name: "AWS (Basics)", icon: <FaAws className="text-[#FF9900]" /> },
-        { name: "Vercel", icon: <SiVercel className="text-white" /> },
-        { name: "Railway", icon: <SiRailway className="text-white" /> },
+        { name: "Vercel", icon: <SiVercel className="text-slate-900 dark:text-white" /> },
+        { name: "Railway", icon: <SiRailway className="text-slate-900 dark:text-white" /> },
         { name: "Render", icon: <SiRender className="text-[#46E3B7]" /> },
       ],
     },
@@ -311,7 +301,7 @@ const SkillsSection = () => {
         { name: "VS Code", icon: <TbBrandVscode className="text-[#007ACC]" /> },
         { name: "Claude Code", icon: <Brain className="text-[#CC9B7A]" /> },
         { name: "Cursor IDE", icon: <TbBrandVscode className="text-[#007ACC]" /> },
-        { name: "Bun", icon: <SiBun className="text-white" /> },
+        { name: "Bun", icon: <SiBun className="text-slate-900 dark:text-white" /> },
         { name: "npm / pnpm", icon: <SiNpm className="text-[#CB3837]" /> },
       ],
     },
@@ -333,7 +323,7 @@ const SkillsSection = () => {
   const totalSkills = skillCategories.reduce((acc, cat) => acc + cat.skills.length, 0);
 
   return (
-    <section id="skills" className="relative py-20 sm:py-32 bg-[#020610] overflow-hidden noise-overlay">
+    <section id="skills" className="relative py-20 sm:py-32 bg-slate-50/60 dark:bg-[#020610] overflow-hidden noise-overlay transition-colors duration-200">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(59,130,246,0.06)_0%,transparent_70%)]" />
       </div>
@@ -353,7 +343,7 @@ const SkillsSection = () => {
           transition={{ duration: 0.85, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/25 dark:border-blue-500/20 text-blue-700 dark:text-blue-400 text-sm font-medium mb-6"
             initial={{ opacity: 0, scale: 0.75 }}
             animate={isHeaderInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -364,29 +354,29 @@ const SkillsSection = () => {
             >
               <Cpu className="w-4 h-4" />
             </motion.div>
-            <span>Technical Expertise</span>
+            <span className="font-mono uppercase tracking-wider text-xs sm:text-sm">Technical Expertise</span>
           </motion.div>
 
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-950 dark:text-white mb-6 tracking-tight"
             initial={{ opacity: 0, y: 22 }}
             animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.3 }}
           >
             Skills &{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-600 to-cyan-600 dark:from-blue-400 dark:via-cyan-400 dark:to-purple-400">
               Technologies
             </span>
           </motion.h2>
 
           <motion.p
-            className="text-gray-400 text-lg leading-relaxed"
+            className="text-slate-600 dark:text-gray-400 text-lg leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.42 }}
           >
             My day-to-day toolkit —{" "}
-            <span className="text-blue-400 font-semibold">
+            <span className="text-blue-700 dark:text-blue-400 font-semibold font-mono">
               <AnimatedCounter target={totalSkills} suffix="+" />
             </span>{" "}
             technologies I use to build production-ready apps.
