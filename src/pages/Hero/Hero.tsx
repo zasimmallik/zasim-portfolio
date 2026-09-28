@@ -25,13 +25,9 @@ import {
   Rocket,
   Github,
   Download,
-  Sparkles,
-  Code2,
-  Lightbulb,
   ArrowUpRight,
   Briefcase,
   Cpu,
-  ShieldCheck
 } from "lucide-react";
 
 // Floating Light Particles
@@ -71,7 +67,7 @@ const FloatingParticles = () => {
 const GridBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div className="absolute inset-0 opacity-[0.12] mask-[radial-gradient(ellipse_at_center,transparent_20%,black)]">
+      <div className="absolute inset-0 opacity-25 dark:opacity-[0.12] mask-[radial-gradient(ellipse_at_center,transparent_20%,black)]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="100%"
@@ -88,16 +84,16 @@ const GridBackground = () => {
               width="50"
               height="50"
               fill="none"
-              stroke="white"
+              stroke="currentColor"
               strokeWidth="0.5"
-              className="opacity-25"
+              className="text-slate-400/50 dark:text-white/25"
             />
           </pattern>
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#010410]/70 to-[#010410]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#010410_100%)] opacity-80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#f8fafc]/70 to-[#f8fafc] dark:via-[#010410]/70 dark:to-[#010410]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#f8fafc_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_0%,#010410_100%)] opacity-80" />
     </div>
   );
 };
@@ -381,20 +377,20 @@ export default function Hero() {
 
   return (
     <>
-      <main className="bg-[#010410] text-slate-200 min-h-screen relative overflow-hidden selection:bg-blue-500/30">
+      <main className="bg-[#f8fafc] dark:bg-[#010410] text-slate-900 dark:text-slate-200 min-h-screen relative overflow-hidden selection:bg-blue-500/20 dark:selection:bg-blue-500/30">
 
         {/* Dynamic Multi-Layer Background (Aurora + Light Orbs) */}
-        <div className="absolute inset-0 bg-[#010410] z-0">
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-15 mix-blend-soft-light pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[#f8fafc] dark:bg-[#010410] z-0">
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 dark:opacity-15 mix-blend-soft-light pointer-events-none"></div>
 
           {/* Main Glowing Orbs */}
-          <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-blue-600/10 blur-[120px] pointer-events-none animate-[pulse_8s_ease-in-out_infinite]" />
-          <div className="absolute bottom-[15%] right-[-10%] w-[600px] h-[600px] rounded-full bg-cyan-600/10 blur-[130px] pointer-events-none animate-[pulse_10s_ease-in-out_infinite]" style={{ animationDelay: '1.5s' }} />
-          <div className="absolute top-[40%] right-[20%] w-[400px] h-[400px] rounded-full bg-purple-600/5 blur-[120px] pointer-events-none animate-[pulse_12s_ease-in-out_infinite]" style={{ animationDelay: '3s' }} />
+          <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-blue-500/10 dark:bg-blue-600/10 blur-[120px] pointer-events-none animate-[pulse_8s_ease-in-out_infinite]" />
+          <div className="absolute bottom-[15%] right-[-10%] w-[600px] h-[600px] rounded-full bg-cyan-500/10 dark:bg-cyan-600/10 blur-[130px] pointer-events-none animate-[pulse_10s_ease-in-out_infinite]" style={{ animationDelay: '1.5s' }} />
+          <div className="absolute top-[40%] right-[20%] w-[400px] h-[400px] rounded-full bg-purple-500/10 dark:bg-purple-600/5 blur-[120px] pointer-events-none animate-[pulse_12s_ease-in-out_infinite]" style={{ animationDelay: '3s' }} />
 
           {/* Gradient Mesh Layer */}
           <div
-            className="absolute -inset-[10px] opacity-25 blur-[90px]"
+            className="absolute -inset-[10px] opacity-15 dark:opacity-25 blur-[90px]"
             style={{
               backgroundImage: `
                 radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.12), transparent 50%),
@@ -405,7 +401,7 @@ export default function Hero() {
               `,
             }}
           ></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#010410_130%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#f8fafc_130%)] dark:bg-[radial-gradient(circle_at_center,transparent_0%,#010410_130%)] pointer-events-none" />
         </div>
 
         <section
@@ -440,39 +436,42 @@ export default function Hero() {
             <div className="w-full lg:w-[48%] flex flex-col items-start text-left relative z-20">
 
               {/* Redesigned Glassmorphic Welcome Badge */}
-              <div className="animate-blur-in relative inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-950/40 backdrop-blur-xl border border-white/5 mb-6 sm:mb-8 hover:bg-slate-900/60 hover:border-blue-500/30 transition-all duration-500 group cursor-default overflow-hidden shadow-lg shadow-black/10">
+              <div className="animate-blur-in relative inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-100/90 dark:bg-slate-950/40 backdrop-blur-xl border border-slate-200/80 dark:border-white/5 mb-6 sm:mb-8 hover:bg-slate-200/60 dark:hover:bg-slate-900/60 hover:border-blue-500/30 transition-all duration-200 group cursor-default overflow-hidden shadow-lg shadow-black/5 dark:shadow-black/10">
                 {/* Shimmer overlay */}
                 <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
-                  <div className="absolute top-0 -left-full w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                  <div className="absolute top-0 -left-full w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 dark:via-white/10 to-transparent"
                     style={{ animation: 'shimmer-badge 4.5s ease-in-out infinite' }}
                   />
                 </div>
                 <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.6)] shrink-0"></div>
-                <span className="text-slate-300 text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase font-mono">
+                <span className="text-slate-700 dark:text-slate-300 text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase font-mono">
                   Welcome to my portfolio
                 </span>
               </div>
 
               {/* Typography Redesign (Bold Headline + Glowing Accents) */}
               <div className="relative mb-6 sm:mb-8 animate-blur-in delay-100 w-full">
-                <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-extrabold leading-[0.9] tracking-tight relative text-white">
-                  <span className="block text-slate-400 font-light text-xl xs:text-2xl sm:text-3xl md:text-4xl mb-3 tracking-normal">
+                <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-extrabold leading-[0.9] tracking-tight relative text-slate-950 dark:text-white">
+                  <span className="block text-slate-700 dark:text-slate-400 font-normal text-xl xs:text-2xl sm:text-3xl md:text-4xl mb-3 tracking-normal">
                     Hey, I&apos;m
                   </span>
                   <span className="relative block sm:inline-block">
-                    <span className="typing-effect gradient-text bg-gradient-to-r from-white via-blue-150 to-slate-450 bg-size-[200%_auto] animate-[gradientX_8s_ease_infinite] bg-clip-text text-transparent drop-shadow-[0_0_50px_rgba(59,130,246,0.25)]">
-                      Zasim Mallik
+                    <span className="text-slate-950 dark:text-white">Zasim </span>
+                    <span className="gradient-text drop-shadow-[0_4px_24px_rgba(37,99,235,0.18)] dark:drop-shadow-[0_0_50px_rgba(59,130,246,0.25)]">
+                      Mallik
                     </span>
                   </span>
                 </h1>
               </div>
 
               {/* Sub-Header & Role Flip Words */}
-              <div className="animate-blur-in delay-200 inline-flex items-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl bg-gradient-to-r from-blue-950/20 via-slate-900/40 to-cyan-950/20 border border-white/5 mb-8 sm:mb-10 backdrop-blur-md hover:border-blue-500/30 transition-all duration-500 hover:bg-slate-900/60 group cursor-default w-full sm:w-auto max-w-full shadow-lg shadow-black/10">
-                <Rocket className="w-4.5 h-4.5 text-blue-400 group-hover:animate-bounce transition-transform group-hover:rotate-12 shrink-0" />
-                <span className="min-w-0 flex-1 sm:flex-none overflow-hidden">
+              <div className="animate-blur-in delay-200 relative inline-flex items-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl bg-white/90 dark:bg-slate-900/40 border border-slate-300/80 dark:border-white/10 mb-8 sm:mb-10 backdrop-blur-md hover:border-blue-500/40 dark:hover:border-blue-500/30 transition-all duration-200 hover:bg-white dark:hover:bg-slate-900/70 group cursor-default w-full sm:w-auto max-w-full shadow-[0_8px_25px_-6px_rgba(15,23,42,0.08),0_2px_8px_rgba(59,130,246,0.04)] hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-6px_rgba(59,130,246,0.15)] dark:shadow-black/10 overflow-hidden">
+                {/* Atmospheric gradient overlay for dark mode */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-950/20 via-slate-900/40 to-cyan-950/20 opacity-0 dark:opacity-100 transition-opacity duration-200 pointer-events-none rounded-2xl" />
+                <Rocket className="w-4.5 h-4.5 text-blue-600 dark:text-blue-400 group-hover:animate-bounce transition-transform group-hover:rotate-12 shrink-0 relative z-10" />
+                <span className="min-w-0 flex-1 sm:flex-none overflow-hidden relative z-10">
                   <FlipWords
-                    className="text-sm sm:text-base md:text-lg !text-blue-400 font-semibold truncate tracking-wide block w-full font-mono"
+                    className="text-sm sm:text-base md:text-lg !text-blue-700 dark:!text-blue-400 font-bold truncate tracking-wide block w-full font-mono"
                     words={words}
                   />
                 </span>
@@ -480,8 +479,8 @@ export default function Hero() {
 
               {/* Description Section with Light-up Side Accent */}
               <div className="relative mb-10 max-w-xl group animate-blur-in delay-300 w-full">
-                <div className="absolute -left-4 top-1 bottom-1 w-[3px] bg-gradient-to-b from-blue-500/60 via-cyan-500/30 to-transparent rounded-full hidden sm:block group-hover:from-blue-400 group-hover:scale-y-105 transition-all duration-500" />
-                <p className="text-base sm:text-lg md:text-xl text-slate-400 leading-relaxed font-light tracking-wide group-hover:text-slate-200 transition-colors duration-500 sm:pl-2">
+                <div className="absolute -left-4 top-1 bottom-1 w-[3px] bg-gradient-to-b from-blue-600 via-cyan-500 to-transparent rounded-full hidden sm:block group-hover:from-blue-500 group-hover:scale-y-105 transition-all duration-500" />
+                <p className="text-base sm:text-lg md:text-xl text-slate-700 dark:text-slate-400 leading-relaxed font-normal tracking-wide group-hover:text-slate-950 dark:group-hover:text-slate-200 transition-colors duration-500 sm:pl-2">
                   I design, build, and ship web products — mostly AI-powered SaaS. Currently running two startups and always working on something new.
                 </p>
               </div>
@@ -490,62 +489,62 @@ export default function Hero() {
               <div className="grid grid-cols-2 gap-4 w-full mb-10 animate-blur-in delay-300">
 
                 {/* Card 1: Startups */}
-                <div className="flex flex-col items-start p-4 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-md hover:border-blue-500/20 hover:bg-white/[0.04] transition-all duration-300 group/card shadow-md">
-                  <Briefcase className="w-5 h-5 text-blue-400 mb-2.5 transition-transform group-hover/card:scale-110" />
-                  <span className="text-[10px] uppercase font-mono text-slate-500 tracking-wider">Startups</span>
-                  <span className="text-xs sm:text-sm font-semibold text-slate-200 mt-1">Zeraql & Rizmiq</span>
+                <div className="flex flex-col items-start p-4 rounded-2xl bg-white/95 dark:bg-white/[0.02] border border-slate-300/80 dark:border-white/5 backdrop-blur-md hover:border-blue-500/40 dark:hover:border-blue-500/20 hover:bg-white dark:hover:bg-white/[0.04] transition-all duration-300 group/card shadow-[0_10px_25px_-6px_rgba(15,23,42,0.08),0_4px_12px_-2px_rgba(59,130,246,0.06)] hover:-translate-y-1.5 hover:shadow-[0_18px_35px_-8px_rgba(59,130,246,0.18)]">
+                  <Briefcase className="w-5 h-5 text-blue-600 dark:text-blue-400 mb-2.5 transition-transform group-hover/card:scale-110" />
+                  <span className="text-[10px] uppercase font-mono text-slate-600 dark:text-slate-500 tracking-wider font-semibold">Startups</span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-950 dark:text-slate-200 mt-1">Zeraql & Rizmiq</span>
                 </div>
 
                 {/* Card 2: Core Focus */}
-                <div className="flex flex-col items-start p-4 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-md hover:border-blue-500/20 hover:bg-white/[0.04] transition-all duration-300 group/card shadow-md">
-                  <Cpu className="w-5 h-5 text-blue-400 mb-2.5 transition-transform group-hover/card:scale-110" />
-                  <span className="text-[10px] uppercase font-mono text-slate-500 tracking-wider">Core Focus</span>
-                  <span className="text-xs sm:text-sm font-semibold text-slate-200 mt-1">AI SaaS</span>
+                <div className="flex flex-col items-start p-4 rounded-2xl bg-white/95 dark:bg-white/[0.02] border border-slate-300/80 dark:border-white/5 backdrop-blur-md hover:border-blue-500/40 dark:hover:border-blue-500/20 hover:bg-white dark:hover:bg-white/[0.04] transition-all duration-300 group/card shadow-[0_10px_25px_-6px_rgba(15,23,42,0.08),0_4px_12px_-2px_rgba(59,130,246,0.06)] hover:-translate-y-1.5 hover:shadow-[0_18px_35px_-8px_rgba(59,130,246,0.18)]">
+                  <Cpu className="w-5 h-5 text-blue-600 dark:text-blue-400 mb-2.5 transition-transform group-hover/card:scale-110" />
+                  <span className="text-[10px] uppercase font-mono text-slate-600 dark:text-slate-500 tracking-wider font-semibold">Core Focus</span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-950 dark:text-slate-200 mt-1">AI SaaS</span>
                 </div>
               </div>
 
               {/* Startup Web Projects Quick Links */}
-              <div className="flex flex-wrap gap-5 items-center mb-12 sm:pl-2 text-sm text-slate-400 font-semibold animate-blur-in delay-300">
+              <div className="flex flex-wrap gap-5 items-center mb-12 sm:pl-2 text-sm text-slate-700 dark:text-slate-400 font-bold animate-blur-in delay-300">
                 <a
                   href="https://zeraql.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 hover:text-[#38BDF8] transition-colors relative group/link"
+                  className="flex items-center gap-1.5 hover:text-blue-700 dark:hover:text-[#38BDF8] transition-colors relative group/link"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8] shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-[#38BDF8] shrink-0" />
                   <span>zeraql.com</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover/link:opacity-100 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-all" />
-                  <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#38BDF8] group-hover/link:w-full transition-all duration-300" />
+                  <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-blue-700 dark:bg-[#38BDF8] group-hover/link:w-full transition-all duration-300" />
                 </a>
-                <span className="w-1 h-1 rounded-full bg-slate-700 hidden xs:inline" />
+                <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700 hidden xs:inline" />
                 <a
                   href="https://rizmiq.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 hover:text-[#2DD4BF] transition-colors relative group/link"
+                  className="flex items-center gap-1.5 hover:text-emerald-700 dark:hover:text-[#2DD4BF] transition-colors relative group/link"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#2DD4BF] shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-[#2DD4BF] shrink-0" />
                   <span>rizmiq.com</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover/link:opacity-100 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-all" />
-                  <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#2DD4BF] group-hover/link:w-full transition-all duration-300" />
+                  <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-emerald-700 dark:bg-[#2DD4BF] group-hover/link:w-full transition-all duration-300" />
                 </a>
               </div>
 
               {/* Premium Redesigned Action CTAs */}
               <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto animate-blur-in delay-400">
-                {/* GitHub Primary Button with Glow border */}
+                {/* GitHub Primary Button with Highlighted Glow */}
                 <a
                   href="https://github.com/zasimmallik"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center w-full sm:w-auto overflow-hidden rounded-full transition-all duration-350 hover:scale-105 hover:shadow-[0_0_35px_rgba(45,212,191,0.25)] gradient-border-animated"
+                  className="group relative inline-flex items-center justify-center w-full sm:w-auto overflow-hidden rounded-full transition-all duration-350 hover:scale-105 shadow-[0_0_25px_rgba(59,130,246,0.18)] hover:shadow-[0_0_35px_rgba(59,130,246,0.32)] dark:shadow-none dark:hover:shadow-[0_0_35px_rgba(45,212,191,0.25)] gradient-border-animated"
                   style={{ borderRadius: '9999px' }}
                 >
-                  <span className="absolute inset-0 w-full h-full bg-slate-950/40 backdrop-blur-xl border border-white/10 rounded-full group-hover:bg-slate-900/60 transition-all duration-300"></span>
-                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#2DD4BF]/10 to-[#38BDF8]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></span>
+                  <span className="absolute inset-0 w-full h-full bg-white/80 dark:bg-slate-950/40 backdrop-blur-xl border border-blue-500/25 dark:border-white/10 rounded-full group-hover:bg-white/95 dark:group-hover:bg-slate-900/60 transition-all duration-300"></span>
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-cyan-500/10 group-hover:from-blue-500/20 group-hover:via-indigo-500/20 group-hover:to-cyan-500/20 dark:from-[#2DD4BF]/10 dark:to-[#38BDF8]/10 dark:opacity-0 dark:group-hover:opacity-100 transition-all duration-300 rounded-full pointer-events-none"></span>
                   <span className="relative inline-flex items-center justify-center gap-3 px-9 py-4.5 w-full sm:w-auto">
-                    <span className="text-slate-200 font-semibold text-xs sm:text-sm tracking-widest uppercase group-hover:text-white transition-colors font-mono">View GitHub</span>
-                    <Github className="w-4.5 h-4.5 text-[#38BDF8] transform transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#2DD4BF] shrink-0" />
+                    <span className="text-slate-900 dark:text-slate-200 font-semibold text-xs sm:text-sm tracking-widest uppercase group-hover:text-blue-600 dark:group-hover:text-white transition-colors duration-300 font-mono">View GitHub</span>
+                    <Github className="w-4.5 h-4.5 text-blue-600 dark:text-[#38BDF8] transform transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110 group-hover:text-indigo-600 dark:group-hover:text-[#2DD4BF] shrink-0 drop-shadow-[0_0_8px_rgba(59,130,246,0.4)] dark:drop-shadow-none" />
                   </span>
                 </a>
 
@@ -553,12 +552,12 @@ export default function Hero() {
                 <a
                   href="/resume.pdf"
                   download
-                  className="group relative inline-flex items-center justify-center w-full sm:w-auto overflow-hidden rounded-full transition-all duration-350 hover:scale-105 hover:shadow-[0_0_25px_rgba(255,255,255,0.08)]"
+                  className="group relative inline-flex items-center justify-center w-full sm:w-auto overflow-hidden rounded-full transition-all duration-350 hover:scale-105 hover:shadow-[0_0_25px_rgba(59,130,246,0.15)] dark:hover:shadow-[0_0_25px_rgba(255,255,255,0.08)]"
                 >
-                  <span className="absolute inset-0 w-full h-full bg-white/[0.02] backdrop-blur-xl border border-white/5 rounded-full group-hover:bg-white/[0.06] hover:border-white/15 transition-all duration-300"></span>
+                  <span className="absolute inset-0 w-full h-full bg-white/90 dark:bg-white/[0.02] backdrop-blur-xl border border-slate-200/90 dark:border-white/5 rounded-full group-hover:bg-slate-100 dark:group-hover:bg-white/[0.06] hover:border-slate-300 dark:hover:border-white/15 transition-all duration-300 shadow-sm"></span>
                   <span className="relative inline-flex items-center justify-center gap-3 px-9 py-4.5 w-full sm:w-auto">
-                    <span className="text-slate-300 group-hover:text-white font-semibold text-xs sm:text-sm tracking-widest uppercase transition-colors duration-300 font-mono">Get Resume</span>
-                    <Download className="w-4.5 h-4.5 text-slate-400 group-hover:text-white transform transition-all duration-300 group-hover:rotate-12 shrink-0" />
+                    <span className="text-slate-800 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white font-semibold text-xs sm:text-sm tracking-widest uppercase transition-colors duration-300 font-mono">Get Resume</span>
+                    <Download className="w-4.5 h-4.5 text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transform transition-all duration-300 group-hover:rotate-12 shrink-0" />
                   </span>
                 </a>
               </div>
@@ -571,15 +570,15 @@ export default function Hero() {
                 {/* Neon unified blue outer glow */}
                 <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-blue-500/20 to-cyan-500/20 blur-2xl opacity-60 group-hover:opacity-85 transition-all duration-500 pointer-events-none" />
 
-                <div className="relative rounded-2xl bg-[#030712]/80 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.65)] overflow-hidden backdrop-blur-2xl backdrop-saturate-150 transition-all duration-500 hover:border-white/20">
+                <div className="relative rounded-2xl bg-white/95 dark:bg-[#030712]/95 border border-slate-200/90 dark:border-white/10 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.12),0_10px_30px_-5px_rgba(59,130,246,0.1)] hover:-translate-y-1.5 hover:shadow-[0_32px_70px_-15px_rgba(15,23,42,0.16),0_15px_35px_-5px_rgba(59,130,246,0.18)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.65)] overflow-hidden backdrop-blur-2xl backdrop-saturate-150 transition-all duration-500 hover:border-blue-500/40 dark:hover:border-white/20">
                   {/* Glossy top reflection */}
-                  <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-20" />
+                  <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 dark:via-white/20 to-transparent pointer-events-none z-20" />
 
                   {/* Shine effect on hover */}
-                  <div className="absolute inset-0 opacity-10 bg-gradient-to-tr from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shine_2s_ease-in-out_infinite] pointer-events-none z-10" />
+                  <div className="absolute inset-0 opacity-15 dark:opacity-10 bg-gradient-to-tr from-transparent via-blue-500/10 dark:via-white/10 to-transparent -translate-x-full group-hover:animate-[shine_2s_ease-in-out_infinite] pointer-events-none z-10" />
 
                   {/* Window Header */}
-                  <div className="bg-[#060a15]/90 px-4 py-3.5 flex items-center justify-between border-b border-white/5 relative z-20">
+                  <div className="bg-slate-100/95 dark:bg-[#060a15]/90 px-4 py-3.5 flex items-center justify-between border-b border-slate-200/80 dark:border-white/5 relative z-20">
                     <div className="flex items-center gap-2">
                       <div className="w-3 h-3 rounded-full bg-[#FF5F56] shadow-[0_0_10px_rgba(255,95,86,0.3)] hover:brightness-110 transition-all cursor-pointer"></div>
                       <div className="w-3 h-3 rounded-full bg-[#FFBD2E] shadow-[0_0_10px_rgba(255,189,46,0.3)] hover:brightness-110 transition-all cursor-pointer"></div>
@@ -587,8 +586,8 @@ export default function Hero() {
                     </div>
 
                     {/* Centered title */}
-                    <div className="flex items-center gap-1.5 bg-white/[0.03] border border-white/5 px-3 py-1 rounded-full text-[10px] sm:text-[11px] text-slate-400 font-mono">
-                      <Terminal className="w-3.5 h-3.5 text-blue-400" />
+                    <div className="flex items-center gap-1.5 bg-white/80 dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/5 px-3 py-1 rounded-full text-[10px] sm:text-[11px] text-slate-700 dark:text-slate-400 font-mono shadow-xs">
+                      <Terminal className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                       <span>zasim-IDE v1.1.3</span>
                     </div>
 
@@ -596,11 +595,11 @@ export default function Hero() {
                       {/* Copy code button */}
                       <button
                         onClick={copyToClipboard}
-                        className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-slate-400 hover:text-white transition-all cursor-pointer relative group/copy"
+                        className="p-1.5 rounded-lg bg-white dark:bg-white/5 hover:bg-slate-50 dark:hover:bg-white/10 border border-slate-200/80 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all cursor-pointer relative group/copy shadow-xs"
                         title="Copy code"
                       >
                         {copied ? (
-                          <Check className="w-3.5 h-3.5 text-emerald-400" />
+                          <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                         ) : (
                           <Copy className="w-3.5 h-3.5" />
                         )}
@@ -615,53 +614,53 @@ export default function Hero() {
                   <div className="flex min-h-[380px] sm:min-h-[440px] relative z-20">
 
                     {/* Activity Bar (Visible on md and larger) */}
-                    <div className="hidden md:flex flex-col items-center justify-between py-4 w-12 bg-[#04060c] border-r border-white/5 shrink-0 select-none">
+                    <div className="hidden md:flex flex-col items-center justify-between py-4 w-12 bg-slate-100/90 dark:bg-[#04060c] border-r border-slate-200/80 dark:border-white/5 shrink-0 select-none">
                       <div className="flex flex-col items-center gap-6 w-full">
                         {/* Files Explorer Toggle */}
                         <button
                           onClick={() => setIsSidebarExpanded(!isSidebarExpanded)}
-                          className={`p-2 rounded-lg transition-all relative group cursor-pointer ${isSidebarExpanded ? 'text-blue-400 bg-white/5' : 'text-slate-500 hover:text-slate-300'
+                          className={`p-2 rounded-lg transition-all relative group cursor-pointer ${isSidebarExpanded ? 'text-blue-600 bg-white dark:text-blue-400 dark:bg-white/5 shadow-xs' : 'text-slate-500 hover:text-slate-800 dark:text-slate-500 dark:hover:text-slate-300'
                             }`}
                         >
                           <Files className="w-5 h-5" />
-                          <div className="absolute left-0 top-1/4 bottom-1/4 w-[2px] bg-blue-500 rounded-r opacity-0 transition-opacity"
+                          <div className="absolute left-0 top-1/4 bottom-1/4 w-[2px] bg-blue-600 dark:bg-blue-500 rounded-r opacity-0 transition-opacity"
                             style={{ opacity: isSidebarExpanded ? 1 : 0 }}
                           />
                         </button>
 
                         {/* Search Icon (Static Decorator) */}
-                        <div className="text-slate-600 hover:text-slate-400 p-2 rounded-lg cursor-not-allowed transition-all relative group">
+                        <div className="text-slate-400 hover:text-slate-600 dark:text-slate-600 dark:hover:text-slate-400 p-2 rounded-lg cursor-not-allowed transition-all relative group">
                           <Search className="w-5 h-5" />
                         </div>
 
                         {/* Git Branch Icon (Static Decorator) */}
-                        <div className="text-slate-600 hover:text-slate-400 p-2 rounded-lg cursor-not-allowed transition-all relative group">
+                        <div className="text-slate-400 hover:text-slate-600 dark:text-slate-600 dark:hover:text-slate-400 p-2 rounded-lg cursor-not-allowed transition-all relative group">
                           <GitBranch className="w-5 h-5" />
                         </div>
 
                         {/* Extensions Icon (Static Decorator) */}
-                        <div className="text-slate-600 hover:text-slate-400 p-2 rounded-lg cursor-not-allowed transition-all relative group">
+                        <div className="text-slate-400 hover:text-slate-600 dark:text-slate-600 dark:hover:text-slate-400 p-2 rounded-lg cursor-not-allowed transition-all relative group">
                           <Blocks className="w-5 h-5" />
                         </div>
                       </div>
 
                       {/* Settings (Static Decorator) */}
-                      <div className="text-slate-600 hover:text-slate-400 p-2 rounded-lg cursor-default transition-all">
+                      <div className="text-slate-400 hover:text-slate-600 dark:text-slate-600 dark:hover:text-slate-400 p-2 rounded-lg cursor-default transition-all">
                         <Settings className="w-5 h-5" />
                       </div>
                     </div>
 
                     {/* File Explorer Sidebar (Visible on md and larger when expanded) */}
                     {isSidebarExpanded && (
-                      <div className="hidden md:block w-44 bg-[#050811] border-r border-white/5 py-3 select-none text-left font-sans shrink-0 overflow-y-auto">
-                        <div className="px-3 mb-2 flex items-center justify-between text-slate-500 font-bold text-[9px] uppercase tracking-wider">
+                      <div className="hidden md:block w-44 bg-slate-50/90 dark:bg-[#050811] border-r border-slate-200/80 dark:border-white/5 py-3 select-none text-left font-sans shrink-0 overflow-y-auto">
+                        <div className="px-3 mb-2 flex items-center justify-between text-slate-600 dark:text-slate-500 font-bold text-[9px] uppercase tracking-wider">
                           <span>Explorer</span>
                         </div>
 
                         {/* File Tree */}
-                        <div className="text-slate-400 text-xs font-medium">
+                        <div className="text-slate-600 dark:text-slate-400 text-xs font-medium">
                           {/* Workspace Root */}
-                          <div className="flex items-center gap-1.5 px-3 py-1 text-slate-300 font-semibold truncate">
+                          <div className="flex items-center gap-1.5 px-3 py-1 text-slate-800 dark:text-slate-300 font-semibold truncate">
                             <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
                             <span className="truncate">zasim-portfolio</span>
                           </div>
@@ -670,7 +669,7 @@ export default function Hero() {
                           <div className="ml-3">
                             <button
                               onClick={() => toggleFolder('src')}
-                              className="flex items-center gap-1.5 w-full text-left px-3 py-1 hover:text-slate-200 hover:bg-white/[0.02] cursor-pointer"
+                              className="flex items-center gap-1.5 w-full text-left px-3 py-1 text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-white/[0.02] cursor-pointer rounded-xs"
                             >
                               {openFolders.src ? (
                                 <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
@@ -678,9 +677,9 @@ export default function Hero() {
                                 <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
                               )}
                               {openFolders.src ? (
-                                <FolderOpen className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                                <FolderOpen className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
                               ) : (
-                                <Folder className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                                <Folder className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
                               )}
                               <span>src</span>
                             </button>
@@ -690,7 +689,7 @@ export default function Hero() {
                               <div className="ml-3">
                                 <button
                                   onClick={() => toggleFolder('config')}
-                                  className="flex items-center gap-1.5 w-full text-left px-3 py-1 hover:text-slate-200 hover:bg-white/[0.02] cursor-pointer"
+                                  className="flex items-center gap-1.5 w-full text-left px-3 py-1 text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-white/[0.02] cursor-pointer rounded-xs"
                                 >
                                   {openFolders.config ? (
                                     <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
@@ -698,9 +697,9 @@ export default function Hero() {
                                     <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
                                   )}
                                   {openFolders.config ? (
-                                    <FolderOpen className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                                    <FolderOpen className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
                                   ) : (
-                                    <Folder className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                                    <Folder className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
                                   )}
                                   <span>config</span>
                                 </button>
@@ -710,23 +709,23 @@ export default function Hero() {
                                   <div className="ml-3">
                                     <button
                                       onClick={() => setActiveTab('developer.ts')}
-                                      className={`flex items-center gap-1.5 w-full text-left px-3 py-1 border-l hover:bg-white/[0.02] cursor-pointer transition-colors ${activeTab === 'developer.ts'
-                                          ? 'text-blue-400 bg-blue-500/5 border-blue-500'
-                                          : 'text-slate-400 hover:text-slate-200 border-transparent'
+                                      className={`flex items-center gap-1.5 w-full text-left px-3 py-1 border-l cursor-pointer transition-colors ${activeTab === 'developer.ts'
+                                          ? 'text-blue-700 dark:text-blue-400 bg-blue-500/10 dark:bg-blue-500/5 border-blue-600 dark:border-blue-500 font-semibold'
+                                          : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-white/[0.02] border-transparent'
                                         }`}
                                     >
-                                      <FileCode2 className="w-3.5 h-3.5 text-[#38BDF8] shrink-0" />
+                                      <FileCode2 className="w-3.5 h-3.5 text-blue-600 dark:text-[#38BDF8] shrink-0" />
                                       <span className="truncate">developer.ts</span>
                                     </button>
 
                                     <button
                                       onClick={() => setActiveTab('skills.json')}
-                                      className={`flex items-center gap-1.5 w-full text-left px-3 py-1 border-l hover:bg-white/[0.02] cursor-pointer transition-colors ${activeTab === 'skills.json'
-                                          ? 'text-yellow-450 bg-yellow-500/5 border-yellow-500'
-                                          : 'text-slate-400 hover:text-slate-200 border-transparent'
+                                      className={`flex items-center gap-1.5 w-full text-left px-3 py-1 border-l cursor-pointer transition-colors ${activeTab === 'skills.json'
+                                          ? 'text-amber-700 dark:text-yellow-450 bg-amber-500/10 dark:bg-yellow-500/5 border-amber-600 dark:border-yellow-500 font-semibold'
+                                          : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-white/[0.02] border-transparent'
                                         }`}
                                     >
-                                      <FileJson className="w-3.5 h-3.5 text-[#FBBF24] shrink-0" />
+                                      <FileJson className="w-3.5 h-3.5 text-amber-600 dark:text-[#FBBF24] shrink-0" />
                                       <span className="truncate">skills.json</span>
                                     </button>
                                   </div>
@@ -735,7 +734,7 @@ export default function Hero() {
                                 {/* pages folder */}
                                 <button
                                   onClick={() => toggleFolder('pages')}
-                                  className="flex items-center gap-1.5 w-full text-left px-3 py-1 hover:text-slate-200 hover:bg-white/[0.02] cursor-pointer"
+                                  className="flex items-center gap-1.5 w-full text-left px-3 py-1 text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-white/[0.02] cursor-pointer rounded-xs"
                                 >
                                   {openFolders.pages ? (
                                     <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
@@ -743,9 +742,9 @@ export default function Hero() {
                                     <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
                                   )}
                                   {openFolders.pages ? (
-                                    <FolderOpen className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                                    <FolderOpen className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
                                   ) : (
-                                    <Folder className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                                    <Folder className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
                                   )}
                                   <span>pages</span>
                                 </button>
@@ -755,23 +754,23 @@ export default function Hero() {
                                   <div className="ml-3">
                                     <button
                                       onClick={() => setActiveTab('projects.ts')}
-                                      className={`flex items-center gap-1.5 w-full text-left px-3 py-1 border-l hover:bg-white/[0.02] cursor-pointer transition-colors ${activeTab === 'projects.ts'
-                                          ? 'text-blue-400 bg-blue-500/5 border-blue-500'
-                                          : 'text-slate-400 hover:text-slate-200 border-transparent'
+                                      className={`flex items-center gap-1.5 w-full text-left px-3 py-1 border-l cursor-pointer transition-colors ${activeTab === 'projects.ts'
+                                          ? 'text-blue-700 dark:text-blue-400 bg-blue-500/10 dark:bg-blue-500/5 border-blue-600 dark:border-blue-500 font-semibold'
+                                          : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-white/[0.02] border-transparent'
                                         }`}
                                     >
-                                      <FileCode2 className="w-3.5 h-3.5 text-[#38BDF8] shrink-0" />
+                                      <FileCode2 className="w-3.5 h-3.5 text-blue-600 dark:text-[#38BDF8] shrink-0" />
                                       <span className="truncate">projects.ts</span>
                                     </button>
 
                                     <button
                                       onClick={() => setActiveTab('contact.css')}
-                                      className={`flex items-center gap-1.5 w-full text-left px-3 py-1 border-l hover:bg-white/[0.02] cursor-pointer transition-colors ${activeTab === 'contact.css'
-                                          ? 'text-blue-400 bg-blue-500/5 border-blue-500'
-                                          : 'text-slate-400 hover:text-slate-200 border-transparent'
+                                      className={`flex items-center gap-1.5 w-full text-left px-3 py-1 border-l cursor-pointer transition-colors ${activeTab === 'contact.css'
+                                          ? 'text-blue-700 dark:text-blue-400 bg-blue-500/10 dark:bg-blue-500/5 border-blue-600 dark:border-blue-500 font-semibold'
+                                          : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-white/[0.02] border-transparent'
                                         }`}
                                     >
-                                      <FileText className="w-3.5 h-3.5 text-[#38BDF8] shrink-0" />
+                                      <FileText className="w-3.5 h-3.5 text-blue-600 dark:text-[#38BDF8] shrink-0" />
                                       <span className="truncate">contact.css</span>
                                     </button>
                                   </div>
@@ -784,29 +783,29 @@ export default function Hero() {
                     )}
 
                     {/* Main Editor Panel */}
-                    <div className="flex-1 flex flex-col min-w-0 bg-[#010410]/70">
+                    <div className="flex-1 flex flex-col min-w-0 bg-white dark:bg-[#010410]/70">
 
                       {/* Editor Tabs (Horizontal scrollable tab bar) */}
-                      <div className="flex items-center bg-[#070b15] border-b border-white/5 overflow-x-auto scrollbar-hide text-xs select-none">
+                      <div className="flex items-center bg-slate-100 dark:bg-[#070b15] border-b border-slate-200/80 dark:border-white/5 overflow-x-auto scrollbar-hide text-xs select-none">
                         {(Object.keys(FILES) as Array<keyof typeof FILES>).map((fileName) => {
                           const isActive = activeTab === fileName;
                           return (
                             <button
                               key={fileName}
                               onClick={() => setActiveTab(fileName)}
-                              className={`flex items-center gap-2 px-4 py-2.5 border-r border-white/5 cursor-pointer relative shrink-0 transition-all ${isActive
-                                  ? 'bg-[#010410] text-slate-100 font-semibold'
-                                  : 'bg-transparent text-slate-400 hover:text-slate-200 hover:bg-white/[0.02]'
+                              className={`flex items-center gap-2 px-4 py-2.5 border-r border-slate-200/80 dark:border-white/5 cursor-pointer relative shrink-0 transition-all ${isActive
+                                  ? 'bg-white dark:bg-[#010410] text-slate-950 dark:text-slate-100 font-semibold shadow-xs'
+                                  : 'bg-transparent text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/60 dark:hover:bg-white/[0.02]'
                                 }`}
                             >
-                              {fileName.endsWith('.json') && <FileJson className="w-3.5 h-3.5 text-[#FBBF24]" />}
-                              {fileName.endsWith('.css') && <FileText className="w-3.5 h-3.5 text-[#60A5FA]" />}
-                              {fileName.endsWith('.ts') && <FileCode2 className="w-3.5 h-3.5 text-[#38BDF8]" />}
+                              {fileName.endsWith('.json') && <FileJson className="w-3.5 h-3.5 text-amber-600 dark:text-[#FBBF24]" />}
+                              {fileName.endsWith('.css') && <FileText className="w-3.5 h-3.5 text-blue-600 dark:text-[#60A5FA]" />}
+                              {fileName.endsWith('.ts') && <FileCode2 className="w-3.5 h-3.5 text-blue-600 dark:text-[#38BDF8]" />}
                               <span>{fileName}</span>
 
                               {/* Bottom active tab line */}
                               {isActive && (
-                                <div className="absolute bottom-0 inset-x-0 h-0.5 bg-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
+                                <div className="absolute bottom-0 inset-x-0 h-0.5 bg-blue-600 dark:bg-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
                               )}
                             </button>
                           );
@@ -814,7 +813,7 @@ export default function Hero() {
                       </div>
 
                       {/* Breadcrumbs bar */}
-                      <div className="bg-[#010410]/40 px-4 py-1.5 flex items-center gap-1.5 border-b border-white/5 text-[10px] text-slate-500 font-mono">
+                      <div className="bg-slate-50/90 dark:bg-[#010410]/40 px-4 py-1.5 flex items-center gap-1.5 border-b border-slate-200/80 dark:border-white/5 text-[10px] text-slate-500 font-mono">
                         <span>zasim-portfolio</span>
                         <span>&gt;</span>
                         <span>src</span>
@@ -830,14 +829,14 @@ export default function Hero() {
                             <span>&gt;</span>
                           </>
                         )}
-                        <span className="text-slate-400 font-medium">{activeTab}</span>
+                        <span className="text-slate-800 dark:text-slate-400 font-semibold">{activeTab}</span>
                       </div>
 
                       {/* Code Content Area with Line Numbers */}
                       <div className="flex-1 flex overflow-hidden relative min-h-[300px]">
 
                         {/* Line Numbers Column */}
-                        <div className="py-4 text-slate-600 select-none text-right pr-3 border-r border-white/5 font-mono text-[11px] sm:text-xs leading-6 shrink-0 min-w-[2.5rem] bg-[#02050b]/20 overflow-hidden">
+                        <div className="py-4 text-slate-400 dark:text-slate-600 select-none text-right pr-3 border-r border-slate-200/80 dark:border-white/5 font-mono text-[11px] sm:text-xs leading-6 shrink-0 min-w-[2.5rem] bg-slate-50/60 dark:bg-[#02050b]/20 overflow-hidden">
                           {lines.map((_, i) => (
                             <div key={i} className="h-6 flex items-center justify-end font-light" style={{ height: '1.5rem', lineHeight: '1.5rem' }}>
                               {i + 1}
@@ -872,7 +871,7 @@ export default function Hero() {
                           }}
                         >
                           <pre className={`language-${currentFile.prismLanguage} !p-0 !m-0 !bg-transparent !overflow-visible`} style={{ lineHeight: '1.5rem', minWidth: 'max-content' }}>
-                            <code className={`language-${currentFile.prismLanguage} block !bg-transparent !p-0 !text-slate-200 !shadow-none font-medium text-[11px] sm:text-xs leading-6`} style={{ lineHeight: '1.5rem' }}>
+                            <code className={`language-${currentFile.prismLanguage} block !bg-transparent !p-0 !text-slate-900 dark:!text-slate-200 !shadow-none font-medium text-[11px] sm:text-xs leading-6`} style={{ lineHeight: '1.5rem' }}>
                               {currentFile.content}
                             </code>
                           </pre>
@@ -881,15 +880,15 @@ export default function Hero() {
 
 
                       {/* Editor Status Bar */}
-                      <div className="bg-[#04060c] px-4 py-1.5 border-t border-white/5 flex items-center justify-between text-[10px] text-slate-500 font-mono select-none relative z-20">
+                      <div className="bg-slate-100 dark:bg-[#04060c] px-4 py-1.5 border-t border-slate-200/80 dark:border-white/5 flex items-center justify-between text-[10px] text-slate-600 dark:text-slate-500 font-mono select-none relative z-20">
                         <div className="flex items-center gap-3">
-                          <div className="flex items-center gap-1 text-slate-400">
+                          <div className="flex items-center gap-1 text-slate-700 dark:text-slate-400">
                             <GitBranch className="w-3 h-3 text-slate-500" />
                             <span>main</span>
                             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse ml-1" />
                           </div>
 
-                          <div className="flex items-center gap-1.5">
+                          <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
                             <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50" />
                             <span>Syncing...</span>
                           </div>
@@ -900,8 +899,8 @@ export default function Hero() {
                           <span className="hidden xs:inline">Spaces: 2</span>
                           <span>UTF-8</span>
                           <span>LF</span>
-                          <span className="text-slate-400 capitalize">{currentFile.language}</span>
-                          <span className="text-emerald-500 font-medium">✓ Prettier</span>
+                          <span className="text-slate-700 dark:text-slate-400 capitalize">{currentFile.language}</span>
+                          <span className="text-emerald-600 dark:text-emerald-500 font-medium">✓ Prettier</span>
                         </div>
                       </div>
                     </div>
@@ -914,7 +913,7 @@ export default function Hero() {
 
         {/* Luxury Scroll Indicator */}
         <div className="hidden sm:flex absolute bottom-2 left-1/2 transform -translate-x-1/2 flex-col items-center gap-4 pointer-events-none z-50 animate-blur-in delay-700">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-light">Scroll to explore</span>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-light font-mono">Scroll to explore</span>
           <div className="w-[1px] h-16 bg-gradient-to-b from-slate-500/50 to-transparent overflow-hidden">
             <div className="w-full h-full bg-blue-400/80 animate-scroll-line"></div>
           </div>
