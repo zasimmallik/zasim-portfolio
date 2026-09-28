@@ -465,9 +465,7 @@ export default function Hero() {
               </div>
 
               {/* Sub-Header & Role Flip Words */}
-              <div className="animate-blur-in delay-200 relative inline-flex items-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl bg-white/90 dark:bg-slate-900/40 border border-slate-300/80 dark:border-white/10 mb-8 sm:mb-10 backdrop-blur-md hover:border-blue-500/40 dark:hover:border-blue-500/30 transition-all duration-200 hover:bg-white dark:hover:bg-slate-900/70 group cursor-default w-full sm:w-auto max-w-full shadow-[0_8px_25px_-6px_rgba(15,23,42,0.08),0_2px_8px_rgba(59,130,246,0.04)] hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-6px_rgba(59,130,246,0.15)] dark:shadow-black/10 overflow-hidden">
-                {/* Atmospheric gradient overlay for dark mode */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-950/20 via-slate-900/40 to-cyan-950/20 opacity-0 dark:opacity-100 transition-opacity duration-200 pointer-events-none rounded-2xl" />
+              <div className="animate-blur-in delay-200 relative inline-flex items-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl bg-white/90 dark:bg-slate-900/60 border border-slate-300/80 dark:border-white/10 mb-8 sm:mb-10 backdrop-blur-md hover:border-blue-500/40 dark:hover:border-blue-500/30 transition-all duration-200 hover:bg-white dark:hover:bg-slate-900/80 group cursor-default w-full sm:w-auto max-w-full shadow-[0_8px_25px_-6px_rgba(15,23,42,0.08),0_2px_8px_rgba(59,130,246,0.04)] hover:-translate-y-0.5 hover:shadow-[0_14px_30px_-6px_rgba(59,130,246,0.15)] dark:shadow-black/10 overflow-hidden">
                 <Rocket className="w-4.5 h-4.5 text-blue-600 dark:text-blue-400 group-hover:animate-bounce transition-transform group-hover:rotate-12 shrink-0 relative z-10" />
                 <span className="min-w-0 flex-1 sm:flex-none overflow-hidden relative z-10">
                   <FlipWords
@@ -479,8 +477,8 @@ export default function Hero() {
 
               {/* Description Section with Light-up Side Accent */}
               <div className="relative mb-10 max-w-xl group animate-blur-in delay-300 w-full">
-                <div className="absolute -left-4 top-1 bottom-1 w-[3px] bg-gradient-to-b from-blue-600 via-cyan-500 to-transparent rounded-full hidden sm:block group-hover:from-blue-500 group-hover:scale-y-105 transition-all duration-500" />
-                <p className="text-base sm:text-lg md:text-xl text-slate-700 dark:text-slate-400 leading-relaxed font-normal tracking-wide group-hover:text-slate-950 dark:group-hover:text-slate-200 transition-colors duration-500 sm:pl-2">
+                <div className="absolute -left-4 top-1 bottom-1 w-[3px] bg-gradient-to-b from-blue-600 via-cyan-500 to-transparent rounded-full hidden sm:block group-hover:from-blue-500 group-hover:scale-y-105 transition-all duration-200" />
+                <p className="text-base sm:text-lg md:text-xl text-slate-700 dark:text-slate-400 leading-relaxed font-normal tracking-wide group-hover:text-slate-950 dark:group-hover:text-slate-200 transition-colors duration-200 sm:pl-2">
                   I design, build, and ship web products — mostly AI-powered SaaS. Currently running two startups and always working on something new.
                 </p>
               </div>
@@ -568,9 +566,9 @@ export default function Hero() {
               <div className="relative group w-full max-w-full">
 
                 {/* Neon unified blue outer glow */}
-                <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-blue-500/20 to-cyan-500/20 blur-2xl opacity-60 group-hover:opacity-85 transition-all duration-500 pointer-events-none" />
+                <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-blue-500/20 to-cyan-500/20 blur-2xl opacity-60 group-hover:opacity-85 transition-all duration-200 pointer-events-none" />
 
-                <div className="relative rounded-2xl bg-white/95 dark:bg-[#030712]/95 border border-slate-200/90 dark:border-white/10 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.12),0_10px_30px_-5px_rgba(59,130,246,0.1)] hover:-translate-y-1.5 hover:shadow-[0_32px_70px_-15px_rgba(15,23,42,0.16),0_15px_35px_-5px_rgba(59,130,246,0.18)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.65)] overflow-hidden backdrop-blur-2xl backdrop-saturate-150 transition-all duration-500 hover:border-blue-500/40 dark:hover:border-white/20">
+                <div className="relative rounded-2xl bg-white/95 dark:bg-[#030712]/95 border border-slate-200/90 dark:border-white/10 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.12),0_10px_30px_-5px_rgba(59,130,246,0.1)] hover:-translate-y-1.5 hover:shadow-[0_32px_70px_-15px_rgba(15,23,42,0.16),0_15px_35px_-5px_rgba(59,130,246,0.18)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.65)] overflow-hidden backdrop-blur-2xl backdrop-saturate-150 transition-all duration-200 hover:border-blue-500/40 dark:hover:border-white/20">
                   {/* Glossy top reflection */}
                   <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 dark:via-white/20 to-transparent pointer-events-none z-20" />
 
