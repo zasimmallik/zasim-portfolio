@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { NAVIGATION_LINKS } from '@/config/navigation';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import ThemeToggle from '@/components/ThemeToggle';
 
 interface HeaderProps {
   activeSection: string;
@@ -39,9 +40,9 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
           className={`pointer-events-auto relative flex items-center justify-between lg:justify-center shadow-lg backdrop-blur-md transition-all duration-500 
             w-full lg:w-auto
             rounded-none lg:rounded-full 
-            border-b border-white/5 lg:border lg:border-white/10
+            border-b border-slate-200/80 dark:border-white/5 lg:border lg:border-slate-200/80 lg:dark:border-white/10
             ${isScrolled
-              ? 'bg-[#010410]/80 supports-backdrop-filter:bg-[#010410]/60 py-3 lg:py-2 px-4 lg:px-6 shadow-blue-900/5'
+              ? 'bg-white/85 dark:bg-[#010410]/80 supports-backdrop-filter:bg-white/70 dark:supports-backdrop-filter:bg-[#010410]/60 py-3 lg:py-2 px-4 lg:px-6 shadow-slate-200/50 dark:shadow-blue-900/5'
               : 'bg-transparent py-4 lg:py-3 px-4 lg:px-8'
             }`}
         >
@@ -76,8 +77,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
                   <button
                     onClick={() => handleNavClick(link.id)}
                     className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full flex items-center gap-2 ${isActive
-                      ? 'text-blue-400'
-                      : 'text-slate-400 hover:text-slate-200'
+                      ? 'text-blue-600 dark:text-blue-400'
+                      : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
                       }`}
                   >
                     {isActive && (
@@ -98,6 +99,16 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
                 </motion.li>
               );
             })}
+
+            {/* Hairline Divider */}
+            <li className="relative z-10 mx-1 flex items-center" aria-hidden="true">
+              <div className="h-4 w-[1px] bg-slate-300/70 dark:bg-white/10" />
+            </li>
+
+            {/* Integrated Theme Toggle */}
+            <li className="relative z-10 flex items-center">
+              <ThemeToggle />
+            </li>
           </ul>
 
           {/* Mobile/Tablet Navigation Toggle */}
@@ -106,22 +117,25 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="font-bold text-xl tracking-tight bg-gradient-to-r from-white via-blue-200 to-white/70 bg-clip-text text-transparent bg-[length:200%_auto]"
+              className="font-bold text-xl tracking-tight bg-gradient-to-r from-slate-900 via-blue-600 to-slate-700 dark:from-white dark:via-blue-200 dark:to-white/70 bg-clip-text text-transparent bg-[length:200%_auto]"
               style={{ animation: 'text-shimmer 6s ease-in-out infinite' }}
             >
               Portfolio
             </motion.span>
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-full hover:bg-white/10 transition-all duration-300 border border-transparent hover:border-white/10 active:scale-95"
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? (
-                <FaTimes size={22} className="text-white" />
-              ) : (
-                <FaBars size={22} className="text-white" />
-              )}
-            </button>
+            <div className="flex items-center gap-1.5">
+              <ThemeToggle />
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2.5 rounded-full hover:bg-slate-200/60 dark:hover:bg-white/10 transition-all duration-300 border border-transparent hover:border-slate-300/40 dark:hover:border-white/10 active:scale-95"
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? (
+                  <FaTimes size={20} className="text-slate-800 dark:text-white" />
+                ) : (
+                  <FaBars size={20} className="text-slate-800 dark:text-white" />
+                )}
+              </button>
+            </div>
           </div>
         </nav>
       </motion.header>
@@ -136,7 +150,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-black/10 dark:bg-black/20 backdrop-blur-sm z-40 lg:hidden"
             />
 
             {/* Menu Container */}
@@ -145,7 +159,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="fixed top-[60px] sm:top-[72px] left-0 right-0 z-40 lg:hidden bg-background/95 backdrop-blur-xl border-b border-white/10 shadow-2xl overflow-hidden"
+              className="fixed top-[60px] sm:top-[72px] left-0 right-0 z-40 lg:hidden bg-white/95 dark:bg-background/95 backdrop-blur-xl border-b border-slate-200/80 dark:border-white/10 shadow-2xl overflow-hidden"
             >
               <div className="p-2 flex flex-col gap-1">
                 {NAVIGATION_LINKS.map((link, index) => {
