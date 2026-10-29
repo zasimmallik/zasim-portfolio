@@ -118,7 +118,7 @@ export default function Projects() {
 
   return (
     <section
-      className="bg-slate-50/60 dark:bg-[#020610] text-slate-900 dark:text-slate-200 py-12 sm:py-16 md:py-24 lg:py-28 relative transition-colors duration-150"
+      className="bg-slate-50/60 dark:bg-[#020610] text-slate-900 dark:text-slate-200 py-12 sm:py-16 md:py-24 lg:py-28 relative noise-overlay transition-colors duration-150"
       ref={container}
     >
       {/* Background Elements */}
@@ -128,7 +128,6 @@ export default function Projects() {
       {/* Enhanced background effects - Matching About page */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-100/30 via-slate-50/60 to-slate-50/60 dark:from-blue-900/5 dark:via-[#010410] dark:to-[#010410]"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10 md:space-y-12 relative z-10">
