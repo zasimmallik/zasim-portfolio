@@ -17,9 +17,31 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
+
+  // Close on Escape key press
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mobileMenuOpen]);
 
   const handleNavClick = (id: string) => {
     onNavClick(id);
@@ -38,12 +60,15 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
       >
         <nav
           className={`pointer-events-auto relative flex items-center justify-between lg:justify-center shadow-lg backdrop-blur-md transition-all duration-200 
-            w-full lg:w-auto
+            w-full lg:w-auto h-16 lg:h-auto
             rounded-none lg:rounded-full 
-            border-b border-slate-200/80 dark:border-white/5 lg:border lg:border-slate-200/80 lg:dark:border-white/10
+            ${isScrolled || mobileMenuOpen
+              ? 'bg-white/95 dark:bg-[#010410]/95 supports-backdrop-filter:bg-white/85 dark:supports-backdrop-filter:bg-[#010410]/85 border-b border-slate-200/80 dark:border-white/10 lg:border lg:border-slate-200/80 lg:dark:border-white/10 shadow-slate-200/50 dark:shadow-blue-950/20'
+              : 'bg-transparent border-b border-transparent lg:border lg:border-slate-200/80 lg:dark:border-white/10'
+            }
             ${isScrolled
-              ? 'bg-white/85 dark:bg-[#010410]/80 supports-backdrop-filter:bg-white/70 dark:supports-backdrop-filter:bg-[#010410]/60 py-3 lg:py-2 px-4 lg:px-6 shadow-slate-200/50 dark:shadow-blue-900/5'
-              : 'bg-transparent py-4 lg:py-3 px-4 lg:px-8'
+              ? 'lg:py-2 px-4 lg:px-6'
+              : 'lg:py-3 px-4 lg:px-8'
             }`}
         >
           {/* Animated gradient top-edge line (visible when scrolled) */}
@@ -76,7 +101,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
                 >
                   <button
                     onClick={() => handleNavClick(link.id)}
-                    className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full flex items-center gap-2 ${isActive
+                    className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full flex items-center gap-2 cursor-pointer ${isActive
                       ? 'text-blue-600 dark:text-blue-400'
                       : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
                       }`}
@@ -126,8 +151,10 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
               <ThemeToggle />
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2.5 rounded-full hover:bg-slate-200/60 dark:hover:bg-white/10 transition-all duration-300 border border-transparent hover:border-slate-300/40 dark:hover:border-white/10 active:scale-95"
-                aria-label="Toggle menu"
+                className="p-2.5 rounded-full hover:bg-slate-200/60 dark:hover:bg-white/10 transition-all duration-300 border border-transparent hover:border-slate-300/40 dark:hover:border-white/10 active:scale-95 cursor-pointer"
+                aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-navigation-menu"
               >
                 {mobileMenuOpen ? (
                   <FaTimes size={20} className="text-slate-800 dark:text-white" />
@@ -149,19 +176,21 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black/10 dark:bg-black/20 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-slate-900/40 dark:bg-black/60 backdrop-blur-sm z-40 lg:hidden"
             />
 
             {/* Menu Container */}
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
+              id="mobile-navigation-menu"
+              initial={{ opacity: 0, y: -16 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-              className="fixed top-[60px] sm:top-[72px] left-0 right-0 z-40 lg:hidden bg-white/95 dark:bg-background/95 backdrop-blur-xl border-b border-slate-200/80 dark:border-white/10 shadow-2xl overflow-hidden"
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="fixed top-16 left-0 right-0 z-40 lg:hidden bg-white/95 dark:bg-[#010410]/95 supports-backdrop-filter:bg-white/85 dark:supports-backdrop-filter:bg-[#010410]/85 backdrop-blur-2xl border-b border-slate-200/80 dark:border-white/10 shadow-2xl dark:shadow-blue-950/30 overflow-hidden max-h-[calc(100vh-4rem)] overflow-y-auto"
             >
-              <div className="p-2 flex flex-col gap-1">
+              <div className="p-3 sm:p-4 flex flex-col gap-1.5 max-w-lg mx-auto">
                 {NAVIGATION_LINKS.map((link, index) => {
                   const Icon = link.icon;
                   const isActive = activeSection === link.id;
@@ -169,23 +198,29 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
                   return (
                     <motion.button
                       key={link.id}
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: -16 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
+                      transition={{ delay: index * 0.04, duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                       onClick={() => handleNavClick(link.id)}
-                      className={`w-full flex items-center gap-4 p-3 rounded-xl transition-all group ${isActive
-                        ? 'bg-blue-500/10 text-blue-500'
-                        : 'hover:bg-secondary/50 text-foreground'
+                      className={`w-full flex items-center gap-3.5 px-3.5 py-3 rounded-xl transition-all duration-200 group text-left cursor-pointer ${isActive
+                        ? 'bg-blue-500/10 dark:bg-blue-500/15 text-blue-600 dark:text-blue-400 font-semibold'
+                        : 'text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-white/5 font-medium'
                         }`}
                     >
-                      <div className={`p-2 rounded-lg transition-colors ${isActive ? 'bg-blue-500/20' : 'bg-secondary group-hover:bg-secondary/80'}`}>
-                        <Icon size={18} className={isActive ? 'text-blue-500' : 'text-muted-foreground'} />
+                      <div
+                        className={`p-2 rounded-lg transition-colors duration-200 ${isActive
+                          ? 'bg-blue-500/20 text-blue-600 dark:text-blue-400'
+                          : 'bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-slate-400 group-hover:bg-slate-200/70 dark:group-hover:bg-white/10 group-hover:text-slate-900 dark:group-hover:text-white'
+                          }`}
+                      >
+                        <Icon size={18} />
                       </div>
-                      <span className="font-medium text-base">{link.text}</span>
+                      <span className="text-base tracking-tight">{link.text}</span>
                       {isActive && (
                         <motion.div
                           layoutId="mobileActiveIndicator"
-                          className="ml-auto w-2 h-2 rounded-full bg-blue-500"
+                          className="ml-auto w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+                          transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}
                         />
                       )}
                     </motion.button>
