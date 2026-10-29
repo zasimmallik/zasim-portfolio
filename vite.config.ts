@@ -21,8 +21,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ["react", "react-dom", "react-router-dom"],
-          ui: ["@radix-ui/react-slot", "@radix-ui/react-tooltip", "class-variance-authority", "clsx", "tailwind-merge", "lucide-react"],
-          animations: ["framer-motion", "tailwindcss-animate"],
+          ui: ["@radix-ui/react-slot", "@radix-ui/react-tooltip", "class-variance-authority", "clsx", "tailwind-merge", "lucide-react", "framer-motion"],
         },
       },
     },
