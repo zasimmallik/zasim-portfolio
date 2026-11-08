@@ -206,6 +206,189 @@ const OrbitalRing = ({
   </motion.div>
 );
 
+const MobileTechConstellation = () => {
+  const innerRadius = 76;
+  const outerRadius = 124;
+
+  const innerSkills = [
+    { name: "React", icon: <FaReact className="text-[#61DAFB]" />, angle: 30 },
+    { name: "TypeScript", icon: <SiTypescript className="text-[#3178C6]" />, angle: 90 },
+    { name: "Next.js", icon: <SiNextdotjs className="text-slate-900 dark:text-white" />, angle: 150 },
+    { name: "Tailwind", icon: <SiTailwindcss className="text-[#38B2AC]" />, angle: 210 },
+    { name: "Node.js", icon: <FaNodeJs className="text-[#339933]" />, angle: 270 },
+    { name: "Python", icon: <FaPython className="text-[#3776AB]" />, angle: 330 },
+  ];
+
+  const outerSkills = [
+    { name: "Docker", icon: <FaDocker className="text-[#2496ED]" />, angle: 0 },
+    { name: "PostgreSQL", icon: <SiPostgresql className="text-[#336791]" />, angle: 45 },
+    { name: "OpenAI", icon: <TbBrandOpenai className="text-slate-900 dark:text-white" />, angle: 90 },
+    { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" />, angle: 135 },
+    { name: "Git", icon: <FaGitAlt className="text-[#F05032]" />, angle: 180 },
+    { name: "AWS", icon: <FaAws className="text-[#FF9900]" />, angle: 225 },
+    { name: "FastAPI", icon: <SiFastapi className="text-[#009688]" />, angle: 270 },
+    { name: "Prisma", icon: <SiPrisma className="text-slate-900 dark:text-white" />, angle: 315 },
+  ];
+
+  return (
+    <div className="relative w-[320px] h-[320px] sm:w-[350px] sm:h-[350px] flex items-center justify-center select-none">
+      {/* Ambient glowing core backdrop */}
+      <div
+        className="absolute inset-4 rounded-full pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, rgba(59,130,246,0.18) 0%, rgba(6,182,212,0.08) 50%, transparent 70%)",
+          filter: "blur(20px)",
+        }}
+      />
+
+      {/* Outermost Dashed Ring */}
+      <div
+        className="absolute rounded-full pointer-events-none"
+        style={{
+          width: 290,
+          height: 290,
+          border: "1px dashed rgba(236,72,153,0.2)",
+        }}
+      >
+        {/* Pink accent dot */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: 5,
+            height: 5,
+            background: "#f472b6",
+            boxShadow: "0 0 8px #f472b6, 0 0 16px #f472b6",
+            top: 26,
+            left: 54,
+          }}
+        />
+      </div>
+
+      {/* Outer Ring */}
+      <div
+        className="absolute rounded-full pointer-events-none"
+        style={{
+          width: outerRadius * 2,
+          height: outerRadius * 2,
+          border: "1px solid rgba(6,182,212,0.22)",
+        }}
+      >
+        {/* Cyan accent dot */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: 6,
+            height: 6,
+            background: "#22d3ee",
+            boxShadow: "0 0 10px #22d3ee",
+            top: -3,
+            left: "50%",
+            marginLeft: -3,
+          }}
+        />
+      </div>
+
+      {/* Inner Ring */}
+      <div
+        className="absolute rounded-full pointer-events-none"
+        style={{
+          width: innerRadius * 2,
+          height: innerRadius * 2,
+          border: "1px solid rgba(59,130,246,0.3)",
+        }}
+      >
+        {/* Blue accent dot */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: 7,
+            height: 7,
+            background: "#60a5fa",
+            boxShadow: "0 0 12px #60a5fa",
+            bottom: -3.5,
+            left: "50%",
+            marginLeft: -3.5,
+          }}
+        />
+      </div>
+
+      {/* Tick marks on Inner Ring */}
+      {[0, 60, 120, 180, 240, 300].map((deg) => (
+        <div
+          key={deg}
+          className="absolute pointer-events-none"
+          style={{
+            width: innerRadius * 2,
+            height: innerRadius * 2,
+            transform: `rotate(${deg}deg)`,
+          }}
+        >
+          <div
+            className="absolute rounded-full"
+            style={{
+              width: 2,
+              height: 6,
+              background: "rgba(59,130,246,0.5)",
+              top: -3,
+              left: "50%",
+              marginLeft: -1,
+            }}
+          />
+        </div>
+      ))}
+
+      {/* Center Core Badge */}
+      <div className="relative z-10 w-12 h-12 rounded-full bg-white/90 dark:bg-slate-900/90 border border-blue-500/40 dark:border-blue-400/40 flex items-center justify-center shadow-[0_0_24px_rgba(59,130,246,0.3)] backdrop-blur-md">
+        <Cpu className="w-6 h-6 text-blue-600 dark:text-cyan-400" />
+      </div>
+
+      {/* Inner Ring Skill Badges */}
+      {innerSkills.map((skill) => {
+        const rad = (skill.angle * Math.PI) / 180;
+        const x = Math.round(innerRadius * Math.cos(rad));
+        const y = Math.round(innerRadius * Math.sin(rad));
+        return (
+          <motion.div
+            key={skill.name}
+            className="absolute z-20 flex items-center justify-center w-8 h-8 rounded-full bg-white/95 dark:bg-slate-900/95 border border-slate-200/90 dark:border-white/15 shadow-[0_4px_12px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_16px_rgba(0,0,0,0.3)] backdrop-blur-md cursor-pointer"
+            style={{
+              left: `calc(50% + ${x}px - 16px)`,
+              top: `calc(50% + ${y}px - 16px)`,
+            }}
+            whileHover={{ scale: 1.25 }}
+            whileTap={{ scale: 0.9 }}
+            title={skill.name}
+          >
+            <span className="text-[15px] flex items-center justify-center">{skill.icon}</span>
+          </motion.div>
+        );
+      })}
+
+      {/* Outer Ring Skill Badges */}
+      {outerSkills.map((skill) => {
+        const rad = (skill.angle * Math.PI) / 180;
+        const x = Math.round(outerRadius * Math.cos(rad));
+        const y = Math.round(outerRadius * Math.sin(rad));
+        return (
+          <motion.div
+            key={skill.name}
+            className="absolute z-20 flex items-center justify-center w-8 h-8 rounded-full bg-white/95 dark:bg-slate-900/95 border border-slate-200/90 dark:border-white/15 shadow-[0_4px_12px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_16px_rgba(0,0,0,0.3)] backdrop-blur-md cursor-pointer"
+            style={{
+              left: `calc(50% + ${x}px - 16px)`,
+              top: `calc(50% + ${y}px - 16px)`,
+            }}
+            whileHover={{ scale: 1.25 }}
+            whileTap={{ scale: 0.9 }}
+            title={skill.name}
+          >
+            <span className="text-[14px] flex items-center justify-center">{skill.icon}</span>
+          </motion.div>
+        );
+      })}
+    </div>
+  );
+};
+
 const SkillsSection = () => {
   const headerRef = useRef<HTMLDivElement>(null);
   const isHeaderInView = useInView(headerRef, { once: true, margin: "-80px" });
@@ -383,9 +566,19 @@ const SkillsSection = () => {
           </motion.p>
         </motion.div>
 
-        {/* Icon Cloud with orbital rings */}
+        {/* Mobile View: Modern circular constellation (zero continuous spinning, sleek tech HUD layout) */}
         <motion.div
-          className="flex justify-center items-center mb-20 sm:mb-24"
+          className="flex md:hidden justify-center items-center mb-16"
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={isHeaderInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+          <MobileTechConstellation />
+        </motion.div>
+
+        {/* Desktop View: Original 3D interactive spinning Icon Cloud with full orbital rings */}
+        <motion.div
+          className="hidden md:flex justify-center items-center mb-20 sm:mb-24"
           initial={{ opacity: 0, scale: 0.75 }}
           animate={isHeaderInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.9, delay: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
