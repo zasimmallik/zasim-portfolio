@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { ReactLenis } from 'lenis/react';
+import { motion, useScroll } from 'framer-motion';
 import './assets/css/index.css';
 import { SCROLL_OBSERVER_OPTIONS } from '@/config/navigation';
 import { FaLinkedinIn, FaGithub, FaInstagram, FaFacebookF } from 'react-icons/fa';
@@ -15,26 +16,14 @@ import Hero from './pages/Hero/Hero';
 import Skills from './pages/Skills/Skills';
 import About from './pages/About/About';
 
-// Scroll Progress Bar
+// Scroll Progress Bar (GPU composited)
 const ScrollProgressBar = () => {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      setProgress(scrollPercent);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const { scrollYProgress } = useScroll();
 
   return (
-    <div
-      className="scroll-progress-bar"
-      style={{ width: `${progress}%` }}
+    <motion.div
+      className="scroll-progress-bar origin-left w-full pointer-events-none"
+      style={{ scaleX: scrollYProgress }}
     />
   );
 };
@@ -216,7 +205,7 @@ export default function App() {
   const dividersAfter = new Set(['home', 'about', 'skills', 'experience', 'projects']);
 
   return (
-    <ReactLenis root options={{ lerp: 0.1, duration: 1.2, smoothWheel: true }}>
+    <ReactLenis root options={{ lerp: 0.1, duration: 1.2, smoothWheel: true, syncTouch: false }}>
       <ScrollProgressBar />
       <Header activeSection={activeSection} onNavClick={handleNavClick} />
       <main className="flex flex-col w-full max-w-[100vw]">
