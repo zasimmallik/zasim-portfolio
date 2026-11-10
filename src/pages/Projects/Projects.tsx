@@ -73,6 +73,12 @@ export default function Projects() {
   });
 
   useEffect(() => {
+    // Eagerly preload project images in parallel for fast loading
+    projects.forEach((proj) => {
+      const img = new Image();
+      img.src = proj.src;
+    });
+
     // Add specific styles for 1366x768 resolution
     const style = document.createElement("style");
     style.textContent = `
@@ -208,9 +214,10 @@ function Card({
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
+    if (!cardRef.current || window.matchMedia?.("(hover: none)").matches) return;
     const rect = cardRef.current.getBoundingClientRect();
     setMousePos({
       x: e.clientX - rect.left,
@@ -221,17 +228,23 @@ function Card({
   return (
     <div
       ref={container}
-      className="h-[85vh] sm:h-[90vh] md:h-[90vh] lg:h-screen flex items-center justify-center sticky top-0 project-container pointer-events-none"
+      className="h-[85svh] min-h-[500px] sm:h-[90vh] md:h-[90vh] lg:h-screen flex items-center justify-center sticky top-0 project-container pointer-events-none"
     >
       <motion.div
         style={{
           scale,
-          top: `calc(-5vh + ${i * 25}px)`,
-          transform: `scale(var(--project-scale, 1))`,
-          marginTop: "var(--project-margin, 0)",
+          top: isMobile ? `calc(0.5rem + ${i * 12}px)` : `calc(-5vh + ${i * 25}px)`,
         }}
-        className="relative lg:-top-[25%] h-auto w-full max-w-5xl origin-top project-card pointer-events-auto"
+        className="relative lg:-top-[25%] h-auto w-full max-w-5xl origin-top project-card pointer-events-auto will-change-transform transform-gpu"
       >
+        <div
+          style={{
+            transform: "scale(var(--project-scale, 1))",
+            marginTop: "var(--project-margin, 0)",
+            transformOrigin: "top center",
+          }}
+          className="w-full"
+        >
         {/* Modern split card design with Glassmorphism - Enhanced */}
         <div
           ref={cardRef}
@@ -261,6 +274,10 @@ function Card({
               <img
                 src={url}
                 alt={title}
+                loading={i === 0 ? "eager" : "lazy"}
+                decoding="async"
+                // @ts-expect-error - fetchPriority attribute
+                fetchPriority={i === 0 ? "high" : "auto"}
                 className="w-full h-full object-cover transition-transform duration-700"
               />
             </motion.div>
@@ -380,6 +397,7 @@ function Card({
                 )}
               </div>
             </div>
+          </div>
           </div>
         </div>
       </motion.div>
