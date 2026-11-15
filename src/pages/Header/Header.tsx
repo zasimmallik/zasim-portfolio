@@ -43,6 +43,18 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [mobileMenuOpen]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const handleNavClick = (id: string) => {
     onNavClick(id);
     setMobileMenuOpen(false);
@@ -63,22 +75,19 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
             w-full lg:w-auto h-16 lg:h-auto
             rounded-none lg:rounded-full 
             ${isScrolled || mobileMenuOpen
-              ? 'bg-white/95 dark:bg-[#010410]/95 supports-backdrop-filter:bg-white/85 dark:supports-backdrop-filter:bg-[#010410]/85 border-b border-slate-200/80 dark:border-white/10 lg:border lg:border-slate-200/80 lg:dark:border-white/10 shadow-slate-200/50 dark:shadow-blue-950/20'
-              : 'bg-transparent border-b border-transparent lg:border lg:border-slate-200/80 lg:dark:border-white/10'
+              ? 'bg-white/95 dark:bg-[#050507]/95 supports-backdrop-filter:bg-white/85 dark:supports-backdrop-filter:bg-[#050507]/85 border-b border-[#D6DAE2] dark:border-[#22242D] lg:border lg:border-[#D6DAE2] lg:dark:border-[#22242D] shadow-sm dark:shadow-black/40'
+              : 'bg-transparent border-b border-transparent lg:border lg:border-[#D6DAE2]/80 lg:dark:border-[#22242D]'
             }
             ${isScrolled
               ? 'lg:py-2 px-4 lg:px-6'
               : 'lg:py-3 px-4 lg:px-8'
             }`}
         >
-          {/* Animated gradient top-edge line (visible when scrolled) */}
+          {/* Subtle top-edge hairline */}
           <div
-            className={`absolute top-0 left-0 right-0 h-[1px] transition-opacity duration-500 ${
+            className={`absolute top-0 left-0 right-0 h-[1px] bg-slate-900/10 dark:bg-white/10 transition-opacity duration-300 ${
               isScrolled ? 'opacity-100' : 'opacity-0'
             }`}
-            style={{
-              background: 'linear-gradient(90deg, transparent, rgba(59,130,246,0.5), rgba(6,182,212,0.5), rgba(139,92,246,0.4), transparent)',
-            }}
           />
 
           {/* Desktop Navigation - Visible on Large Screens */}
@@ -101,18 +110,15 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
                 >
                   <button
                     onClick={() => handleNavClick(link.id)}
-                    className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full flex items-center gap-2 cursor-pointer ${isActive
-                      ? 'text-blue-600 dark:text-blue-400'
-                      : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
+                    className={`relative px-4 py-2 text-sm font-medium transition-all duration-200 rounded-full flex items-center gap-2 cursor-pointer ${isActive
+                      ? 'text-slate-950 dark:text-white font-semibold'
+                      : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100'
                       }`}
                   >
                     {isActive && (
                       <motion.div
                         layoutId="activeTab"
-                        className="absolute inset-0 bg-blue-500/10 border border-blue-500/20 rounded-full -z-10"
-                        style={{
-                          boxShadow: '0 0 15px rgba(59,130,246,0.15), 0 0 30px rgba(59,130,246,0.05)',
-                        }}
+                        className="absolute inset-0 bg-slate-200/70 dark:bg-white/10 border border-[#D6DAE2] dark:border-white/10 rounded-full -z-10 shadow-xs"
                         transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                       />
                     )}
@@ -142,7 +148,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="font-bold text-xl tracking-tight bg-gradient-to-r from-slate-900 via-blue-600 to-slate-700 dark:from-white dark:via-blue-200 dark:to-white/70 bg-clip-text text-transparent bg-[length:200%_auto]"
+              className="font-bold text-xl tracking-tight text-slate-950 dark:text-white"
               style={{ animation: 'text-shimmer 6s ease-in-out infinite' }}
             >
               Portfolio
@@ -188,7 +194,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-16 left-0 right-0 z-40 lg:hidden bg-white/95 dark:bg-[#010410]/95 supports-backdrop-filter:bg-white/85 dark:supports-backdrop-filter:bg-[#010410]/85 backdrop-blur-2xl border-b border-slate-200/80 dark:border-white/10 shadow-2xl dark:shadow-blue-950/30 overflow-hidden max-h-[calc(100vh-4rem)] overflow-y-auto"
+              className="fixed top-16 left-0 right-0 z-40 lg:hidden bg-white/95 dark:bg-[#050507]/95 supports-backdrop-filter:bg-white/85 dark:supports-backdrop-filter:bg-[#050507]/85 backdrop-blur-2xl border-b border-[#D6DAE2] dark:border-[#22242D] shadow-2xl dark:shadow-black/60 overflow-hidden max-h-[calc(100vh-4rem)] overflow-y-auto"
             >
               <div className="p-3 sm:p-4 flex flex-col gap-1.5 max-w-lg mx-auto">
                 {NAVIGATION_LINKS.map((link, index) => {
