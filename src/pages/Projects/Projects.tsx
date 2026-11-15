@@ -124,31 +124,19 @@ export default function Projects() {
 
   return (
     <section
-      className="bg-slate-50/60 dark:bg-[#020610] text-slate-900 dark:text-slate-200 py-12 sm:py-16 md:py-24 lg:py-28 relative noise-overlay transition-colors duration-150"
+      className="bg-[#ECEEF2] dark:bg-[#050507] text-slate-900 dark:text-slate-200 py-12 sm:py-16 md:py-24 lg:py-28 relative transition-colors duration-150"
       ref={container}
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.08),transparent_50%)]" />
-      </div>
-      {/* Enhanced background effects - Matching About page */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-100/30 via-slate-50/60 to-slate-50/60 dark:from-blue-900/5 dark:via-[#010410] dark:to-[#010410]"></div>
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10 md:space-y-12 relative z-10">
         <div className="text-center space-y-3 sm:space-y-4 md:space-y-5">
           {/* Small Title */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/25 dark:border-blue-500/10 text-blue-700 dark:text-blue-400 text-xs sm:text-sm font-medium tracking-wide uppercase font-mono">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#ECEEF2] border border-[#22242D] dark:border-[#D6DAE2] text-[#ECEEF2] dark:text-[#090A0C] text-xs font-semibold tracking-wider uppercase font-mono shadow-sm transition-all duration-200">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 dark:bg-blue-600 animate-pulse shrink-0"></span>
             Projects
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-950 dark:text-white tracking-tight">
-            Featured{" "}
-            <span className="bg-gradient-to-r from-blue-700 via-indigo-600 to-cyan-600 dark:from-blue-400 dark:via-cyan-400 dark:to-purple-400 bg-clip-text text-transparent">
-              Projects
-            </span>
+            Featured Projects
           </h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-sm sm:text-base md:text-lg font-normal tracking-wide">
             Some of my recent work — each one pushed me to think differently about design and architecture.
@@ -211,19 +199,15 @@ function Card({
   const container = useRef(null);
   const scale = useTransform(progress, range, [1, targetScale]);
 
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const [isMobile, setIsMobile] = useState(false);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current || window.matchMedia?.("(hover: none)").matches) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
+  useEffect(() => {
+    const updateSize = () => setIsMobile(window.innerWidth < 768);
+    updateSize();
+    window.addEventListener("resize", updateSize, { passive: true });
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
 
   return (
     <div
@@ -248,24 +232,10 @@ function Card({
         {/* Modern split card design with Glassmorphism - Enhanced */}
         <div
           ref={cardRef}
-          onMouseMove={handleMouseMove}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          className="w-full flex flex-col md:flex-row bg-white/95 dark:bg-slate-900/50 backdrop-blur-2xl border border-slate-200/90 dark:border-slate-800/50 rounded-3xl overflow-hidden shadow-[0_20px_50px_-15px_rgba(15,23,42,0.12),0_8px_25px_-5px_rgba(59,130,246,0.1)] dark:shadow-2xl hover:border-blue-500/40 dark:hover:border-blue-500/30 hover:shadow-blue-500/15 dark:hover:shadow-blue-500/10 transition-all duration-200 group relative"
+          className="w-full flex flex-col md:flex-row bg-[#FFFFFF] dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] rounded-3xl overflow-hidden shadow-sm dark:shadow-2xl transition-all duration-200 group relative"
         >
-          {/* Mouse glow */}
-          {isHovered && (
-            <div
-              className="absolute inset-0 opacity-100 transition-opacity duration-300 pointer-events-none z-0"
-              style={{
-                background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(59,130,246,0.08), transparent 60%)`,
-              }}
-            />
-          )}
-
           {/* Image section */}
-          <div className="w-full md:w-[55%] h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] relative overflow-hidden z-10">
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20"></div>
+          <div className="w-full md:w-[55%] h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] relative overflow-hidden z-10 border-b md:border-b-0 md:border-r border-[#D6DAE2] dark:border-[#22242D]">
             <motion.div
               className="w-full h-full"
               whileHover={{ scale: 1.05 }}
@@ -283,31 +253,25 @@ function Card({
             </motion.div>
 
             {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-60 dark:from-slate-950/90 dark:via-slate-950/20 dark:opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
 
             {/* Project number badge */}
             <div className="absolute top-4 left-4 md:top-6 md:left-6 z-30">
-              <div className="bg-white/90 dark:bg-slate-950/40 backdrop-blur-md border border-slate-200/90 dark:border-white/10 text-slate-900 dark:text-white px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold tracking-wide shadow-md font-mono">
+              <div className="bg-[#FFFFFF]/90 dark:bg-[#0C0D12]/90 backdrop-blur-md border border-[#D6DAE2] dark:border-[#22242D] text-slate-900 dark:text-white px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold tracking-wide shadow-sm font-mono">
                 0{i + 1}
               </div>
             </div>
           </div>
 
           {/* Content section */}
-          <div className="w-full md:w-[45%] p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between relative bg-gradient-to-b from-slate-50/50 to-white/80 dark:from-white/[0.02] dark:to-transparent z-10">
-            {/* Subtle background glow */}
-            <div
-              className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-500/10 dark:from-blue-500/5 to-transparent rounded-full blur-3xl -z-10 pointer-events-none"
-              style={{ opacity: 0.3 }}
-            />
-
+          <div className="w-full md:w-[45%] p-5 sm:p-7 md:p-10 lg:p-12 flex flex-col justify-between relative bg-[#FFFFFF] dark:bg-[#13141A] z-10">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div
-                  className="w-2 h-2 rounded-full ring-2 ring-blue-500/30 dark:ring-white/20 ring-offset-2 ring-offset-white dark:ring-offset-slate-900"
+                  className="w-2 h-2 rounded-full"
                   style={{ backgroundColor: color }}
                 />
-                <span className="text-xs font-semibold tracking-[0.2em] text-blue-700 dark:text-slate-400 uppercase font-mono">
+                <span className="text-xs font-semibold tracking-[0.2em] text-slate-600 dark:text-[#A1A1AA] uppercase font-mono">
                   Featured Project
                 </span>
               </div>
@@ -315,7 +279,7 @@ function Card({
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-950 dark:text-white mb-3 tracking-tighter">
                 {title}
               </h2>
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed font-normal dark:font-light tracking-wide mb-5">
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed font-normal tracking-wide mb-5">
                 {description}
               </p>
 
@@ -324,7 +288,7 @@ function Card({
                 {tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="text-[10px] sm:text-xs px-2.5 py-1 rounded bg-slate-100/90 dark:bg-slate-800/40 border border-slate-200/90 dark:border-slate-700/50 text-slate-800 dark:text-slate-300 font-medium tracking-wide shadow-sm"
+                    className="text-[10px] sm:text-xs px-2.5 py-1 rounded bg-[#F4F5F8] dark:bg-[#1A1B22] border border-[#D6DAE2] dark:border-[#22242D] text-slate-800 dark:text-slate-300 font-medium tracking-wide shadow-none"
                   >
                     {tag}
                   </span>
@@ -332,7 +296,7 @@ function Card({
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-slate-200/90 dark:border-white/5">
+            <div className="mt-8 pt-6 border-t border-[#D6DAE2] dark:border-[#22242D]">
               <div className="flex items-center gap-4">
                 {/* GitHub Link */}
                 {githubLink && (
@@ -340,7 +304,7 @@ function Card({
                     href={githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200/80 dark:bg-white/5 dark:hover:bg-white/10 border border-slate-200/90 dark:border-white/5 hover:border-blue-400/40 dark:hover:border-white/20 shadow-sm transition-all duration-300"
+                    className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#ECEEF2] hover:bg-[#E2E5EC] dark:bg-[#1A1B24] dark:hover:bg-[#22242D] border border-[#D6DAE2] dark:border-[#22242D] shadow-none transition-all duration-200"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -354,11 +318,11 @@ function Card({
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="text-slate-600 group-hover/btn:text-slate-950 dark:text-slate-400 dark:group-hover/btn:text-white transition-colors"
+                      className="text-slate-700 group-hover/btn:text-slate-950 dark:text-slate-300 dark:group-hover/btn:text-white transition-colors"
                     >
                       <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                     </svg>
-                    <span className="text-sm font-medium text-slate-700 group-hover/btn:text-slate-950 dark:text-slate-400 dark:group-hover/btn:text-white transition-colors">
+                    <span className="text-sm font-medium text-slate-700 group-hover/btn:text-slate-950 dark:text-slate-300 dark:group-hover/btn:text-white transition-colors">
                       Source
                     </span>
                   </motion.a>
@@ -370,7 +334,7 @@ function Card({
                     href={liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200/80 dark:bg-white/5 dark:hover:bg-white/10 border border-slate-200/90 dark:border-white/5 hover:border-blue-400/40 dark:hover:border-white/20 shadow-sm transition-all duration-300"
+                    className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#18181B] hover:bg-black dark:bg-white dark:hover:bg-slate-100 text-white dark:text-[#050507] shadow-sm transition-all duration-200"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >

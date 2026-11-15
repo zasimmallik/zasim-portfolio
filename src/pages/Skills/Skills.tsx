@@ -65,46 +65,29 @@ const SkillCard = ({
       animate={isInView ? "visible" : "hidden"}
       variants={cardVariants}
     >
-      {/* Card body with enhanced floating elevation */}
+      {/* Card body with tactile elevation */}
       <div
-        className="relative h-full rounded-2xl overflow-hidden border border-slate-200/90 dark:border-slate-800/50 bg-white/90 dark:bg-slate-900/50 backdrop-blur-xl shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08),0_4px_14px_-2px_rgba(59,130,246,0.06)] dark:shadow-lg transition-all duration-200 group-hover:-translate-y-3.5 group-hover:border-blue-500/40 dark:group-hover:border-blue-500/30 group-hover:shadow-[0_25px_50px_-10px_rgba(15,23,42,0.14),0_12px_28px_-4px_rgba(59,130,246,0.22)] dark:group-hover:shadow-2xl"
+        className="relative h-full rounded-2xl overflow-hidden border border-[#D6DAE2] dark:border-[#22242D] bg-[#FFFFFF] dark:bg-[#13141A] shadow-sm dark:shadow-xl transition-all duration-200 group-hover:-translate-y-1.5 group-hover:border-slate-400 dark:group-hover:border-slate-600"
       >
-        {/* Hover glow overlay — matches Experience cards */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-cyan-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:via-cyan-500/10 group-hover:to-purple-500/10 transition-all duration-200" />
-
-        {/* Shimmer sweep */}
-        <motion.div
-          className="absolute inset-0 pointer-events-none z-0"
-          style={{
-            background: "linear-gradient(105deg, transparent 40%, rgba(59,130,246,0.05) 50%, transparent 60%)",
-          }}
-          animate={{ x: ["-100%", "200%"] }}
-          transition={{ duration: 3.5, repeat: Infinity, ease: "linear", repeatDelay: 3 }}
-        />
-
-        {/* Top edge accent line — blue/cyan */}
-        <div className="absolute top-0 left-6 right-6 h-[1.5px] rounded-full opacity-50 bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
-
         {/* Content */}
         <div className="relative z-10 p-6 sm:p-7 flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center gap-4 mb-6">
             <div className="relative">
               <motion.div
-                className="relative p-3 rounded-xl border border-blue-500/25 dark:border-blue-500/20 bg-blue-500/10 group-hover:bg-blue-500/20 backdrop-blur-sm transition-colors duration-300"
-                whileHover={{ scale: 1.15, rotate: 6 }}
+                className="relative p-3 rounded-xl border border-[#D6DAE2] dark:border-[#22242D] bg-[#F4F5F8] dark:bg-[#1A1B22] transition-colors duration-200"
+                whileHover={{ scale: 1.08 }}
                 transition={{ type: "spring", stiffness: 280, damping: 14 }}
               >
-                <Icon className="w-6 h-6 sm:w-7 sm:h-7 relative z-10 text-blue-600 dark:text-blue-400 group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors duration-300" />
+                <Icon className="w-6 h-6 sm:w-7 sm:h-7 relative z-10 text-slate-800 dark:text-slate-200" />
               </motion.div>
             </div>
 
             <div>
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-200 transition-colors duration-300">
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white transition-colors duration-200">
                 {title}
               </h3>
-              {/* Animated underline — blue to cyan */}
-              <div className="h-[2px] mt-1 rounded-full w-8 group-hover:w-16 transition-all duration-200 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-500 dark:to-cyan-400" />
+              <div className="h-[2px] mt-1 rounded-full w-6 bg-slate-900 dark:bg-white" />
             </div>
           </div>
 
@@ -119,9 +102,9 @@ const SkillCard = ({
                 variants={badgeVariants}
               >
                 <motion.span
-                  className="relative inline-flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-[13px] font-medium rounded-lg overflow-hidden bg-slate-100/90 dark:bg-white/[0.04] text-slate-700 dark:text-slate-300 border border-slate-200/90 dark:border-white/[0.08] hover:bg-slate-200/90 dark:hover:bg-white/[0.08] transition-colors"
-                  whileHover={{ scale: 1.08, y: -3 }}
-                  whileTap={{ scale: 0.94 }}
+                  className="relative inline-flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-[13px] font-medium rounded-lg bg-[#F4F5F8] dark:bg-[#1A1B22] text-slate-800 dark:text-slate-200 border border-[#D6DAE2] dark:border-[#22242D] hover:border-slate-400 dark:hover:border-slate-500 transition-colors"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 380, damping: 18 }}
                 >
                   <span className="text-[14px] opacity-90 flex-shrink-0">{skill.icon}</span>
@@ -131,10 +114,6 @@ const SkillCard = ({
             ))}
           </div>
         </div>
-
-        {/* Corner decorative elements — matches Experience cards */}
-        <div className="absolute top-0 right-0 w-20 h-20 bg-blue-500/5 rounded-bl-full -mr-10 -mt-10 transition-all duration-200 group-hover:bg-blue-500/10" />
-        <div className="absolute bottom-0 left-0 w-20 h-20 bg-cyan-500/5 rounded-tr-full -ml-10 -mb-10 transition-all duration-200 group-hover:bg-cyan-500/10" />
       </div>
     </motion.div>
   );
@@ -160,23 +139,6 @@ const AnimatedCounter = ({ target, suffix = "" }: { target: number; suffix?: str
 
   return <span ref={ref} className="tabular-nums">{count}{suffix}</span>;
 };
-
-const FloatingOrb = ({ delay, x, y, size, color }: {
-  delay: number; x: string; y: string; size: number; color: string;
-}) => (
-  <motion.div
-    className="absolute rounded-full pointer-events-none"
-    style={{
-      left: x, top: y, width: size, height: size,
-      background: `radial-gradient(circle, ${color}, transparent 70%)`, filter: "blur(40px)"
-    }}
-    animate={{
-      y: [0, -35, 12, -22, 0], x: [0, 18, -12, 22, 0],
-      scale: [1, 1.25, 0.88, 1.12, 1], opacity: [0.3, 0.65, 0.38, 0.52, 0.3]
-    }}
-    transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay }}
-  />
-);
 
 const OrbitalRing = ({
   size, duration, reverse, color, dotColor, dotSize = 5,
@@ -323,15 +285,10 @@ const SkillsSection = () => {
   const totalSkills = skillCategories.reduce((acc, cat) => acc + cat.skills.length, 0);
 
   return (
-    <section id="skills" className="relative py-20 sm:py-32 bg-slate-50/60 dark:bg-[#020610] overflow-hidden noise-overlay transition-colors duration-150">
+    <section id="skills" className="relative py-20 sm:py-32 bg-[#ECEEF2] dark:bg-[#050507] overflow-hidden noise-overlay transition-colors duration-150">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(59,130,246,0.06)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(59,130,246,0.04)_0%,transparent_70%)]" />
       </div>
-
-      <FloatingOrb delay={0} x="8%" y="15%" size={220} color="rgba(59,130,246,0.07)" />
-      <FloatingOrb delay={3} x="78%" y="58%" size={180} color="rgba(6,182,212,0.06)" />
-      <FloatingOrb delay={6} x="48%" y="78%" size={200} color="rgba(139,92,246,0.06)" />
-      <FloatingOrb delay={1.5} x="68%" y="8%" size={150} color="rgba(236,72,153,0.05)" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -343,18 +300,13 @@ const SkillsSection = () => {
           transition={{ duration: 0.85, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/25 dark:border-blue-500/20 text-blue-700 dark:text-blue-400 text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#ECEEF2] border border-[#22242D] dark:border-[#D6DAE2] text-[#ECEEF2] dark:text-[#090A0C] text-xs font-semibold font-mono uppercase tracking-wider mb-6 shadow-sm transition-all duration-200"
             initial={{ opacity: 0, scale: 0.75 }}
             animate={isHeaderInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <motion.div
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 7, repeat: Infinity, ease: "linear" }}
-            >
-              <Cpu className="w-4 h-4" />
-            </motion.div>
-            <span className="font-mono uppercase tracking-wider text-xs sm:text-sm">Technical Expertise</span>
+            <Cpu className="w-3.5 h-3.5 text-blue-400 dark:text-blue-600 shrink-0" />
+            <span>Technical Expertise</span>
           </motion.div>
 
           <motion.h2
@@ -363,20 +315,17 @@ const SkillsSection = () => {
             animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.3 }}
           >
-            Skills &{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-600 to-cyan-600 dark:from-blue-400 dark:via-cyan-400 dark:to-purple-400">
-              Technologies
-            </span>
+            Skills &amp; Technologies
           </motion.h2>
 
           <motion.p
-            className="text-slate-600 dark:text-gray-400 text-lg leading-relaxed"
+            className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.42 }}
           >
             My day-to-day toolkit —{" "}
-            <span className="text-blue-700 dark:text-blue-400 font-semibold font-mono">
+            <span className="text-slate-950 dark:text-white font-semibold font-mono">
               <AnimatedCounter target={totalSkills} suffix="+" />
             </span>{" "}
             technologies I use to build production-ready apps.

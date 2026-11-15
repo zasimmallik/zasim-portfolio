@@ -41,11 +41,11 @@ const FloatingInput = ({
           type={type}
           name={name}
           id={`contact-${name}`}
-          className={`w-full px-4 pt-6 pb-2 sm:px-5 sm:pt-7 sm:pb-3 rounded-xl bg-slate-50/90 dark:bg-slate-950/50 border text-slate-900 dark:text-white transition-all duration-300 text-sm sm:text-base peer ${
+          className={`w-full px-4 pt-6 pb-2 sm:px-5 sm:pt-7 sm:pb-3 rounded-xl bg-[#ECEEF2] dark:bg-[#0C0D12] border text-slate-900 dark:text-white transition-all duration-200 text-base peer ${
             error
               ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
-              : 'border-slate-200/90 dark:border-slate-800/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-slate-300 dark:hover:border-slate-700'
-          } focus:ring-4 focus:outline-none`}
+              : 'border-[#D6DAE2] dark:border-[#22242D] focus:border-slate-900 dark:focus:border-white hover:border-slate-400 dark:hover:border-slate-600'
+          } focus:ring-1 focus:outline-none`}
           value={value}
           onChange={onChange}
           onFocus={() => setIsFocused(true)}
@@ -60,7 +60,7 @@ const FloatingInput = ({
               : 'top-1/2 -translate-y-1/2 text-sm sm:text-base'
           } ${
             isFocused
-              ? 'text-blue-600 dark:text-blue-400'
+              ? 'text-slate-900 dark:text-white'
               : hasValue
               ? 'text-slate-500 dark:text-slate-400'
               : 'text-slate-500 dark:text-slate-400'
@@ -68,9 +68,9 @@ const FloatingInput = ({
         >
           {label}
         </label>
-        {/* Animated focus border glow */}
+        {/* Focus border line */}
         <div
-          className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 rounded-full transition-all duration-500 ${
+          className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] bg-slate-900 dark:bg-white rounded-full transition-all duration-300 ${
             isFocused ? 'w-full opacity-100' : 'w-0 opacity-0'
           }`}
         />
@@ -109,11 +109,11 @@ const FloatingTextarea = ({
           name={name}
           id={`contact-${name}`}
           rows={5}
-          className={`w-full px-4 pt-6 pb-2 sm:px-5 sm:pt-7 sm:pb-3 rounded-xl bg-slate-50/90 dark:bg-slate-950/50 border text-slate-900 dark:text-white transition-all duration-300 resize-none text-sm sm:text-base peer ${
+          className={`w-full px-4 pt-6 pb-2 sm:px-5 sm:pt-7 sm:pb-3 rounded-xl bg-[#ECEEF2] dark:bg-[#0C0D12] border text-slate-900 dark:text-white transition-all duration-200 resize-none text-base peer ${
             error
               ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
-              : 'border-slate-200/90 dark:border-slate-800/50 focus:border-blue-500 focus:ring-blue-500/20 hover:border-slate-300 dark:hover:border-slate-700'
-          } focus:ring-4 focus:outline-none`}
+              : 'border-[#D6DAE2] dark:border-[#22242D] focus:border-slate-900 dark:focus:border-white hover:border-slate-400 dark:hover:border-slate-600'
+          } focus:ring-1 focus:outline-none`}
           value={value}
           onChange={onChange}
           onFocus={() => setIsFocused(true)}
@@ -125,10 +125,10 @@ const FloatingTextarea = ({
           className={`absolute left-4 sm:left-5 transition-all duration-300 pointer-events-none ${
             isFocused || hasValue
               ? 'top-2 text-[10px] sm:text-xs font-semibold'
-              : 'top-5 text-sm sm:text-base'
+              : 'top-6 text-sm sm:text-base'
           } ${
             isFocused
-              ? 'text-blue-600 dark:text-blue-400'
+              ? 'text-slate-900 dark:text-white'
               : hasValue
               ? 'text-slate-500 dark:text-slate-400'
               : 'text-slate-500 dark:text-slate-400'
@@ -136,9 +136,9 @@ const FloatingTextarea = ({
         >
           {label}
         </label>
-        {/* Animated focus border glow */}
+        {/* Focus border line */}
         <div
-          className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 rounded-full transition-all duration-500 ${
+          className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] bg-slate-900 dark:bg-white rounded-full transition-all duration-300 ${
             isFocused ? 'w-full opacity-100' : 'w-0 opacity-0'
           }`}
         />
@@ -286,26 +286,18 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="bg-slate-50/60 dark:bg-[#020610] text-slate-800 dark:text-slate-200 py-12 sm:py-20 lg:py-32 relative overflow-hidden noise-overlay transition-colors duration-150"
+      className="bg-[#ECEEF2] dark:bg-[#050507] text-slate-800 dark:text-slate-200 py-12 sm:py-20 lg:py-32 relative overflow-hidden transition-colors duration-150"
     >
-      {/* Enhanced background effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-blue-100/30 via-slate-50/60 to-slate-50/60 dark:from-blue-900/5 dark:via-[#010410] dark:to-[#010410]"></div>
-        {/* Subtle background orbs */}
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-blue-400/10 dark:bg-blue-500/5 rounded-full blur-[100px] animate-blob" />
-        <div className="absolute bottom-1/3 left-1/4 w-48 h-48 bg-purple-400/10 dark:bg-purple-500/5 rounded-full blur-[80px] animate-blob animation-delay-4000" />
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className={`text-center max-w-3xl mx-auto mb-10 sm:mb-16 lg:mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/25 dark:border-blue-500/10 text-blue-700 dark:text-blue-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6 font-mono uppercase tracking-wider">
-            <MessageSquare className="w-3 h-3 sm:w-4 sm:h-4" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#ECEEF2] border border-[#22242D] dark:border-[#D6DAE2] text-[#ECEEF2] dark:text-[#090A0C] text-xs font-semibold font-mono uppercase tracking-wider mb-4 sm:mb-6 shadow-sm transition-all duration-200">
+            <MessageSquare className="w-3.5 h-3.5 text-blue-400 dark:text-blue-600 shrink-0" />
             <span>Let&apos;s Connect</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-950 dark:text-white mb-4 sm:mb-6 tracking-tight">
-            Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-600 to-cyan-600 dark:from-blue-400 dark:to-purple-400">Touch</span>
+            Get in Touch
           </h2>
 
           <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed px-4">
@@ -328,28 +320,26 @@ export default function Contact() {
             <div className="space-y-4 sm:space-y-6">
               {/* Email Card */}
               <div className="group relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/20 group-hover:to-cyan-500/20 rounded-2xl blur-lg transition-all duration-200 opacity-0 group-hover:opacity-100" />
                 <a
                   href={`mailto:${CONTACT_INFO.EMAIL}`}
-                  className="relative flex items-center gap-4 sm:gap-5 bg-white/90 dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800/50 group-hover:border-blue-500/40 dark:group-hover:border-blue-500/30 p-4 sm:p-6 rounded-2xl transition-all duration-200 group-hover:-translate-y-1.5 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08),0_4px_12px_-2px_rgba(59,130,246,0.06)] dark:shadow-xl group-hover:shadow-[0_20px_40px_-10px_rgba(15,23,42,0.12),0_8px_20px_-4px_rgba(59,130,246,0.12)] block"
+                  className="relative flex items-center gap-4 sm:gap-5 bg-[#FFFFFF] dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] group-hover:border-slate-400 dark:group-hover:border-slate-600 p-4 sm:p-6 rounded-2xl transition-all duration-200 group-hover:-translate-y-0.5 shadow-sm dark:shadow-xl block"
                 >
-                  <div className="bg-blue-500/10 p-3 sm:p-4 rounded-xl border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors shrink-0">
-                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
+                  <div className="bg-[#F4F5F8] dark:bg-[#1A1B22] p-3 sm:p-4 rounded-xl border border-[#D6DAE2] dark:border-[#22242D] text-slate-800 dark:text-slate-200 transition-colors shrink-0">
+                    <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <h4 className="font-semibold text-slate-950 dark:text-white mb-0.5 sm:mb-1 text-sm sm:text-base">Email</h4>
                     <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-base truncate">zasimmallickofficial@gmail.com</p>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-blue-600 dark:text-slate-600 dark:group-hover:text-blue-400 transition-colors shrink-0" />
+                  <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors shrink-0" />
                 </a>
               </div>
 
               {/* Location Card */}
               <div className="group relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/20 group-hover:to-pink-500/20 rounded-2xl blur-lg transition-all duration-200 opacity-0 group-hover:opacity-100" />
-                <div className="relative flex items-center gap-4 sm:gap-5 bg-white/90 dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800/50 group-hover:border-purple-500/40 dark:group-hover:border-purple-500/30 p-4 sm:p-6 rounded-2xl transition-all duration-200 group-hover:-translate-y-1.5 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08),0_4px_12px_-2px_rgba(168,85,247,0.06)] dark:shadow-xl group-hover:shadow-[0_20px_40px_-10px_rgba(15,23,42,0.12),0_8px_20px_-4px_rgba(168,85,247,0.12)]">
-                  <div className="bg-purple-500/10 p-3 sm:p-4 rounded-xl border border-purple-500/20 group-hover:bg-purple-500/20 transition-colors shrink-0">
-                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 dark:text-purple-400" />
+                <div className="relative flex items-center gap-4 sm:gap-5 bg-[#FFFFFF] dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] p-4 sm:p-6 rounded-2xl transition-all duration-200 shadow-sm dark:shadow-xl">
+                  <div className="bg-[#F4F5F8] dark:bg-[#1A1B22] p-3 sm:p-4 rounded-xl border border-[#D6DAE2] dark:border-[#22242D] text-slate-800 dark:text-slate-200 transition-colors shrink-0">
+                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <h4 className="font-semibold text-slate-950 dark:text-white mb-0.5 sm:mb-1 text-sm sm:text-base">Location</h4>
@@ -361,10 +351,9 @@ export default function Contact() {
 
             {/* Additional info card */}
             <div className="relative mt-8">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-2xl blur-lg" />
-              <div className="relative bg-white/90 dark:bg-slate-900/50 backdrop-blur-sm border border-slate-200/90 dark:border-slate-800/50 rounded-2xl p-6 sm:p-8 shadow-[0_12px_32px_-8px_rgba(15,23,42,0.08)] dark:shadow-none">
+              <div className="relative bg-[#FFFFFF] dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] rounded-2xl p-6 sm:p-8 shadow-sm dark:shadow-none">
                 <div className="flex gap-4">
-                  <div className="text-blue-600/40 dark:text-blue-400/50 text-5xl leading-none font-serif">&quot;</div>
+                  <div className="text-slate-300 dark:text-[#22242D] text-5xl leading-none font-serif">&quot;</div>
                   <p className="text-slate-700 dark:text-slate-300 text-lg leading-relaxed italic pt-2">
                     Every great project starts with a conversation. Drop me a message — I reply to every one.
                   </p>
@@ -376,8 +365,7 @@ export default function Contact() {
           {/* Contact Form */}
           <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <form onSubmit={handleSubmit} className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-blue-500/0 group-hover:from-blue-500/10 group-hover:via-purple-500/10 group-hover:to-blue-500/10 rounded-3xl blur-xl transition-all duration-200" />
-              <div className="relative backdrop-blur-xl bg-white/95 dark:bg-slate-900/50 p-5 sm:p-8 md:p-10 rounded-3xl shadow-[0_20px_50px_-15px_rgba(15,23,42,0.12),0_8px_25px_-5px_rgba(59,130,246,0.08)] dark:shadow-2xl border border-slate-200/90 dark:border-slate-800/50">
+              <div className="relative bg-[#FFFFFF] dark:bg-[#13141A] p-5 sm:p-8 md:p-10 rounded-3xl shadow-sm dark:shadow-2xl border border-[#D6DAE2] dark:border-[#22242D]">
                 <div className="space-y-5 sm:space-y-6">
                   <div className="grid grid-cols-1 gap-5 sm:gap-6">
                     {/* Floating Label Inputs */}
@@ -415,10 +403,10 @@ export default function Contact() {
                     />
                   </div>
 
-                  {/* Status Messages with slide-in animation */}
+                  {/* Status Messages */}
                   {status === 'success' && (
-                    <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-xl text-green-700 dark:text-green-400 text-sm flex items-center gap-2 animate-[fade-slide-up_0.4s_ease-out]">
-                      <div className="w-2 h-2 bg-green-600 dark:bg-green-500 rounded-full animate-pulse" />
+                    <div className="p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-700 dark:text-emerald-400 text-sm flex items-center gap-2 animate-[fade-slide-up_0.4s_ease-out]">
+                      <div className="w-2 h-2 bg-emerald-600 dark:bg-emerald-500 rounded-full animate-pulse" />
                       Message sent successfully! Thank you for reaching out.
                     </div>
                   )}
@@ -429,22 +417,16 @@ export default function Contact() {
                     </div>
                   )}
 
-                  {/* Submit Button with animated gradient sweep */}
+                  {/* Submit Button — Tactile Senior Engineer Button */}
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="group/btn relative w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-8 rounded-xl font-semibold flex items-center justify-center gap-3 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 overflow-hidden"
+                    className="relative w-full bg-[#090A0C] hover:bg-[#18191F] dark:bg-white dark:hover:bg-[#F4F5F8] text-white dark:text-[#050507] py-4 px-8 rounded-xl font-medium tracking-wide flex items-center justify-center gap-3 transition-all duration-200 hover:-translate-y-0.5 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 cursor-pointer"
                   >
-                    {/* Gradient sweep overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
-                    {/* Shimmer sweep on hover */}
-                    <div className="absolute inset-0 overflow-hidden rounded-xl">
-                      <div className="absolute top-0 -left-full w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover/btn:opacity-100 group-hover/btn:animate-[shimmer-sweep_1.5s_ease-in-out]" />
-                    </div>
-                    <span className="relative z-10">{isSubmitting ? 'Sending...' : 'Send Message'}</span>
-                    <Send className={`w-5 h-5 relative z-10 transition-transform duration-300 ${isSubmitting ? 'translate-x-2 opacity-0' : 'group-hover/btn:translate-x-1'}`} />
+                    <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                    <Send className={`w-4 h-4 transition-transform duration-200 ${isSubmitting ? 'translate-x-2 opacity-0' : 'group-hover:translate-x-0.5'}`} />
                     {isSubmitting && (
-                      <div className="absolute right-8 w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      <div className="absolute right-8 w-4 h-4 border-2 border-white/30 dark:border-black/30 border-t-white dark:border-t-black rounded-full animate-spin" />
                     )}
                   </button>
                 </div>
