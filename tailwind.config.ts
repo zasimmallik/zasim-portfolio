@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Outfit", "sans-serif"],
-        display: ["'Space Grotesk'", "Outfit", "sans-serif"],
-        mono: ["'JetBrains Mono'", "monospace"],
+        sans: ["Switzer", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "Roboto", "sans-serif"],
+        display: ["Supreme", "Switzer", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        mono: ["'JetBrains Mono'", "ui-monospace", "monospace"],
       },
       animation: {
         meteor: "meteor 5s linear infinite",

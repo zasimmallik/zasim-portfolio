@@ -54,12 +54,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-slate-100/90 dark:bg-[#010410] border-t border-slate-200/90 dark:border-slate-800/50 overflow-hidden transition-colors duration-150">
-      {/* Ambient glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-blue-500/5 blur-[100px] rounded-full" />
-      </div>
-
+    <footer className="relative bg-[#ECEEF2] dark:bg-[#050507] border-t border-[#D6DAE2] dark:border-[#22242D] overflow-hidden transition-colors duration-150">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main footer content */}
         <div className="py-12 sm:py-16">
@@ -69,7 +64,7 @@ const Footer = () => {
               <h3 className="text-xl font-bold text-slate-950 dark:text-white mb-2 tracking-tight">
                 Zasim Mallik
               </h3>
-              <p className="text-slate-600 dark:text-slate-500 text-sm leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                 Software Engineer | Founder of Zeraql & Rizmiq
               </p>
             </div>
@@ -81,31 +76,26 @@ const Footer = () => {
                   icon: FaGithub, 
                   href: 'https://github.com/zasimmallik', 
                   label: 'GitHub',
-                  hoverClass: 'hover:bg-[#333] hover:text-white hover:border-[#444]'
                 },
                 { 
                   icon: FaLinkedinIn, 
                   href: 'https://www.linkedin.com/in/zasimmallik/', 
                   label: 'LinkedIn',
-                  hoverClass: 'hover:bg-[#0077b5] hover:text-white hover:border-[#0088cc]'
                 },
                 { 
                   icon: FaXTwitter, 
                   href: 'https://x.com/zasimmallik', 
                   label: 'X',
-                  hoverClass: 'hover:bg-black hover:text-white hover:border-slate-800'
                 },
                 { 
                   icon: FaInstagram, 
                   href: 'https://www.instagram.com/zasimmallik/', 
                   label: 'Instagram',
-                  hoverClass: 'hover:bg-gradient-to-br hover:from-purple-600 hover:to-orange-500 hover:text-white hover:border-purple-500'
                 },
                 { 
                   icon: FaFacebookF, 
                   href: 'https://www.facebook.com/zasimmallik.Z/', 
                   label: 'Facebook',
-                  hoverClass: 'hover:bg-[#1877f2] hover:text-white hover:border-[#2887f2]'
                 },
               ].map((social, i) => (
                 <a
@@ -113,7 +103,7 @@ const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-10 h-10 flex items-center justify-center rounded-lg bg-white dark:bg-white/5 border border-slate-200/90 dark:border-white/10 text-slate-600 dark:text-slate-400 transition-all duration-300 hover:scale-110 shadow-sm ${social.hoverClass}`}
+                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] text-slate-600 dark:text-[#A1A1AA] hover:text-slate-950 dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-500 transition-all duration-150 shadow-xs"
                   aria-label={social.label}
                 >
                   <social.icon className="w-4 h-4" />
@@ -124,8 +114,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-slate-200/90 dark:border-slate-800/50 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-600 dark:text-slate-500 text-xs sm:text-sm">
+        <div className="border-t border-[#D6DAE2] dark:border-[#22242D] py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm font-mono">
             © {currentYear} Zasim Mallik. All rights reserved.
           </p>
         </div>
@@ -134,14 +124,14 @@ const Footer = () => {
       {/* Back to top button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 z-50 w-12 h-12 flex items-center justify-center rounded-full bg-white/90 dark:bg-blue-500/10 backdrop-blur-xl border border-slate-200/90 dark:border-blue-500/20 text-blue-600 dark:text-blue-400 shadow-lg hover:bg-slate-50 dark:hover:bg-blue-500/20 hover:text-blue-700 dark:hover:text-white hover:border-blue-400/40 dark:hover:border-blue-500/40 hover:shadow-blue-500/20 transition-all duration-200 hover:scale-110 ${
+        className={`fixed bottom-6 right-6 z-50 w-11 h-11 flex items-center justify-center rounded-full bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] text-slate-800 dark:text-white shadow-lg hover:border-slate-400 dark:hover:border-slate-500 transition-all duration-200 hover:scale-105 cursor-pointer ${
           showBackToTop
             ? 'opacity-100 translate-y-0'
             : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
         aria-label="Back to top"
       >
-        <ArrowUp className="w-5 h-5" />
+        <ArrowUp className="w-4 h-4" />
       </button>
     </footer>
   );
