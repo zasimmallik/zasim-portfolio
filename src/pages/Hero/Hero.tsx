@@ -58,8 +58,8 @@ const GridBackground = () => {
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ECEEF2]/70 to-[#ECEEF2] dark:via-[#050507]/70 dark:to-[#050507]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#ECEEF2_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_0%,#050507_100%)] opacity-80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#DFE4EC]/70 to-[#DFE4EC] dark:via-[#050507]/70 dark:to-[#050507]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#DFE4EC_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_0%,#050507_100%)] opacity-80" />
     </div>
   );
 };
@@ -341,15 +341,15 @@ export default function Hero() {
 
   return (
     <>
-      <div role="region" aria-label="Hero Introduction" className="bg-[#ECEEF2] dark:bg-[#050507] text-[#090A0C] dark:text-[#FFFFFF] min-h-screen relative overflow-hidden selection:bg-blue-500/20 dark:selection:bg-blue-500/30">
+      <div role="region" aria-label="Hero Introduction" className="bg-[#DFE4EC] dark:bg-[#050507] text-[#090A0C] dark:text-[#FFFFFF] min-h-screen relative overflow-hidden selection:bg-blue-500/20 dark:selection:bg-blue-500/30">
 
         {/* Dynamic Multi-Layer Background (Aurora + Light Orbs) */}
-        <div className="absolute inset-0 bg-[#ECEEF2] dark:bg-[#050507] z-0">
+        <div className="absolute inset-0 bg-[#DFE4EC] dark:bg-[#050507] z-0">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20256%20256%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cfilter%20id%3D%22noiseFilter%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.65%22%20numOctaves%3D%223%22%20stitchTiles%3D%22stitch%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20filter%3D%22url(%23noiseFilter)%22%2F%3E%3C%2Fsvg%3E')] opacity-10 dark:opacity-15 mix-blend-soft-light pointer-events-none"></div>
 
           {/* Subtle architectural ambient illumination */}
           <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-blue-500/[0.04] dark:bg-blue-500/[0.03] blur-[140px] pointer-events-none" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#ECEEF2_130%)] dark:bg-[radial-gradient(circle_at_center,transparent_0%,#050507_130%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#DFE4EC_130%)] dark:bg-[radial-gradient(circle_at_center,transparent_0%,#050507_130%)] pointer-events-none" />
         </div>
 
         <section
@@ -387,7 +387,7 @@ export default function Hero() {
               </div>
 
               {/* Sub-Header & Role Flip Words */}
-              <div className="animate-blur-in delay-200 relative inline-flex items-center gap-2.5 sm:gap-3 px-3.5 py-2 sm:px-4.5 sm:py-2.5 rounded-full bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] mb-6 sm:mb-10 backdrop-blur-md hover:border-blue-500/40 dark:hover:border-blue-500/30 transition-all duration-200 group cursor-default w-full sm:w-auto max-w-full shadow-xs overflow-hidden">
+              <div className="animate-blur-in delay-200 relative inline-flex items-center gap-2.5 sm:gap-3 px-3.5 py-2 sm:px-4.5 sm:py-2.5 rounded-full bg-[#F3F5F9] dark:bg-[#13141A] border border-[#C5CDD9] dark:border-[#22242D] mb-6 sm:mb-10 backdrop-blur-md hover:border-blue-500/40 dark:hover:border-blue-500/30 transition-all duration-200 group cursor-default w-full sm:w-auto max-w-full shadow-[0_4px_14px_-3px_rgba(15,23,42,0.08)] dark:shadow-xs overflow-hidden">
                 <Rocket className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 relative z-10" />
                 <span className="min-w-0 flex-1 sm:flex-none overflow-hidden relative z-10">
                   <FlipWords
@@ -409,8 +409,8 @@ export default function Hero() {
               <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full mb-8 sm:mb-10 animate-blur-in delay-300">
 
                 {/* Card 1: Startups */}
-                <div className="relative flex flex-col items-start p-3.5 sm:p-4.5 rounded-2xl bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] hover:border-slate-400 dark:hover:border-slate-600 transition-all duration-200 group/card shadow-xs hover:-translate-y-0.5 overflow-hidden">
-                  <div className="p-2 rounded-xl bg-[#F4F5F8] dark:bg-[#1A1B22] border border-[#D6DAE2] dark:border-[#22242D] text-blue-600 dark:text-blue-400 mb-2 sm:mb-2.5 transition-transform group-hover/card:scale-105 shrink-0">
+                <div className="relative flex flex-col items-start p-3.5 sm:p-4.5 rounded-2xl bg-[#F3F5F9] dark:bg-[#13141A] border border-[#C5CDD9] dark:border-[#22242D] hover:border-slate-400 dark:hover:border-slate-600 transition-all duration-200 group/card shadow-[0_8px_24px_-6px_rgba(15,23,42,0.09),0_2px_6px_-1px_rgba(15,23,42,0.04)] hover:shadow-[0_14px_30px_-6px_rgba(15,23,42,0.13)] dark:shadow-xs hover:-translate-y-0.5 overflow-hidden">
+                  <div className="p-2 rounded-xl bg-[#E7ECF3] dark:bg-[#1A1B22] border border-[#C5CDD9] dark:border-[#22242D] text-blue-600 dark:text-blue-400 mb-2 sm:mb-2.5 transition-transform group-hover/card:scale-105 shrink-0">
                     <Briefcase className="w-4 h-4" />
                   </div>
                   <span className="text-[10px] uppercase font-mono text-slate-500 dark:text-slate-400 tracking-wider font-semibold">Startups</span>
@@ -418,8 +418,8 @@ export default function Hero() {
                 </div>
 
                 {/* Card 2: Core Focus */}
-                <div className="relative flex flex-col items-start p-3.5 sm:p-4.5 rounded-2xl bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] hover:border-slate-400 dark:hover:border-slate-600 transition-all duration-200 group/card shadow-xs hover:-translate-y-0.5 overflow-hidden">
-                  <div className="p-2 rounded-xl bg-[#F4F5F8] dark:bg-[#1A1B22] border border-[#D6DAE2] dark:border-[#22242D] text-blue-600 dark:text-blue-400 mb-2 sm:mb-2.5 transition-transform group-hover/card:scale-105 shrink-0">
+                <div className="relative flex flex-col items-start p-3.5 sm:p-4.5 rounded-2xl bg-[#F3F5F9] dark:bg-[#13141A] border border-[#C5CDD9] dark:border-[#22242D] hover:border-slate-400 dark:hover:border-slate-600 transition-all duration-200 group/card shadow-[0_8px_24px_-6px_rgba(15,23,42,0.09),0_2px_6px_-1px_rgba(15,23,42,0.04)] hover:shadow-[0_14px_30px_-6px_rgba(15,23,42,0.13)] dark:shadow-xs hover:-translate-y-0.5 overflow-hidden">
+                  <div className="p-2 rounded-xl bg-[#E7ECF3] dark:bg-[#1A1B22] border border-[#C5CDD9] dark:border-[#22242D] text-blue-600 dark:text-blue-400 mb-2 sm:mb-2.5 transition-transform group-hover/card:scale-105 shrink-0">
                     <Cpu className="w-4 h-4" />
                   </div>
                   <span className="text-[10px] uppercase font-mono text-slate-500 dark:text-slate-400 tracking-wider font-semibold">Core Focus</span>
@@ -433,7 +433,7 @@ export default function Hero() {
                   href="https://zeraql.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] hover:border-blue-500/50 dark:hover:border-blue-400/50 hover:bg-[#F8F9FB] dark:hover:bg-[#181922] transition-all text-xs font-mono font-medium text-slate-800 dark:text-slate-200 shadow-xs group/link"
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3F5F9] dark:bg-[#13141A] border border-[#C5CDD9] dark:border-[#22242D] hover:border-blue-500/50 dark:hover:border-blue-400/50 hover:bg-[#F7F8FB] dark:hover:bg-[#181922] transition-all text-xs font-mono font-medium text-slate-800 dark:text-slate-200 shadow-[0_4px_12px_-2px_rgba(15,23,42,0.07)] dark:shadow-xs group/link"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
                   <span>zeraql.com</span>
@@ -444,7 +444,7 @@ export default function Hero() {
                   href="https://rizmiq.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] hover:border-emerald-500/50 dark:hover:border-emerald-400/50 hover:bg-[#F8F9FB] dark:hover:bg-[#181922] transition-all text-xs font-mono font-medium text-slate-800 dark:text-slate-200 shadow-xs group/link"
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3F5F9] dark:bg-[#13141A] border border-[#C5CDD9] dark:border-[#22242D] hover:border-emerald-500/50 dark:hover:border-emerald-400/50 hover:bg-[#F7F8FB] dark:hover:bg-[#181922] transition-all text-xs font-mono font-medium text-slate-800 dark:text-slate-200 shadow-[0_4px_12px_-2px_rgba(15,23,42,0.07)] dark:shadow-xs group/link"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
                   <span>rizmiq.com</span>
@@ -459,7 +459,7 @@ export default function Hero() {
                   href="https://github.com/zasimmallik"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center w-full sm:w-auto px-7 py-3 rounded-full bg-[#18181B] hover:bg-black dark:bg-[#FFFFFF] dark:hover:bg-[#ECEEF2] text-white dark:text-[#050507] font-semibold text-xs sm:text-sm tracking-wide font-mono transition-all duration-200 hover:-translate-y-0.5 shadow-sm dark:shadow-black/40"
+                  className="group relative inline-flex items-center justify-center w-full sm:w-auto px-7 py-3 rounded-full bg-[#18181B] hover:bg-black dark:bg-[#FFFFFF] dark:hover:bg-[#ECEEF2] text-white dark:text-[#050507] font-semibold text-xs sm:text-sm tracking-wide font-mono transition-all duration-200 hover:-translate-y-0.5 shadow-[0_8px_20px_-4px_rgba(15,23,42,0.22)] dark:shadow-black/40"
                 >
                   <span className="inline-flex items-center gap-2.5">
                     <span>View GitHub</span>
@@ -471,7 +471,7 @@ export default function Hero() {
                 <a
                   href="/resume.pdf"
                   download
-                  className="group relative inline-flex items-center justify-center w-full sm:w-auto px-7 py-3 rounded-full bg-white dark:bg-[#13141A] hover:bg-[#F4F5F8] dark:hover:bg-[#1A1B24] border border-[#D6DAE2] dark:border-[#22242D] hover:border-slate-400 dark:hover:border-slate-500 text-slate-900 dark:text-slate-200 font-semibold text-xs sm:text-sm tracking-wide font-mono transition-all duration-200 hover:-translate-y-0.5 shadow-xs"
+                  className="group relative inline-flex items-center justify-center w-full sm:w-auto px-7 py-3 rounded-full bg-[#F3F5F9] dark:bg-[#13141A] hover:bg-[#F7F8FB] dark:hover:bg-[#1A1B24] border border-[#C5CDD9] dark:border-[#22242D] hover:border-slate-400 dark:hover:border-slate-500 text-slate-900 dark:text-slate-200 font-semibold text-xs sm:text-sm tracking-wide font-mono transition-all duration-200 hover:-translate-y-0.5 shadow-[0_6px_16px_-3px_rgba(15,23,42,0.08)] dark:shadow-xs"
                 >
                   <span className="inline-flex items-center gap-2.5">
                     <span>Get Resume</span>
@@ -485,12 +485,12 @@ export default function Hero() {
             <div className={`w-full lg:w-[50%] xl:w-[48%] transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
               <div className="relative group w-full max-w-full">
 
-                <div className="relative rounded-2xl bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] shadow-xl dark:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85),0_0_0_1px_rgba(255,255,255,0.06)] overflow-hidden transition-all duration-200">
+                <div className="relative rounded-2xl bg-[#F3F5F9] dark:bg-[#13141A] border border-[#C5CDD9] dark:border-[#22242D] shadow-[0_24px_60px_-12px_rgba(15,23,42,0.16),0_6px_20px_-4px_rgba(15,23,42,0.08)] dark:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85),0_0_0_1px_rgba(255,255,255,0.06)] overflow-hidden transition-all duration-200">
                   {/* Subtle hairline top highlight */}
-                  <div className="absolute top-0 inset-x-0 h-px bg-white/40 dark:bg-white/10 pointer-events-none z-20" />
+                  <div className="absolute top-0 inset-x-0 h-px bg-[#F7F8FB]/70 dark:bg-white/10 pointer-events-none z-20" />
 
                   {/* Window Header */}
-                  <div className="bg-[#ECEEF2] dark:bg-[#0A0B0E] px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between gap-2 border-b border-[#D6DAE2] dark:border-[#1E2028] relative z-20">
+                  <div className="bg-[#DDE2EC] dark:bg-[#0A0B0E] px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between gap-2 border-b border-[#C5CDD9] dark:border-[#1E2028] relative z-20">
                     <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                       <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5F56]/90 hover:brightness-110 transition-all cursor-pointer"></div>
                       <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FFBD2E]/90 hover:brightness-110 transition-all cursor-pointer"></div>
@@ -498,7 +498,7 @@ export default function Hero() {
                     </div>
 
                     {/* Centered title */}
-                    <div className="flex items-center gap-1.5 bg-white dark:bg-[#14151C] border border-[#D6DAE2] dark:border-[#262835] px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-[11px] text-slate-700 dark:text-[#A1A1AA] font-mono shadow-xs min-w-0 truncate">
+                    <div className="flex items-center gap-1.5 bg-[#F3F5F9] dark:bg-[#14151C] border border-[#C5CDD9] dark:border-[#262835] px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-[11px] text-slate-700 dark:text-[#A1A1AA] font-mono shadow-xs min-w-0 truncate">
                       <Terminal className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
                       <span className="truncate">zasim-IDE v1.1.3</span>
                     </div>
@@ -507,7 +507,7 @@ export default function Hero() {
                       {/* Copy code button */}
                       <button
                         onClick={copyToClipboard}
-                        className="p-1.5 rounded-lg bg-white dark:bg-[#181920] hover:bg-slate-100 dark:hover:bg-[#22242D] border border-[#D6DAE2] dark:border-[#22242D] text-slate-600 dark:text-[#A1A1AA] hover:text-slate-900 dark:hover:text-white transition-all cursor-pointer relative group/copy shadow-xs"
+                        className="p-1.5 rounded-lg bg-[#F3F5F9] dark:bg-[#181920] hover:bg-[#F7F8FB] dark:hover:bg-[#22242D] border border-[#C5CDD9] dark:border-[#22242D] text-slate-600 dark:text-[#A1A1AA] hover:text-slate-900 dark:hover:text-white transition-all cursor-pointer relative group/copy shadow-xs"
                         title="Copy code"
                       >
                         {copied ? (
@@ -526,12 +526,12 @@ export default function Hero() {
                   <div className="flex min-h-[340px] sm:min-h-[420px] relative z-20">
 
                     {/* Activity Bar (Visible on md and larger) */}
-                    <div className="hidden md:flex flex-col items-center justify-between py-4 w-11 xl:w-12 bg-[#E8EBF0] dark:bg-[#08090C] border-r border-[#D6DAE2] dark:border-[#1E2028] shrink-0 select-none">
+                    <div className="hidden md:flex flex-col items-center justify-between py-4 w-11 xl:w-12 bg-[#D5DBE7] dark:bg-[#08090C] border-r border-[#C5CDD9] dark:border-[#1E2028] shrink-0 select-none">
                       <div className="flex flex-col items-center gap-6 w-full">
                         {/* Files Explorer Toggle */}
                         <button
                           onClick={() => setIsSidebarExpanded(!isSidebarExpanded)}
-                          className={`p-2 rounded-lg transition-all relative group cursor-pointer ${isSidebarExpanded ? 'text-slate-950 bg-white dark:text-white dark:bg-[#181920] border border-[#D6DAE2] dark:border-[#22242D] shadow-xs' : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
+                          className={`p-2 rounded-lg transition-all relative group cursor-pointer ${isSidebarExpanded ? 'text-slate-950 bg-[#F3F5F9] dark:text-white dark:bg-[#181920] border border-[#C5CDD9] dark:border-[#22242D] shadow-xs' : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
                             }`}
                         >
                           <Files className="w-5 h-5" />
@@ -561,7 +561,7 @@ export default function Hero() {
 
                     {/* File Explorer Sidebar */}
                     {isSidebarExpanded && (
-                      <div className="hidden md:block w-36 xl:w-44 bg-[#F4F6F9] dark:bg-[#0B0C10] border-r border-[#D6DAE2] dark:border-[#1E2028] py-3 select-none text-left font-sans shrink-0 overflow-y-auto">
+                      <div className="hidden md:block w-36 xl:w-44 bg-[#E7ECF3] dark:bg-[#0B0C10] border-r border-[#C5CDD9] dark:border-[#1E2028] py-3 select-none text-left font-sans shrink-0 overflow-y-auto">
                         <div className="px-3 mb-2 flex items-center justify-between text-slate-500 dark:text-[#71717A] font-bold text-[9px] uppercase tracking-wider">
                           <span>Explorer</span>
                         </div>
@@ -578,7 +578,7 @@ export default function Hero() {
                           <div className="ml-2">
                             <button
                               onClick={() => toggleFolder('src')}
-                              className="flex items-center gap-1.5 w-full text-left px-2.5 py-1 text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-[#EAECEF] dark:hover:bg-white/[0.04] cursor-pointer rounded-md transition-colors"
+                              className="flex items-center gap-1.5 w-full text-left px-2.5 py-1 text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-[#DDE2EC] dark:hover:bg-white/[0.04] cursor-pointer rounded-md transition-colors"
                             >
                               {openFolders.src ? (
                                 <ChevronDown className="w-3.5 h-3.5 text-slate-500 dark:text-[#71717A]" />
@@ -598,7 +598,7 @@ export default function Hero() {
                               <div className="ml-3">
                                 <button
                                   onClick={() => toggleFolder('config')}
-                                  className="flex items-center gap-1.5 w-full text-left px-2.5 py-1 text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-[#EAECEF] dark:hover:bg-white/[0.04] cursor-pointer rounded-md transition-colors"
+                                  className="flex items-center gap-1.5 w-full text-left px-2.5 py-1 text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-[#DDE2EC] dark:hover:bg-white/[0.04] cursor-pointer rounded-md transition-colors"
                                 >
                                   {openFolders.config ? (
                                     <ChevronDown className="w-3.5 h-3.5 text-slate-500 dark:text-[#71717A]" />
@@ -619,8 +619,8 @@ export default function Hero() {
                                     <button
                                       onClick={() => setActiveTab('developer.ts')}
                                       className={`flex items-center gap-1.5 w-full text-left px-2 py-1 cursor-pointer rounded-md transition-colors ${activeTab === 'developer.ts'
-                                          ? 'text-slate-950 dark:text-white bg-white dark:bg-[#181922] font-semibold border border-[#D6DAE2] dark:border-[#2A2C38] shadow-xs'
-                                          : 'text-slate-600 dark:text-[#8E909B] hover:text-slate-950 dark:hover:text-white hover:bg-[#EAECEF] dark:hover:bg-white/[0.04] border border-transparent'
+                                          ? 'text-slate-950 dark:text-white bg-[#F3F5F9] dark:bg-[#181922] font-semibold border border-[#C5CDD9] dark:border-[#2A2C38] shadow-xs'
+                                          : 'text-slate-600 dark:text-[#8E909B] hover:text-slate-950 dark:hover:text-white hover:bg-[#DDE2EC] dark:hover:bg-white/[0.04] border border-transparent'
                                         }`}
                                     >
                                       <FileCode2 className="w-3.5 h-3.5 text-[#38BDF8] shrink-0" />
@@ -630,8 +630,8 @@ export default function Hero() {
                                     <button
                                       onClick={() => setActiveTab('skills.json')}
                                       className={`flex items-center gap-1.5 w-full text-left px-2 py-1 cursor-pointer rounded-md transition-colors ${activeTab === 'skills.json'
-                                          ? 'text-slate-950 dark:text-white bg-white dark:bg-[#181922] font-semibold border border-[#D6DAE2] dark:border-[#2A2C38] shadow-xs'
-                                          : 'text-slate-600 dark:text-[#8E909B] hover:text-slate-950 dark:hover:text-white hover:bg-[#EAECEF] dark:hover:bg-white/[0.04] border border-transparent'
+                                          ? 'text-slate-950 dark:text-white bg-[#F3F5F9] dark:bg-[#181922] font-semibold border border-[#C5CDD9] dark:border-[#2A2C38] shadow-xs'
+                                          : 'text-slate-600 dark:text-[#8E909B] hover:text-slate-950 dark:hover:text-white hover:bg-[#DDE2EC] dark:hover:bg-white/[0.04] border border-transparent'
                                         }`}
                                     >
                                       <FileJson className="w-3.5 h-3.5 text-[#FBBF24] shrink-0" />
@@ -643,7 +643,7 @@ export default function Hero() {
                                 {/* pages folder */}
                                 <button
                                   onClick={() => toggleFolder('pages')}
-                                  className="flex items-center gap-1.5 w-full text-left px-2.5 py-1 text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-[#EAECEF] dark:hover:bg-white/[0.04] cursor-pointer rounded-md transition-colors mt-0.5"
+                                  className="flex items-center gap-1.5 w-full text-left px-2.5 py-1 text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-[#DDE2EC] dark:hover:bg-white/[0.04] cursor-pointer rounded-md transition-colors mt-0.5"
                                 >
                                   {openFolders.pages ? (
                                     <ChevronDown className="w-3.5 h-3.5 text-slate-500 dark:text-[#71717A]" />
@@ -664,8 +664,8 @@ export default function Hero() {
                                     <button
                                       onClick={() => setActiveTab('projects.ts')}
                                       className={`flex items-center gap-1.5 w-full text-left px-2 py-1 cursor-pointer rounded-md transition-colors ${activeTab === 'projects.ts'
-                                          ? 'text-slate-950 dark:text-white bg-white dark:bg-[#181922] font-semibold border border-[#D6DAE2] dark:border-[#2A2C38] shadow-xs'
-                                          : 'text-slate-600 dark:text-[#8E909B] hover:text-slate-950 dark:hover:text-white hover:bg-[#EAECEF] dark:hover:bg-white/[0.04] border border-transparent'
+                                          ? 'text-slate-950 dark:text-white bg-[#F3F5F9] dark:bg-[#181922] font-semibold border border-[#C5CDD9] dark:border-[#2A2C38] shadow-xs'
+                                          : 'text-slate-600 dark:text-[#8E909B] hover:text-slate-950 dark:hover:text-white hover:bg-[#DDE2EC] dark:hover:bg-white/[0.04] border border-transparent'
                                         }`}
                                     >
                                       <FileCode2 className="w-3.5 h-3.5 text-[#38BDF8] shrink-0" />
@@ -675,8 +675,8 @@ export default function Hero() {
                                     <button
                                       onClick={() => setActiveTab('contact.css')}
                                       className={`flex items-center gap-1.5 w-full text-left px-2 py-1 cursor-pointer rounded-md transition-colors ${activeTab === 'contact.css'
-                                          ? 'text-slate-950 dark:text-white bg-white dark:bg-[#181922] font-semibold border border-[#D6DAE2] dark:border-[#2A2C38] shadow-xs'
-                                          : 'text-slate-600 dark:text-[#8E909B] hover:text-slate-950 dark:hover:text-white hover:bg-[#EAECEF] dark:hover:bg-white/[0.04] border border-transparent'
+                                          ? 'text-slate-950 dark:text-white bg-[#F3F5F9] dark:bg-[#181922] font-semibold border border-[#C5CDD9] dark:border-[#2A2C38] shadow-xs'
+                                          : 'text-slate-600 dark:text-[#8E909B] hover:text-slate-950 dark:hover:text-white hover:bg-[#DDE2EC] dark:hover:bg-white/[0.04] border border-transparent'
                                         }`}
                                     >
                                       <FileText className="w-3.5 h-3.5 text-[#60A5FA] shrink-0" />
@@ -692,11 +692,11 @@ export default function Hero() {
                     )}
 
                     {/* Main Editor Panel */}
-                    <div className="flex-1 flex flex-col min-w-0 bg-white dark:bg-[#13141A]">
+                    <div className="flex-1 flex flex-col min-w-0 bg-[#F3F5F9] dark:bg-[#13141A]">
 
                       {/* Editor Tabs (Horizontal scrollable tab bar) */}
                       <div
-                        className="flex items-center bg-[#ECEEF2] dark:bg-[#0A0B0E] border-b border-[#D6DAE2] dark:border-[#1E2028] overflow-x-auto scrollbar-hide text-xs select-none"
+                        className="flex items-center bg-[#DDE2EC] dark:bg-[#0A0B0E] border-b border-[#C5CDD9] dark:border-[#1E2028] overflow-x-auto scrollbar-hide text-xs select-none"
                         style={{ WebkitOverflowScrolling: 'touch', overscrollBehaviorX: 'contain' }}
                       >
                         {(Object.keys(FILES) as Array<keyof typeof FILES>).map((fileName) => {
@@ -705,9 +705,9 @@ export default function Hero() {
                             <button
                               key={fileName}
                               onClick={() => setActiveTab(fileName)}
-                              className={`flex items-center gap-2 px-4 py-2.5 border-r border-[#D6DAE2] dark:border-[#1E2028] cursor-pointer relative shrink-0 transition-all ${isActive
-                                  ? 'bg-white dark:bg-[#13141A] text-slate-950 dark:text-white font-medium shadow-xs'
-                                  : 'bg-transparent text-slate-600 dark:text-[#71717A] hover:text-slate-900 dark:hover:text-[#D4D4D8] hover:bg-[#E4E7ED] dark:hover:bg-white/[0.03]'
+                              className={`flex items-center gap-2 px-4 py-2.5 border-r border-[#C5CDD9] dark:border-[#1E2028] cursor-pointer relative shrink-0 transition-all ${isActive
+                                  ? 'bg-[#F3F5F9] dark:bg-[#13141A] text-slate-950 dark:text-white font-medium shadow-xs'
+                                  : 'bg-transparent text-slate-600 dark:text-[#71717A] hover:text-slate-900 dark:hover:text-[#D4D4D8] hover:bg-[#D5DBE7] dark:hover:bg-white/[0.03]'
                                 }`}
                             >
                               {fileName.endsWith('.json') && <FileJson className="w-3.5 h-3.5 text-[#FBBF24]" />}
@@ -725,7 +725,7 @@ export default function Hero() {
                       </div>
 
                       {/* Breadcrumbs bar */}
-                      <div className="bg-[#F8F9FB] dark:bg-[#0E0F14] px-3 sm:px-4 py-1.5 flex items-center gap-1.5 border-b border-[#D6DAE2] dark:border-[#1E2028] text-[10px] text-slate-500 dark:text-[#71717A] font-mono overflow-x-auto whitespace-nowrap scrollbar-hide">
+                      <div className="bg-[#E7ECF3] dark:bg-[#0E0F14] px-3 sm:px-4 py-1.5 flex items-center gap-1.5 border-b border-[#C5CDD9] dark:border-[#1E2028] text-[10px] text-slate-500 dark:text-[#71717A] font-mono overflow-x-auto whitespace-nowrap scrollbar-hide">
                         <span>zasim-portfolio</span>
                         <span>&gt;</span>
                         <span>src</span>
@@ -745,10 +745,10 @@ export default function Hero() {
                       </div>
 
                       {/* Code Content Area with Line Numbers */}
-                      <div className="flex-1 flex overflow-hidden relative min-h-[280px] sm:min-h-[300px] bg-white dark:bg-[#13141A]">
+                      <div className="flex-1 flex overflow-hidden relative min-h-[280px] sm:min-h-[300px] bg-[#F3F5F9] dark:bg-[#13141A]">
 
                         {/* Line Numbers Column */}
-                        <div className="py-3 sm:py-4 text-slate-400 dark:text-[#52525B] select-none text-right pr-2.5 sm:pr-3 border-r border-[#D6DAE2] dark:border-[#1E2028] font-mono text-[11px] sm:text-xs leading-6 shrink-0 min-w-[2.25rem] sm:min-w-[2.5rem] bg-[#F8F9FB] dark:bg-[#0E0F14] overflow-hidden">
+                        <div className="py-3 sm:py-4 text-slate-400 dark:text-[#52525B] select-none text-right pr-2.5 sm:pr-3 border-r border-[#C5CDD9] dark:border-[#1E2028] font-mono text-[11px] sm:text-xs leading-6 shrink-0 min-w-[2.25rem] sm:min-w-[2.5rem] bg-[#E7ECF3] dark:bg-[#0E0F14] overflow-hidden">
                           {lines.map((_, i) => (
                             <div key={i} className="h-6 flex items-center justify-end font-light" style={{ height: '1.5rem', lineHeight: '1.5rem' }}>
                               {i + 1}
@@ -758,7 +758,7 @@ export default function Hero() {
 
                         {/* Prism highlighted text — drag to scroll */}
                         <div
-                          className="flex-1 min-h-0 py-3 sm:py-4 pl-3 sm:pl-4 pr-3 text-left overflow-auto code-scroll-area bg-white dark:bg-[#13141A]"
+                          className="flex-1 min-h-0 py-3 sm:py-4 pl-3 sm:pl-4 pr-3 text-left overflow-auto code-scroll-area bg-[#F3F5F9] dark:bg-[#13141A]"
                           style={{
                             cursor: 'grab',
                             WebkitOverflowScrolling: 'touch',
@@ -796,7 +796,7 @@ export default function Hero() {
 
 
                       {/* Editor Status Bar */}
-                      <div className="bg-[#ECEEF2] dark:bg-[#0A0B0E] px-3 sm:px-4 py-1.5 border-t border-[#D6DAE2] dark:border-[#1E2028] flex items-center justify-between gap-2 text-[10px] text-slate-600 dark:text-[#8E909B] font-mono select-none relative z-20 overflow-hidden whitespace-nowrap">
+                      <div className="bg-[#DDE2EC] dark:bg-[#0A0B0E] px-3 sm:px-4 py-1.5 border-t border-[#C5CDD9] dark:border-[#1E2028] flex items-center justify-between gap-2 text-[10px] text-slate-600 dark:text-[#8E909B] font-mono select-none relative z-20 overflow-hidden whitespace-nowrap">
                         <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
                           <div className="flex items-center gap-1 text-slate-700 dark:text-[#A1A1AA]">
                             <GitBranch className="w-3 h-3 text-slate-500" />

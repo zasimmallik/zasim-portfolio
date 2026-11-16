@@ -54,7 +54,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[#ECEEF2] dark:bg-[#050507] border-t border-[#D6DAE2] dark:border-[#22242D] overflow-hidden transition-colors duration-150">
+    <footer className="relative bg-[#DFE4EC] dark:bg-[#050507] border-t border-[#C5CDD9] dark:border-[#22242D] overflow-hidden transition-colors duration-150">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main footer content */}
         <div className="py-12 sm:py-16">
@@ -103,7 +103,7 @@ const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] text-slate-600 dark:text-[#A1A1AA] hover:text-slate-950 dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-500 transition-all duration-150 shadow-xs"
+                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-[#F3F5F9] hover:bg-[#F7F8FB] dark:bg-[#13141A] dark:hover:bg-[#181922] border border-[#C5CDD9] dark:border-[#22242D] text-slate-600 dark:text-[#A1A1AA] hover:text-slate-950 dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-500 transition-all duration-150 shadow-[0_4px_12px_-2px_rgba(15,23,42,0.08)]"
                   aria-label={social.label}
                 >
                   <social.icon className="w-4 h-4" />
@@ -114,7 +114,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-[#D6DAE2] dark:border-[#22242D] py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-[#C5CDD9] dark:border-[#22242D] py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm font-mono">
             © {currentYear} Zasim Mallik. All rights reserved.
           </p>
@@ -124,7 +124,7 @@ const Footer = () => {
       {/* Back to top button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 z-50 w-11 h-11 flex items-center justify-center rounded-full bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] text-slate-800 dark:text-white shadow-lg hover:border-slate-400 dark:hover:border-slate-500 transition-all duration-200 hover:scale-105 cursor-pointer ${
+        className={`fixed bottom-6 right-6 z-50 w-11 h-11 flex items-center justify-center rounded-full bg-[#F3F5F9] hover:bg-[#F7F8FB] dark:bg-[#13141A] border border-[#C5CDD9] dark:border-[#22242D] text-slate-800 dark:text-white shadow-[0_8px_24px_-4px_rgba(15,23,42,0.16)] dark:shadow-lg hover:border-slate-400 dark:hover:border-slate-500 transition-all duration-200 hover:scale-105 cursor-pointer ${
           showBackToTop
             ? 'opacity-100 translate-y-0'
             : 'opacity-0 translate-y-4 pointer-events-none'

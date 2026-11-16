@@ -75,8 +75,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
             w-full lg:w-auto h-16 lg:h-auto
             rounded-none lg:rounded-full 
             ${isScrolled || mobileMenuOpen
-              ? 'bg-white/95 dark:bg-[#050507]/95 supports-backdrop-filter:bg-white/85 dark:supports-backdrop-filter:bg-[#050507]/85 border-b border-[#D6DAE2] dark:border-[#22242D] lg:border lg:border-[#D6DAE2] lg:dark:border-[#22242D] shadow-sm dark:shadow-black/40'
-              : 'bg-transparent border-b border-transparent lg:border lg:border-[#D6DAE2]/80 lg:dark:border-[#22242D]'
+              ? 'bg-[#F3F5F9]/95 dark:bg-[#050507]/95 supports-backdrop-filter:bg-[#F3F5F9]/85 dark:supports-backdrop-filter:bg-[#050507]/85 border-b border-[#C5CDD9] dark:border-[#22242D] lg:border lg:border-[#C5CDD9] lg:dark:border-[#22242D] shadow-[0_8px_24px_-4px_rgba(15,23,42,0.10)] dark:shadow-black/40'
+              : 'bg-[#F3F5F9]/70 lg:bg-[#F3F5F9]/80 dark:bg-transparent border-b border-transparent lg:border lg:border-[#C5CDD9] lg:dark:border-[#22242D] shadow-[0_4px_16px_-4px_rgba(15,23,42,0.06)] dark:shadow-none'
             }
             ${isScrolled
               ? 'lg:py-2 px-4 lg:px-6'
@@ -118,7 +118,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
                     {isActive && (
                       <motion.div
                         layoutId="activeTab"
-                        className="absolute inset-0 bg-slate-200/70 dark:bg-white/10 border border-[#D6DAE2] dark:border-white/10 rounded-full -z-10 shadow-xs"
+                        className="absolute inset-0 bg-[#DDE2EC] dark:bg-white/10 border border-[#C5CDD9] dark:border-white/10 rounded-full -z-10 shadow-xs"
                         transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                       />
                     )}
@@ -194,7 +194,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-16 left-0 right-0 z-40 lg:hidden bg-white/95 dark:bg-[#050507]/95 supports-backdrop-filter:bg-white/85 dark:supports-backdrop-filter:bg-[#050507]/85 backdrop-blur-2xl border-b border-[#D6DAE2] dark:border-[#22242D] shadow-2xl dark:shadow-black/60 overflow-hidden max-h-[calc(100vh-4rem)] overflow-y-auto"
+              className="fixed top-16 left-0 right-0 z-40 lg:hidden bg-[#F3F5F9]/95 dark:bg-[#050507]/95 supports-backdrop-filter:bg-[#F3F5F9]/85 dark:supports-backdrop-filter:bg-[#050507]/85 backdrop-blur-2xl border-b border-[#C5CDD9] dark:border-[#22242D] shadow-2xl dark:shadow-black/60 overflow-hidden max-h-[calc(100vh-4rem)] overflow-y-auto"
             >
               <div className="p-3 sm:p-4 flex flex-col gap-1.5 max-w-lg mx-auto">
                 {NAVIGATION_LINKS.map((link, index) => {
@@ -210,13 +210,13 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavClick }) => {
                       onClick={() => handleNavClick(link.id)}
                       className={`w-full flex items-center gap-3.5 px-3.5 py-3 rounded-xl transition-all duration-200 group text-left cursor-pointer ${isActive
                         ? 'bg-blue-500/10 dark:bg-blue-500/15 text-blue-600 dark:text-blue-400 font-semibold'
-                        : 'text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-white/5 font-medium'
+                        : 'text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white hover:bg-[#E7ECF3] dark:hover:bg-white/5 font-medium'
                         }`}
                     >
                       <div
                         className={`p-2 rounded-lg transition-colors duration-200 ${isActive
                           ? 'bg-blue-500/20 text-blue-600 dark:text-blue-400'
-                          : 'bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-slate-400 group-hover:bg-slate-200/70 dark:group-hover:bg-white/10 group-hover:text-slate-900 dark:group-hover:text-white'
+                          : 'bg-[#E7ECF3] dark:bg-white/5 text-slate-500 dark:text-slate-400 group-hover:bg-[#DDE2EC] dark:group-hover:bg-white/10 group-hover:text-slate-900 dark:group-hover:text-white'
                           }`}
                       >
                         <Icon size={18} />
