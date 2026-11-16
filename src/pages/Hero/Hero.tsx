@@ -345,7 +345,7 @@ export default function Hero() {
 
         {/* Dynamic Multi-Layer Background (Aurora + Light Orbs) */}
         <div className="absolute inset-0 bg-[#ECEEF2] dark:bg-[#050507] z-0">
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 dark:opacity-15 mix-blend-soft-light pointer-events-none"></div>
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20256%20256%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cfilter%20id%3D%22noiseFilter%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.65%22%20numOctaves%3D%223%22%20stitchTiles%3D%22stitch%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20filter%3D%22url(%23noiseFilter)%22%2F%3E%3C%2Fsvg%3E')] opacity-10 dark:opacity-15 mix-blend-soft-light pointer-events-none"></div>
 
           {/* Subtle architectural ambient illumination */}
           <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-blue-500/[0.04] dark:bg-blue-500/[0.03] blur-[140px] pointer-events-none" />
@@ -401,7 +401,7 @@ export default function Hero() {
               <div className="relative mb-8 sm:mb-10 max-w-xl group animate-blur-in delay-300 w-full">
                 <div className="absolute -left-4 top-1 bottom-1 w-[3px] bg-gradient-to-b from-blue-600 via-cyan-500 to-transparent rounded-full hidden sm:block group-hover:from-blue-500 group-hover:scale-y-105 transition-all duration-200" />
                 <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-lg xl:text-xl text-slate-700 dark:text-slate-400 leading-relaxed font-normal tracking-wide group-hover:text-slate-950 dark:group-hover:text-slate-200 transition-colors duration-200 sm:pl-2">
-                  I design, build, and ship web products — mostly AI-powered SaaS. Currently running two startups and always working on something new.
+                  I design, engineer, and ship AI-powered SaaS. Currently building two startups and turning complex ideas into fast, reliable software.
                 </p>
               </div>
 
