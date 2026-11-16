@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { Cloud, fetchSimpleIcons, renderSimpleIcon, SimpleIcon } from "react-icon-cloud";
 
@@ -61,15 +61,34 @@ export default function IconCloud({
   imageArray,
 }: IconCloudProps) {
   const [data, setData] = useState<{ simpleIcons: Record<string, SimpleIcon> } | null>(null);
+  const [shouldFetch, setShouldFetch] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
   const { theme, resolvedTheme } = useTheme();
   const currentTheme = resolvedTheme || theme || "dark";
 
   useEffect(() => {
-    if (iconSlugs.length > 0) {
-      // Check if iconSlugs is not empty
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldFetch(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "400px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (shouldFetch && iconSlugs.length > 0) {
       fetchSimpleIcons({ slugs: iconSlugs }).then(setData);
     }
-  }, [iconSlugs]);
+  }, [shouldFetch, iconSlugs]);
 
   const renderedIcons = useMemo(() => {
     if (!data) return null;
@@ -80,21 +99,23 @@ export default function IconCloud({
   }, [data, currentTheme]);
 
   return (
-    // @ts-expect-error - Cloud component types might be incompatible
-    <Cloud {...cloudProps}>
-      <>
-        <>{renderedIcons}</>
-        {imageArray &&
-          imageArray.length > 0 &&
-          imageArray.map((image, index) => {
-            return (
-              <a key={index} href="#" onClick={(e) => e.preventDefault()}>
-                <img height="42" width="42" alt="A globe" src={image} />
-              </a>
-            );
-          })}
-      </>
-    </Cloud>
+    <div ref={containerRef} className="w-full h-full flex items-center justify-center">
+      {/* @ts-expect-error - Cloud component types might be incompatible */}
+      <Cloud {...cloudProps}>
+        <>
+          <>{renderedIcons}</>
+          {imageArray &&
+            imageArray.length > 0 &&
+            imageArray.map((image, index) => {
+              return (
+                <a key={index} href="#" onClick={(e) => e.preventDefault()}>
+                  <img height="42" width="42" alt="A globe" src={image} />
+                </a>
+              );
+            })}
+        </>
+      </Cloud>
+    </div>
   );
 }
 
