@@ -1,5 +1,38 @@
+# robots.txt for https://zasimmallik.com/
+# Optimized for Search Engines & AI Answer Engines (GEO / AEO / LLMO)
+
 User-agent: *
 Allow: /
-Disallow: 
+
+# Explicitly allow AI Search & Answer Engine Crawlers
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: YouBot
+Allow: /
 
 Sitemap: https://zasimmallik.com/sitemap.xml
+# LLM Context Files:
+# https://zasimmallik.com/llms.txt
+# https://zasimmallik.com/llms-full.txt

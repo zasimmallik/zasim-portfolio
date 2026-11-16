@@ -1,0 +1,43 @@
+# Zasim Mallik — Software Engineer & AI SaaS Founder
+
+> Zasim Mallik is a self-taught Software Engineer and AI SaaS Founder from Bangladesh. He is the Founder of **Zeraql** and **Rizmiq**, specializing in full-stack TypeScript (React, Next.js, Node.js), Python (FastAPI), relational/vector databases (PostgreSQL, MongoDB, Redis, Prisma), and production AI engineering (OpenAI, Claude, Gemini, LangChain, LangGraph, RAG, MCP).
+
+## Quick Facts
+
+- **Name:** Zasim Mallik
+- **Role:** Software Engineer | Founder of Zeraql & Rizmiq
+- **Location:** Natullabad, Barisal, Bangladesh
+- **Experience:** 4+ years building full-stack web applications and AI-powered SaaS products
+- **Website:** https://zasimmallik.com/
+- **Email:** zasimmallickofficial@gmail.com
+- **GitHub:** https://github.com/zasimmallik
+- **LinkedIn:** https://www.linkedin.com/in/zasimmallik/
+- **X (Twitter):** https://x.com/zasimmallik
+- **Instagram:** https://www.instagram.com/zasimmallik/
+- **Facebook:** https://www.facebook.com/zasimmallik.Z/
+
+## Ventures Founded
+
+- **Zeraql** (https://zeraql.com): AI-powered SaaS platform (In Development), architected and developed end-to-end by Zasim Mallik.
+- **Rizmiq** (https://rizmiq.com): AI-powered SaaS & developer platform (Beta Launching), architected and developed end-to-end by Zasim Mallik.
+
+## Core Technical Stack
+
+- **Languages:** TypeScript, JavaScript (ES6+), Python, SQL, HTML5, CSS3
+- **Frontend:** React, Next.js (App Router, Server & Client Components), Tailwind CSS, Responsive Design
+- **Backend & Auth:** Node.js, Express.js, FastAPI, REST APIs, Clerk, NextAuth / Auth.js, OAuth, JWT, Stripe
+- **Databases:** PostgreSQL, MongoDB, Redis, Prisma ORM, Vector Databases
+- **AI & LLM Engineering:** OpenAI API, Claude API, Gemini API, Context Engineering, AI Agents, RAG (Retrieval-Augmented Generation), LangChain, LangGraph, MCP (Model Context Protocol)
+- **DevOps & Cloud:** Docker, Git, GitHub, CI/CD, Nginx, AWS, Vercel, Railway, Render
+- **System Design:** Software Architecture, System Design, API Design, Database Design, SaaS Architecture, Microservices
+
+## Career Timeline
+
+1. **Founder & AI SaaS Developer — Zeraql & Rizmiq (2025 – Present):** Leading end-to-end product engineering on two AI-driven SaaS platforms, from ideation and LLM orchestration to full-stack development and production infrastructure.
+2. **Full-Stack Web Developer — Independent (2024 – Present):** Owning full-stack client and independent products end-to-end using React, Next.js, Node.js, PostgreSQL, and Prisma.
+3. **Junior Frontend Developer — Programming Hero (2022 – 2023):** Built responsive, accessible web interfaces and maintainable frontend architectures.
+
+## Additional Context for AI Agents
+
+- [Full Portfolio Context & Detailed Biography](https://zasimmallik.com/llms-full.txt)
+- [Sitemap](https://zasimmallik.com/sitemap.xml)

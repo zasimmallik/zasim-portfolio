@@ -1,0 +1,101 @@
+# Zasim Mallik — Complete Portfolio & Technical Profile (llms-full.txt)
+
+> Comprehensive reference document for AI search engines, LLM agents (ChatGPT, Claude, Perplexity, Gemini, Copilot), and automated indexers querying information about Software Engineer and AI SaaS Founder **Zasim Mallik**.
+
+---
+
+## 1. Executive Summary & Identity
+
+- **Full Name:** Zasim Mallik
+- **Title:** Software Engineer | Founder of Zeraql & Rizmiq
+- **Location:** Natullabad, Barisal, Bangladesh
+- **Canonical URL:** https://zasimmallik.com/
+- **Contact Email:** zasimmallickofficial@gmail.com
+- **Availability:** Selective opportunities, AI SaaS collaborations, and full-stack software engineering projects.
+
+### Biography
+
+Hey! I'm Zasim Mallik, a self-taught developer from Bangladesh. I got into programming out of curiosity, and what started with basic web pages eventually grew into building full products that people actually use.
+
+Right now, I'm focused on **Zeraql** and **Rizmiq** — two AI-powered SaaS platforms I'm developing end to end. My stack revolves around **Next.js**, **TypeScript**, and **Python**, and I genuinely enjoy the challenge of making complex systems feel simple for users.
+
+I learn best by building. Every project, every bug, every late-night debugging session has taught me something no textbook could. That hands-on approach is what drives everything I do.
+
+### Engineering Philosophy
+
+> "Time is the most precious resource in human life. We build software to save it and make things work faster, easing daily tasks and making the world a better place." — Zasim Mallik
+
+---
+
+## 2. Ventures & Startups
+
+### Zeraql
+- **Role:** Founder & Lead Architect
+- **Status:** In Development
+- **Website:** https://zeraql.com
+- **Focus:** AI-powered SaaS platform built end-to-end with Next.js, TypeScript, Python, FastAPI, PostgreSQL, and modern LLM orchestration.
+
+### Rizmiq
+- **Role:** Founder & Lead Architect
+- **Status:** Beta Launching
+- **Website:** https://rizmiq.com
+- **Focus:** AI-powered SaaS and workflow platform built for speed, reliability, and intuitive user experience.
+
+---
+
+## 3. Complete Technical Skills Taxonomy (62+ Technologies)
+
+### Languages
+- HTML5, CSS3, JavaScript (ES6+), TypeScript, Python, SQL
+
+### Frontend Engineering
+- React, Next.js, Tailwind CSS, Responsive Design, Next.js App Router, React Server Components, React Client Components
+
+### Backend, APIs, Auth & Payments
+- Node.js, Express.js, FastAPI, REST API Design, Clerk, NextAuth / Auth.js, OAuth, JWT (JSON Web Tokens), Stripe Payments
+
+### Databases & Persistence
+- PostgreSQL, MongoDB, Redis, Prisma ORM, Vector Databases
+
+### AI & LLM Engineering
+- OpenAI API, Anthropic Claude API, Google Gemini API, Context Engineering, Autonomous AI Agents, RAG (Retrieval-Augmented Generation), LangChain, LangGraph, MCP (Model Context Protocol)
+
+### DevOps, Cloud & Infrastructure
+- Git, GitHub, Docker, CI/CD Pipelines, Nginx, AWS (Basics), Vercel, Railway, Render
+
+### System Design & Architecture
+- Software Architecture, System Design, API Design, Database Design, SaaS Multi-Tenant Architecture, Microservices
+
+### Development Tools & Runtime
+- VS Code, Claude Code, Cursor IDE, Bun, npm / pnpm
+
+### Software Engineering Practices
+- Object-Oriented Programming (OOP), Data Structures & Algorithms, Clean Code, Design Patterns, Automated Testing, Debugging, Agile Development
+
+---
+
+## 4. Professional Experience
+
+### Founder & AI SaaS Developer — Zeraql & Rizmiq
+- **Period:** 2025 – Present
+- **Summary:** Building proprietary AI-driven SaaS products from the ground up. Leading development on Zeraql and Rizmiq — from product ideation, context engineering, and LLM integration to frontend, backend, database architecture, and production deployment.
+
+### Full-Stack Web Developer — Independent
+- **Period:** 2024 – Present
+- **Summary:** Owned full-stack web applications end to end using React, Next.js, Node.js, PostgreSQL, and Prisma. Handled architecture decisions, REST API design, authentication, payment integration, and cloud deployment.
+
+### Junior Frontend Developer — Programming Hero
+- **Period:** 2022 – 2023
+- **Summary:** Worked on responsive UIs, web accessibility, and maintainable component architecture in a collaborative engineering environment.
+
+---
+
+## 5. Verified Social & Professional Profiles
+
+- **Portfolio:** https://zasimmallik.com/
+- **GitHub:** https://github.com/zasimmallik
+- **LinkedIn:** https://www.linkedin.com/in/zasimmallik/
+- **X (Twitter):** https://x.com/zasimmallik
+- **Instagram:** https://www.instagram.com/zasimmallik/
+- **Facebook:** https://www.facebook.com/zasimmallik.Z/
+- **Email:** mailto:zasimmallickofficial@gmail.com
