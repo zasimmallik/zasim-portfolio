@@ -130,7 +130,7 @@ export default function Projects() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10 md:space-y-12 relative z-10">
         <div className="text-center space-y-3 sm:space-y-4 md:space-y-5">
           {/* Small Title */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#F3F5F9] border border-[#22242D] dark:border-[#C5CDD9] text-[#F3F5F9] dark:text-[#090A0C] text-xs font-semibold tracking-wider uppercase font-mono shadow-sm transition-all duration-200">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#DFE4EC] border border-[#22242D] dark:border-[#C5CDD9] text-[#F3F5F9] dark:text-[#090A0C] text-xs font-semibold tracking-wider uppercase font-mono shadow-sm transition-all duration-200">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-400 dark:bg-blue-600 animate-pulse shrink-0"></span>
             Projects
           </div>
@@ -332,7 +332,7 @@ function Card({
                     href={liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#18181B] hover:bg-black dark:bg-[#F3F5F9] dark:hover:bg-[#DFE4EC] text-[#F3F5F9] dark:text-[#050507] shadow-[0_6px_16px_-3px_rgba(15,23,42,0.20)] dark:shadow-sm transition-all duration-200"
+                    className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#13141A] hover:bg-[#090A0C] dark:bg-[#DFE4EC] dark:hover:bg-[#F3F5F9] text-[#F3F5F9] dark:text-[#050507] border border-[#22242D] dark:border-[#C5CDD9] shadow-sm transition-all duration-200"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >

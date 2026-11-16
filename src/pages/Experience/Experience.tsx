@@ -57,7 +57,7 @@ const ExperienceCard = ({
       <div className="absolute left-4 md:left-1/2 z-20 transform -translate-x-1/2 flex items-center justify-center">
         <div
           className={`rounded-full transition-all duration-200 ${isLatest
-              ? 'w-3.5 h-3.5 bg-slate-900 dark:bg-white ring-4 ring-[#DFE4EC] dark:ring-[#050507]'
+              ? 'w-3.5 h-3.5 bg-slate-900 dark:bg-[#DFE4EC] ring-4 ring-[#DFE4EC] dark:ring-[#050507]'
               : 'w-2.5 h-2.5 bg-slate-400 dark:bg-slate-600 ring-4 ring-[#DFE4EC] dark:ring-[#050507]'
             }`}
         />
@@ -137,7 +137,7 @@ const AnimatedTimelineLine = () => {
       <div className="absolute inset-0 bg-[#C5CDD9] dark:bg-[#22242D]" />
       {/* Animated fill line */}
       <div
-        className="absolute top-0 left-0 right-0 bg-slate-900 dark:bg-white transition-all duration-300 ease-out"
+        className="absolute top-0 left-0 right-0 bg-slate-900 dark:bg-[#DFE4EC] transition-all duration-300 ease-out"
         style={{
           height: `${fillHeight}%`,
         }}
@@ -202,7 +202,7 @@ const ExperienceSection = () => {
           ref={headerRef}
           className={`text-center max-w-3xl mx-auto mb-20 transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#F3F5F9] border border-[#22242D] dark:border-[#C5CDD9] text-[#F3F5F9] dark:text-[#090A0C] text-xs font-semibold font-mono uppercase tracking-wider mb-6 shadow-sm transition-all duration-200">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#DFE4EC] border border-[#22242D] dark:border-[#C5CDD9] text-[#F3F5F9] dark:text-[#090A0C] text-xs font-semibold font-mono uppercase tracking-wider mb-6 shadow-sm transition-all duration-200">
             <Activity className="w-3.5 h-3.5 text-blue-400 dark:text-blue-600 shrink-0" />
             <span>Career Journey</span>
           </div>
