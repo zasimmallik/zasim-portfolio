@@ -124,7 +124,7 @@ export default function Projects() {
 
   return (
     <section
-      className="bg-[#ECEEF2] dark:bg-[#050507] text-slate-900 dark:text-slate-200 py-12 sm:py-16 md:py-24 lg:py-28 relative transition-colors duration-150"
+      className="bg-[#DFE4EC] dark:bg-[#050507] text-slate-900 dark:text-slate-200 py-12 sm:py-16 md:py-24 lg:py-28 relative transition-colors duration-150"
       ref={container}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10 md:space-y-12 relative z-10">
@@ -232,10 +232,10 @@ function Card({
         {/* Modern split card design with Glassmorphism - Enhanced */}
         <div
           ref={cardRef}
-          className="w-full flex flex-col md:flex-row bg-[#FFFFFF] dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] rounded-3xl overflow-hidden shadow-sm dark:shadow-2xl transition-all duration-200 group relative"
+          className="w-full flex flex-col md:flex-row bg-[#F3F5F9] dark:bg-[#13141A] border border-[#C5CDD9] dark:border-[#22242D] rounded-3xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(15,23,42,0.14),0_4px_16px_-2px_rgba(15,23,42,0.06)] dark:shadow-2xl transition-all duration-200 group relative"
         >
           {/* Image section */}
-          <div className="w-full md:w-[52%] lg:w-[55%] h-[190px] xs:h-[210px] sm:h-[250px] md:h-[380px] lg:h-[450px] relative overflow-hidden z-10 border-b md:border-b-0 md:border-r border-[#D6DAE2] dark:border-[#22242D]">
+          <div className="w-full md:w-[52%] lg:w-[55%] h-[190px] xs:h-[210px] sm:h-[250px] md:h-[380px] lg:h-[450px] relative overflow-hidden z-10 border-b md:border-b-0 md:border-r border-[#C5CDD9] dark:border-[#22242D]">
             <motion.div
               className="w-full h-full"
               whileHover={{ scale: 1.05 }}
@@ -255,14 +255,14 @@ function Card({
 
             {/* Project number badge */}
             <div className="absolute top-4 left-4 md:top-6 md:left-6 z-30">
-              <div className="bg-[#FFFFFF]/90 dark:bg-[#0C0D12]/90 backdrop-blur-md border border-[#D6DAE2] dark:border-[#22242D] text-slate-900 dark:text-white px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold tracking-wide shadow-sm font-mono">
+              <div className="bg-[#F3F5F9]/90 dark:bg-[#0C0D12]/90 backdrop-blur-md border border-[#C5CDD9] dark:border-[#22242D] text-slate-900 dark:text-white px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold tracking-wide shadow-sm font-mono">
                 0{i + 1}
               </div>
             </div>
           </div>
 
           {/* Content section */}
-          <div className="w-full md:w-[48%] lg:w-[45%] p-5 sm:p-7 md:p-7 lg:p-10 xl:p-12 flex flex-col justify-between relative bg-[#FFFFFF] dark:bg-[#13141A] z-10">
+          <div className="w-full md:w-[48%] lg:w-[45%] p-5 sm:p-7 md:p-7 lg:p-10 xl:p-12 flex flex-col justify-between relative bg-[#F3F5F9] dark:bg-[#13141A] z-10">
             <div>
               <div className="flex items-center gap-3 mb-3 sm:mb-4">
                 <div
@@ -286,7 +286,7 @@ function Card({
                 {tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="text-[10px] sm:text-xs px-2.5 py-1 rounded bg-[#F4F5F8] dark:bg-[#1A1B22] border border-[#D6DAE2] dark:border-[#22242D] text-slate-800 dark:text-slate-300 font-medium tracking-wide shadow-none"
+                    className="text-[10px] sm:text-xs px-2.5 py-1 rounded bg-[#E7ECF3] dark:bg-[#1A1B22] border border-[#C5CDD9] dark:border-[#22242D] text-slate-800 dark:text-slate-300 font-medium tracking-wide shadow-none"
                   >
                     {tag}
                   </span>
@@ -294,7 +294,7 @@ function Card({
               </div>
             </div>
 
-            <div className="mt-5 sm:mt-8 pt-4 sm:pt-6 border-t border-[#D6DAE2] dark:border-[#22242D]">
+            <div className="mt-5 sm:mt-8 pt-4 sm:pt-6 border-t border-[#C5CDD9] dark:border-[#22242D]">
               <div className="flex items-center gap-4">
                 {/* GitHub Link */}
                 {githubLink && (
@@ -302,7 +302,7 @@ function Card({
                     href={githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#ECEEF2] hover:bg-[#E2E5EC] dark:bg-[#1A1B24] dark:hover:bg-[#22242D] border border-[#D6DAE2] dark:border-[#22242D] shadow-none transition-all duration-200"
+                    className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#E7ECF3] hover:bg-[#DDE2EC] dark:bg-[#1A1B24] dark:hover:bg-[#22242D] border border-[#C5CDD9] dark:border-[#22242D] shadow-none transition-all duration-200"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >

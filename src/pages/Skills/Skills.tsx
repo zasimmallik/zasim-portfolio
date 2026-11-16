@@ -67,7 +67,7 @@ const SkillCard = ({
     >
       {/* Card body with tactile elevation */}
       <div
-        className="relative h-full rounded-2xl overflow-hidden border border-[#D6DAE2] dark:border-[#22242D] bg-[#FFFFFF] dark:bg-[#13141A] shadow-sm dark:shadow-xl transition-all duration-200 group-hover:-translate-y-1.5 group-hover:border-slate-400 dark:group-hover:border-slate-600"
+        className="relative h-full rounded-2xl overflow-hidden border border-[#C5CDD9] dark:border-[#22242D] bg-[#F3F5F9] dark:bg-[#13141A] shadow-[0_12px_32px_-8px_rgba(15,23,42,0.09),0_2px_8px_-1px_rgba(15,23,42,0.04)] hover:shadow-[0_20px_42px_-10px_rgba(15,23,42,0.14),0_4px_12px_-2px_rgba(15,23,42,0.06)] dark:shadow-xl transition-all duration-200 group-hover:-translate-y-1.5 group-hover:border-slate-400 dark:group-hover:border-slate-600"
       >
         {/* Content */}
         <div className="relative z-10 p-6 sm:p-7 flex flex-col h-full">
@@ -75,7 +75,7 @@ const SkillCard = ({
           <div className="flex items-center gap-4 mb-6">
             <div className="relative">
               <motion.div
-                className="relative p-3 rounded-xl border border-[#D6DAE2] dark:border-[#22242D] bg-[#F4F5F8] dark:bg-[#1A1B22] transition-colors duration-200"
+                className="relative p-3 rounded-xl border border-[#C5CDD9] dark:border-[#22242D] bg-[#E7ECF3] dark:bg-[#1A1B22] transition-colors duration-200"
                 whileHover={{ scale: 1.08 }}
                 transition={{ type: "spring", stiffness: 280, damping: 14 }}
               >
@@ -102,7 +102,7 @@ const SkillCard = ({
                 variants={badgeVariants}
               >
                 <motion.span
-                  className="relative inline-flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-[13px] font-medium rounded-lg bg-[#F4F5F8] dark:bg-[#1A1B22] text-slate-800 dark:text-slate-200 border border-[#D6DAE2] dark:border-[#22242D] hover:border-slate-400 dark:hover:border-slate-500 transition-colors"
+                  className="relative inline-flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-[13px] font-medium rounded-lg bg-[#E7ECF3] dark:bg-[#1A1B22] text-slate-800 dark:text-slate-200 border border-[#C5CDD9] dark:border-[#22242D] hover:border-slate-400 dark:hover:border-slate-500 transition-colors"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 380, damping: 18 }}
@@ -285,7 +285,7 @@ const SkillsSection = () => {
   const totalSkills = skillCategories.reduce((acc, cat) => acc + cat.skills.length, 0);
 
   return (
-    <section id="skills" className="relative py-20 sm:py-32 bg-[#ECEEF2] dark:bg-[#050507] overflow-hidden noise-overlay transition-colors duration-150">
+    <section id="skills" className="relative py-20 sm:py-32 bg-[#DFE4EC] dark:bg-[#050507] overflow-hidden noise-overlay transition-colors duration-150">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(59,130,246,0.04)_0%,transparent_70%)]" />
       </div>

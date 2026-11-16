@@ -41,10 +41,10 @@ const FloatingInput = ({
           type={type}
           name={name}
           id={`contact-${name}`}
-          className={`w-full px-4 pt-6 pb-2 sm:px-5 sm:pt-7 sm:pb-3 rounded-xl bg-[#ECEEF2] dark:bg-[#0C0D12] border text-slate-900 dark:text-white transition-all duration-200 text-base peer ${
+          className={`w-full px-4 pt-6 pb-2 sm:px-5 sm:pt-7 sm:pb-3 rounded-xl bg-[#E7ECF3] dark:bg-[#0C0D12] border text-slate-900 dark:text-white transition-all duration-200 text-base peer ${
             error
               ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
-              : 'border-[#D6DAE2] dark:border-[#22242D] focus:border-slate-900 dark:focus:border-white hover:border-slate-400 dark:hover:border-slate-600'
+              : 'border-[#C5CDD9] dark:border-[#22242D] focus:border-slate-900 dark:focus:border-white hover:border-slate-400 dark:hover:border-slate-600'
           } focus:ring-1 focus:outline-none`}
           value={value}
           onChange={onChange}
@@ -109,10 +109,10 @@ const FloatingTextarea = ({
           name={name}
           id={`contact-${name}`}
           rows={5}
-          className={`w-full px-4 pt-6 pb-2 sm:px-5 sm:pt-7 sm:pb-3 rounded-xl bg-[#ECEEF2] dark:bg-[#0C0D12] border text-slate-900 dark:text-white transition-all duration-200 resize-none text-base peer ${
+          className={`w-full px-4 pt-6 pb-2 sm:px-5 sm:pt-7 sm:pb-3 rounded-xl bg-[#E7ECF3] dark:bg-[#0C0D12] border text-slate-900 dark:text-white transition-all duration-200 resize-none text-base peer ${
             error
               ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20'
-              : 'border-[#D6DAE2] dark:border-[#22242D] focus:border-slate-900 dark:focus:border-white hover:border-slate-400 dark:hover:border-slate-600'
+              : 'border-[#C5CDD9] dark:border-[#22242D] focus:border-slate-900 dark:focus:border-white hover:border-slate-400 dark:hover:border-slate-600'
           } focus:ring-1 focus:outline-none`}
           value={value}
           onChange={onChange}
@@ -286,7 +286,7 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="bg-[#ECEEF2] dark:bg-[#050507] text-slate-800 dark:text-slate-200 py-12 sm:py-20 lg:py-32 relative overflow-hidden transition-colors duration-150"
+      className="bg-[#DFE4EC] dark:bg-[#050507] text-slate-800 dark:text-slate-200 py-12 sm:py-20 lg:py-32 relative overflow-hidden transition-colors duration-150"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -322,9 +322,9 @@ export default function Contact() {
               <div className="group relative">
                 <a
                   href={`mailto:${CONTACT_INFO.EMAIL}`}
-                  className="relative flex items-center gap-4 sm:gap-5 bg-[#FFFFFF] dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] group-hover:border-slate-400 dark:group-hover:border-slate-600 p-4 sm:p-6 rounded-2xl transition-all duration-200 group-hover:-translate-y-0.5 shadow-sm dark:shadow-xl block"
+                  className="relative flex items-center gap-4 sm:gap-5 bg-[#F3F5F9] hover:bg-[#F7F8FB] dark:bg-[#13141A] border border-[#C5CDD9] dark:border-[#22242D] group-hover:border-slate-400 dark:group-hover:border-slate-600 p-4 sm:p-6 rounded-2xl transition-all duration-200 group-hover:-translate-y-0.5 shadow-[0_10px_28px_-6px_rgba(15,23,42,0.09),0_2px_6px_-1px_rgba(15,23,42,0.04)] hover:shadow-[0_16px_36px_-8px_rgba(15,23,42,0.13)] dark:shadow-xl block"
                 >
-                  <div className="bg-[#F4F5F8] dark:bg-[#1A1B22] p-3 sm:p-4 rounded-xl border border-[#D6DAE2] dark:border-[#22242D] text-slate-800 dark:text-slate-200 transition-colors shrink-0">
+                  <div className="bg-[#E7ECF3] dark:bg-[#1A1B22] p-3 sm:p-4 rounded-xl border border-[#C5CDD9] dark:border-[#22242D] text-slate-800 dark:text-slate-200 transition-colors shrink-0">
                     <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div className="min-w-0 flex-1">
@@ -337,8 +337,8 @@ export default function Contact() {
 
               {/* Location Card */}
               <div className="group relative">
-                <div className="relative flex items-center gap-4 sm:gap-5 bg-[#FFFFFF] dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] p-4 sm:p-6 rounded-2xl transition-all duration-200 shadow-sm dark:shadow-xl">
-                  <div className="bg-[#F4F5F8] dark:bg-[#1A1B22] p-3 sm:p-4 rounded-xl border border-[#D6DAE2] dark:border-[#22242D] text-slate-800 dark:text-slate-200 transition-colors shrink-0">
+                <div className="relative flex items-center gap-4 sm:gap-5 bg-[#F3F5F9] dark:bg-[#13141A] border border-[#C5CDD9] dark:border-[#22242D] p-4 sm:p-6 rounded-2xl transition-all duration-200 shadow-[0_10px_28px_-6px_rgba(15,23,42,0.09),0_2px_6px_-1px_rgba(15,23,42,0.04)] dark:shadow-xl">
+                  <div className="bg-[#E7ECF3] dark:bg-[#1A1B22] p-3 sm:p-4 rounded-xl border border-[#C5CDD9] dark:border-[#22242D] text-slate-800 dark:text-slate-200 transition-colors shrink-0">
                     <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div className="min-w-0 flex-1">
@@ -351,9 +351,9 @@ export default function Contact() {
 
             {/* Additional info card */}
             <div className="relative mt-8">
-              <div className="relative bg-[#FFFFFF] dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] rounded-2xl p-6 sm:p-8 shadow-sm dark:shadow-none">
+              <div className="relative bg-[#F3F5F9] dark:bg-[#13141A] border border-[#C5CDD9] dark:border-[#22242D] rounded-2xl p-6 sm:p-8 shadow-[0_10px_28px_-6px_rgba(15,23,42,0.09),0_2px_6px_-1px_rgba(15,23,42,0.04)] dark:shadow-none">
                 <div className="flex gap-4">
-                  <div className="text-slate-300 dark:text-[#22242D] text-5xl leading-none font-bold select-none" style={{ fontFamily: 'var(--font-display)' }}>&ldquo;</div>
+                  <div className="text-slate-300/80 dark:text-[#22242D] text-5xl leading-none font-bold select-none" style={{ fontFamily: 'var(--font-display)' }}>&ldquo;</div>
                   <p className="text-slate-700 dark:text-slate-300 text-lg leading-relaxed italic pt-2">
                     Every great product starts with a conversation. Send me a message, and I&apos;ll reply to every one.
                   </p>
@@ -365,7 +365,7 @@ export default function Contact() {
           {/* Contact Form */}
           <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <form onSubmit={handleSubmit} className="relative group">
-              <div className="relative bg-[#FFFFFF] dark:bg-[#13141A] p-5 sm:p-8 md:p-10 rounded-3xl shadow-sm dark:shadow-2xl border border-[#D6DAE2] dark:border-[#22242D]">
+              <div className="relative bg-[#F3F5F9] dark:bg-[#13141A] p-5 sm:p-8 md:p-10 rounded-3xl shadow-[0_20px_50px_-12px_rgba(15,23,42,0.14),0_4px_16px_-2px_rgba(15,23,42,0.06)] dark:shadow-2xl border border-[#C5CDD9] dark:border-[#22242D]">
                 <div className="space-y-5 sm:space-y-6">
                   <div className="grid grid-cols-1 gap-5 sm:gap-6">
                     {/* Floating Label Inputs */}

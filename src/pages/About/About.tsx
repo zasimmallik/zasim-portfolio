@@ -29,7 +29,7 @@ export default function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="py-20 sm:py-28 md:py-32 lg:py-40 text-slate-900 dark:text-white bg-[#ECEEF2] dark:bg-[#050507] relative overflow-hidden transition-colors duration-150"
+      className="py-20 sm:py-28 md:py-32 lg:py-40 text-slate-900 dark:text-white bg-[#DFE4EC] dark:bg-[#050507] relative overflow-hidden transition-colors duration-150"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className={`grid grid-cols-1 lg:grid-cols-[6fr_7fr] gap-12 lg:gap-20 items-center transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
@@ -37,7 +37,7 @@ export default function About() {
           {/* Left Side - Image */}
           <div className="relative group order-2 lg:order-1 max-w-md mx-auto lg:max-w-none w-full">
             <div className="relative z-10">
-              <div className="relative rounded-2xl overflow-hidden border border-[#D6DAE2] dark:border-[#22242D] bg-white dark:bg-[#13141A] shadow-xl dark:shadow-2xl transition-all duration-200">
+              <div className="relative rounded-2xl overflow-hidden border border-[#C5CDD9] dark:border-[#22242D] bg-[#F3F5F9] dark:bg-[#13141A] shadow-[0_24px_60px_-12px_rgba(15,23,42,0.16),0_6px_20px_-4px_rgba(15,23,42,0.08)] dark:shadow-2xl transition-all duration-200">
                 <img
                   src={HeroImg}
                   className="w-full h-auto object-cover"
@@ -77,11 +77,11 @@ export default function About() {
             </div>
 
             {/* Quote / Philosophy */}
-            <div className="relative p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] shadow-xs transition-all duration-200">
+            <div className="relative p-5 sm:p-6 rounded-2xl bg-[#F3F5F9] dark:bg-[#13141A] border border-[#C5CDD9] dark:border-[#22242D] shadow-[0_10px_30px_-8px_rgba(15,23,42,0.09),0_2px_8px_-1px_rgba(15,23,42,0.04)] dark:shadow-xs transition-all duration-200">
               {/* Left accent stripe */}
               <div className="absolute left-0 top-5 bottom-5 w-[3px] rounded-full bg-blue-600 dark:bg-blue-400" />
               {/* Large decorative quote mark */}
-              <div className="absolute top-2 right-4 text-6xl font-bold text-slate-200 dark:text-[#22242D] leading-none select-none" style={{ fontFamily: 'var(--font-display)' }}>&ldquo;</div>
+              <div className="absolute top-2 right-4 text-6xl font-bold text-slate-300/70 dark:text-[#22242D] leading-none select-none" style={{ fontFamily: 'var(--font-display)' }}>&ldquo;</div>
               <blockquote className="relative z-10 pl-4">
                 <p className="text-sm sm:text-base font-normal italic text-slate-800 dark:text-slate-300 leading-relaxed tracking-wide mb-3">
                   &ldquo;Time is the most precious resource we have. We build software to save it, making things work faster, simplifying everyday tasks, and making the world a better place.&rdquo;
@@ -115,7 +115,7 @@ export default function About() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="w-10 h-10 rounded-xl bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] flex items-center justify-center text-slate-600 dark:text-[#A1A1AA] hover:text-slate-950 dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-500 hover:-translate-y-0.5 transition-all duration-150 shadow-xs"
+                    className="w-10 h-10 rounded-xl bg-[#F3F5F9] hover:bg-[#F7F8FB] dark:bg-[#13141A] dark:hover:bg-[#181922] border border-[#C5CDD9] dark:border-[#22242D] flex items-center justify-center text-slate-600 dark:text-[#A1A1AA] hover:text-slate-950 dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-500 hover:-translate-y-0.5 transition-all duration-150 shadow-[0_4px_12px_-2px_rgba(15,23,42,0.08)] dark:shadow-xs"
                   >
                     <Icon className="w-4 h-4" />
                   </a>
