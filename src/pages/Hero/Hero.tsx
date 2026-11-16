@@ -133,13 +133,11 @@ const FILES: Record<string, CodeFile> = {
 export const activeProjects: Startup[] = [
   {
     name: 'Zeraql',
-    
     status: 'In Development',
     url: 'https://zeraql.com'
   },
   {
     name: 'Rizmiq',
-    
     status: 'Beta Launching',
     url: 'https://rizmiq.com'
   }
@@ -152,7 +150,7 @@ export const activeProjects: Startup[] = [
     prismLanguage: 'css',
     content: `.developer-card {
   name: "Zasim Mallik";
-  email: "zasimmallik@gmail.com";
+  email: "zasimmallickofficial@gmail.com";
   linkedin: "linkedin.com/in/zasimmallik";
   github: "github.com/zasimmallik";
   twitter: "x.com/zasimmallik";
@@ -343,7 +341,7 @@ export default function Hero() {
 
   return (
     <>
-      <main className="bg-[#ECEEF2] dark:bg-[#050507] text-[#090A0C] dark:text-[#FFFFFF] min-h-screen relative overflow-hidden selection:bg-blue-500/20 dark:selection:bg-blue-500/30">
+      <div role="region" aria-label="Hero Introduction" className="bg-[#ECEEF2] dark:bg-[#050507] text-[#090A0C] dark:text-[#FFFFFF] min-h-screen relative overflow-hidden selection:bg-blue-500/20 dark:selection:bg-blue-500/30">
 
         {/* Dynamic Multi-Layer Background (Aurora + Light Orbs) */}
         <div className="absolute inset-0 bg-[#ECEEF2] dark:bg-[#050507] z-0">
@@ -363,32 +361,23 @@ export default function Hero() {
 
           {/* Main Content Layout Grid */}
           <div
-            className="container mx-auto flex flex-col lg:flex-row items-center justify-between relative pt-24 pb-8 sm:pt-32 sm:pb-12 md:pt-32 lg:py-12 lg:pt-28 xl:pt-28 px-3 xs:px-4 sm:px-6 gap-10 sm:gap-12 md:gap-14 lg:gap-16 xl:gap-24"
-            style={{
-              paddingTop:
-                window.innerWidth >= 1360 &&
-                  window.innerWidth <= 1370 &&
-                  window.innerHeight >= 760 &&
-                  window.innerHeight <= 775
-                  ? "12rem"
-                  : "",
-            }}
+            className="container mx-auto flex flex-col lg:flex-row items-center justify-between relative pt-20 pb-8 sm:pt-28 sm:pb-12 md:pt-32 lg:py-12 lg:pt-28 xl:pt-28 px-2 xs:px-4 sm:px-6 gap-8 sm:gap-10 md:gap-12 lg:gap-10 xl:gap-20"
           >
             {/* Left Column - Redesigned Content & Text */}
-            <div className="w-full lg:w-[48%] flex flex-col items-start text-left relative z-20">
+            <div className="w-full lg:w-[47%] xl:w-[48%] flex flex-col items-start text-left relative z-20">
 
               {/* Minimalist Status Badge */}
-              <div className="animate-blur-in relative inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] mb-6 sm:mb-8 transition-colors duration-150 shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse shrink-0" />
-                <span className="text-slate-700 dark:text-slate-300 text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase font-mono">
+              <div className="animate-blur-in relative inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#ECEEF2] border border-[#22242D] dark:border-[#D6DAE2] mb-5 sm:mb-8 transition-colors duration-150 shadow-sm max-w-full">
+                <span className="w-2 h-2 rounded-full bg-blue-400 dark:bg-blue-600 animate-pulse shrink-0" />
+                <span className="text-[#ECEEF2] dark:text-[#090A0C] text-[10px] sm:text-xs font-semibold tracking-[0.15em] sm:tracking-[0.2em] uppercase font-mono truncate">
                   Welcome to my portfolio
                 </span>
               </div>
 
               {/* Typography Redesign (Bold Headline + Glowing Accents) */}
-              <div className="relative mb-6 sm:mb-8 animate-blur-in delay-100 w-full">
-                <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-extrabold leading-[0.9] tracking-tight relative text-slate-950 dark:text-white">
-                  <span className="block text-slate-700 dark:text-slate-400 font-normal text-xl xs:text-2xl sm:text-3xl md:text-4xl mb-3 tracking-normal">
+              <div className="relative mb-5 sm:mb-8 animate-blur-in delay-100 w-full">
+                <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-extrabold leading-[0.95] lg:leading-[0.9] tracking-tight relative text-slate-950 dark:text-white">
+                  <span className="block text-slate-700 dark:text-slate-400 font-normal text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl mb-2 sm:mb-3 tracking-normal">
                     Hey, I&apos;m
                   </span>
                   <span className="relative block sm:inline-block text-slate-950 dark:text-white">
@@ -398,7 +387,7 @@ export default function Hero() {
               </div>
 
               {/* Sub-Header & Role Flip Words */}
-              <div className="animate-blur-in delay-200 relative inline-flex items-center gap-2.5 sm:gap-3 px-4 py-2 sm:px-4.5 sm:py-2.5 rounded-full bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] mb-8 sm:mb-10 backdrop-blur-md hover:border-blue-500/40 dark:hover:border-blue-500/30 transition-all duration-200 group cursor-default w-full sm:w-auto max-w-full shadow-xs overflow-hidden">
+              <div className="animate-blur-in delay-200 relative inline-flex items-center gap-2.5 sm:gap-3 px-3.5 py-2 sm:px-4.5 sm:py-2.5 rounded-full bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] mb-6 sm:mb-10 backdrop-blur-md hover:border-blue-500/40 dark:hover:border-blue-500/30 transition-all duration-200 group cursor-default w-full sm:w-auto max-w-full shadow-xs overflow-hidden">
                 <Rocket className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0 relative z-10" />
                 <span className="min-w-0 flex-1 sm:flex-none overflow-hidden relative z-10">
                   <FlipWords
@@ -409,19 +398,19 @@ export default function Hero() {
               </div>
 
               {/* Description Section with Light-up Side Accent */}
-              <div className="relative mb-10 max-w-xl group animate-blur-in delay-300 w-full">
+              <div className="relative mb-8 sm:mb-10 max-w-xl group animate-blur-in delay-300 w-full">
                 <div className="absolute -left-4 top-1 bottom-1 w-[3px] bg-gradient-to-b from-blue-600 via-cyan-500 to-transparent rounded-full hidden sm:block group-hover:from-blue-500 group-hover:scale-y-105 transition-all duration-200" />
-                <p className="text-base sm:text-lg md:text-xl text-slate-700 dark:text-slate-400 leading-relaxed font-normal tracking-wide group-hover:text-slate-950 dark:group-hover:text-slate-200 transition-colors duration-200 sm:pl-2">
+                <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-lg xl:text-xl text-slate-700 dark:text-slate-400 leading-relaxed font-normal tracking-wide group-hover:text-slate-950 dark:group-hover:text-slate-200 transition-colors duration-200 sm:pl-2">
                   I design, build, and ship web products — mostly AI-powered SaaS. Currently running two startups and always working on something new.
                 </p>
               </div>
 
               {/* Redesigned Floating Cards (Traits Showcase) */}
-              <div className="grid grid-cols-2 gap-3.5 sm:gap-4 w-full mb-10 animate-blur-in delay-300">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full mb-8 sm:mb-10 animate-blur-in delay-300">
 
                 {/* Card 1: Startups */}
-                <div className="relative flex flex-col items-start p-4 sm:p-4.5 rounded-2xl bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] hover:border-slate-400 dark:hover:border-slate-600 transition-all duration-200 group/card shadow-xs hover:-translate-y-0.5 overflow-hidden">
-                  <div className="p-2 rounded-xl bg-[#F4F5F8] dark:bg-[#1A1B22] border border-[#D6DAE2] dark:border-[#22242D] text-blue-600 dark:text-blue-400 mb-2.5 transition-transform group-hover/card:scale-105 shrink-0">
+                <div className="relative flex flex-col items-start p-3.5 sm:p-4.5 rounded-2xl bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] hover:border-slate-400 dark:hover:border-slate-600 transition-all duration-200 group/card shadow-xs hover:-translate-y-0.5 overflow-hidden">
+                  <div className="p-2 rounded-xl bg-[#F4F5F8] dark:bg-[#1A1B22] border border-[#D6DAE2] dark:border-[#22242D] text-blue-600 dark:text-blue-400 mb-2 sm:mb-2.5 transition-transform group-hover/card:scale-105 shrink-0">
                     <Briefcase className="w-4 h-4" />
                   </div>
                   <span className="text-[10px] uppercase font-mono text-slate-500 dark:text-slate-400 tracking-wider font-semibold">Startups</span>
@@ -429,8 +418,8 @@ export default function Hero() {
                 </div>
 
                 {/* Card 2: Core Focus */}
-                <div className="relative flex flex-col items-start p-4 sm:p-4.5 rounded-2xl bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] hover:border-slate-400 dark:hover:border-slate-600 transition-all duration-200 group/card shadow-xs hover:-translate-y-0.5 overflow-hidden">
-                  <div className="p-2 rounded-xl bg-[#F4F5F8] dark:bg-[#1A1B22] border border-[#D6DAE2] dark:border-[#22242D] text-blue-600 dark:text-blue-400 mb-2.5 transition-transform group-hover/card:scale-105 shrink-0">
+                <div className="relative flex flex-col items-start p-3.5 sm:p-4.5 rounded-2xl bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] hover:border-slate-400 dark:hover:border-slate-600 transition-all duration-200 group/card shadow-xs hover:-translate-y-0.5 overflow-hidden">
+                  <div className="p-2 rounded-xl bg-[#F4F5F8] dark:bg-[#1A1B22] border border-[#D6DAE2] dark:border-[#22242D] text-blue-600 dark:text-blue-400 mb-2 sm:mb-2.5 transition-transform group-hover/card:scale-105 shrink-0">
                     <Cpu className="w-4 h-4" />
                   </div>
                   <span className="text-[10px] uppercase font-mono text-slate-500 dark:text-slate-400 tracking-wider font-semibold">Core Focus</span>
@@ -439,7 +428,7 @@ export default function Hero() {
               </div>
 
               {/* Startup Web Projects Quick Links */}
-              <div className="flex flex-wrap gap-3 sm:gap-4 items-center mb-12 sm:pl-1 text-sm animate-blur-in delay-300">
+              <div className="flex flex-wrap gap-2.5 sm:gap-4 items-center mb-8 sm:mb-12 sm:pl-1 text-sm animate-blur-in delay-300">
                 <a
                   href="https://zeraql.com"
                   target="_blank"
@@ -493,7 +482,7 @@ export default function Hero() {
             </div>
 
             {/* Right Column - Senior Engineer Code Editor Window */}
-            <div className={`w-full lg:w-[48%] transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            <div className={`w-full lg:w-[50%] xl:w-[48%] transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
               <div className="relative group w-full max-w-full">
 
                 <div className="relative rounded-2xl bg-white dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] shadow-xl dark:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85),0_0_0_1px_rgba(255,255,255,0.06)] overflow-hidden transition-all duration-200">
@@ -501,20 +490,20 @@ export default function Hero() {
                   <div className="absolute top-0 inset-x-0 h-px bg-white/40 dark:bg-white/10 pointer-events-none z-20" />
 
                   {/* Window Header */}
-                  <div className="bg-[#ECEEF2] dark:bg-[#0A0B0E] px-4 py-3 flex items-center justify-between border-b border-[#D6DAE2] dark:border-[#1E2028] relative z-20">
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded-full bg-[#FF5F56]/90 hover:brightness-110 transition-all cursor-pointer"></div>
-                      <div className="w-3 h-3 rounded-full bg-[#FFBD2E]/90 hover:brightness-110 transition-all cursor-pointer"></div>
-                      <div className="w-3 h-3 rounded-full bg-[#27C93F]/90 hover:brightness-110 transition-all cursor-pointer"></div>
+                  <div className="bg-[#ECEEF2] dark:bg-[#0A0B0E] px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between gap-2 border-b border-[#D6DAE2] dark:border-[#1E2028] relative z-20">
+                    <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                      <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5F56]/90 hover:brightness-110 transition-all cursor-pointer"></div>
+                      <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FFBD2E]/90 hover:brightness-110 transition-all cursor-pointer"></div>
+                      <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#27C93F]/90 hover:brightness-110 transition-all cursor-pointer"></div>
                     </div>
 
                     {/* Centered title */}
-                    <div className="flex items-center gap-1.5 bg-white dark:bg-[#14151C] border border-[#D6DAE2] dark:border-[#262835] px-3 py-1 rounded-full text-[10px] sm:text-[11px] text-slate-700 dark:text-[#A1A1AA] font-mono shadow-xs">
-                      <Terminal className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-                      <span>zasim-IDE v1.1.3</span>
+                    <div className="flex items-center gap-1.5 bg-white dark:bg-[#14151C] border border-[#D6DAE2] dark:border-[#262835] px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-[11px] text-slate-700 dark:text-[#A1A1AA] font-mono shadow-xs min-w-0 truncate">
+                      <Terminal className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0" />
+                      <span className="truncate">zasim-IDE v1.1.3</span>
                     </div>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3 shrink-0">
                       {/* Copy code button */}
                       <button
                         onClick={copyToClipboard}
@@ -534,10 +523,10 @@ export default function Hero() {
                   </div>
 
                   {/* IDE Body */}
-                  <div className="flex min-h-[380px] sm:min-h-[440px] relative z-20">
+                  <div className="flex min-h-[340px] sm:min-h-[420px] relative z-20">
 
                     {/* Activity Bar (Visible on md and larger) */}
-                    <div className="hidden md:flex flex-col items-center justify-between py-4 w-12 bg-[#E8EBF0] dark:bg-[#08090C] border-r border-[#D6DAE2] dark:border-[#1E2028] shrink-0 select-none">
+                    <div className="hidden md:flex flex-col items-center justify-between py-4 w-11 xl:w-12 bg-[#E8EBF0] dark:bg-[#08090C] border-r border-[#D6DAE2] dark:border-[#1E2028] shrink-0 select-none">
                       <div className="flex flex-col items-center gap-6 w-full">
                         {/* Files Explorer Toggle */}
                         <button
@@ -572,7 +561,7 @@ export default function Hero() {
 
                     {/* File Explorer Sidebar */}
                     {isSidebarExpanded && (
-                      <div className="hidden md:block w-44 bg-[#F4F6F9] dark:bg-[#0B0C10] border-r border-[#D6DAE2] dark:border-[#1E2028] py-3 select-none text-left font-sans shrink-0 overflow-y-auto">
+                      <div className="hidden md:block w-36 xl:w-44 bg-[#F4F6F9] dark:bg-[#0B0C10] border-r border-[#D6DAE2] dark:border-[#1E2028] py-3 select-none text-left font-sans shrink-0 overflow-y-auto">
                         <div className="px-3 mb-2 flex items-center justify-between text-slate-500 dark:text-[#71717A] font-bold text-[9px] uppercase tracking-wider">
                           <span>Explorer</span>
                         </div>
@@ -736,7 +725,7 @@ export default function Hero() {
                       </div>
 
                       {/* Breadcrumbs bar */}
-                      <div className="bg-[#F8F9FB] dark:bg-[#0E0F14] px-4 py-1.5 flex items-center gap-1.5 border-b border-[#D6DAE2] dark:border-[#1E2028] text-[10px] text-slate-500 dark:text-[#71717A] font-mono">
+                      <div className="bg-[#F8F9FB] dark:bg-[#0E0F14] px-3 sm:px-4 py-1.5 flex items-center gap-1.5 border-b border-[#D6DAE2] dark:border-[#1E2028] text-[10px] text-slate-500 dark:text-[#71717A] font-mono overflow-x-auto whitespace-nowrap scrollbar-hide">
                         <span>zasim-portfolio</span>
                         <span>&gt;</span>
                         <span>src</span>
@@ -756,10 +745,10 @@ export default function Hero() {
                       </div>
 
                       {/* Code Content Area with Line Numbers */}
-                      <div className="flex-1 flex overflow-hidden relative min-h-[300px] bg-white dark:bg-[#13141A]">
+                      <div className="flex-1 flex overflow-hidden relative min-h-[280px] sm:min-h-[300px] bg-white dark:bg-[#13141A]">
 
                         {/* Line Numbers Column */}
-                        <div className="py-4 text-slate-400 dark:text-[#52525B] select-none text-right pr-3 border-r border-[#D6DAE2] dark:border-[#1E2028] font-mono text-[11px] sm:text-xs leading-6 shrink-0 min-w-[2.5rem] bg-[#F8F9FB] dark:bg-[#0E0F14] overflow-hidden">
+                        <div className="py-3 sm:py-4 text-slate-400 dark:text-[#52525B] select-none text-right pr-2.5 sm:pr-3 border-r border-[#D6DAE2] dark:border-[#1E2028] font-mono text-[11px] sm:text-xs leading-6 shrink-0 min-w-[2.25rem] sm:min-w-[2.5rem] bg-[#F8F9FB] dark:bg-[#0E0F14] overflow-hidden">
                           {lines.map((_, i) => (
                             <div key={i} className="h-6 flex items-center justify-end font-light" style={{ height: '1.5rem', lineHeight: '1.5rem' }}>
                               {i + 1}
@@ -769,7 +758,7 @@ export default function Hero() {
 
                         {/* Prism highlighted text — drag to scroll */}
                         <div
-                          className="flex-1 min-h-0 py-4 pl-4 text-left overflow-auto code-scroll-area bg-white dark:bg-[#13141A]"
+                          className="flex-1 min-h-0 py-3 sm:py-4 pl-3 sm:pl-4 pr-3 text-left overflow-auto code-scroll-area bg-white dark:bg-[#13141A]"
                           style={{
                             cursor: 'grab',
                             WebkitOverflowScrolling: 'touch',
@@ -807,25 +796,25 @@ export default function Hero() {
 
 
                       {/* Editor Status Bar */}
-                      <div className="bg-[#ECEEF2] dark:bg-[#0A0B0E] px-4 py-1.5 border-t border-[#D6DAE2] dark:border-[#1E2028] flex items-center justify-between text-[10px] text-slate-600 dark:text-[#8E909B] font-mono select-none relative z-20">
-                        <div className="flex items-center gap-3">
+                      <div className="bg-[#ECEEF2] dark:bg-[#0A0B0E] px-3 sm:px-4 py-1.5 border-t border-[#D6DAE2] dark:border-[#1E2028] flex items-center justify-between gap-2 text-[10px] text-slate-600 dark:text-[#8E909B] font-mono select-none relative z-20 overflow-hidden whitespace-nowrap">
+                        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
                           <div className="flex items-center gap-1 text-slate-700 dark:text-[#A1A1AA]">
                             <GitBranch className="w-3 h-3 text-slate-500" />
                             <span>main</span>
                             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse ml-1" />
                           </div>
 
-                          <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
+                          <div className="hidden xs:flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
                             <span className="w-1.5 h-1.5 rounded-full bg-blue-500/80 animate-pulse" />
                             <span>Syncing...</span>
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-2.5 sm:gap-4 shrink-0">
                           <span className="hidden sm:inline">Ln {lines.length}, Col {lines[lines.length - 1]?.length || 1}</span>
-                          <span className="hidden xs:inline">Spaces: 2</span>
+                          <span className="hidden md:inline">Spaces: 2</span>
                           <span>UTF-8</span>
-                          <span>LF</span>
+                          <span className="hidden sm:inline">LF</span>
                           <span className="text-slate-700 dark:text-slate-400 capitalize">{currentFile.language}</span>
                           <span className="text-emerald-600 dark:text-emerald-500 font-medium">✓ Prettier</span>
                         </div>
@@ -845,7 +834,7 @@ export default function Hero() {
             <div className="w-full h-full bg-blue-400/80 animate-scroll-line"></div>
           </div>
         </div>
-      </main>
+      </div>
 
       <style>{`
         @keyframes gradient {
