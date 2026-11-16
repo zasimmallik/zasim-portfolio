@@ -64,20 +64,20 @@ const ExperienceCard = ({
       </div>
 
       {/* Content Card with Tactile Elevation */}
-      <div className="w-full md:w-[calc(50%-30px)] pl-12 md:pl-0">
-        <div className="relative p-6 sm:p-8 rounded-2xl bg-[#FFFFFF] dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] shadow-sm dark:shadow-xl transition-all duration-200 group-hover:-translate-y-1 group-hover:border-slate-400 dark:group-hover:border-slate-600 overflow-hidden">
+      <div className="w-full md:w-[calc(50%-24px)] lg:w-[calc(50%-30px)] pl-10 xs:pl-12 md:pl-0">
+        <div className="relative p-5 sm:p-7 lg:p-8 rounded-2xl bg-[#FFFFFF] dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] shadow-sm dark:shadow-xl transition-all duration-200 group-hover:-translate-y-1 group-hover:border-slate-400 dark:group-hover:border-slate-600 overflow-hidden">
           {/* Header */}
-          <div className="relative z-10 flex flex-col gap-4 mb-4">
-            <div className="flex items-center justify-between flex-wrap gap-2">
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl border border-[#D6DAE2] dark:border-[#22242D] bg-[#F4F5F8] dark:bg-[#1A1B22] text-slate-800 dark:text-slate-200">
-                  <Icon className="w-5 h-5" />
+          <div className="relative z-10 flex flex-col gap-3 sm:gap-4 mb-4">
+            <div className="flex items-start sm:items-center justify-between flex-wrap gap-2.5">
+              <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                <div className="p-2 sm:p-2.5 rounded-xl border border-[#D6DAE2] dark:border-[#22242D] bg-[#F4F5F8] dark:bg-[#1A1B22] text-slate-800 dark:text-slate-200 shrink-0">
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-950 dark:text-white transition-colors">
+                <h3 className="text-lg xs:text-xl sm:text-2xl md:text-xl lg:text-2xl font-bold text-slate-950 dark:text-white transition-colors leading-snug">
                   {title}
                 </h3>
               </div>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border border-[#D6DAE2] dark:border-[#22242D] bg-[#F4F5F8] dark:bg-[#1A1B22] text-slate-700 dark:text-[#A1A1AA] font-mono">
+              <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-semibold border border-[#D6DAE2] dark:border-[#22242D] bg-[#F4F5F8] dark:bg-[#1A1B22] text-slate-700 dark:text-[#A1A1AA] font-mono shrink-0">
                 <Calendar className="w-3.5 h-3.5" />
                 {period}
               </span>

@@ -235,7 +235,7 @@ function Card({
           className="w-full flex flex-col md:flex-row bg-[#FFFFFF] dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] rounded-3xl overflow-hidden shadow-sm dark:shadow-2xl transition-all duration-200 group relative"
         >
           {/* Image section */}
-          <div className="w-full md:w-[55%] h-[200px] sm:h-[250px] md:h-[400px] lg:h-[450px] relative overflow-hidden z-10 border-b md:border-b-0 md:border-r border-[#D6DAE2] dark:border-[#22242D]">
+          <div className="w-full md:w-[52%] lg:w-[55%] h-[190px] xs:h-[210px] sm:h-[250px] md:h-[380px] lg:h-[450px] relative overflow-hidden z-10 border-b md:border-b-0 md:border-r border-[#D6DAE2] dark:border-[#22242D]">
             <motion.div
               className="w-full h-full"
               whileHover={{ scale: 1.05 }}
@@ -264,9 +264,9 @@ function Card({
           </div>
 
           {/* Content section */}
-          <div className="w-full md:w-[45%] p-5 sm:p-7 md:p-10 lg:p-12 flex flex-col justify-between relative bg-[#FFFFFF] dark:bg-[#13141A] z-10">
+          <div className="w-full md:w-[48%] lg:w-[45%] p-5 sm:p-7 md:p-7 lg:p-10 xl:p-12 flex flex-col justify-between relative bg-[#FFFFFF] dark:bg-[#13141A] z-10">
             <div>
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-3 sm:mb-4">
                 <div
                   className="w-2 h-2 rounded-full"
                   style={{ backgroundColor: color }}
@@ -276,10 +276,10 @@ function Card({
                 </span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-950 dark:text-white mb-3 tracking-tighter">
+              <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-2xl lg:text-4xl font-bold text-slate-950 dark:text-white mb-2.5 sm:mb-3 tracking-tighter">
                 {title}
               </h2>
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed font-normal tracking-wide mb-5">
+              <p className="text-xs xs:text-sm sm:text-base md:text-sm lg:text-base text-slate-600 dark:text-slate-400 leading-relaxed font-normal tracking-wide mb-4 sm:mb-5">
                 {description}
               </p>
 
@@ -296,7 +296,7 @@ function Card({
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-[#D6DAE2] dark:border-[#22242D]">
+            <div className="mt-5 sm:mt-8 pt-4 sm:pt-6 border-t border-[#D6DAE2] dark:border-[#22242D]">
               <div className="flex items-center gap-4">
                 {/* GitHub Link */}
                 {githubLink && (
@@ -348,13 +348,13 @@ function Card({
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="text-slate-600 group-hover/btn:text-slate-950 dark:text-slate-400 dark:group-hover/btn:text-white transition-colors"
+                      className="text-white/80 group-hover/btn:text-white dark:text-[#050507]/80 dark:group-hover/btn:text-[#050507] transition-colors"
                     >
                       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                       <polyline points="15 3 21 3 21 9"></polyline>
                       <line x1="10" y1="14" x2="21" y2="3"></line>
                     </svg>
-                    <span className="text-sm font-medium text-slate-700 group-hover/btn:text-slate-950 dark:text-slate-400 dark:group-hover/btn:text-white transition-colors">
+                    <span className="text-sm font-medium text-white dark:text-[#050507] transition-colors">
                       Live Demo
                     </span>
                   </motion.a>
