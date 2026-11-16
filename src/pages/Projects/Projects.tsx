@@ -139,7 +139,7 @@ export default function Projects() {
             Featured Projects
           </h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-sm sm:text-base md:text-lg font-normal tracking-wide">
-            Some of my recent work — each one pushed me to think differently about design and architecture.
+            Selected products and systems built with a focus on clean architecture, performance, and user experience.
           </p>
         </div>
 
@@ -244,10 +244,8 @@ function Card({
               <img
                 src={url}
                 alt={title}
-                loading={i === 0 ? "eager" : "lazy"}
+                loading="lazy"
                 decoding="async"
-                // @ts-expect-error - fetchPriority attribute
-                fetchPriority={i === 0 ? "high" : "auto"}
                 className="w-full h-full object-cover transition-transform duration-700"
               />
             </motion.div>
