@@ -53,7 +53,7 @@ export default function About() {
           {/* Right Side - Content */}
           <div className="space-y-8 sm:space-y-10 order-1 lg:order-2 w-full">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#ECEEF2] border border-[#22242D] dark:border-[#D6DAE2] text-[#ECEEF2] dark:text-[#090A0C] text-xs font-semibold tracking-wider uppercase font-mono shadow-sm transition-all duration-200">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#F3F5F9] border border-[#22242D] dark:border-[#C5CDD9] text-[#F3F5F9] dark:text-[#090A0C] text-xs font-semibold tracking-wider uppercase font-mono shadow-sm transition-all duration-200">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-400 dark:bg-blue-600 animate-pulse shrink-0"></span>
                 About Me
               </div>
@@ -87,7 +87,7 @@ export default function About() {
                   &ldquo;Time is the most precious resource we have. We build software to save it, making things work faster, simplifying everyday tasks, and making the world a better place.&rdquo;
                 </p>
                 <footer className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-bold text-xs flex items-center justify-center shrink-0 ring-2 ring-blue-500/20 shadow-xs">
+                  <div className="w-9 h-9 rounded-full bg-slate-900 dark:bg-[#F3F5F9] text-[#F3F5F9] dark:text-slate-950 font-bold text-xs flex items-center justify-center shrink-0 ring-2 ring-blue-500/20 shadow-xs">
                     ZM
                   </div>
                   <div>

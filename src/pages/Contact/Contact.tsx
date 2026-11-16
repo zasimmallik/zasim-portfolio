@@ -291,7 +291,7 @@ export default function Contact() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className={`text-center max-w-3xl mx-auto mb-10 sm:mb-16 lg:mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#ECEEF2] border border-[#22242D] dark:border-[#D6DAE2] text-[#ECEEF2] dark:text-[#090A0C] text-xs font-semibold font-mono uppercase tracking-wider mb-4 sm:mb-6 shadow-sm transition-all duration-200">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#F3F5F9] border border-[#22242D] dark:border-[#C5CDD9] text-[#F3F5F9] dark:text-[#090A0C] text-xs font-semibold font-mono uppercase tracking-wider mb-4 sm:mb-6 shadow-sm transition-all duration-200">
             <MessageSquare className="w-3.5 h-3.5 text-blue-400 dark:text-blue-600 shrink-0" />
             <span>Let&apos;s Connect</span>
           </div>
@@ -421,7 +421,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="relative w-full bg-[#090A0C] hover:bg-[#18191F] dark:bg-white dark:hover:bg-[#F4F5F8] text-white dark:text-[#050507] py-4 px-8 rounded-xl font-medium tracking-wide flex items-center justify-center gap-3 transition-all duration-200 hover:-translate-y-0.5 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 cursor-pointer"
+                    className="relative w-full bg-[#090A0C] hover:bg-[#18191F] dark:bg-[#F3F5F9] dark:hover:bg-[#DFE4EC] text-[#F3F5F9] dark:text-[#050507] py-4 px-8 rounded-xl font-medium tracking-wide flex items-center justify-center gap-3 transition-all duration-200 hover:-translate-y-0.5 shadow-[0_8px_20px_-4px_rgba(15,23,42,0.22)] dark:shadow-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 cursor-pointer"
                   >
                     <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
                     <Send className={`w-4 h-4 transition-transform duration-200 ${isSubmitting ? 'translate-x-2 opacity-0' : 'group-hover:translate-x-0.5'}`} />

@@ -300,7 +300,7 @@ const SkillsSection = () => {
           transition={{ duration: 0.85, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#ECEEF2] border border-[#22242D] dark:border-[#D6DAE2] text-[#ECEEF2] dark:text-[#090A0C] text-xs font-semibold font-mono uppercase tracking-wider mb-6 shadow-sm transition-all duration-200"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#F3F5F9] border border-[#22242D] dark:border-[#C5CDD9] text-[#F3F5F9] dark:text-[#090A0C] text-xs font-semibold font-mono uppercase tracking-wider mb-6 shadow-sm transition-all duration-200"
             initial={{ opacity: 0, scale: 0.75 }}
             animate={isHeaderInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}

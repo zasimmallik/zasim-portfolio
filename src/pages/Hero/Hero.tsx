@@ -367,9 +367,9 @@ export default function Hero() {
             <div className="w-full lg:w-[47%] xl:w-[48%] flex flex-col items-start text-left relative z-20">
 
               {/* Minimalist Status Badge */}
-              <div className="animate-blur-in relative inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#ECEEF2] border border-[#22242D] dark:border-[#D6DAE2] mb-5 sm:mb-8 transition-colors duration-150 shadow-sm max-w-full">
+              <div className="animate-blur-in relative inline-flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#F3F5F9] border border-[#22242D] dark:border-[#C5CDD9] mb-5 sm:mb-8 transition-colors duration-150 shadow-sm max-w-full">
                 <span className="w-2 h-2 rounded-full bg-blue-400 dark:bg-blue-600 animate-pulse shrink-0" />
-                <span className="text-[#ECEEF2] dark:text-[#090A0C] text-[10px] sm:text-xs font-semibold tracking-[0.15em] sm:tracking-[0.2em] uppercase font-mono truncate">
+                <span className="text-[#F3F5F9] dark:text-[#090A0C] text-[10px] sm:text-xs font-semibold tracking-[0.15em] sm:tracking-[0.2em] uppercase font-mono truncate">
                   Welcome to my portfolio
                 </span>
               </div>
@@ -459,7 +459,7 @@ export default function Hero() {
                   href="https://github.com/zasimmallik"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center w-full sm:w-auto px-7 py-3 rounded-full bg-[#18181B] hover:bg-black dark:bg-[#FFFFFF] dark:hover:bg-[#ECEEF2] text-white dark:text-[#050507] font-semibold text-xs sm:text-sm tracking-wide font-mono transition-all duration-200 hover:-translate-y-0.5 shadow-[0_8px_20px_-4px_rgba(15,23,42,0.22)] dark:shadow-black/40"
+                  className="group relative inline-flex items-center justify-center w-full sm:w-auto px-7 py-3 rounded-full bg-[#18181B] hover:bg-black dark:bg-[#F3F5F9] dark:hover:bg-[#DFE4EC] text-[#F3F5F9] dark:text-[#050507] font-semibold text-xs sm:text-sm tracking-wide font-mono transition-all duration-200 hover:-translate-y-0.5 shadow-[0_8px_20px_-4px_rgba(15,23,42,0.22)] dark:shadow-black/40"
                 >
                   <span className="inline-flex items-center gap-2.5">
                     <span>View GitHub</span>

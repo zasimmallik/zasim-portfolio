@@ -202,7 +202,7 @@ const ExperienceSection = () => {
           ref={headerRef}
           className={`text-center max-w-3xl mx-auto mb-20 transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#ECEEF2] border border-[#22242D] dark:border-[#D6DAE2] text-[#ECEEF2] dark:text-[#090A0C] text-xs font-semibold font-mono uppercase tracking-wider mb-6 shadow-sm transition-all duration-200">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#F3F5F9] border border-[#22242D] dark:border-[#C5CDD9] text-[#F3F5F9] dark:text-[#090A0C] text-xs font-semibold font-mono uppercase tracking-wider mb-6 shadow-sm transition-all duration-200">
             <Activity className="w-3.5 h-3.5 text-blue-400 dark:text-blue-600 shrink-0" />
             <span>Career Journey</span>
           </div>

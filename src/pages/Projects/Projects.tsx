@@ -130,7 +130,7 @@ export default function Projects() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10 md:space-y-12 relative z-10">
         <div className="text-center space-y-3 sm:space-y-4 md:space-y-5">
           {/* Small Title */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#ECEEF2] border border-[#22242D] dark:border-[#D6DAE2] text-[#ECEEF2] dark:text-[#090A0C] text-xs font-semibold tracking-wider uppercase font-mono shadow-sm transition-all duration-200">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#13141A] dark:bg-[#F3F5F9] border border-[#22242D] dark:border-[#C5CDD9] text-[#F3F5F9] dark:text-[#090A0C] text-xs font-semibold tracking-wider uppercase font-mono shadow-sm transition-all duration-200">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-400 dark:bg-blue-600 animate-pulse shrink-0"></span>
             Projects
           </div>
@@ -332,7 +332,7 @@ function Card({
                     href={liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#18181B] hover:bg-black dark:bg-white dark:hover:bg-slate-100 text-white dark:text-[#050507] shadow-sm transition-all duration-200"
+                    className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#18181B] hover:bg-black dark:bg-[#F3F5F9] dark:hover:bg-[#DFE4EC] text-[#F3F5F9] dark:text-[#050507] shadow-[0_6px_16px_-3px_rgba(15,23,42,0.20)] dark:shadow-sm transition-all duration-200"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -346,13 +346,13 @@ function Card({
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="text-white/80 group-hover/btn:text-white dark:text-[#050507]/80 dark:group-hover/btn:text-[#050507] transition-colors"
+                      className="text-[#F3F5F9]/80 group-hover/btn:text-[#F3F5F9] dark:text-[#050507]/80 dark:group-hover/btn:text-[#050507] transition-colors"
                     >
                       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                       <polyline points="15 3 21 3 21 9"></polyline>
                       <line x1="10" y1="14" x2="21" y2="3"></line>
                     </svg>
-                    <span className="text-sm font-medium text-white dark:text-[#050507] transition-colors">
+                    <span className="text-sm font-medium text-[#F3F5F9] dark:text-[#050507] transition-colors">
                       Live Demo
                     </span>
                   </motion.a>
