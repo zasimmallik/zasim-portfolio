@@ -65,13 +65,13 @@ export default function About() {
 
               <div className="space-y-6 text-base sm:text-lg text-slate-700 dark:text-slate-400 leading-relaxed">
                 <p>
-                  Hey! I&apos;m <span className="text-slate-950 dark:text-slate-200 font-semibold">Zasim Mallik</span>, a self-taught developer from Bangladesh. I got into programming out of curiosity, and what started with basic web pages eventually grew into building full products that people actually use.
+                  I&apos;m <span className="text-slate-950 dark:text-slate-200 font-semibold">Zasim Mallik</span>, a self-taught software engineer from Bangladesh. What started as a curiosity for how the web works quickly evolved into a passion for architecting and shipping full-scale products that people rely on.
                 </p>
                 <p>
-                  Right now, I&apos;m focused on <span className="text-slate-950 dark:text-white font-semibold">Zeraql</span> and <span className="text-slate-950 dark:text-white font-semibold">Rizmiq</span> — two AI-powered SaaS platforms I&apos;m developing end to end. My stack revolves around <span className="text-slate-900 dark:text-slate-200 font-medium">Next.js</span>, <span className="text-slate-900 dark:text-slate-200 font-medium">TypeScript</span>, and <span className="text-slate-900 dark:text-slate-200 font-medium">Python</span>, and I genuinely enjoy the challenge of making complex systems feel simple for users.
+                  Today, I lead product and engineering for <span className="text-slate-950 dark:text-white font-semibold">Zeraql</span> and <span className="text-slate-950 dark:text-white font-semibold">Rizmiq</span>, two AI-powered SaaS platforms I&apos;m building end to end. Working primarily with <span className="text-slate-900 dark:text-slate-200 font-medium">Next.js</span>, <span className="text-slate-900 dark:text-slate-200 font-medium">TypeScript</span>, and <span className="text-slate-900 dark:text-slate-200 font-medium">Python</span>, I focus on making sophisticated backend and AI systems feel effortless on the surface.
                 </p>
                 <p>
-                  I learn best by building. Every project, every bug, every late-night debugging session has taught me something no textbook could. That hands-on approach is what drives everything I do.
+                  I believe the best way to master engineering is by shipping real software. Every architecture decision, edge case, and late-night debugging session has shaped how I build, keeping me pragmatic, detail-oriented, and focused on real-world impact.
                 </p>
               </div>
             </div>
@@ -83,8 +83,8 @@ export default function About() {
               {/* Large decorative quote mark */}
               <div className="absolute top-2 right-4 text-6xl font-bold text-slate-200 dark:text-[#22242D] leading-none select-none" style={{ fontFamily: 'var(--font-display)' }}>&ldquo;</div>
               <blockquote className="relative z-10 pl-4">
-                <p className="text-sm sm:text-base font-normal text-slate-800 dark:text-slate-300 leading-relaxed tracking-wide mb-3">
-                  &ldquo;Time is the most precious resource in human life. We build software to save it and make things work faster, easing daily tasks and making the world a better place.&rdquo;
+                <p className="text-sm sm:text-base font-normal italic text-slate-800 dark:text-slate-300 leading-relaxed tracking-wide mb-3">
+                  &ldquo;Time is the most precious resource we have. We build software to save it, making things work faster, simplifying everyday tasks, and making the world a better place.&rdquo;
                 </p>
                 <footer className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-bold text-xs flex items-center justify-center shrink-0 ring-2 ring-blue-500/20 shadow-xs">

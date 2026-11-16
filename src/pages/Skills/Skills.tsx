@@ -324,11 +324,11 @@ const SkillsSection = () => {
             animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.42 }}
           >
-            My day-to-day toolkit —{" "}
+            A core engineering toolkit of{" "}
             <span className="text-slate-950 dark:text-white font-semibold font-mono">
               <AnimatedCounter target={totalSkills} suffix="+" />
             </span>{" "}
-            technologies I use to build production-ready apps.
+            technologies I use to design, build, and scale production applications.
           </motion.p>
         </motion.div>
 

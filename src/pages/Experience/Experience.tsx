@@ -174,7 +174,7 @@ const ExperienceSection = () => {
       company: "Zeraql & Rizmiq",
       period: "2025 – Present",
       description:
-        "Now I'm building my own products. I lead development on two AI-driven SaaS platforms — from ideation and LLM integration to frontend, backend, and getting it all into production.",
+        "Architecting and building two AI-native SaaS platforms from the ground up. Leading end-to-end product engineering across system architecture, LLM orchestration, full-stack implementation, and production infrastructure.",
     },
     {
       icon: Layers,
@@ -182,7 +182,7 @@ const ExperienceSection = () => {
       company: "Independent",
       period: "2024 – Present",
       description:
-        "Went independent and started owning projects end to end — React, Next.js, Node.js, PostgreSQL, Prisma. I handled everything from architecture decisions and API design to deployment. Lots of trial and error, but that's how you learn.",
+        "Delivered full-stack web applications end to end using React, Next.js, Node.js, PostgreSQL, and Prisma. Owned the complete engineering lifecycle from database modeling and API design to authentication and cloud deployment.",
     },
     {
       icon: Code2,
@@ -190,7 +190,7 @@ const ExperienceSection = () => {
       company: "Programming Hero",
       period: "2022 – 2023",
       description:
-        "This was my first real dev role. I got to work on responsive UIs, tackle accessibility, and learn that writing maintainable code matters just as much as getting things to work.",
+        "Built responsive, accessible user interfaces and reusable component systems. Developed a strong foundation in clean, maintainable code, modern frontend workflows, and collaborative software development.",
     },
   ];
 
@@ -212,7 +212,7 @@ const ExperienceSection = () => {
           </h2>
 
           <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
-            The path that got me here — and the roles that shaped how I think and build.
+            The milestones and engineering roles that shaped how I design, build, and ship software.
           </p>
         </div>
 

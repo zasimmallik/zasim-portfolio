@@ -301,7 +301,7 @@ export default function Contact() {
           </h2>
 
           <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed px-4">
-            Have a project in mind, or just want to chat? I&apos;d love to hear from you.
+            Have a project in mind, interested in collaborating, or just want to connect? I&apos;d love to hear from you.
           </p>
         </div>
 
@@ -313,7 +313,7 @@ export default function Contact() {
                 Let&apos;s Talk
               </h3>
               <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed">
-                I&apos;m always open to new projects, collaborations, or just good conversations about tech. Feel free to reach out.
+                I&apos;m always open to discussing new projects, product ideas, or engineering collaborations. Feel free to reach out directly.
               </p>
             </div>
 
@@ -355,7 +355,7 @@ export default function Contact() {
                 <div className="flex gap-4">
                   <div className="text-slate-300 dark:text-[#22242D] text-5xl leading-none font-bold select-none" style={{ fontFamily: 'var(--font-display)' }}>&ldquo;</div>
                   <p className="text-slate-700 dark:text-slate-300 text-lg leading-relaxed italic pt-2">
-                    Every great project starts with a conversation. Drop me a message — I reply to every one.
+                    Every great product starts with a conversation. Send me a message, and I&apos;ll reply to every one.
                   </p>
                 </div>
               </div>
