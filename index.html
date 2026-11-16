@@ -21,27 +21,40 @@ html, body { overflow-x: clip; }
       }
     })();
   </script>
-  <link rel="icon" type="image/png" href="/icon-round.png" />
+
+  <!-- Optimized Favicons & PWA Web Manifest (replaces 3.7MB icon-round.png on initial load) -->
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Primary Meta Tags -->
-  <title>Zasim Mallik | Software Engineer & Founder of Zeraql & Rizmiq</title>
-  <meta name="title" content="Zasim Mallik | Software Engineer & Founder of Zeraql & Rizmiq" />
-  <meta name="description" content="Zasim Mallik is a Software Engineer and Founder of Zeraql & Rizmiq. Specializing in React, Next.js, TypeScript, Node.js, Python, and AI/ML. Building next-generation AI SaaS products from Bangladesh." />
-  <meta name="keywords" content="Zasim Mallik, Zasim, Mallik, Software Engineer, Software Developer, Full Stack Developer, AI SaaS, Zeraql, Rizmiq, React Developer, Next.js Developer, TypeScript, Node.js, Python, AI Engineering, Web Developer, Frontend Developer, Backend Developer, Bangladesh Developer, Portfolio, zasimmallik" />
+  <title>Zasim Mallik | Software Engineer &amp; Founder of Zeraql &amp; Rizmiq</title>
+  <meta name="title" content="Zasim Mallik | Software Engineer &amp; Founder of Zeraql &amp; Rizmiq" />
+  <meta name="description" content="Zasim Mallik is a Software Engineer and Founder of Zeraql &amp; Rizmiq. Specializing in React, Next.js, TypeScript, Node.js, Python, FastAPI, and AI/LLM Engineering (OpenAI, Claude, LangChain, RAG, MCP)." />
+  <meta name="keywords" content="Zasim Mallik, Zasim, Mallik, Software Engineer, Full-Stack Engineer, AI SaaS Founder, Zeraql, Rizmiq, React Developer, Next.js Developer, TypeScript, Node.js, Python, FastAPI, AI Engineering, LangChain, RAG, MCP, Bangladesh Software Engineer, zasimmallik" />
   <meta name="author" content="Zasim Mallik" />
+  <meta name="creator" content="Zasim Mallik" />
+  <meta name="publisher" content="Zasim Mallik" />
+  <meta name="application-name" content="Zasim Mallik Portfolio" />
   <meta name="theme-color" content="#050507" />
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ECEEF2" />
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#050507" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <meta name="googlebot" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://zasimmallik.com/" />
 
+  <!-- AI / LLM Context Discovery Links (llmstxt.org standard) -->
+  <link rel="alternate" type="text/plain" href="https://zasimmallik.com/llms.txt" title="LLM Summary Context (llms.txt)" />
+  <link rel="alternate" type="text/plain" href="https://zasimmallik.com/llms-full.txt" title="LLM Full Context (llms-full.txt)" />
+
   <!-- Geo Meta Tags -->
-  <meta name="geo.region" content="BD" />
-  <meta name="geo.placename" content="Bangladesh" />
+  <meta name="geo.region" content="BD-A" />
+  <meta name="geo.placename" content="Barisal, Bangladesh" />
 
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
@@ -49,92 +62,190 @@ html, body { overflow-x: clip; }
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
   <link rel="dns-prefetch" href="https://images.unsplash.com">
-  
+
   <!-- Foundry-Grade Typography: Supreme (Display) + Switzer (Body) + JetBrains Mono (Code) -->
-  <link href="https://api.fontshare.com/v2/css?f[]=supreme@600,700&f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=supreme@500,600,700,800&f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="profile" />
   <meta property="og:url" content="https://zasimmallik.com/" />
-  <meta property="og:title" content="Zasim Mallik | Software Engineer & Founder of Zeraql & Rizmiq" />
-  <meta property="og:description" content="Zasim Mallik is a Software Engineer and Founder of Zeraql & Rizmiq. Building next-generation AI SaaS platforms with React, Next.js, TypeScript, and Python." />
+  <meta property="og:title" content="Zasim Mallik | Software Engineer &amp; Founder of Zeraql &amp; Rizmiq" />
+  <meta property="og:description" content="Software Engineer and Founder of Zeraql &amp; Rizmiq. Building AI-powered SaaS platforms with Next.js, TypeScript, Python, and modern LLM architectures." />
   <meta property="og:image" content="https://zasimmallik.com/og-image.jpg" />
+  <meta property="og:image:secure_url" content="https://zasimmallik.com/og-image.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Zasim Mallik - Software Engineer & AI SaaS Founder" />
-  <meta property="og:site_name" content="Zasim Mallik Portfolio" />
+  <meta property="og:image:alt" content="Zasim Mallik - Software Engineer &amp; Founder of Zeraql &amp; Rizmiq" />
+  <meta property="og:site_name" content="Zasim Mallik" />
   <meta property="og:locale" content="en_US" />
+  <meta property="profile:first_name" content="Zasim" />
+  <meta property="profile:last_name" content="Mallik" />
+  <meta property="profile:username" content="zasimmallik" />
 
-  <!-- Twitter -->
+  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@zasimmallik" />
   <meta name="twitter:creator" content="@zasimmallik" />
   <meta name="twitter:url" content="https://zasimmallik.com/" />
-  <meta name="twitter:title" content="Zasim Mallik | Software Engineer & Founder of Zeraql & Rizmiq" />
-  <meta name="twitter:description" content="Software Engineer & Founder of Zeraql & Rizmiq. Building next-generation AI SaaS products. Check out my latest work!" />
+  <meta name="twitter:title" content="Zasim Mallik | Software Engineer &amp; Founder of Zeraql &amp; Rizmiq" />
+  <meta name="twitter:description" content="Software Engineer &amp; Founder of Zeraql &amp; Rizmiq. Building AI-powered SaaS products with React, Next.js, TypeScript, and Python." />
   <meta name="twitter:image" content="https://zasimmallik.com/og-image.jpg" />
-  <meta name="twitter:image:alt" content="Zasim Mallik - Software Engineer & AI SaaS Founder" />
+  <meta name="twitter:image:alt" content="Zasim Mallik - Software Engineer &amp; AI SaaS Founder" />
 
-  <!-- JSON-LD Structured Data for Google -->
+  <!-- Unified Schema.org Knowledge Graph for Search Engines & AI Answer Engines -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Zasim Mallik",
-    "alternateName": "zasimmallik",
-    "url": "https://zasimmallik.com",
-    "image": "https://zasimmallik.com/og-image.jpg",
-    "jobTitle": "Software Engineer",
-    "description": "Software Engineer and Founder of Zeraql & Rizmiq. Building next-generation AI SaaS products.",
-    "knowsAbout": ["Software Development", "React", "Next.js", "TypeScript", "Node.js", "Python", "AI", "Machine Learning", "SaaS", "Full Stack Development", "Web Development"],
-    "nationality": {
-      "@type": "Country",
-      "name": "Bangladesh"
-    },
-    "sameAs": [
-      "https://github.com/zasimmallik",
-      "https://www.linkedin.com/in/zasimmallik/",
-      "https://x.com/zasimmallik",
-      "https://www.instagram.com/zasimmallik/",
-      "https://www.facebook.com/zasimmallik.Z/"
-    ],
-    "worksFor": [
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": "https://zasimmallik.com/#profilepage",
+        "url": "https://zasimmallik.com/",
+        "name": "Zasim Mallik | Software Engineer & Founder of Zeraql & Rizmiq",
+        "description": "Official portfolio and engineering profile of Zasim Mallik, Software Engineer and Founder of Zeraql & Rizmiq.",
+        "inLanguage": "en-US",
+        "dateModified": "2026-11-16",
+        "mainEntity": {
+          "@id": "https://zasimmallik.com/#person"
+        },
+        "isPartOf": {
+          "@id": "https://zasimmallik.com/#website"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://zasimmallik.com/#person",
+        "name": "Zasim Mallik",
+        "givenName": "Zasim",
+        "familyName": "Mallik",
+        "alternateName": ["zasimmallik", "Zasim"],
+        "url": "https://zasimmallik.com/",
+        "image": "https://zasimmallik.com/og-image.jpg",
+        "email": "mailto:zasimmallickofficial@gmail.com",
+        "jobTitle": ["Software Engineer", "Full-Stack Engineer", "AI SaaS Founder"],
+        "description": "Self-taught Software Engineer from Bangladesh and Founder of Zeraql & Rizmiq, specializing in Next.js, TypeScript, Python, FastAPI, PostgreSQL, and AI/LLM SaaS platforms.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Barisal",
+          "addressCountry": "BD"
+        },
+        "nationality": {
+          "@type": "Country",
+          "name": "Bangladesh"
+        },
+        "knowsAbout": [
+          "Software Engineering",
+          "Full-Stack Web Development",
+          "AI SaaS Architecture",
+          "TypeScript",
+          "JavaScript",
+          "Python",
+          "SQL",
+          "React",
+          "Next.js",
+          "Tailwind CSS",
+          "Node.js",
+          "Express.js",
+          "FastAPI",
+          "PostgreSQL",
+          "MongoDB",
+          "Redis",
+          "Prisma ORM",
+          "Vector Databases",
+          "OpenAI API",
+          "Claude API",
+          "Google Gemini API",
+          "LangChain",
+          "LangGraph",
+          "Retrieval-Augmented Generation (RAG)",
+          "Model Context Protocol (MCP)",
+          "Docker",
+          "AWS",
+          "System Design"
+        ],
+        "sameAs": [
+          "https://github.com/zasimmallik",
+          "https://www.linkedin.com/in/zasimmallik/",
+          "https://x.com/zasimmallik",
+          "https://www.instagram.com/zasimmallik/",
+          "https://www.facebook.com/zasimmallik.Z/"
+        ],
+        "founder": [
+          { "@id": "https://zasimmallik.com/#zeraql" },
+          { "@id": "https://zasimmallik.com/#rizmiq" }
+        ],
+        "worksFor": [
+          { "@id": "https://zasimmallik.com/#zeraql" },
+          { "@id": "https://zasimmallik.com/#rizmiq" }
+        ]
+      },
       {
         "@type": "Organization",
+        "@id": "https://zasimmallik.com/#zeraql",
         "name": "Zeraql",
         "url": "https://zeraql.com",
+        "description": "AI-powered SaaS platform founded and developed end-to-end by Zasim Mallik.",
         "founder": {
-          "@type": "Person",
-          "name": "Zasim Mallik"
+          "@id": "https://zasimmallik.com/#person"
         }
       },
       {
         "@type": "Organization",
+        "@id": "https://zasimmallik.com/#rizmiq",
         "name": "Rizmiq",
         "url": "https://rizmiq.com",
+        "description": "AI-powered SaaS and developer platform founded and developed end-to-end by Zasim Mallik.",
         "founder": {
-          "@type": "Person",
-          "name": "Zasim Mallik"
+          "@id": "https://zasimmallik.com/#person"
         }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://zasimmallik.com/#website",
+        "name": "Zasim Mallik Portfolio",
+        "alternateName": "Zasim Mallik - Software Engineer & Founder",
+        "url": "https://zasimmallik.com/",
+        "inLanguage": "en-US",
+        "author": {
+          "@id": "https://zasimmallik.com/#person"
+        },
+        "publisher": {
+          "@id": "https://zasimmallik.com/#person"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://zasimmallik.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Who is Zasim Mallik?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Zasim Mallik is a self-taught Software Engineer and AI SaaS Founder from Bangladesh. He is the Founder of Zeraql and Rizmiq, specializing in full-stack TypeScript (React, Next.js, Node.js), Python (FastAPI), PostgreSQL, and AI/LLM applications."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What startups has Zasim Mallik founded?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Zasim Mallik is the founder of two AI-powered SaaS startups: Zeraql (https://zeraql.com) and Rizmiq (https://rizmiq.com), both architected and developed end-to-end by him."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What technologies does Zasim Mallik specialize in?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Zasim Mallik specializes in TypeScript, JavaScript, Python, SQL, React, Next.js (App Router), Tailwind CSS, Node.js, Express.js, FastAPI, PostgreSQL, MongoDB, Redis, Prisma ORM, OpenAI API, Claude API, LangChain, LangGraph, RAG, MCP, Docker, and cloud deployment on AWS, Vercel, and Railway."
+            }
+          }
+        ]
       }
     ]
-  }
-  </script>
-
-  <!-- Website Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Zasim Mallik Portfolio",
-    "alternateName": "Zasim Mallik - Software Engineer",
-    "url": "https://zasimmallik.com",
-    "description": "Portfolio website of Zasim Mallik, Software Engineer and Founder of Zeraql & Rizmiq.",
-    "author": {
-      "@type": "Person",
-      "name": "Zasim Mallik"
-    }
   }
   </script>
 </head>
