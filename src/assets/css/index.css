@@ -39,7 +39,7 @@ html {
 }
 
 html:not(.dark) {
-  background-color: #ECEEF2;
+  background-color: #DFE4EC;
   color-scheme: light;
 }
 
@@ -51,7 +51,7 @@ body {
 }
 
 html:not(.dark) body {
-  @apply bg-[#ECEEF2] text-[#090A0C] selection:bg-blue-500/20 selection:text-blue-900;
+  @apply bg-[#DFE4EC] text-[#090A0C] selection:bg-blue-500/20 selection:text-blue-900;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -86,7 +86,7 @@ code, pre, kbd, samp, .font-mono {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #ECEEF2;
+  background-color: #DFE4EC;
 }
 
 .dark ::-webkit-scrollbar-track {
@@ -94,9 +94,9 @@ code, pre, kbd, samp, .font-mono {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D6DAE2;
+  background: #BCC5D4;
   border-radius: 9999px;
-  border: 2px solid #ECEEF2;
+  border: 2px solid #DFE4EC;
   transition: all 0.2s ease;
 }
 
@@ -285,8 +285,8 @@ code, pre, kbd, samp, .font-mono {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    #D6DAE2 20%,
-    #D6DAE2 80%,
+    #C5CDD9 20%,
+    #C5CDD9 80%,
     transparent 100%
   );
   position: relative;
@@ -614,25 +614,25 @@ pre[class*="language-"] {
 
 @layer base {
   :root {
-    --background: #ECEEF2;               /* Frosted Zinc Canvas - never plain white */
+    --background: #DFE4EC;               /* Grounded Architectural Slate-Zinc Canvas */
     --foreground: #090A0C;               /* Pitch Carbon Ink */
-    --card: #FFFFFF;                     /* Elevated Crisp Card */
+    --card: #F3F5F9;                     /* Elevated Matte Pearl Card - never #FFFFFF */
     --card-foreground: #090A0C;
-    --card-header: #F4F5F8;              /* Sub-header Strip */
-    --popover: #FFFFFF;
+    --card-header: #E7ECF3;              /* Sub-header Strip */
+    --popover: #F3F5F9;
     --popover-foreground: #090A0C;
     --primary: #18181B;                  /* High-contrast Action Pill */
-    --primary-foreground: #FFFFFF;
-    --secondary: #E2E5EC;                /* Secondary Pill */
+    --primary-foreground: #F7F8FB;
+    --secondary: #DDE2EC;                /* Secondary Pill */
     --secondary-foreground: #090A0C;
-    --muted: #E2E5EC;
-    --muted-foreground: #5A606D;         /* Secondary Text */
+    --muted: #DDE2EC;
+    --muted-foreground: #525866;         /* Secondary Text */
     --accent: #2563EB;                  /* Cobalt Signal */
-    --accent-foreground: #FFFFFF;
+    --accent-foreground: #F7F8FB;
     --destructive: #EF4444;
-    --destructive-foreground: #FFFFFF;
-    --border: #D6DAE2;                  /* 1px Hairline Border */
-    --input: #D6DAE2;
+    --destructive-foreground: #F7F8FB;
+    --border: #C5CDD9;                  /* Crisp 1px Hairline Border */
+    --input: #C5CDD9;
     --ring: #2563EB;
     --radius: 0.75rem;
     --chart-1: #2563EB;
