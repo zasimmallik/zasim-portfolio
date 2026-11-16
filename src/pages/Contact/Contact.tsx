@@ -353,7 +353,7 @@ export default function Contact() {
             <div className="relative mt-8">
               <div className="relative bg-[#FFFFFF] dark:bg-[#13141A] border border-[#D6DAE2] dark:border-[#22242D] rounded-2xl p-6 sm:p-8 shadow-sm dark:shadow-none">
                 <div className="flex gap-4">
-                  <div className="text-slate-300 dark:text-[#22242D] text-5xl leading-none font-serif">&quot;</div>
+                  <div className="text-slate-300 dark:text-[#22242D] text-5xl leading-none font-bold select-none" style={{ fontFamily: 'var(--font-display)' }}>&ldquo;</div>
                   <p className="text-slate-700 dark:text-slate-300 text-lg leading-relaxed italic pt-2">
                     Every great project starts with a conversation. Drop me a message — I reply to every one.
                   </p>

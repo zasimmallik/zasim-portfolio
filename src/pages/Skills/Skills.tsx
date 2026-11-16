@@ -334,14 +334,13 @@ const SkillsSection = () => {
 
         {/* Icon Cloud with orbital rings */}
         <motion.div
-          className="flex justify-center items-center mb-20 sm:mb-24"
+          className="flex justify-center items-center mb-12 sm:mb-20 md:mb-24 overflow-visible"
           initial={{ opacity: 0, scale: 0.75 }}
           animate={isHeaderInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.9, delay: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <div
-            className="relative flex items-center justify-center scale-[0.8] sm:scale-90 md:scale-100 origin-center"
-            style={{ width: 380, height: 380 }}
+            className="relative flex items-center justify-center w-[280px] h-[280px] xs:w-[320px] xs:h-[320px] sm:w-[380px] sm:h-[380px] scale-[0.72] xs:scale-[0.82] sm:scale-90 md:scale-100 origin-center"
           >
             {/* Ambient pulsing glow */}
             <motion.div
@@ -363,14 +362,14 @@ const SkillsSection = () => {
             {/* Ring 3 — outer, slow, purple dot */}
             <OrbitalRing size={380} duration={28} color="rgba(139,92,246,0.11)" dotColor="#a78bfa" dotSize={4} />
 
-            {/* Ring 4 — dashed, very slow, pink dot */}
+            {/* Ring 4 — dashed, very slow, blueprint accent dot */}
             <motion.div
               className="absolute rounded-full pointer-events-none"
               style={{
                 width: 420, height: 420,
                 top: "50%", left: "50%",
                 marginTop: -210, marginLeft: -210,
-                border: "1px dashed rgba(236,72,153,0.14)",
+                border: "1px dashed rgba(59,130,246,0.18)",
               }}
               animate={{ rotate: -360 }}
               transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
@@ -379,8 +378,8 @@ const SkillsSection = () => {
                 className="absolute rounded-full"
                 style={{
                   width: 4, height: 4,
-                  background: "#f472b6",
-                  boxShadow: "0 0 8px #f472b6, 0 0 16px #f472b6",
+                  background: "#38bdf8",
+                  boxShadow: "0 0 8px #38bdf8, 0 0 16px #38bdf8",
                   top: -2, left: "50%", marginLeft: -2,
                 }}
               />

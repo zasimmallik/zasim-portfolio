@@ -58,7 +58,7 @@ export default function About() {
                 About Me
               </div>
 
-              <h2 className="text-xl sm:text-3xl md:text-4xl font-bold tracking-tight text-slate-950 dark:text-white leading-tight">
+              <h2 className="text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl font-bold tracking-tight text-slate-950 dark:text-white leading-tight">
                 <span className="block sm:whitespace-nowrap">Software Engineer | Founder</span>
                 <span className="block text-slate-600 dark:text-slate-400 font-normal">of Zeraql &amp; Rizmiq</span>
               </h2>
@@ -81,7 +81,7 @@ export default function About() {
               {/* Left accent stripe */}
               <div className="absolute left-0 top-5 bottom-5 w-[3px] rounded-full bg-blue-600 dark:bg-blue-400" />
               {/* Large decorative quote mark */}
-              <div className="absolute top-2 right-4 text-6xl font-serif text-slate-200 dark:text-[#22242D] leading-none select-none">&ldquo;</div>
+              <div className="absolute top-2 right-4 text-6xl font-bold text-slate-200 dark:text-[#22242D] leading-none select-none" style={{ fontFamily: 'var(--font-display)' }}>&ldquo;</div>
               <blockquote className="relative z-10 pl-4">
                 <p className="text-sm sm:text-base font-normal text-slate-800 dark:text-slate-300 leading-relaxed tracking-wide mb-3">
                   &ldquo;Time is the most precious resource in human life. We build software to save it and make things work faster, easing daily tasks and making the world a better place.&rdquo;
