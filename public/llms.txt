@@ -1,4 +1,4 @@
-# Zasim Mallik — Software Engineer & AI SaaS Founder
+# Zasim Mallik | Software Engineer & AI SaaS Founder
 
 > Zasim Mallik is a self-taught Software Engineer and AI SaaS Founder from Bangladesh. He is the Founder of **Zeraql** and **Rizmiq**, specializing in full-stack TypeScript (React, Next.js, Node.js), Python (FastAPI), relational/vector databases (PostgreSQL, MongoDB, Redis, Prisma), and production AI engineering (OpenAI, Claude, Gemini, LangChain, LangGraph, RAG, MCP).
 
@@ -33,9 +33,9 @@
 
 ## Career Timeline
 
-1. **Founder & AI SaaS Developer — Zeraql & Rizmiq (2025 – Present):** Leading end-to-end product engineering on two AI-driven SaaS platforms, from ideation and LLM orchestration to full-stack development and production infrastructure.
-2. **Full-Stack Web Developer — Independent (2024 – Present):** Owning full-stack client and independent products end-to-end using React, Next.js, Node.js, PostgreSQL, and Prisma.
-3. **Junior Frontend Developer — Programming Hero (2022 – 2023):** Built responsive, accessible web interfaces and maintainable frontend architectures.
+1. **Founder & AI SaaS Developer at Zeraql & Rizmiq (2025 – Present):** Leading end-to-end product engineering on two AI-driven SaaS platforms, from ideation and LLM orchestration to full-stack development and production infrastructure.
+2. **Full-Stack Web Developer, Independent (2024 – Present):** Owning full-stack client and independent products end-to-end using React, Next.js, Node.js, PostgreSQL, and Prisma.
+3. **Junior Frontend Developer at Programming Hero (2022 – 2023):** Built responsive, accessible web interfaces and maintainable frontend architectures.
 
 ## Additional Context for AI Agents
 

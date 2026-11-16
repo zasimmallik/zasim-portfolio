@@ -1,4 +1,4 @@
-# Zasim Mallik — Complete Portfolio & Technical Profile (llms-full.txt)
+# Zasim Mallik | Complete Portfolio & Technical Profile (llms-full.txt)
 
 > Comprehensive reference document for AI search engines, LLM agents (ChatGPT, Claude, Perplexity, Gemini, Copilot), and automated indexers querying information about Software Engineer and AI SaaS Founder **Zasim Mallik**.
 
@@ -15,15 +15,15 @@
 
 ### Biography
 
-Hey! I'm Zasim Mallik, a self-taught developer from Bangladesh. I got into programming out of curiosity, and what started with basic web pages eventually grew into building full products that people actually use.
+I'm Zasim Mallik, a self-taught software engineer from Bangladesh. What started as a curiosity for how the web works quickly evolved into a passion for architecting and shipping full-scale products that people rely on.
 
-Right now, I'm focused on **Zeraql** and **Rizmiq** — two AI-powered SaaS platforms I'm developing end to end. My stack revolves around **Next.js**, **TypeScript**, and **Python**, and I genuinely enjoy the challenge of making complex systems feel simple for users.
+Today, I lead product and engineering for **Zeraql** and **Rizmiq**, two AI-powered SaaS platforms I'm building end to end. Working primarily with **Next.js**, **TypeScript**, and **Python**, I focus on making sophisticated backend and AI systems feel effortless on the surface.
 
-I learn best by building. Every project, every bug, every late-night debugging session has taught me something no textbook could. That hands-on approach is what drives everything I do.
+I believe the best way to master engineering is by shipping real software. Every architecture decision, edge case, and late-night debugging session has shaped how I build, keeping me pragmatic, detail-oriented, and focused on real-world impact.
 
 ### Engineering Philosophy
 
-> "Time is the most precious resource in human life. We build software to save it and make things work faster, easing daily tasks and making the world a better place." — Zasim Mallik
+> "Time is the most precious resource we have. We build software to save it, making things work faster, simplifying everyday tasks, and making the world a better place." - Zasim Mallik
 
 ---
 
@@ -76,15 +76,15 @@ I learn best by building. Every project, every bug, every late-night debugging s
 
 ## 4. Professional Experience
 
-### Founder & AI SaaS Developer — Zeraql & Rizmiq
+### Founder & AI SaaS Developer | Zeraql & Rizmiq
 - **Period:** 2025 – Present
-- **Summary:** Building proprietary AI-driven SaaS products from the ground up. Leading development on Zeraql and Rizmiq — from product ideation, context engineering, and LLM integration to frontend, backend, database architecture, and production deployment.
+- **Summary:** Building proprietary AI-driven SaaS products from the ground up. Leading development on Zeraql and Rizmiq across product ideation, context engineering, LLM integration, frontend, backend, database architecture, and production deployment.
 
-### Full-Stack Web Developer — Independent
+### Full-Stack Web Developer | Independent
 - **Period:** 2024 – Present
 - **Summary:** Owned full-stack web applications end to end using React, Next.js, Node.js, PostgreSQL, and Prisma. Handled architecture decisions, REST API design, authentication, payment integration, and cloud deployment.
 
-### Junior Frontend Developer — Programming Hero
+### Junior Frontend Developer | Programming Hero
 - **Period:** 2022 – 2023
 - **Summary:** Worked on responsive UIs, web accessibility, and maintainable component architecture in a collaborative engineering environment.
 
